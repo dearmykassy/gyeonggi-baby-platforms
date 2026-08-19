@@ -77,4 +77,45 @@ describe("GA4 public configuration", () => {
     expect(source).not.toMatch(/["']accounts\/\d+["']/u);
     expect(source).toContain("process.env.BABY_GA4_ACCOUNT");
   });
+
+  it("normalizes the pnpm argument separator before parsing option pairs", async () => {
+    const source = await readFile(
+      path.join(ROOT, "scripts/provision-ga4-properties.mjs"),
+      "utf8",
+    );
+
+    expect(source).toContain(
+      'process.argv.slice(2).filter((argument) => argument !== "--")',
+    );
+    expect(source).toContain("args.set(cliArgs[index], cliArgs[index + 1])");
+  });
+
+  it("creates a property with its parent in the request body", async () => {
+    const source = await readFile(
+      path.join(ROOT, "scripts/provision-ga4-properties.mjs"),
+      "utf8",
+    );
+
+    expect(source).toContain(
+      '"https://analyticsadmin.googleapis.com/v1beta/properties"',
+    );
+    expect(source).toContain("parent: account");
+    expect(source).not.toMatch(/v1beta\/properties\?parent=/u);
+  });
+
+  it("loads the ignored local GA IDs for every command that builds public HTML", async () => {
+    const packageJson = JSON.parse(
+      await readFile(path.join(ROOT, "package.json"), "utf8"),
+    );
+
+    for (const script of [
+      "build:site",
+      "build:all",
+      "test:browser:production",
+    ]) {
+      expect(packageJson.scripts[script]).toContain(
+        "node --env-file-if-exists=.env.local",
+      );
+    }
+  });
 });

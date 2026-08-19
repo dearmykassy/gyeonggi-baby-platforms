@@ -1,5 +1,16 @@
 # 작업 일지
 
+## 2026-08-19 — Cloudflare Workers Static Assets 대체 호스팅 검증
+
+- Pages 21번째 프로젝트 생성은 Cloudflare API `8000027` 제한으로 다시 실패했다.
+- 나머지 7개는 별도 Worker 이름과 `*.guncraft2000.workers.dev` origin을 고정한
+  fail-closed 배포 계약으로 분리했다. 산출물 receipt·Git SHA·파일 수/크기·실제
+  canonical/robots/sitemap을 검증하지 않으면 배포가 실패한다.
+- 임시 noindex 정적 Worker를 실제 생성해 홈 200, 미존재 경로 404를 확인한 뒤
+  삭제했고, 재조회에서 `10007` 부재 응답을 확인해 orphan을 남기지 않았다.
+- 최종 7개 이름은 nonpublic staging 배포로 먼저 생성·검증하고, 이후 실제 Worker
+  origin을 registry에 승격한 clean commit을 다시 빌드·재배포한다.
+
 ## 2026-08-19 — 확인된 Cloudflare Pages 20개 공개 승격
 
 - Wrangler 프로젝트 목록에서 실제 존재와 `*.pages.dev` hostname을 확인한 20개

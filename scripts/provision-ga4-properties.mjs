@@ -12,8 +12,9 @@ const inventory = JSON.parse(
   await readFile(path.join(ROOT, "src/data/city-regions.generated.json"), "utf8"),
 );
 const args = new Map();
-for (let index = 2; index < process.argv.length; index += 2) {
-  args.set(process.argv[index], process.argv[index + 1]);
+const cliArgs = process.argv.slice(2).filter((argument) => argument !== "--");
+for (let index = 0; index < cliArgs.length; index += 2) {
+  args.set(cliArgs[index], cliArgs[index + 1]);
 }
 const apply = args.get("--apply") === "yes";
 const account = resolveGa4Account({
@@ -135,10 +136,11 @@ for (const site of inventory.sites) {
       continue;
     }
     property = await gaRequest(
-      `https://analyticsadmin.googleapis.com/v1beta/properties?parent=${encodeURIComponent(account)}`,
+      "https://analyticsadmin.googleapis.com/v1beta/properties",
       {
         method: "POST",
         body: JSON.stringify({
+          parent: account,
           displayName,
           timeZone: "Asia/Seoul",
           currencyCode: "KRW",

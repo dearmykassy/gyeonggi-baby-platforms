@@ -47,6 +47,18 @@ pnpm build:all
 
 무료 배포는 Cloudflare Pages Direct Upload를 사용하며, 도시별 정적 결과물을 별도 `*.pages.dev` 프로젝트로 배포합니다. 현재 실제 생성·검증된 20개 Pages 프로젝트만 public canonical과 `index,follow`로 승격했고, Cloudflare 신규 계정 프로젝트 생성 제한에 걸린 나머지 7개는 실제 HTTPS origin이 생길 때까지 preview canonical과 `noindex,nofollow`를 유지합니다.
 
+Pages 프로젝트 생성 제한에 걸린 의왕·의정부·파주·평택·포천·하남·화성은
+Cloudflare Workers Static Assets의 서로 다른 `*.workers.dev` 주소로 배포합니다.
+먼저 nonpublic 산출물을 `pnpm deploy:cloudflare-workers -- --site all
+--allow-nonpublic yes --create-workers yes`로 올려 실제 주소를 검증하고, registry의
+public origin을 그 주소로 승격한 clean commit을 다시 빌드한 뒤 공개 산출물로
+재배포합니다. Pages와 Workers의 origin을 서로 바꾸어 배포하는 것은 차단됩니다.
+
+GA4 프로비저닝이 생성하는 `.env.local`은 Git에서 제외되며 mode `0600`으로
+보관합니다. 공식 `build:site`, `build:all`, production browser 명령은 이 파일이
+있을 때만 자동으로 읽으므로 공개 사이트의 실제 측정 ID를 셸에 다시 노출할 필요가
+없습니다.
+
 ## Cloudflare Pages 배포 안전 절차
 
 배포 스크립트는 인벤토리의 정확히 27개 `projectName`과
