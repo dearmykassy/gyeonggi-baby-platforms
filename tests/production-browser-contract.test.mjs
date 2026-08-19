@@ -5,11 +5,13 @@ import { describe, expect, it } from "vitest";
 import {
   expectedLayoutSemantic,
   expectedPublicationOrigin,
+  expectedRegionalSitemapUrls,
   expectedRouteIndexing,
   hasRscQuery,
   PRODUCTION_BROWSER_VARIANTS,
   PRODUCTION_BROWSER_VIEWPORTS,
   representativeBrowserRoutes,
+  regionalRoutePaths,
   selectBrowserGateSites,
 } from "../scripts/lib/production-browser-contract.mjs";
 
@@ -88,7 +90,7 @@ describe("production browser release contract", () => {
     });
   });
 
-  it("keeps staged public indexing route-aware while previews remain closed", () => {
+  it("indexes every public regional route while ancillary routes stay staged", () => {
     const base = inventory.sites[0];
     const preview = {
       ...base,
@@ -109,27 +111,94 @@ describe("production browser release contract", () => {
       index: false,
       follow: false,
     });
-    expect(expectedRouteIndexing(preview, "/areas/")).toEqual({
+    const regionalPaths = regionalRoutePaths(published);
+    const districtRoute = regionalPaths.find(
+      (route) => route !== "/" && route.split("/").filter(Boolean).length === 2,
+    );
+    const leafRoute = regionalPaths.find(
+      (route) => route.split("/").filter(Boolean).length === 3,
+    );
+    expect(districtRoute).toBeTruthy();
+    expect(leafRoute).toBeTruthy();
+    expect(regionalPaths).toHaveLength(base.counts.regionalCanonicals);
+    expect(new Set(regionalPaths).size).toBe(regionalPaths.length);
+
+    expect(expectedRouteIndexing(preview, leafRoute)).toEqual({
       index: false,
       follow: false,
     });
-    expect(expectedRouteIndexing(published, "/")).toEqual({
-      index: true,
-      follow: true,
-    });
-    for (const route of [
-      "/areas/",
-      "/areas/%EC%9E%A5%EC%95%88%EA%B5%AC/",
-      "/areas/%EC%9E%A5%EC%95%88%EA%B5%AC/%EC%A0%95%EC%9E%90%EB%8F%99/",
-      "/pricing/",
-      "/guide/",
-      "/notice/",
-      "/blog/",
-    ]) {
+    for (const route of ["/", districtRoute, leafRoute]) {
+      expect(expectedRouteIndexing(published, route)).toEqual({
+        index: true,
+        follow: true,
+      });
+    }
+    for (const route of ["/areas/", "/pricing/", "/guide/", "/notice/", "/blog/"]) {
       expect(expectedRouteIndexing(published, route)).toEqual({
         index: false,
         follow: true,
       });
     }
+  });
+
+  it("expects the exact complete regional sitemap on public and preview builds", () => {
+    const base = inventory.sites[0];
+    const publicSite = {
+      ...base,
+      deploymentState: "public",
+      isPublic: true,
+      indexingEnabled: true,
+      publicOrigin: "https://published.example",
+    };
+    const previewSite = {
+      ...base,
+      deploymentState: "planned",
+      isPublic: false,
+      indexingEnabled: false,
+      publicOrigin: null,
+    };
+    const paths = regionalRoutePaths(base);
+
+    expect(expectedRegionalSitemapUrls(publicSite)).toEqual(
+      paths.map((route) => new URL(route, "https://published.example").href),
+    );
+    expect(expectedRegionalSitemapUrls(previewSite)).toEqual(
+      paths.map(
+        (route) =>
+          new URL(
+            route,
+            `https://${base.slug}.preview.gyeonggi-baby.invalid`,
+          ).href,
+      ),
+    );
+  });
+
+  it("covers all 455 regional canonicals across the mixed 27-site inventory", () => {
+    let regionalCanonicalTotal = 0;
+
+    for (const site of inventory.sites) {
+      const publication = expectedPublicationOrigin(site);
+      const paths = regionalRoutePaths(site);
+      const sitemapUrls = expectedRegionalSitemapUrls(site);
+      regionalCanonicalTotal += paths.length;
+
+      expect(paths).toHaveLength(site.counts.regionalCanonicals);
+      expect(new Set(paths).size).toBe(paths.length);
+      expect(sitemapUrls).toEqual(
+        paths.map((route) => new URL(route, publication.origin).href),
+      );
+      for (const route of paths) {
+        expect(expectedRouteIndexing(site, route)).toEqual({
+          index: publication.indexable,
+          follow: publication.indexable,
+        });
+      }
+      expect(expectedRouteIndexing(site, "/areas/")).toEqual({
+        index: false,
+        follow: publication.indexable,
+      });
+    }
+
+    expect(regionalCanonicalTotal).toBe(455);
   });
 });

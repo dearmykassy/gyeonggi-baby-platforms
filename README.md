@@ -94,7 +94,10 @@ dry-run은 파일을 쓰지 않습니다.
 
 정적 산출물 감사는 각 sitemap 페이지의 모든 베이비 이미지 `src`와 `srcset`
 후보를 검사합니다. 다른 도시 이미지, 누락·빈 파일, symlink, 이미지가 0개인
-빌드는 배포용 빌드 영수증을 만들기 전에 차단됩니다.
+빌드는 배포용 빌드 영수증을 만들기 전에 차단됩니다. sitemap은 공개 여부와
+관계없이 해당 빌드 도시의 regional canonical 전체와 정확히 일치해야 합니다.
+공개 빌드에서는 이 지역 경로 전부가 `index,follow`, ancillary 경로는
+`noindex,follow`여야 하며, 비공개 빌드는 모든 문서가 `noindex,nofollow`여야 합니다.
 
 ## Production 브라우저 출시 게이트
 

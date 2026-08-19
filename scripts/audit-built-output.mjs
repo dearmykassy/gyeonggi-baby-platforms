@@ -5,6 +5,12 @@ import {
   auditBabyImageUrls,
   extractBabyImageUrls,
 } from "./lib/built-output-images.mjs";
+import {
+  expectedPublicationOrigin,
+  expectedRegionalSitemapUrls,
+  expectedRouteIndexing,
+  regionalRoutePaths,
+} from "./lib/production-browser-contract.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const args = new Map();
@@ -20,21 +26,15 @@ const site = inventory.sites.find((candidate) => candidate.key === siteKey);
 if (!site) throw new Error(`BABY_AUDIT_UNKNOWN_SITE:${siteKey}`);
 if (!(await stat(output)).isDirectory()) throw new Error(`BABY_AUDIT_OUTPUT_MISSING:${output}`);
 
-const indexable = Boolean(
-  site.isPublic &&
-    site.indexingEnabled &&
-    site.publicOrigin &&
-    String(site.publicOrigin).startsWith("https://"),
-);
-const origin = indexable
-  ? new URL(site.publicOrigin).origin
-  : `https://${site.slug}.preview.gyeonggi-baby.invalid`;
+const publication = expectedPublicationOrigin(site);
+const { indexable, origin } = publication;
+const regionalPaths = regionalRoutePaths(site);
 const sitemapXml = await readFile(path.join(output, "sitemap.xml"), "utf8");
 const locs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => match[1]);
 const lastmods = [...sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/gu)].map(
   (match) => match[1],
 );
-const expectedSitemapUrls = [new URL("/", origin).href];
+const expectedSitemapUrls = expectedRegionalSitemapUrls(site);
 const expectedUrlCount = expectedSitemapUrls.length;
 if (
   locs.length !== expectedUrlCount ||
@@ -63,22 +63,6 @@ function htmlPathFor(url) {
 
 let imageReferences = 0;
 const checkedImageFiles = new Set();
-const districtPaths = site.districtNames.map(
-  (district) => `/areas/${encodeURIComponent(district)}/`,
-);
-const regionalPaths = [
-  "/",
-  ...districtPaths,
-  ...site.regions.map((region) => region.path),
-];
-if (
-  regionalPaths.length !== site.counts.regionalCanonicals ||
-  new Set(regionalPaths).size !== regionalPaths.length
-) {
-  throw new Error(
-    `BABY_AUDIT_REGIONAL_INVENTORY:${site.key}:${regionalPaths.length}:${site.counts.regionalCanonicals}`,
-  );
-}
 const ancillaryPaths = [
   "/areas/",
   "/pricing/",
@@ -108,9 +92,9 @@ for (const routePath of expectedHtmlPaths) {
   const robotsTokens = new Set(
     robotsContent.split(",").map((token) => token.trim()).filter(Boolean),
   );
-  const routeIndexable = indexable && routePath === "/";
-  const expectedIndexToken = routeIndexable ? "index" : "noindex";
-  const expectedFollowToken = indexable ? "follow" : "nofollow";
+  const routeIndexing = expectedRouteIndexing(site, routePath);
+  const expectedIndexToken = routeIndexing.index ? "index" : "noindex";
+  const expectedFollowToken = routeIndexing.follow ? "follow" : "nofollow";
   if (
     !robotsTokens.has(expectedIndexToken) ||
     !robotsTokens.has(expectedFollowToken)
@@ -181,7 +165,8 @@ console.log(
       sitemapUrls: locs.length,
       lastmods: lastmods.length,
       regionalPages: regionalPaths.length,
-      stagedRegionalPages: regionalPaths.length - 1,
+      indexableRegionalPages: indexable ? regionalPaths.length : 0,
+      stagedRegionalPages: indexable ? 0 : regionalPaths.length,
       stagedAncillaryPages: ancillaryPaths.length,
       rssItems: 1,
       imageReferences,

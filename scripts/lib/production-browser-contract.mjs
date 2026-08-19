@@ -49,12 +49,60 @@ export function expectedPublicationOrigin(site) {
   };
 }
 
+function compareRegionRecords(left, right) {
+  const leftSegments = Array.isArray(left?.pathSegments) ? left.pathSegments : [];
+  const rightSegments = Array.isArray(right?.pathSegments) ? right.pathSegments : [];
+  return leftSegments.join("/").localeCompare(rightSegments.join("/"), "ko");
+}
+
+export function regionalRoutePaths(site) {
+  if (!Array.isArray(site?.districtNames) || !Array.isArray(site?.regions)) {
+    fail("BABY_BROWSER_REGIONAL_INVENTORY_MISSING", String(site?.key ?? "unknown"));
+  }
+
+  const districtPaths = [...site.districtNames]
+    .sort((left, right) => left.localeCompare(right, "ko"))
+    .map((district) => `/areas/${encodeURIComponent(district.normalize("NFC"))}/`);
+  const leafPaths = [...site.regions]
+    .sort(compareRegionRecords)
+    .map((region) => region.path);
+  const paths = ["/", ...districtPaths, ...leafPaths];
+  if (
+    paths.some(
+      (route) =>
+        typeof route !== "string" ||
+        !route.startsWith("/") ||
+        !route.endsWith("/") ||
+        route.includes("?") ||
+        route.includes("#"),
+    ) ||
+    new Set(paths).size !== paths.length ||
+    paths.length !== site.counts?.regionalCanonicals
+  ) {
+    fail(
+      "BABY_BROWSER_REGIONAL_INVENTORY_INVALID",
+      `${site.key}:${paths.length}:${site.counts?.regionalCanonicals ?? "missing"}`,
+    );
+  }
+  return Object.freeze(paths);
+}
+
+export function expectedRegionalSitemapUrls(site) {
+  const publication = expectedPublicationOrigin(site);
+  return Object.freeze(
+    regionalRoutePaths(site).map((route) => new URL(route, publication.origin).href),
+  );
+}
+
 export function expectedRouteIndexing(site, route) {
   const publication = expectedPublicationOrigin(site);
   if (!publication.indexable) {
     return Object.freeze({ index: false, follow: false });
   }
-  return Object.freeze({ index: route === "/", follow: true });
+  return Object.freeze({
+    index: regionalRoutePaths(site).includes(route),
+    follow: true,
+  });
 }
 
 export function selectBrowserGateSites(inventory) {
