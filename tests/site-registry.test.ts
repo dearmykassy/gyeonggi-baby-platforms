@@ -20,6 +20,39 @@ const WORKERS_ORIGINS = new Map<string, string>([
   ["hanam", "https://hanam-hyuon.guncraft2000.workers.dev"],
   ["hwaseong", "https://hwaseong-onshim.guncraft2000.workers.dev"],
 ]);
+const PAGES_GOOGLE_SITE_VERIFICATION =
+  "3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag";
+const WORKERS_GOOGLE_SITE_VERIFICATION =
+  "7schiOKlxuCwhC-NwIuk7ye4YL52TIUdtdJSraAEEtU";
+const NAVER_SITE_VERIFICATION_BY_SITE = new Map<string, string>([
+  ["goyang", "efeea1dbd1f54ada0fbce5160e891614562e081a"],
+  ["gwacheon", "1267bcead786960d24ecf3393fadb230ab4d6180"],
+  ["gwangmyeong", "e042b8ef297ea4f1e7d646f733f86dd5cfb6ca66"],
+  ["gwangju-gyeonggi", "a05b6fb466c2a8b46755fabd7c818a31b536d6af"],
+  ["guri", "4902669388fa6b44ec8484054b352460f3574dbe"],
+  ["gunpo", "9bc312b15eaaed59684b2d0064293a5877a025f6"],
+  ["gimpo", "5726c4de78b84e0d10519321fae395ed5751b269"],
+  ["namyangju", "1db91520d7e6229f8c31932e426518af267f3cea"],
+  ["dongducheon", "23f08553f090ef079f5e30bdb75b5b486faefbaf"],
+  ["bucheon", "17f1c102b611e674d2a89c7f05f93bb1dfb2eeaf"],
+  ["seongnam", "f09641c54259cb63af74d7b01ac8baf698596456"],
+  ["suwon", "d93fb88bc51095d1a57c3f6aaf68c7afc824c5bf"],
+  ["siheung", "40c2e89d6514e1135ba068a36ba5fee2a903bc6f"],
+  ["ansan", "c399a01fcc8aac75ae6a605aacb0ba7a9d92fc41"],
+  ["anseong", "43ac73f1532105303e4aed7938b4dfbc21699988"],
+  ["anyang", "fbd8a5eb5da0c0c4573ace78f26b22f5cafab63f"],
+  ["yangju", "6694e54748887d97121f369b18255cc49cd79742"],
+  ["yeoncheon", "8115fe41582300efa65cfb85cbf4287837be68ac"],
+  ["osan", "986eb18bcf84a05ffa80bad79fcd6b5bff14827e"],
+  ["yongin", "842a2ae6522227d0ca0d05617d31fc11d267ad3f"],
+  ["uiwang", "b03ab2349164372e1d6d6382d0ffe50f01d2b1c0"],
+  ["uijeongbu", "515a913bf3562048f76aee555e43275f24a406a1"],
+  ["paju", "acac573eb0fb97e9b6ece36e26510aa125cdb36a"],
+  ["pyeongtaek", "fe73e523a91f7f26c2ee4485c3199a268673be5a"],
+  ["pocheon", "b78831421961d9523f9d154acebad2236ff45fec"],
+  ["hanam", "28341787880ccb13d544b806259831048bad530e"],
+  ["hwaseong", "b48941cdccbb29c18abf417a74f1c46bef31f695"],
+]);
 
 describe("Gyeonggi baby site registry", () => {
   it("contains exactly the 27 in-scope city and county platforms", () => {
@@ -76,11 +109,39 @@ describe("Gyeonggi baby site registry", () => {
       );
       expect(site.gaPropertyIdEnv).toMatch(/^GA4_PROPERTY_ID_[A-Z0-9_]+$/u);
       expect(site.googleSiteVerification).toMatch(/^[A-Za-z0-9_-]{32,128}$/u);
+      expect(site.googleSiteVerification).toBe(
+        workersOrigin
+          ? WORKERS_GOOGLE_SITE_VERIFICATION
+          : PAGES_GOOGLE_SITE_VERIFICATION,
+      );
+      expect(site.naverSiteVerification).toMatch(/^[a-f0-9]{40}$/u);
+      expect(site.naverSiteVerification).toBe(
+        NAVER_SITE_VERIFICATION_BY_SITE.get(site.key),
+      );
     }
 
     expect(
       new Set(ALL_BABY_SITES.map((site) => site.googleSiteVerification)),
-    ).toEqual(new Set(["3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag"]));
+    ).toEqual(
+      new Set([
+        PAGES_GOOGLE_SITE_VERIFICATION,
+        WORKERS_GOOGLE_SITE_VERIFICATION,
+      ]),
+    );
+    expect(
+      ALL_BABY_SITES.filter(
+        (site) => site.googleSiteVerification === PAGES_GOOGLE_SITE_VERIFICATION,
+      ),
+    ).toHaveLength(20);
+    expect(
+      ALL_BABY_SITES.filter(
+        (site) => site.googleSiteVerification === WORKERS_GOOGLE_SITE_VERIFICATION,
+      ),
+    ).toHaveLength(7);
+    expect(NAVER_SITE_VERIFICATION_BY_SITE.size).toBe(27);
+    expect(
+      new Set(ALL_BABY_SITES.map((site) => site.naverSiteVerification)).size,
+    ).toBe(27);
 
     expect(getSiteConfig("gwangju-gyeonggi").plannedOrigin).toBe(
       "https://gwangju-onshim.pages.dev",

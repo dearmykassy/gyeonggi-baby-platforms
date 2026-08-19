@@ -18,7 +18,12 @@ function homeNode() {
 export function generateMetadata(): Metadata {
   return {
     ...toNextMetadata(createRegionMetadataContract(homeNode())),
-    verification: { google: ACTIVE_SITE.googleSiteVerification },
+    verification: {
+      google: ACTIVE_SITE.googleSiteVerification,
+      other: {
+        "naver-site-verification": ACTIVE_SITE.naverSiteVerification,
+      },
+    },
   };
 }
 

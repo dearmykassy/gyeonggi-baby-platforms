@@ -105,6 +105,8 @@ export type BabySiteConfig = Readonly<{
   gaPropertyIdEnv: `GA4_PROPERTY_ID_${string}`;
   /** Public account-level token rendered only on this site's homepage. */
   googleSiteVerification: string;
+  /** Public site-specific token rendered only on this site's homepage. */
+  naverSiteVerification: string;
   deploymentState: BabySiteDeploymentState;
   isPublic: boolean;
   indexingEnabled: boolean;
@@ -182,6 +184,7 @@ if (
       site.previewOrigin !== pagesOrigin ||
       !isExactHttpsOrigin(site.hostingOrigin) ||
       !/^[A-Za-z0-9_-]{32,128}$/u.test(site.googleSiteVerification) ||
+      !/^[a-f0-9]{40}$/u.test(site.naverSiteVerification) ||
       !providerOriginValid ||
       !publicTupleValid
     );

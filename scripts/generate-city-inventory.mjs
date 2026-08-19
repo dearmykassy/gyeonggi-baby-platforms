@@ -13,11 +13,65 @@ const EXPECTED_SOURCE_FILE_SHA256 =
   "0242e5d86894321cba66b7f747675115520d856c7aaada870869e19f247500d2";
 
 const EXCLUDED_MUNICIPALITIES = ["가평군", "이천시", "양평군", "여주시"];
-const GOOGLE_SITE_VERIFICATION_TOKEN =
-  "3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag";
+const GOOGLE_SITE_VERIFICATION_BY_PROVIDER = Object.freeze({
+  "cloudflare-pages": "3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag",
+  "cloudflare-workers-static-assets":
+    "7schiOKlxuCwhC-NwIuk7ye4YL52TIUdtdJSraAEEtU",
+});
+const NAVER_SITE_VERIFICATION_BY_SITE = Object.freeze({
+  goyang: "efeea1dbd1f54ada0fbce5160e891614562e081a",
+  gwacheon: "1267bcead786960d24ecf3393fadb230ab4d6180",
+  gwangmyeong: "e042b8ef297ea4f1e7d646f733f86dd5cfb6ca66",
+  "gwangju-gyeonggi": "a05b6fb466c2a8b46755fabd7c818a31b536d6af",
+  guri: "4902669388fa6b44ec8484054b352460f3574dbe",
+  gunpo: "9bc312b15eaaed59684b2d0064293a5877a025f6",
+  gimpo: "5726c4de78b84e0d10519321fae395ed5751b269",
+  namyangju: "1db91520d7e6229f8c31932e426518af267f3cea",
+  dongducheon: "23f08553f090ef079f5e30bdb75b5b486faefbaf",
+  bucheon: "17f1c102b611e674d2a89c7f05f93bb1dfb2eeaf",
+  seongnam: "f09641c54259cb63af74d7b01ac8baf698596456",
+  suwon: "d93fb88bc51095d1a57c3f6aaf68c7afc824c5bf",
+  siheung: "40c2e89d6514e1135ba068a36ba5fee2a903bc6f",
+  ansan: "c399a01fcc8aac75ae6a605aacb0ba7a9d92fc41",
+  anseong: "43ac73f1532105303e4aed7938b4dfbc21699988",
+  anyang: "fbd8a5eb5da0c0c4573ace78f26b22f5cafab63f",
+  yangju: "6694e54748887d97121f369b18255cc49cd79742",
+  yeoncheon: "8115fe41582300efa65cfb85cbf4287837be68ac",
+  osan: "986eb18bcf84a05ffa80bad79fcd6b5bff14827e",
+  yongin: "842a2ae6522227d0ca0d05617d31fc11d267ad3f",
+  uiwang: "b03ab2349164372e1d6d6382d0ffe50f01d2b1c0",
+  uijeongbu: "515a913bf3562048f76aee555e43275f24a406a1",
+  paju: "acac573eb0fb97e9b6ece36e26510aa125cdb36a",
+  pyeongtaek: "fe73e523a91f7f26c2ee4485c3199a268673be5a",
+  pocheon: "b78831421961d9523f9d154acebad2236ff45fec",
+  hanam: "28341787880ccb13d544b806259831048bad530e",
+  hwaseong: "b48941cdccbb29c18abf417a74f1c46bef31f695",
+});
 
-if (!/^[A-Za-z0-9_-]{32,128}$/u.test(GOOGLE_SITE_VERIFICATION_TOKEN)) {
-  throw new Error("BABY_GOOGLE_SITE_VERIFICATION_TOKEN_INVALID");
+const googleSiteVerificationTokens = Object.values(
+  GOOGLE_SITE_VERIFICATION_BY_PROVIDER,
+);
+if (
+  googleSiteVerificationTokens.length !== 2 ||
+  new Set(googleSiteVerificationTokens).size !== 2 ||
+  googleSiteVerificationTokens.some(
+    (token) => !/^[A-Za-z0-9_-]{32,128}$/u.test(token),
+  )
+) {
+  throw new Error("BABY_GOOGLE_SITE_VERIFICATION_PROVIDER_TOKENS_INVALID");
+}
+
+const naverSiteVerificationEntries = Object.entries(
+  NAVER_SITE_VERIFICATION_BY_SITE,
+);
+if (
+  naverSiteVerificationEntries.length !== 27 ||
+  new Set(naverSiteVerificationEntries.map(([, token]) => token)).size !== 27 ||
+  naverSiteVerificationEntries.some(
+    ([, token]) => !/^[a-f0-9]{40}$/u.test(token),
+  )
+) {
+  throw new Error("BABY_NAVER_SITE_VERIFICATION_TOKENS_INVALID");
 }
 
 const SECTION_ORDERS = [
@@ -336,7 +390,9 @@ const sites = SITE_DEFINITIONS.map(
       designProfile,
       gaMeasurementIdEnv: `NEXT_PUBLIC_GA_MEASUREMENT_ID_${envSuffix}`,
       gaPropertyIdEnv: `GA4_PROPERTY_ID_${envSuffix}`,
-      googleSiteVerification: GOOGLE_SITE_VERIFICATION_TOKEN,
+      googleSiteVerification:
+        GOOGLE_SITE_VERIFICATION_BY_PROVIDER[hostingProvider],
+      naverSiteVerification: NAVER_SITE_VERIFICATION_BY_SITE[key],
       deploymentState: publicRelease ? "public" : "planned",
       isPublic: publicRelease,
       indexingEnabled: publicRelease,

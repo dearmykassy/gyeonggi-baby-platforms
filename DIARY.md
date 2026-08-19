@@ -347,3 +347,98 @@
   `sha256:549bea2fa9653359110a811fba678e5ac7bd700d287a0b78b3abd3a1f6dc82cd`로
   변경됐다. 이전 build receipt는 의도적으로 무효이며 27개 전부 clean HEAD
   재빌드·재배포 후 Search Console 소유확인과 sitemap 제출을 수행한다.
+
+## 2026-08-19 — Google 소유확인 토큰 provider 분리
+
+- Cloudflare Pages URL-prefix 20개는 기존 Google 공개 토큰 `3zM7…bfag`로
+  소유확인을 마쳤다. Workers Static Assets origin 가운데 의왕·의정부·파주에서
+  별도 토큰 `7sch…EEtU`가 반복 발급된 사실을 직접 확인해, 정본을 사이트별
+  추측값이 아니라 hosting provider별 두 값으로 분리했다.
+- 생성기는 정확히 서로 다른 두 토큰의 형식을 먼저 검사하고, 20개 Pages에는
+  Pages 토큰, 7개 Workers에는 Workers 토큰을 결속한다. `page.tsx`의 홈 전용
+  `Metadata.verification.google`과 built-output의 홈 exact 1개·나머지 0개
+  감사 계약은 그대로 유지했다.
+- 홈 메타 revision은 `2026-08-19T18:38:55+09:00`, 새 inventory digest는
+  `sha256:1733cde94bfcc0fb18652758cd07f6c75deeded0eaa1395c895d717097492eae`다.
+  canonical, robots, 455개 regional sitemap, RSS, GA4, 콘텐츠·이미지 계약은
+  변경하지 않았다.
+
+검증 결과:
+
+- 집중 테스트: 3 files, 16 tests PASS.
+- 전체 테스트: 22 files, 139 tests PASS.
+- `pnpm typecheck`, `pnpm lint`: PASS.
+- `pnpm audit:copy`: PASS. 정본 8개와 exact/normalized 외부 충돌 0,
+  공식 접미사 누출 0.
+- `node --import tsx scripts/audit-naver-near-duplicates.mjs`: PASS.
+  455개 실제 렌더, exact document/render/meta/H1 충돌 0, hard-gate 실패 0.
+- loader 없이 실행한 첫 near-duplicate 명령은 TypeScript 경로 해석 오류로
+  즉시 종료됐다. 저장소에 기록된 `--import tsx` 명령으로 다시 실행해
+  제품 코드 변경 없이 통과했다.
+
+관련 파일 SHA-256:
+
+- `scripts/generate-city-inventory.mjs`:
+  `c994e21c94c33d84508ff0c70f0a580beaaa02788fefad217ddef3992169cc81`
+- `src/data/city-regions.generated.json`:
+  `1a5dbc82ba545af3f2e4aa6c47e3e0e4a7b29cc579b8ccd397f31e439f3a7d89`
+- `tests/site-registry.test.ts`:
+  `ee02b7030b1502fb440b13043b747f8cb317cf7e5989e7a7fcab419a17676b1a`
+- `src/lib/site-revisions.ts`:
+  `1c62c1320f3de9e6517ef2189a5ff72d21deb023bda932d5d1d40ad2dd2ccdc6`
+- `AGENTS.md`:
+  `11ef1c7fb0d097339b73279765b99430cac56591533776b17277cec4edb60cc2`
+
+## 2026-08-19 — Naver 사이트별 홈 소유확인 메타
+
+- Search Advisor가 27개 개별 origin에 발급한 공개 토큰을 사이트별 정본
+  inventory 필드로 추가했다. 27개 값은 모두 40자리 소문자 hex이고 서로
+  달라야 하며, 생성기와 registry가 형식·누락·중복을 fail-closed로 검사한다.
+- Next metadata는 기존 provider별 Google 토큰과 사이트별 Naver 토큰을 홈
+  `<head>`에 각각 정확히 한 번만 출력한다. 지역 페이지와 noindex ancillary
+  경로에는 어느 소유확인 태그도 복제하지 않는다.
+- built-output audit는 두 태그를 attribute order와 무관하게 읽어 홈 exact
+  1개·정본 content 일치·`<head>` 내부 존재와 모든 비홈 문서 0개를 검사한다.
+  canonical, robots, 455개 regional sitemap, RSS, GA4, 콘텐츠·이미지 계약은
+  변경하지 않았다.
+- 홈 메타 revision은 `2026-08-19T18:49:10+09:00`, 새 inventory digest는
+  `sha256:2d6a1d94f3f06519d568df4dd31252df2e7d1f8cb45deff04648b0ef7a6345b6`다.
+  이전 build receipt는 의도적으로 무효이며 이 변경 HEAD로 27개 전부 다시
+  빌드·배포한다.
+
+검증 결과:
+
+- 집중 테스트: 3 files, 16 tests PASS.
+- 전체 테스트: 22 files, 139 tests PASS.
+- `pnpm typecheck`, `pnpm lint`: PASS.
+- `pnpm audit:copy`: PASS. 정본 8개와 exact/normalized 외부 충돌 0,
+  공식 접미사 누출 0.
+- `node --import tsx scripts/audit-naver-near-duplicates.mjs`: PASS.
+  455개 실제 렌더, exact document/render/meta/H1 충돌 0, hard-gate 실패 0.
+- 수원 clean-output 사전 빌드 감사에서 홈 Google/Naver 태그가 각각 `<head>`
+  exact 1개이고 `/areas/`에는 둘 다 0개임을 확인했다.
+
+관련 파일 SHA-256:
+
+- `scripts/generate-city-inventory.mjs`:
+  `f15a4a31e6a329d9f45ed6b151c7890c6b8eea3c8caaa233a9cf5d6cc88333f6`
+- `src/data/city-regions.generated.json`:
+  `a2c0dcfb69c7dd38842200afd3039c085f22e9b774fcdb673981be6fc82b7668`
+- `src/data/site-registry.ts`:
+  `b53bbe60f0bfce8174f61fa9f4bcb806cc575461fea2ccce0e1a4df3b9896ab2`
+- `src/app/page.tsx`:
+  `f9ca2c6133215ddb0d84e34086aeeb9af13596216ef17d88954acb4970bc7054`
+- `scripts/audit-built-output.mjs`:
+  `626dc5d0d8a898c65d82be61878e59d3c97ccaf71f654e1cffedbb142d74693a`
+- `tests/site-registry.test.ts`:
+  `fc594321500223515a31cfb79cb9fea8dec58c4c72a8ae7d9ba4bb73582872a9`
+- `tests/discovery-files.test.ts`:
+  `54a1a7aee945a3d490ebbacd24100c925fff445c3fa656ffa336783cf6f742ce`
+- `src/lib/regions.ts`:
+  `d2db0be47b956a435eaab2bcf8805f0597264ee02710ba6462d2bd2093c2a96c`
+- `tests/region-inventory.test.ts`:
+  `c254847240dbd2478dfac58eefd50850f0daff00792b19fc64a924f41508a53d`
+- `src/lib/site-revisions.ts`:
+  `6639883409e9b10f2d0692a81afc9a50f4b3b446a5ca1a024b85300a585ef4b7`
+- `AGENTS.md`:
+  `c7cc7eb74dbc6978e956443df6636ca110c29d2eaa5db96e7791c89466d911a2`

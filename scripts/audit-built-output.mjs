@@ -77,6 +77,19 @@ function metaContent(tag) {
   return tag.match(/\bcontent="([^"]*)"/u)?.[1] ?? "";
 }
 
+async function htmlFilesUnder(directory) {
+  const files = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const absolutePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...(await htmlFilesUnder(absolutePath)));
+    } else if (entry.isFile() && entry.name.endsWith(".html")) {
+      files.push(absolutePath);
+    }
+  }
+  return files;
+}
+
 let imageReferences = 0;
 const checkedImageFiles = new Set();
 const ancillaryPaths = [
@@ -99,10 +112,15 @@ for (const routePath of expectedHtmlPaths) {
   const htmlFile = htmlPathFor(loc);
   const html = await readFile(htmlFile, "utf8");
   const verificationTags = metaTagsByName(html, "google-site-verification");
+  const naverVerificationTags = metaTagsByName(html, "naver-site-verification");
   const headHtml = html.match(/<head(?:\s[^>]*)?>([\s\S]*?)<\/head>/u)?.[1] ?? "";
   const headVerificationTags = metaTagsByName(
     headHtml,
     "google-site-verification",
+  );
+  const headNaverVerificationTags = metaTagsByName(
+    headHtml,
+    "naver-site-verification",
   );
   if (
     routePath === "/"
@@ -113,6 +131,17 @@ for (const routePath of expectedHtmlPaths) {
   ) {
     throw new Error(
       `BABY_AUDIT_GOOGLE_VERIFICATION_META:${site.key}:${routePath}:${verificationTags.length}:${headVerificationTags.length}`,
+    );
+  }
+  if (
+    routePath === "/"
+      ? naverVerificationTags.length !== 1 ||
+        headNaverVerificationTags.length !== 1 ||
+        metaContent(naverVerificationTags[0]) !== site.naverSiteVerification
+      : naverVerificationTags.length !== 0
+  ) {
+    throw new Error(
+      `BABY_AUDIT_NAVER_VERIFICATION_META:${site.key}:${routePath}:${naverVerificationTags.length}:${headNaverVerificationTags.length}`,
     );
   }
   const canonicalTag = html.match(/<link[^>]*rel="canonical"[^>]*>/u)?.[0];
@@ -146,6 +175,24 @@ for (const routePath of expectedHtmlPaths) {
     output,
     checkedFiles: checkedImageFiles,
   });
+}
+
+for (const htmlFile of await htmlFilesUnder(output)) {
+  if (path.relative(output, htmlFile) === "index.html") continue;
+  const html = await readFile(htmlFile, "utf8");
+  const googleVerificationCount = metaTagsByName(
+    html,
+    "google-site-verification",
+  ).length;
+  const naverVerificationCount = metaTagsByName(
+    html,
+    "naver-site-verification",
+  ).length;
+  if (googleVerificationCount !== 0 || naverVerificationCount !== 0) {
+    throw new Error(
+      `BABY_AUDIT_NON_HOME_VERIFICATION_META:${site.key}:${path.relative(output, htmlFile)}:${googleVerificationCount}:${naverVerificationCount}`,
+    );
+  }
 }
 if (imageReferences === 0 || checkedImageFiles.size === 0) {
   throw new Error(`BABY_AUDIT_IMAGE_REFERENCE_ZERO:${site.key}`);

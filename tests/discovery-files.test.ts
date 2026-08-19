@@ -8,10 +8,13 @@ import { getRegionNodesForSite } from "@/lib/regions";
 import { ACTIVE_SITE, ALL_BABY_SITES } from "@/lib/site-config";
 
 describe("baby platform discovery-file contract", () => {
-  it("renders the public Google verification token only through home metadata", () => {
+  it("renders the public Google and Naver verification tokens only through home metadata", () => {
     const metadata = generateHomeMetadata();
     expect(metadata.verification).toEqual({
       google: ACTIVE_SITE.googleSiteVerification,
+      other: {
+        "naver-site-verification": ACTIVE_SITE.naverSiteVerification,
+      },
     });
   });
 
