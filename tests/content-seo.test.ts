@@ -94,14 +94,38 @@ describe("Gyeonggi baby regional content contract", () => {
   });
 
   it("puts the qualified 출장마사지 keyword and service intent on every regional route", () => {
+    const metaSuffixes = [
+      "출장마사지",
+      "출장안마",
+      "출장타이마사지",
+      "출장스웨디시",
+      "출장홈타이",
+      "토닥이",
+      "남성전용마사지",
+      "여성전용마사지",
+    ];
     for (const { site, node, content } of records) {
-      const expectedKeyword = `${
+      const qualifiedRegion =
         node.kind === "home"
           ? site.searchName
-          : [site.searchName, ...node.segments].join(" ")
-      } 출장마사지`;
+          : [site.searchName, ...node.segments].join(" ");
+      const expectedKeyword = `${qualifiedRegion} 출장마사지`;
+      const expectedMetaKeywords = metaSuffixes.map(
+        (suffix) => `${qualifiedRegion}${suffix}`,
+      );
       expect(content.primaryKeyword).toBe(expectedKeyword);
-      expect(content.title.startsWith(expectedKeyword)).toBe(true);
+      expect(content.title).toBe(
+        `${expectedMetaKeywords[0]} ${expectedMetaKeywords[1]} | ${site.brandName}`,
+      );
+      expect(content.keywords).toEqual(expectedMetaKeywords);
+      expect(content.description).toContain(expectedMetaKeywords[0]);
+      expect(content.description).toContain(expectedMetaKeywords[1]);
+      expect(content.description).toContain(site.brandName);
+      expect(content.description).toMatch(/코스별 시간·금액/u);
+      expect(content.description).toMatch(/선입금 없이 현장에서 결제/u);
+      expect(content.description).toMatch(/24시간 운영/u);
+      expect(content.title).not.toMatch(/지역 안내/u);
+      expect(content.keywords.join(" ")).not.toMatch(/지역 안내|현장후불/u);
       expect(content.h1.startsWith(expectedKeyword)).toBe(true);
       expect(
         content.sections.filter((section) =>
@@ -456,9 +480,9 @@ describe("Gyeonggi baby regional content contract", () => {
 
   it("uses stable, non-future route-group lastmod revisions", () => {
     expect(SITE_CONTENT_REVISIONS).toMatchObject({
-      home: "2026-08-20T02:14:17+09:00",
-      district: "2026-08-20T02:14:17+09:00",
-      representative: "2026-08-20T02:14:17+09:00",
+      home: "2026-08-20T02:48:04+09:00",
+      district: "2026-08-20T02:48:04+09:00",
+      representative: "2026-08-20T02:48:04+09:00",
     });
     const first = JSON.stringify(SITE_CONTENT_REVISIONS);
     const second = JSON.stringify(SITE_CONTENT_REVISIONS);

@@ -98,6 +98,17 @@ const LAYOUT_SEMANTICS = [
   "settlement-checklist",
 ] as const satisfies readonly RegionContent["layoutSemantic"][];
 
+const REGION_META_KEYWORD_SUFFIXES = [
+  "출장마사지",
+  "출장안마",
+  "출장타이마사지",
+  "출장스웨디시",
+  "출장홈타이",
+  "토닥이",
+  "남성전용마사지",
+  "여성전용마사지",
+] as const;
+
 function siteIndex(site: BabySiteConfig): number {
   const index = ALL_BABY_SITES.findIndex((candidate) => candidate.key === site.key);
   if (index < 0) throw new Error(`BABY_CONTENT_UNKNOWN_SITE:${site.key}`);
@@ -192,6 +203,22 @@ function buildFacts(node: BabyRegionNode, site: BabySiteConfig): GraphFacts {
 
 function primaryRegionKeyword(facts: GraphFacts): string {
   return `${facts.label} 출장마사지`;
+}
+
+function regionMetaKeywords(facts: GraphFacts): string[] {
+  return REGION_META_KEYWORD_SUFFIXES.map(
+    (suffix) => `${facts.label}${suffix}`,
+  );
+}
+
+function regionMetaDescription(
+  facts: GraphFacts,
+  keywords: readonly string[],
+): string {
+  const coverageAnchor = facts.aliases.length > 1
+    ? ` 이 페이지는 ${facts.aliases[0]} 외 ${facts.aliases.length - 1}개 행정동 표기를 함께 다룹니다.`
+    : "";
+  return `${facts.site.brandName}의 ${facts.label} 안내에서 ${keywords[0]}와 ${keywords[1]}를 찾을 때 코스별 시간·금액을 먼저 확인할 수 있습니다.${coverageAnchor} 선입금 없이 현장에서 결제하며 전화상담은 24시간 운영합니다.`;
 }
 
 function sharedSection(
@@ -640,21 +667,16 @@ export function createRegionContent(
   }
   const primaryKeyword = primaryRegionKeyword(facts);
   const lead = serviceLead(facts);
+  const metaKeywords = regionMetaKeywords(facts);
   const cityProfile = getCityFactProfile(site.key);
   const detailMode: RegionContent["detailMode"] =
     node.kind === "home" ? "root" : node.kind === "district" ? "district" : "leaf";
 
   return {
     primaryKeyword,
-    title: `${primaryKeyword} | ${routeTypeLabel(node)} - ${site.brandName}`,
-    description: lead.description,
-    keywords: [
-      `${facts.label} 출장마사지`,
-      `${facts.label} 출장안마`,
-      `${facts.label} 지역 안내`,
-      `${site.brandName} ${routeTypeLabel(node)}`,
-      `${facts.label} 현장후불`,
-    ],
+    title: `${metaKeywords[0]} ${metaKeywords[1]} | ${site.brandName}`,
+    description: regionMetaDescription(facts, metaKeywords),
+    keywords: metaKeywords,
     h1: `${primaryKeyword} ${routeTypeLabel(node)}`,
     eyebrow: `${site.brandName} · ${facts.parent?.displayName ?? site.searchName} · ${routeTypeLabel(node)}`,
     hooks: lead.hooks,

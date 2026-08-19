@@ -526,3 +526,20 @@
   `audit:copy`, full near-duplicate audit, portable image 5 PASS/2 SKIP,
   raw image 7 PASS, generator `--check`, `git diff --check`를 모두 통과했다.
 - 이 단계에서는 build·commit·push·deploy 및 Naver 외부 작업을 수행하지 않았다.
+
+## 2026-08-20 — 마사지봄 정본 기준 지역 meta 8종 복구
+
+- 오너 지적에 따라 마사지봄 매탄동 운영 HTML과 베이비 수원 매탄동 운영 HTML의
+  `<title>`, description, keywords를 직접 대조했다. 마사지봄은 지역별
+  `출장마사지`, `출장안마`, `출장타이마사지`, `출장스웨디시`, `출장홈타이`,
+  `토닥이`, `남성전용마사지`, `여성전용마사지` 8종과 첫 두 핵심어 title을
+  사용하지만, 베이비는 `지역 안내`, route kind, `현장후불`이 섞인 임의 5종과
+  `동 지역 안내` title을 사용하고 있었다.
+- 베이비 regional meta를 마사지봄의 오너 승인 구조로 복구했다. title은
+  `<표시지역>출장마사지 <표시지역>출장안마 | <브랜드>`, keywords는 위 8종 exact
+  order, description은 두 핵심어·코스별 이용시간·24시간 전화·선입금 없는
+  현장결제를 포함한다. H1·본문의 공백 포함 `<표시지역> 출장마사지` 계약과
+  지역 고유 본문 scope는 변경하지 않는다.
+- 사용자 요청에 따라 공용 소스를 먼저 고정한 뒤 수원·오산·용인 세 플랫폼을
+  우선 빌드·배포·라이브 검사하고, 나머지 24개를 이어서 배포한다. Naver 외부
+  작업은 계속 `DEFERRED — different owner account pending`으로 둔다.

@@ -97,6 +97,17 @@ function containsServiceIntent(value: string): boolean {
   );
 }
 
+function containsMetaServiceIntent(value: string): boolean {
+  const text = cleanText(value);
+  return (
+    /출장마사지/u.test(text) &&
+    /출장안마/u.test(text) &&
+    /코스/u.test(text) &&
+    /24시간.{0,24}전화|전화.{0,24}24시간/u.test(text) &&
+    /선입금.{0,24}현장.{0,24}결제|현장.{0,24}(?:후불|결제)/u.test(text)
+  );
+}
+
 function normalizedInternalPath(value: string): string {
   return value === "/" ? value : value.replace(/\/+$/u, "");
 }
@@ -464,6 +475,10 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
     html.match(/<h1(?:\s[^>]*)?>([\s\S]*?)<\/h1>/iu)?.[1] ?? "",
   );
   const primaryKeyword = content.primaryKeyword;
+  const metaPrimaryKeyword = primaryKeyword.replace(
+    /\s+출장마사지$/u,
+    "출장마사지",
+  );
   const renderedFirst100Words = firstVisibleWords(renderedVisibleText);
   const cityFactProfile = node.kind === "home"
     ? getCityFactProfile(ACTIVE_SITE.key)
@@ -797,7 +812,7 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
     renderedH1Text,
     renderedFirst100Words,
     keywordContract: {
-      titlePrefixPass: cleanText(metadata.title).startsWith(primaryKeyword),
+      titlePrefixPass: cleanText(metadata.title).startsWith(metaPrimaryKeyword),
       h1Pass: renderedH1Text.startsWith(primaryKeyword),
       first100WordsPass: renderedFirst100Words.includes(primaryKeyword),
       h2Count: renderedPrimaryKeywordH2Count,
@@ -808,7 +823,7 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
         containsServiceIntent(renderedVisibleText) &&
         renderedInternalPaths.has("/pricing") &&
         renderedInternalPaths.has("/guide"),
-      descriptionPass: containsServiceIntent(content.description),
+      descriptionPass: containsMetaServiceIntent(content.description),
       hooksPass: containsServiceIntent(content.hooks.join(" ")),
       faqIntroPass:
         /(?:방문|관리)/u.test(content.faqIntro) &&
