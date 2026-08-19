@@ -1,5 +1,18 @@
 # 작업 일지
 
+## 2026-08-19 — Workers 7개 GA4 웹 스트림 URI 교정
+
+- 기존 27개 GA4 속성과 웹 스트림을 재사용했다. 새 속성·스트림 생성 없이
+  Workers Static Assets로 공개된 7개 웹 스트림의 기본 URI만 실제
+  `workers.dev` 공개 origin으로 PATCH했다. Pages 20개 URI는 변경하지 않았다.
+- 적용 전후 27개를 재조회해 속성당 웹 스트림 1개, 로컬 측정 ID와의 일치,
+  Workers 7개·Pages 20개 origin 정합성, 자동 히스토리 페이지뷰 0개를 확인했다.
+- `migrate:ga4-worker-uris`는 감사 우선, exact-one-stream, provider별 URI,
+  측정 ID, 향상된 측정을 모두 확인하고 일시 오류만 bounded retry한다.
+  운영 자격 증명과 GA 식별자는 계속 ignored 파일에만 둔다.
+- 검증: `pnpm test` 22 files / 138 tests, `pnpm typecheck`, `pnpm lint`,
+  `git diff --check` 모두 PASS. 작업 후 서비스 계정은 `뷰어`로 확인했다.
+
 ## 2026-08-19 — Pages 20 + Workers 7 전체 공개 레지스트리
 
 - 기존 20개 Pages 사이트는 정확한 `*.pages.dev` origin을 유지하고, Pages 생성

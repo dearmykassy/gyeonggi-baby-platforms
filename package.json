@@ -19,6 +19,7 @@
     "deploy:cloudflare": "node scripts/deploy-cloudflare-pages.mjs",
     "deploy:cloudflare-workers": "node scripts/deploy-cloudflare-workers-static.mjs",
     "provision:ga4": "node scripts/provision-ga4-properties.mjs",
+    "migrate:ga4-worker-uris": "node scripts/migrate-ga4-worker-default-uris.mjs",
     "sanitize:public-authority": "node scripts/sanitize-baby-public-authority.mjs",
     "audit:copy": "node --import tsx scripts/audit-copy-duplication.mjs",
     "audit:build": "node scripts/audit-built-output.mjs",
