@@ -58,6 +58,8 @@ function buildReceipt(site) {
     inventoryFileDigest: sha256(INVENTORY_RAW),
     plannedOrigin: site.plannedOrigin,
     previewOrigin: site.previewOrigin,
+    hostingProvider: site.hostingProvider,
+    hostingOrigin: site.hostingOrigin,
     publicOrigin: site.publicOrigin,
     deploymentState: site.deploymentState,
     isPublic: site.isPublic,
@@ -158,16 +160,10 @@ describe("Cloudflare Workers static-assets hosting contract", () => {
     expect(validateWorkersStaticInventory(INVENTORY.sites)).toHaveLength(7);
   });
 
-  it("accepts a public tuple only at the exact committed Workers origin", () => {
+  it("accepts every Worker tuple only at the exact committed Workers origin", () => {
     const inventory = cloneInventory();
     const site = inventory.sites.find((candidate) => candidate.key === "uiwang");
     const spec = getWorkersStaticSpec(site.key);
-    Object.assign(site, {
-      deploymentState: "public",
-      isPublic: true,
-      indexingEnabled: true,
-      publicOrigin: spec.origin,
-    });
     expect(validateInventory(inventory)).toHaveLength(27);
     expect(validateWorkersStaticInventory(inventory.sites)[0].publicationMode).toBe(
       "public",
@@ -182,13 +178,32 @@ describe("Cloudflare Workers static-assets hosting contract", () => {
 
     site.publicOrigin = "https://uiwang-ondam.pages.dev";
     expect(() => validateWorkersStaticInventory(inventory.sites)).toThrow(
-      "BABY_WORKERS_PUBLIC_ORIGIN_MISMATCH:uiwang",
+      "BABY_CLOUDFLARE_PROVIDER_ORIGIN_MISMATCH:uiwang",
     );
+
+    const pageSite = inventory.sites.find(
+      (candidate) => candidate.key === "suwon",
+    );
+    expect(() =>
+      assertWorkersPublicationPermission({
+        site: pageSite,
+        spec,
+        allowNonpublic: false,
+      }),
+    ).toThrow("BABY_WORKERS_PROVIDER_MAPPING_MISMATCH:suwon");
   });
 
   it("requires an explicit override for a nonpublic staging build", () => {
-    const site = INVENTORY.sites.find((candidate) => candidate.key === "uiwang");
+    const site = structuredClone(
+      INVENTORY.sites.find((candidate) => candidate.key === "uiwang"),
+    );
     const spec = getWorkersStaticSpec(site.key);
+    Object.assign(site, {
+      deploymentState: "planned",
+      isPublic: false,
+      indexingEnabled: false,
+      publicOrigin: null,
+    });
     expect(() =>
       assertWorkersPublicationPermission({
         site,
@@ -289,6 +304,9 @@ describe("Cloudflare Workers static-assets hosting contract", () => {
       parseWorkersDeployArgs(["--", "--site", "uiwang", "--dry-run", "yes"]),
     ).toMatchObject({ requestedSite: "uiwang", dryRun: true });
     expect(() => parseWorkersDeployArgs(["--site", "suwon"])).not.toThrow();
+    expect(parseWorkersDeployArgs(["--site", "workers"])).toMatchObject({
+      requestedSite: "workers",
+    });
     expect(() => parseWorkersDeployArgs(["--dry-run", "true"])).toThrow(
       "BABY_WORKERS_ARGUMENT_BOOLEAN",
     );
@@ -302,17 +320,37 @@ describe("Cloudflare Workers static-assets deployment pipeline", () => {
   it("plans all seven without remote calls or receipt writes", async () => {
     const mock = mockDependencies();
     const result = await runWorkersStaticDeploymentPipeline({
-      argv: ["--site", "all", "--allow-nonpublic", "yes", "--dry-run", "yes"],
+      argv: ["--site", "workers", "--dry-run", "yes"],
       root: "/mock/repo",
       dependencies: mock.dependencies,
     });
     expect(result.status).toBe("DRY_RUN");
     expect(result.receipt.deploymentCount).toBe(7);
     expect(result.receipt.deployments).toHaveLength(7);
+    expect(
+      result.receipt.deployments.every(
+        (deployment) =>
+          deployment.hostingProvider ===
+          "cloudflare-workers-static-assets",
+      ),
+    ).toBe(true);
     expect(mock.dependencies.inspectRemoteWorker).not.toHaveBeenCalled();
     expect(mock.dependencies.runWrangler).not.toHaveBeenCalled();
     expect(mock.dependencies.probeLiveOrigin).not.toHaveBeenCalled();
     expect(mock.dependencies.writeReceipt).not.toHaveBeenCalled();
+  });
+
+  it("keeps all as an exact seven-site Workers selector alias", async () => {
+    const mock = mockDependencies();
+    const result = await runWorkersStaticDeploymentPipeline({
+      argv: ["--site", "all", "--dry-run", "yes"],
+      root: "/mock/repo",
+      dependencies: mock.dependencies,
+    });
+    expect(result.receipt.deploymentCount).toBe(7);
+    expect(result.receipt.deployments.map((item) => item.siteKey)).toEqual(
+      WORKERS_STATIC_SITE_SPECS.map((spec) => spec.siteKey),
+    );
   });
 
   it("rejects a non-fallback site before remote inspection", async () => {
@@ -347,14 +385,12 @@ describe("Cloudflare Workers static-assets deployment pipeline", () => {
     expect(mock.dependencies.probeLiveOrigin).not.toHaveBeenCalled();
   });
 
-  it("deploys and probes one missing nonpublic Worker with both explicit gates", async () => {
+  it("deploys and probes one missing public Worker with creation permission", async () => {
     const mock = mockDependencies({ remoteExists: false });
     const result = await runWorkersStaticDeploymentPipeline({
       argv: [
         "--site",
         "uiwang",
-        "--allow-nonpublic",
-        "yes",
         "--create-workers",
         "yes",
       ],
@@ -369,7 +405,7 @@ describe("Cloudflare Workers static-assets deployment pipeline", () => {
       siteKey: "uiwang",
       workerName: "uiwang-ondam",
       expectedOrigin: "https://uiwang-ondam.guncraft2000.workers.dev",
-      publicationMode: "nonpublic",
+      publicationMode: "public",
       remoteExistedBeforeDeploy: false,
     });
   });

@@ -1,5 +1,21 @@
 # 작업 일지
 
+## 2026-08-19 — Pages 20 + Workers 7 전체 공개 레지스트리
+
+- 기존 20개 Pages 사이트는 정확한 `*.pages.dev` origin을 유지하고, Pages 생성
+  제한을 받은 의왕·의정부·파주·평택·포천·하남·화성은 고정된
+  `*.guncraft2000.workers.dev` origin으로 승격했다.
+- 27개 모두 `public + isPublic=true + indexingEnabled=true`이며 `publicOrigin`은
+  provider별 `hostingOrigin`과 정확히 같다. 따라서 각 사이트의 홈·구·대표
+  동·읍·면 regional canonical은 모두 sitemap과 `index,follow` 대상이고,
+  `/areas/`·가격·가이드·공지·블로그는 계속 `noindex,follow`다.
+- registry와 build receipt가 provider와 origin을 함께 결속한다. Pages 배포기의
+  `--site pages`는 20개만, Workers 배포기의 `--site workers|all`은 7개만 선택하며,
+  다른 provider 사이트는 원격 호출 전에 거부한다.
+- 인벤토리 digest는
+  `sha256:0829a32bba7e9421e317cac402d588ae7806ee55837ae135f6d6c13cf1f893c8`로
+  갱신했다. 이 단계에서는 commit·push·build·실배포를 수행하지 않았다.
+
 ## 2026-08-19 — Cloudflare Workers Static Assets 대체 호스팅 검증
 
 - Pages 21번째 프로젝트 생성은 Cloudflare API `8000027` 제한으로 다시 실패했다.

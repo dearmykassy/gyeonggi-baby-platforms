@@ -1,7 +1,10 @@
 import { lstat, readdir } from "node:fs/promises";
 import path from "node:path";
 
-import { classifyPublication } from "./cloudflare-pages-contract.mjs";
+import {
+  WORKERS_STATIC_HOSTING_PROVIDER,
+  classifyPublication,
+} from "./cloudflare-pages-contract.mjs";
 
 export const WORKERS_ACCOUNT_SUBDOMAIN = "guncraft2000";
 export const WORKERS_COMPATIBILITY_DATE = "2026-08-19";
@@ -70,9 +73,9 @@ export function findWorkersStaticSpec(siteKey) {
  *
  * The Pages project name is deliberately reused as the Worker name because
  * the two products have separate namespaces. A public tuple is accepted only
- * when its canonical origin is the exact workers.dev route below. This lets a
- * nonpublic staging deployment happen first while making the later registry
- * promotion an explicit, fail-closed source change.
+ * when both hostingOrigin and publicOrigin are the exact workers.dev route
+ * below. Nonpublic staging remains available only through the explicit
+ * allowNonpublic gate; it cannot alter the committed provider mapping.
  */
 export function validateWorkersStaticInventory(sites) {
   if (!Array.isArray(sites) || sites.length !== 27) {
@@ -88,6 +91,16 @@ export function validateWorkersStaticInventory(sites) {
       fail(
         "BABY_WORKERS_NAME_MAPPING_MISMATCH",
         `${spec.siteKey}:${site.projectName}:${spec.workerName}`,
+      );
+    }
+
+    if (
+      site.hostingProvider !== WORKERS_STATIC_HOSTING_PROVIDER ||
+      site.hostingOrigin !== spec.origin
+    ) {
+      fail(
+        "BABY_WORKERS_PROVIDER_MAPPING_MISMATCH",
+        `${spec.siteKey}:${site.hostingProvider}:${site.hostingOrigin}:${spec.origin}`,
       );
     }
 
@@ -107,6 +120,15 @@ export function assertWorkersPublicationPermission({
   spec,
   allowNonpublic,
 }) {
+  if (
+    site.hostingProvider !== WORKERS_STATIC_HOSTING_PROVIDER ||
+    site.hostingOrigin !== spec.origin
+  ) {
+    fail(
+      "BABY_WORKERS_PROVIDER_MAPPING_MISMATCH",
+      `${site.key}:${site.hostingProvider}:${site.hostingOrigin}:${spec.origin}`,
+    );
+  }
   const mode = classifyPublication(site);
   if (mode === "nonpublic") {
     if (!allowNonpublic) {

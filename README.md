@@ -45,14 +45,12 @@ pnpm build:all
 내보냅니다. 배포 영수증이 필요한 공식 빌드는 계속 `pnpm build:site`를
 사용합니다.
 
-무료 배포는 Cloudflare Pages Direct Upload를 사용하며, 도시별 정적 결과물을 별도 `*.pages.dev` 프로젝트로 배포합니다. 현재 실제 생성·검증된 20개 Pages 프로젝트만 public canonical과 `index,follow`로 승격했고, Cloudflare 신규 계정 프로젝트 생성 제한에 걸린 나머지 7개는 실제 HTTPS origin이 생길 때까지 preview canonical과 `noindex,nofollow`를 유지합니다.
-
-Pages 프로젝트 생성 제한에 걸린 의왕·의정부·파주·평택·포천·하남·화성은
-Cloudflare Workers Static Assets의 서로 다른 `*.workers.dev` 주소로 배포합니다.
-먼저 nonpublic 산출물을 `pnpm deploy:cloudflare-workers -- --site all
---allow-nonpublic yes --create-workers yes`로 올려 실제 주소를 검증하고, registry의
-public origin을 그 주소로 승격한 clean commit을 다시 빌드한 뒤 공개 산출물로
-재배포합니다. Pages와 Workers의 origin을 서로 바꾸어 배포하는 것은 차단됩니다.
+무료 배포는 20개 Cloudflare Pages Direct Upload와 7개 Cloudflare Workers
+Static Assets로 분리합니다. 고양~용인 20개는 각 `*.pages.dev`, 의왕·의정부·
+파주·평택·포천·하남·화성은 각 `*.guncraft2000.workers.dev`가 정확한
+`hostingOrigin`입니다. 27개 모두 그 provider origin을 `publicOrigin`으로 가진
+공개 tuple이며, 각 사이트의 모든 regional canonical이 `index,follow`입니다.
+Pages와 Workers의 origin 또는 배포기를 서로 바꾸면 원격 호출 전에 실패합니다.
 
 GA4 프로비저닝이 생성하는 `.env.local`은 Git에서 제외되며 mode `0600`으로
 보관합니다. 공식 `build:site`, `build:all`, production browser 명령은 이 파일이
@@ -61,10 +59,12 @@ GA4 프로비저닝이 생성하는 `.env.local`은 Git에서 제외되며 mode 
 
 ## Cloudflare Pages 배포 안전 절차
 
-배포 스크립트는 인벤토리의 정확히 27개 `projectName`과
-`https://<projectName>.pages.dev` 매핑을 먼저 검증합니다. `planned` 또는
-`preview` 사이트는 `--allow-nonpublic yes`를 명시하지 않으면 배포하지 않으며,
-공개 상태 플래그가 서로 어긋난 사이트는 이 옵션으로도 우회할 수 없습니다.
+배포 스크립트는 인벤토리의 provider, `hostingOrigin`, public tuple을 먼저
+검증합니다. Pages 배포기는 `--site pages`로 정확히 20개만 선택하고 Worker-hosted
+사이트 키나 `--site all`을 받으면 거부합니다. Workers 배포기는 `--site workers`
+또는 `--site all`로 고정된 7개만 선택합니다. `planned` 또는 `preview` 사이트는
+`--allow-nonpublic yes` 없이는 배포하지 않으며, 서로 어긋난 공개 플래그나 provider
+origin은 이 옵션으로도 우회할 수 없습니다.
 
 배포할 소스는 먼저 커밋되어 있어야 하고 작업 트리가 깨끗해야 합니다. 그 상태에서
 사이트를 다시 빌드해야 현재 Git SHA, 인벤토리 해시, 정적 파일 해시를 결속한
@@ -74,16 +74,22 @@ schema v2 `.baby-build.json`이 생성됩니다. 이전 schema v1 영수증이�
 ```bash
 node scripts/build-site.mjs --site suwon
 
-# Cloudflare 호출·프로젝트 생성·파일 기록 없이 전체 27개 사전 검사
+# Cloudflare 호출·프로젝트 생성·파일 기록 없이 Pages 20개 사전 검사
 node scripts/deploy-cloudflare-pages.mjs \
-  --site all \
-  --allow-nonpublic yes \
+  --site pages \
   --dry-run yes
 
 # 이미 생성된 단일 프로젝트에 실제 배포
 node scripts/deploy-cloudflare-pages.mjs \
-  --site suwon \
-  --allow-nonpublic yes
+  --site suwon
+
+# Workers Static Assets 7개 사전 검사 및 실제 배포
+node scripts/deploy-cloudflare-workers-static.mjs \
+  --site workers \
+  --dry-run yes
+node scripts/deploy-cloudflare-workers-static.mjs \
+  --site workers \
+  --create-workers yes
 ```
 
 프로젝트 생성은 외부 상태를 바꾸므로 검토 후에만

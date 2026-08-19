@@ -40,6 +40,8 @@ function buildReceipt(site) {
     inventoryFileDigest: sha256(INVENTORY_RAW),
     plannedOrigin: site.plannedOrigin,
     previewOrigin: site.previewOrigin,
+    hostingProvider: site.hostingProvider,
+    hostingOrigin: site.hostingOrigin,
     publicOrigin: site.publicOrigin,
     deploymentState: site.deploymentState,
     isPublic: site.isPublic,
@@ -86,13 +88,44 @@ function mockDependencies({ wranglerOutput, receiptTransform, gitState } = {}) {
 }
 
 describe("Cloudflare Pages inventory and command contract", () => {
-  it("binds exactly 27 project names to their exact pages.dev origins", () => {
+  it("keeps 27 Pages reservations while assigning exactly 20 Pages providers", () => {
     const sites = validateInventory(INVENTORY);
     expect(sites).toHaveLength(27);
     for (const site of sites) {
       expect(site.plannedOrigin).toBe(`https://${site.projectName}.pages.dev`);
       expect(site.previewOrigin).toBe(site.plannedOrigin);
     }
+    expect(
+      sites
+        .filter((site) => site.hostingProvider === "cloudflare-pages")
+        .map((site) => site.key),
+    ).toEqual([
+      "goyang",
+      "gwacheon",
+      "gwangmyeong",
+      "gwangju-gyeonggi",
+      "guri",
+      "gunpo",
+      "gimpo",
+      "namyangju",
+      "dongducheon",
+      "bucheon",
+      "seongnam",
+      "suwon",
+      "siheung",
+      "ansan",
+      "anseong",
+      "anyang",
+      "yangju",
+      "yeoncheon",
+      "osan",
+      "yongin",
+    ]);
+    expect(
+      sites.filter(
+        (site) => site.hostingProvider === "cloudflare-workers-static-assets",
+      ),
+    ).toHaveLength(7);
   });
 
   it("rejects a mismatched project/origin pair", () => {
@@ -100,6 +133,14 @@ describe("Cloudflare Pages inventory and command contract", () => {
     inventory.sites[0].plannedOrigin = "https://wrong-project.pages.dev";
     expect(() => validateInventory(inventory)).toThrow(
       "BABY_CLOUDFLARE_PROJECT_ORIGIN_MISMATCH",
+    );
+  });
+
+  it("reports a missing provider origin as a required-field failure", () => {
+    const inventory = cloneInventory();
+    delete inventory.sites[0].hostingOrigin;
+    expect(() => validateInventory(inventory)).toThrow(
+      "BABY_CLOUDFLARE_INVENTORY_FIELD_INVALID:goyang:hostingOrigin",
     );
   });
 
@@ -118,8 +159,16 @@ describe("Cloudflare Pages inventory and command contract", () => {
       isPublic: true,
       indexingEnabled: true,
       publicOrigin: "https://example.kr",
+      hostingOrigin: "https://example.kr",
     };
     expect(classifyPublication(published)).toBe("public");
+
+    expect(() =>
+      classifyPublication({
+        ...published,
+        hostingOrigin: "https://other.example",
+      }),
+    ).toThrow("BABY_CLOUDFLARE_PROVIDER_ORIGIN_MISMATCH");
   });
 
   it("normalizes both current Wrangler display rows and raw API rows", () => {
@@ -169,6 +218,18 @@ describe("Cloudflare Pages inventory and command contract", () => {
     expect(args).not.toContain("--commit-dirty");
     expect(args).not.toContain("false");
     expect(args).toContain(GIT_HEAD);
+
+    const workerSite = INVENTORY.sites.find(
+      (candidate) => candidate.key === "uiwang",
+    );
+    expect(() =>
+      buildDeployArgs({
+        outputDirectory: "/tmp/dist/worker-site",
+        site: workerSite,
+        branch: "main",
+        gitHead: GIT_HEAD,
+      }),
+    ).toThrow("BABY_CLOUDFLARE_PAGES_PROVIDER_REFUSED:uiwang");
   });
 
   it("rejects unknown, duplicate, and malformed CLI arguments", () => {
@@ -189,7 +250,7 @@ describe("Cloudflare Pages inventory and command contract", () => {
 });
 
 describe("Cloudflare Pages dry-run and mocked CLI pipeline", () => {
-  it("refuses a planned site without the explicit nonpublic override", async () => {
+  it("refuses a Workers-hosted public site before any remote call", async () => {
     const mock = mockDependencies();
     await expect(
       runDeploymentPipeline({
@@ -197,22 +258,22 @@ describe("Cloudflare Pages dry-run and mocked CLI pipeline", () => {
         root: "/mock/repo",
         dependencies: mock.dependencies,
       }),
-    ).rejects.toThrow("BABY_DEPLOY_NONPUBLIC_BUILD_REFUSED:uiwang");
+    ).rejects.toThrow("BABY_CLOUDFLARE_PAGES_PROVIDER_REFUSED:uiwang");
     expect(mock.dependencies.runWrangler).not.toHaveBeenCalled();
   });
 
-  it("plans all 27 sites without any Wrangler call or receipt write", async () => {
+  it("plans exactly the 20 Pages-hosted sites without remote calls", async () => {
     const mock = mockDependencies();
     const result = await runDeploymentPipeline({
-      argv: ["--site", "all", "--allow-nonpublic", "yes", "--dry-run", "yes"],
+      argv: ["--site", "pages", "--dry-run", "yes"],
       root: "/mock/repo",
       dependencies: mock.dependencies,
     });
 
     expect(result.status).toBe("DRY_RUN");
     expect(result.receiptPath).toBeNull();
-    expect(result.receipt.deploymentCount).toBe(27);
-    expect(result.receipt.deployments).toHaveLength(27);
+    expect(result.receipt.deploymentCount).toBe(20);
+    expect(result.receipt.deployments).toHaveLength(20);
     expect(mock.dependencies.runWrangler).not.toHaveBeenCalled();
     expect(mock.dependencies.writeReceipt).not.toHaveBeenCalled();
     for (const deployment of result.receipt.deployments) {
@@ -221,7 +282,21 @@ describe("Cloudflare Pages dry-run and mocked CLI pipeline", () => {
         (candidate) => candidate.key === deployment.siteKey,
       );
       expect(deployment.publicationMode).toBe(classifyPublication(site));
+      expect(deployment.hostingProvider).toBe("cloudflare-pages");
     }
+  });
+
+  it("refuses the all selector because it crosses the provider boundary", async () => {
+    const mock = mockDependencies();
+    await expect(
+      runDeploymentPipeline({
+        argv: ["--site", "all", "--dry-run", "yes"],
+        root: "/mock/repo",
+        dependencies: mock.dependencies,
+      }),
+    ).rejects.toThrow("BABY_CLOUDFLARE_PAGES_PROVIDER_REFUSED:uiwang");
+    expect(mock.dependencies.getGitState).not.toHaveBeenCalled();
+    expect(mock.dependencies.runWrangler).not.toHaveBeenCalled();
   });
 
   it("rejects a dirty source tree before reading build receipts or invoking Wrangler", async () => {

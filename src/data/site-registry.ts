@@ -33,6 +33,9 @@ export const BABY_SITE_KEYS = [
 export type BabySiteKey = (typeof BABY_SITE_KEYS)[number];
 export type LayoutVariant = "v1" | "v2" | "v3" | "v4" | "v5" | "v6";
 export type BabySiteDeploymentState = "planned" | "preview" | "public";
+export type BabySiteHostingProvider =
+  | "cloudflare-pages"
+  | "cloudflare-workers-static-assets";
 
 export type BabySiteTheme = Readonly<{
   primary: string;
@@ -89,6 +92,9 @@ export type BabySiteConfig = Readonly<{
   brandName: string;
   plannedOrigin: `https://${string}.pages.dev`;
   previewOrigin: `https://${string}.pages.dev`;
+  hostingProvider: BabySiteHostingProvider;
+  /** Exact provider origin allowed to become the public canonical. */
+  hostingOrigin: string;
   publicOrigin: string | null;
   /** The current build origin. Indexing remains disabled until publicOrigin is set. */
   origin: string;
@@ -134,6 +140,51 @@ if (
   new Set(inventory.sites.map((site) => site.key)).size !== BABY_SITE_KEYS.length
 ) {
   throw new Error("BABY_SITE_REGISTRY_KEY_FAILURE");
+}
+
+function isExactHttpsOrigin(value: string): boolean {
+  try {
+    const parsed = new URL(value);
+    return (
+      parsed.protocol === "https:" &&
+      parsed.username.length === 0 &&
+      parsed.password.length === 0 &&
+      parsed.pathname === "/" &&
+      parsed.search.length === 0 &&
+      parsed.hash.length === 0 &&
+      !parsed.hostname.endsWith(".invalid") &&
+      parsed.origin === value
+    );
+  } catch {
+    return false;
+  }
+}
+
+if (
+  inventory.sites.some((site) => {
+    const pagesOrigin = `https://${site.projectName}.pages.dev`;
+    const workersOrigin =
+      `https://${site.projectName}.guncraft2000.workers.dev`;
+    const providerOriginValid =
+      site.hostingProvider === "cloudflare-pages"
+        ? site.hostingOrigin === pagesOrigin
+        : site.hostingProvider === "cloudflare-workers-static-assets" &&
+          site.hostingOrigin === workersOrigin;
+    const publicTupleValid =
+      site.deploymentState === "public" &&
+      site.isPublic === true &&
+      site.indexingEnabled === true &&
+      site.publicOrigin === site.hostingOrigin;
+    return (
+      site.plannedOrigin !== pagesOrigin ||
+      site.previewOrigin !== pagesOrigin ||
+      !isExactHttpsOrigin(site.hostingOrigin) ||
+      !providerOriginValid ||
+      !publicTupleValid
+    );
+  })
+) {
+  throw new Error("BABY_SITE_HOSTING_CONTRACT_FAILURE");
 }
 
 export const ALL_BABY_SITES: readonly BabySiteConfig[] = Object.freeze(

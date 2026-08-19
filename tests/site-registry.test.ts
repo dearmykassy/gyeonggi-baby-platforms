@@ -11,27 +11,14 @@ import {
 const FORBIDDEN_ROOT_SUFFIX =
   /(?:특별자치도|특별자치시|특별시|광역시|도|시|군)$/u;
 
-const PUBLIC_SITE_KEYS = new Set([
-  "goyang",
-  "gwacheon",
-  "gwangmyeong",
-  "gwangju-gyeonggi",
-  "guri",
-  "gunpo",
-  "gimpo",
-  "namyangju",
-  "dongducheon",
-  "bucheon",
-  "seongnam",
-  "suwon",
-  "siheung",
-  "ansan",
-  "anseong",
-  "anyang",
-  "yangju",
-  "yeoncheon",
-  "osan",
-  "yongin",
+const WORKERS_ORIGINS = new Map<string, string>([
+  ["uiwang", "https://uiwang-ondam.guncraft2000.workers.dev"],
+  ["uijeongbu", "https://uijeongbu-shimon.guncraft2000.workers.dev"],
+  ["paju", "https://paju-hyudam.guncraft2000.workers.dev"],
+  ["pyeongtaek", "https://pyeongtaek-ongyeol.guncraft2000.workers.dev"],
+  ["pocheon", "https://pocheon-harushim.guncraft2000.workers.dev"],
+  ["hanam", "https://hanam-hyuon.guncraft2000.workers.dev"],
+  ["hwaseong", "https://hwaseong-onshim.guncraft2000.workers.dev"],
 ]);
 
 describe("Gyeonggi baby site registry", () => {
@@ -57,6 +44,7 @@ describe("Gyeonggi baby site registry", () => {
       "brandName",
       "plannedOrigin",
       "previewOrigin",
+      "hostingOrigin",
       "gaMeasurementIdEnv",
       "gaPropertyIdEnv",
     ] as const;
@@ -71,12 +59,18 @@ describe("Gyeonggi baby site registry", () => {
       expect(site.brandName).not.toContain(site.officialName);
       expect(site.plannedOrigin).toBe(`https://${site.projectName}.pages.dev`);
       expect(site.previewOrigin).toBe(site.plannedOrigin);
-      const isPublic = PUBLIC_SITE_KEYS.has(site.key);
-      expect(site.publicOrigin).toBe(isPublic ? site.plannedOrigin : null);
-      expect(site.origin).toBe(site.plannedOrigin);
-      expect(site.deploymentState).toBe(isPublic ? "public" : "planned");
-      expect(site.isPublic).toBe(isPublic);
-      expect(site.indexingEnabled).toBe(isPublic);
+      const workersOrigin = WORKERS_ORIGINS.get(site.key);
+      expect(site.hostingProvider).toBe(
+        workersOrigin
+          ? "cloudflare-workers-static-assets"
+          : "cloudflare-pages",
+      );
+      expect(site.hostingOrigin).toBe(workersOrigin ?? site.plannedOrigin);
+      expect(site.publicOrigin).toBe(site.hostingOrigin);
+      expect(site.origin).toBe(site.hostingOrigin);
+      expect(site.deploymentState).toBe("public");
+      expect(site.isPublic).toBe(true);
+      expect(site.indexingEnabled).toBe(true);
       expect(site.gaMeasurementIdEnv).toMatch(
         /^NEXT_PUBLIC_GA_MEASUREMENT_ID_[A-Z0-9_]+$/u,
       );
@@ -86,8 +80,17 @@ describe("Gyeonggi baby site registry", () => {
     expect(getSiteConfig("gwangju-gyeonggi").plannedOrigin).toBe(
       "https://gwangju-onshim.pages.dev",
     );
-    expect(ALL_BABY_SITES.filter((site) => site.isPublic)).toHaveLength(20);
-    expect(ALL_BABY_SITES.filter((site) => !site.isPublic)).toHaveLength(7);
+    expect(ALL_BABY_SITES.filter((site) => site.isPublic)).toHaveLength(27);
+    expect(
+      ALL_BABY_SITES.filter(
+        (site) => site.hostingProvider === "cloudflare-pages",
+      ),
+    ).toHaveLength(20);
+    expect(
+      ALL_BABY_SITES.filter(
+        (site) => site.hostingProvider === "cloudflare-workers-static-assets",
+      ),
+    ).toHaveLength(7);
   });
 
   it("distributes the six substantial layout variants as 5/5/5/4/4/4", () => {

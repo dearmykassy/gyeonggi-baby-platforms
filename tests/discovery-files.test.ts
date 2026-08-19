@@ -31,22 +31,14 @@ describe("baby platform discovery-file contract", () => {
     }
   });
 
-  it("publishes only verified provider hosts and keeps pending hosts fail-closed", () => {
+  it("publishes all 27 sites only on their exact provider origin", () => {
     for (const site of ALL_BABY_SITES) {
       const publication = getSitePublicationContract(site);
-      if (site.deploymentState === "public") {
-        expect(publication.indexable).toBe(true);
-        expect(publication.origin).toBe(site.plannedOrigin);
-        expect(publication.robots).toEqual({ index: true, follow: true });
-      } else {
-        expect(publication.indexable).toBe(false);
-        expect(publication.origin).toMatch(/\.invalid$/u);
-        expect(publication.robots).toEqual({
-          index: false,
-          follow: false,
-          nocache: true,
-        });
-      }
+      expect(site.deploymentState).toBe("public");
+      expect(site.publicOrigin).toBe(site.hostingOrigin);
+      expect(publication.indexable).toBe(true);
+      expect(publication.origin).toBe(site.hostingOrigin);
+      expect(publication.robots).toEqual({ index: true, follow: true });
     }
   });
 });

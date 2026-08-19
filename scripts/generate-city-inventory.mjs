@@ -2,6 +2,11 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
+import {
+  WORKERS_STATIC_SITE_SPECS,
+  findWorkersStaticSpec,
+} from "./lib/cloudflare-workers-static-contract.mjs";
+
 const sourcePath = new URL("../src/data/capital-regions.generated.json", import.meta.url);
 const outputPath = new URL("../src/data/city-regions.generated.json", import.meta.url);
 const EXPECTED_SOURCE_FILE_SHA256 =
@@ -168,11 +173,11 @@ if (
   throw new Error("BABY_DESIGN_PROFILE_INTEGRITY_FAILURE");
 }
 
-// Promote a site only after its exact HTTPS Pages origin has been created,
-// deployed, and audited. Keeping this explicit makes a public indexability
-// change reviewable and prevents an unverified free subdomain from leaking
-// into canonical, robots, sitemap, or RSS output.
-const PUBLIC_SITE_KEYS = [
+// These are the 20 projects that are hosted by Cloudflare Pages. The remaining
+// seven public sites are deliberately sourced from the fixed Workers Static
+// Assets contract above; deriving those origins here prevents a hand-entered
+// workers.dev hostname from leaking into canonical, robots, sitemap, or RSS.
+const PAGES_PUBLIC_SITE_KEYS = [
   "goyang",
   "gwacheon",
   "gwangmyeong",
@@ -193,6 +198,11 @@ const PUBLIC_SITE_KEYS = [
   "yeoncheon",
   "osan",
   "yongin",
+];
+
+const PUBLIC_SITE_KEYS = [
+  ...PAGES_PUBLIC_SITE_KEYS,
+  ...WORKERS_STATIC_SITE_SPECS.map((spec) => spec.siteKey),
 ];
 
 function sha256(value) {
@@ -239,6 +249,8 @@ if (
   sourceMunicipalities.length !== 31 ||
   expectedMunicipalities.length !== 27 ||
   SITE_DEFINITIONS.length !== 27 ||
+  PAGES_PUBLIC_SITE_KEYS.length !== 20 ||
+  WORKERS_STATIC_SITE_SPECS.length !== 7 ||
   new Set(PUBLIC_SITE_KEYS).size !== PUBLIC_SITE_KEYS.length ||
   PUBLIC_SITE_KEYS.some((key) => !definitionKeys.has(key)) ||
   expectedMunicipalities.some((name) => !definitionsByOfficialName.has(name)) ||
@@ -256,6 +268,16 @@ const sites = SITE_DEFINITIONS.map(
     }
     const slug = key;
     const plannedOrigin = `https://${projectName}.pages.dev`;
+    const workersSpec = findWorkersStaticSpec(key);
+    if (workersSpec && workersSpec.workerName !== projectName) {
+      throw new Error(
+        `BABY_WORKERS_PROJECT_NAME_MISMATCH:${key}:${projectName}:${workersSpec.workerName}`,
+      );
+    }
+    const hostingProvider = workersSpec
+      ? "cloudflare-workers-static-assets"
+      : "cloudflare-pages";
+    const hostingOrigin = workersSpec?.origin ?? plannedOrigin;
     const publicRelease = PUBLIC_SITE_KEYS.includes(key);
     const envSuffix = key.toUpperCase().replaceAll("-", "_");
     const sourcePrefix = ["gyeonggi", officialName];
@@ -299,7 +321,9 @@ const sites = SITE_DEFINITIONS.map(
       projectName,
       plannedOrigin,
       previewOrigin: plannedOrigin,
-      publicOrigin: publicRelease ? plannedOrigin : null,
+      hostingProvider,
+      hostingOrigin,
+      publicOrigin: publicRelease ? hostingOrigin : null,
       brandName,
       layoutVariant,
       theme: designProfile.palette,

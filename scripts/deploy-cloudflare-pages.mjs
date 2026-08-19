@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 import {
   DEPLOY_RECEIPT_SCHEMA_VERSION,
+  PAGES_HOSTING_PROVIDER,
+  assertPagesHostingProvider,
   assertDeployableGitState,
   assertRemoteProjectMapping,
   buildDeployArgs,
@@ -138,18 +140,24 @@ function selectSites(sites, requestedSite) {
   const selected =
     requestedSite === "all"
       ? sites
+      : requestedSite === "pages"
+        ? sites.filter(
+            (site) => site.hostingProvider === PAGES_HOSTING_PROVIDER,
+          )
       : sites.filter((site) => site.key === requestedSite);
-  if (
-    !selected.length ||
-    (requestedSite === "all" && selected.length !== 27) ||
-    (requestedSite !== "all" && selected.length !== 1)
-  ) {
+  const expectedCount = requestedSite === "all"
+    ? 27
+    : requestedSite === "pages"
+      ? 20
+      : 1;
+  if (selected.length !== expectedCount) {
     fail("BABY_DEPLOY_SITE_SCOPE", `${requestedSite}:${selected.length}`);
   }
   return selected;
 }
 
 function assertPublicationPermission(site, allowNonpublic) {
+  assertPagesHostingProvider(site);
   const mode = classifyPublication(site);
   if (mode === "nonpublic" && !allowNonpublic) {
     fail("BABY_DEPLOY_NONPUBLIC_BUILD_REFUSED", site.key);
@@ -247,6 +255,8 @@ export async function runDeploymentPipeline({
     siteKey: site.key,
     projectName: site.projectName,
     plannedOrigin: site.plannedOrigin,
+    hostingProvider: site.hostingProvider,
+    hostingOrigin: site.hostingOrigin,
     publicOrigin: site.publicOrigin,
     publicationMode: publicationModes.get(site.key),
     artifact,
@@ -267,7 +277,9 @@ export async function runDeploymentPipeline({
   );
   // If any of the 27 known projects already exists, its pages.dev binding must
   // agree with the committed inventory even when it is outside --site scope.
-  for (const site of allSites) {
+  for (const site of allSites.filter(
+    (candidate) => candidate.hostingProvider === PAGES_HOSTING_PROVIDER,
+  )) {
     if (projects.has(site.projectName)) assertRemoteProjectMapping(site, projects);
   }
 
@@ -305,6 +317,8 @@ export async function runDeploymentPipeline({
       siteKey: item.site.key,
       projectName: item.site.projectName,
       plannedOrigin: item.site.plannedOrigin,
+      hostingProvider: item.site.hostingProvider,
+      hostingOrigin: item.site.hostingOrigin,
       publicOrigin: item.site.publicOrigin,
       publicationMode: publicationModes.get(item.site.key),
       artifact: item.artifact,

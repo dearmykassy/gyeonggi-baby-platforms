@@ -332,13 +332,15 @@ function parseJson(value, code, detail) {
 
 function selectWorkerSites(rows, requestedSite) {
   const selected =
-    requestedSite === "all"
+    requestedSite === "all" || requestedSite === "workers"
       ? rows
       : rows.filter(({ site }) => site.key === requestedSite);
+  const isProviderSelector =
+    requestedSite === "all" || requestedSite === "workers";
   if (
     !selected.length ||
-    (requestedSite === "all" && selected.length !== 7) ||
-    (requestedSite !== "all" && selected.length !== 1)
+    (isProviderSelector && selected.length !== 7) ||
+    (!isProviderSelector && selected.length !== 1)
   ) {
     fail("BABY_WORKERS_SITE_SCOPE", `${requestedSite}:${selected.length}`);
   }
@@ -427,6 +429,8 @@ export async function runWorkersStaticDeploymentPipeline({
     siteKey: site.key,
     workerName: spec.workerName,
     expectedOrigin: spec.origin,
+    hostingProvider: site.hostingProvider,
+    hostingOrigin: site.hostingOrigin,
     publicOrigin: site.publicOrigin,
     publicationMode: modes.get(site.key),
     artifact,
@@ -481,6 +485,8 @@ export async function runWorkersStaticDeploymentPipeline({
       siteKey: item.site.key,
       workerName: item.spec.workerName,
       expectedOrigin: item.spec.origin,
+      hostingProvider: item.site.hostingProvider,
+      hostingOrigin: item.site.hostingOrigin,
       publicOrigin: item.site.publicOrigin,
       publicationMode: modes.get(item.site.key),
       artifact: item.artifact,

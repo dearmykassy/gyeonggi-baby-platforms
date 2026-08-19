@@ -145,6 +145,8 @@ await writeFile(
       inventoryFileDigest: sha256(inventoryRaw),
       plannedOrigin: site.plannedOrigin,
       previewOrigin: site.previewOrigin,
+      hostingProvider: site.hostingProvider,
+      hostingOrigin: site.hostingOrigin,
       publicOrigin: site.publicOrigin,
       deploymentState: site.deploymentState,
       isPublic: site.isPublic,

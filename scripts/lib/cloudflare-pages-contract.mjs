@@ -5,6 +5,9 @@ import path from "node:path";
 export const EXPECTED_SITE_COUNT = 27;
 export const BUILD_RECEIPT_SCHEMA_VERSION = 2;
 export const DEPLOY_RECEIPT_SCHEMA_VERSION = 2;
+export const PAGES_HOSTING_PROVIDER = "cloudflare-pages";
+export const WORKERS_STATIC_HOSTING_PROVIDER =
+  "cloudflare-workers-static-assets";
 
 const PROJECT_NAME_PATTERN = /^[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/u;
 const GIT_HEAD_PATTERN = /^[0-9a-f]{40}$/u;
@@ -61,10 +64,35 @@ export function classifyPublication(site) {
     site.publicOrigin === null;
 
   if (publicTuple) {
-    exactHttpsOrigin(site.publicOrigin, site.key);
+    const publicOrigin = exactHttpsOrigin(site.publicOrigin, site.key);
+    const hostingOrigin = exactHttpsOrigin(site.hostingOrigin, site.key);
+    if (
+      ![PAGES_HOSTING_PROVIDER, WORKERS_STATIC_HOSTING_PROVIDER].includes(
+        site.hostingProvider,
+      ) ||
+      publicOrigin !== hostingOrigin
+    ) {
+      fail(
+        "BABY_CLOUDFLARE_PROVIDER_ORIGIN_MISMATCH",
+        `${site.key}:${site.hostingProvider}:${site.publicOrigin}:${site.hostingOrigin}`,
+      );
+    }
     return "public";
   }
-  if (nonpublicTuple) return "nonpublic";
+  if (nonpublicTuple) {
+    exactHttpsOrigin(site.hostingOrigin, site.key);
+    if (
+      ![PAGES_HOSTING_PROVIDER, WORKERS_STATIC_HOSTING_PROVIDER].includes(
+        site.hostingProvider,
+      )
+    ) {
+      fail(
+        "BABY_CLOUDFLARE_HOSTING_PROVIDER_INVALID",
+        `${site.key}:${site.hostingProvider}`,
+      );
+    }
+    return "nonpublic";
+  }
 
   fail("BABY_CLOUDFLARE_PUBLICATION_STATE_INCONSISTENT", site.key);
 }
@@ -73,6 +101,12 @@ function assertUnique(sites, field) {
   const seen = new Set();
   for (const site of sites) {
     const value = site[field];
+    if (typeof value !== "string" || value.length === 0) {
+      fail(
+        "BABY_CLOUDFLARE_INVENTORY_FIELD_INVALID",
+        `${site.key ?? "missing"}:${field}`,
+      );
+    }
     if (seen.has(value)) {
       fail("BABY_CLOUDFLARE_INVENTORY_DUPLICATE", `${field}:${value}`);
     }
@@ -98,7 +132,13 @@ export function validateInventory(inventory) {
     fail("BABY_CLOUDFLARE_INVENTORY_DIGEST_INVALID");
   }
 
-  for (const field of ["key", "projectName", "plannedOrigin", "previewOrigin"]) {
+  for (const field of [
+    "key",
+    "projectName",
+    "plannedOrigin",
+    "previewOrigin",
+    "hostingOrigin",
+  ]) {
     assertUnique(inventory.sites, field);
   }
 
@@ -116,10 +156,45 @@ export function validateInventory(inventory) {
         `${site.key}:${site.projectName}:${site.plannedOrigin}:${site.previewOrigin}:${expected}`,
       );
     }
+    const hostingOrigin = exactHttpsOrigin(site.hostingOrigin, site.key);
+    if (
+      site.hostingProvider === PAGES_HOSTING_PROVIDER &&
+      hostingOrigin !== expected
+    ) {
+      fail(
+        "BABY_CLOUDFLARE_PAGES_ORIGIN_MISMATCH",
+        `${site.key}:${hostingOrigin}:${expected}`,
+      );
+    }
+    if (
+      site.hostingProvider === WORKERS_STATIC_HOSTING_PROVIDER &&
+      hostingOrigin !==
+        `https://${site.projectName}.guncraft2000.workers.dev`
+    ) {
+      fail(
+        "BABY_CLOUDFLARE_WORKERS_ORIGIN_MISMATCH",
+        `${site.key}:${hostingOrigin}`,
+      );
+    }
     classifyPublication(site);
   }
 
   return inventory.sites;
+}
+
+export function assertPagesHostingProvider(site) {
+  const expected = expectedPagesOrigin(site.projectName);
+  if (
+    site.hostingProvider !== PAGES_HOSTING_PROVIDER ||
+    site.hostingOrigin !== expected ||
+    (classifyPublication(site) === "public" && site.publicOrigin !== expected)
+  ) {
+    fail(
+      "BABY_CLOUDFLARE_PAGES_PROVIDER_REFUSED",
+      `${site.key}:${site.hostingProvider}:${site.hostingOrigin}`,
+    );
+  }
+  return site;
 }
 
 function normalizeHostname(value) {
@@ -186,6 +261,7 @@ export function parseWranglerProjectList(output) {
 }
 
 export function assertRemoteProjectMapping(site, projects) {
+  assertPagesHostingProvider(site);
   const project = projects.get(site.projectName);
   if (!project) {
     fail("BABY_CLOUDFLARE_PROJECT_MISSING", site.projectName);
@@ -264,6 +340,7 @@ export function assertDeployableGitState(gitState) {
 }
 
 export function buildDeployArgs({ outputDirectory, site, branch, gitHead }) {
+  assertPagesHostingProvider(site);
   if (!GIT_HEAD_PATTERN.test(gitHead ?? "")) {
     fail("BABY_DEPLOY_GIT_HEAD_REQUIRED");
   }
@@ -298,6 +375,8 @@ export function validateBuildReceipt({
     inventoryFileDigest,
     plannedOrigin: site.plannedOrigin,
     previewOrigin: site.previewOrigin,
+    hostingProvider: site.hostingProvider,
+    hostingOrigin: site.hostingOrigin,
     publicOrigin: site.publicOrigin,
     deploymentState: site.deploymentState,
     isPublic: site.isPublic,
