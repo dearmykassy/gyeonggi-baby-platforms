@@ -1,5 +1,19 @@
 # 작업 일지
 
+## 2026-08-19 — 확인된 Cloudflare Pages 20개 공개 승격
+
+- Wrangler 프로젝트 목록에서 실제 존재와 `*.pages.dev` hostname을 확인한 20개
+  사이트만 `public + isPublic=true + indexingEnabled=true + publicOrigin`의 정확한
+  공개 tuple로 승격한다.
+- Cloudflare 신규 계정의 Pages 생성 제한으로 아직 프로젝트가 없는 의왕·의정부·
+  파주·평택·포천·하남·화성 7개는 존재하지 않는 origin을 canonical로 주장하지 않고
+  `planned + noindex,nofollow`를 유지한다.
+- 한 인벤토리 안의 mixed 상태는 사이트별 네 조건을 독립 검증한다. 공개 20개는 각
+  도시의 455 전체 인벤토리 중 자기 지역 canonical 전부를 sitemap에 넣고, 대기 7개는
+  같은 콘텐츠가 준비돼 있어도 실제 HTTPS origin이 생기기 전까지 검색 공개하지 않는다.
+- 이 기록 시점에는 생성 스크립트와 registry 계약만 변경하며, clean commit build와
+  Cloudflare 재배포·라이브 robots/canonical/sitemap 검증은 다음 release 단계에서 한다.
+
 ## 2026-08-19 — 455개 regional canonical 전체 검색 공개 계약
 
 - 27개 도시 홈 27개, 구 24개, 대표 동·읍·면 404개로 이루어진 455개

@@ -44,7 +44,7 @@ function buildReceipt(site) {
     deploymentState: site.deploymentState,
     isPublic: site.isPublic,
     indexingEnabled: site.indexingEnabled,
-    publicationMode: "nonpublic",
+    publicationMode: classifyPublication(site),
     regionalCanonicals: site.counts.regionalCanonicals,
     gitHead: GIT_HEAD,
     sourceTreeClean: true,
@@ -104,7 +104,10 @@ describe("Cloudflare Pages inventory and command contract", () => {
   });
 
   it("fails closed for mixed publication state and accepts an exact public tuple", () => {
-    const mixed = { ...INVENTORY.sites[0], indexingEnabled: true };
+    const mixed = {
+      ...INVENTORY.sites[0],
+      indexingEnabled: !INVENTORY.sites[0].indexingEnabled,
+    };
     expect(() => classifyPublication(mixed)).toThrow(
       "BABY_CLOUDFLARE_PUBLICATION_STATE_INCONSISTENT",
     );
@@ -186,11 +189,11 @@ describe("Cloudflare Pages dry-run and mocked CLI pipeline", () => {
     const mock = mockDependencies();
     await expect(
       runDeploymentPipeline({
-        argv: ["--site", "suwon", "--dry-run", "yes"],
+        argv: ["--site", "uiwang", "--dry-run", "yes"],
         root: "/mock/repo",
         dependencies: mock.dependencies,
       }),
-    ).rejects.toThrow("BABY_DEPLOY_NONPUBLIC_BUILD_REFUSED:suwon");
+    ).rejects.toThrow("BABY_DEPLOY_NONPUBLIC_BUILD_REFUSED:uiwang");
     expect(mock.dependencies.runWrangler).not.toHaveBeenCalled();
   });
 
@@ -210,7 +213,10 @@ describe("Cloudflare Pages dry-run and mocked CLI pipeline", () => {
     expect(mock.dependencies.writeReceipt).not.toHaveBeenCalled();
     for (const deployment of result.receipt.deployments) {
       expect(deployment.wranglerArgs).toContain("--commit-dirty=false");
-      expect(deployment.publicationMode).toBe("nonpublic");
+      const site = INVENTORY.sites.find(
+        (candidate) => candidate.key === deployment.siteKey,
+      );
+      expect(deployment.publicationMode).toBe(classifyPublication(site));
     }
   });
 

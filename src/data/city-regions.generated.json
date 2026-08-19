@@ -5,7 +5,7 @@
   "sourceArtifactDigest": "sha256:a55f0dead3df6f3367edfbe5e429a2eb17780c46709adf4f153537e90c21b146",
   "sourceRawSha256": "4effd259228aa5378cf4659d1df6c523df3aac9f4174e50db7ad70544ad585c8",
   "sourceFileSha256": "0242e5d86894321cba66b7f747675115520d856c7aaada870869e19f247500d2",
-  "inventoryDigest": "sha256:57b8fd77d0a5afbbde88fccbead6cab48367f1798fbd15e72e7329345c22bea5",
+  "inventoryDigest": "sha256:1a7ac95ec2f15baacbdf472dffa513bf1dce56ae5cc73522fc61adf8cd6d6b82",
   "excludedMunicipalities": [
     "가평군",
     "이천시",
@@ -28,7 +28,7 @@
       "projectName": "goyang-oncare",
       "plannedOrigin": "https://goyang-oncare.pages.dev",
       "previewOrigin": "https://goyang-oncare.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://goyang-oncare.pages.dev",
       "brandName": "고양온케어",
       "layoutVariant": "v1",
       "theme": {
@@ -75,9 +75,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GOYANG",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GOYANG",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "고양시"
@@ -1364,7 +1364,7 @@
       "projectName": "gwacheon-shimgyeol",
       "plannedOrigin": "https://gwacheon-shimgyeol.pages.dev",
       "previewOrigin": "https://gwacheon-shimgyeol.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://gwacheon-shimgyeol.pages.dev",
       "brandName": "과천쉼결",
       "layoutVariant": "v2",
       "theme": {
@@ -1411,9 +1411,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GWACHEON",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GWACHEON",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "과천시"
@@ -1698,7 +1698,7 @@
       "projectName": "gwangmyeong-hyudam",
       "plannedOrigin": "https://gwangmyeong-hyudam.pages.dev",
       "previewOrigin": "https://gwangmyeong-hyudam.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://gwangmyeong-hyudam.pages.dev",
       "brandName": "광명휴담",
       "layoutVariant": "v3",
       "theme": {
@@ -1745,9 +1745,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GWANGMYEONG",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GWANGMYEONG",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "광명시"
@@ -2008,7 +2008,7 @@
       "projectName": "gwangju-onshim",
       "plannedOrigin": "https://gwangju-onshim.pages.dev",
       "previewOrigin": "https://gwangju-onshim.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://gwangju-onshim.pages.dev",
       "brandName": "광주온쉼",
       "layoutVariant": "v4",
       "theme": {
@@ -2055,9 +2055,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GWANGJU_GYEONGGI",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GWANGJU_GYEONGGI",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "광주시"
@@ -2856,7 +2856,7 @@
       "projectName": "guri-gyeolcare",
       "plannedOrigin": "https://guri-gyeolcare.pages.dev",
       "previewOrigin": "https://guri-gyeolcare.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://guri-gyeolcare.pages.dev",
       "brandName": "구리결케어",
       "layoutVariant": "v5",
       "theme": {
@@ -2903,9 +2903,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GURI",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GURI",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "구리시"
@@ -3124,7 +3124,7 @@
       "projectName": "gunpo-harushim",
       "plannedOrigin": "https://gunpo-harushim.pages.dev",
       "previewOrigin": "https://gunpo-harushim.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://gunpo-harushim.pages.dev",
       "brandName": "군포하루쉼",
       "layoutVariant": "v6",
       "theme": {
@@ -3171,9 +3171,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GUNPO",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GUNPO",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "군포시"
@@ -3568,7 +3568,7 @@
       "projectName": "gimpo-ongyeol",
       "plannedOrigin": "https://gimpo-ongyeol.pages.dev",
       "previewOrigin": "https://gimpo-ongyeol.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://gimpo-ongyeol.pages.dev",
       "brandName": "김포온결",
       "layoutVariant": "v1",
       "theme": {
@@ -3615,9 +3615,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_GIMPO",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_GIMPO",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "김포시"
@@ -4324,7 +4324,7 @@
       "projectName": "namyangju-hyudam",
       "plannedOrigin": "https://namyangju-hyudam.pages.dev",
       "previewOrigin": "https://namyangju-hyudam.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://namyangju-hyudam.pages.dev",
       "brandName": "남양주휴담",
       "layoutVariant": "v2",
       "theme": {
@@ -4371,9 +4371,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_NAMYANGJU",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_NAMYANGJU",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "남양주시"
@@ -5112,7 +5112,7 @@
       "projectName": "dongducheon-shimon",
       "plannedOrigin": "https://dongducheon-shimon.pages.dev",
       "previewOrigin": "https://dongducheon-shimon.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://dongducheon-shimon.pages.dev",
       "brandName": "동두천쉼온",
       "layoutVariant": "v3",
       "theme": {
@@ -5159,9 +5159,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_DONGDUCHEON",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_DONGDUCHEON",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "동두천시"
@@ -5456,7 +5456,7 @@
       "projectName": "bucheon-haruon",
       "plannedOrigin": "https://bucheon-haruon.pages.dev",
       "previewOrigin": "https://bucheon-haruon.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://bucheon-haruon.pages.dev",
       "brandName": "부천하루온",
       "layoutVariant": "v4",
       "theme": {
@@ -5503,9 +5503,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_BUCHEON",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_BUCHEON",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "부천시"
@@ -6364,7 +6364,7 @@
       "projectName": "seongnam-onhyu",
       "plannedOrigin": "https://seongnam-onhyu.pages.dev",
       "previewOrigin": "https://seongnam-onhyu.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://seongnam-onhyu.pages.dev",
       "brandName": "성남온휴",
       "layoutVariant": "v5",
       "theme": {
@@ -6411,9 +6411,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_SEONGNAM",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_SEONGNAM",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "성남시"
@@ -7640,7 +7640,7 @@
       "projectName": "suwon-hyuon",
       "plannedOrigin": "https://suwon-hyuon.pages.dev",
       "previewOrigin": "https://suwon-hyuon.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://suwon-hyuon.pages.dev",
       "brandName": "수원휴온",
       "layoutVariant": "v6",
       "theme": {
@@ -7687,9 +7687,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_SUWON",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_SUWON",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "수원시"
@@ -8915,7 +8915,7 @@
       "projectName": "siheung-gyeolshim",
       "plannedOrigin": "https://siheung-gyeolshim.pages.dev",
       "previewOrigin": "https://siheung-gyeolshim.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://siheung-gyeolshim.pages.dev",
       "brandName": "시흥결쉼",
       "layoutVariant": "v1",
       "theme": {
@@ -8962,9 +8962,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_SIHEUNG",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_SIHEUNG",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "시흥시"
@@ -9591,7 +9591,7 @@
       "projectName": "ansan-hyugyeol",
       "plannedOrigin": "https://ansan-hyugyeol.pages.dev",
       "previewOrigin": "https://ansan-hyugyeol.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://ansan-hyugyeol.pages.dev",
       "brandName": "안산휴결",
       "layoutVariant": "v2",
       "theme": {
@@ -9638,9 +9638,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_ANSAN",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_ANSAN",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "안산시"
@@ -10506,7 +10506,7 @@
       "projectName": "anseong-ondam",
       "plannedOrigin": "https://anseong-ondam.pages.dev",
       "previewOrigin": "https://anseong-ondam.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://anseong-ondam.pages.dev",
       "brandName": "안성온담",
       "layoutVariant": "v3",
       "theme": {
@@ -10553,9 +10553,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_ANSEONG",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_ANSEONG",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "안성시"
@@ -11784,7 +11784,7 @@
       "projectName": "anyang-shimgyeol",
       "plannedOrigin": "https://anyang-shimgyeol.pages.dev",
       "previewOrigin": "https://anyang-shimgyeol.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://anyang-shimgyeol.pages.dev",
       "brandName": "안양쉼결",
       "layoutVariant": "v4",
       "theme": {
@@ -11831,9 +11831,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_ANYANG",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_ANYANG",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "안양시"
@@ -12609,7 +12609,7 @@
       "projectName": "yangju-hyuon",
       "plannedOrigin": "https://yangju-hyuon.pages.dev",
       "previewOrigin": "https://yangju-hyuon.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://yangju-hyuon.pages.dev",
       "brandName": "양주휴온",
       "layoutVariant": "v5",
       "theme": {
@@ -12656,9 +12656,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_YANGJU",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_YANGJU",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "양주시"
@@ -13165,7 +13165,7 @@
       "projectName": "yeoncheon-onshim",
       "plannedOrigin": "https://yeoncheon-onshim.pages.dev",
       "previewOrigin": "https://yeoncheon-onshim.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://yeoncheon-onshim.pages.dev",
       "brandName": "연천온쉼",
       "layoutVariant": "v6",
       "theme": {
@@ -13212,9 +13212,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_YEONCHEON",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_YEONCHEON",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "연천군"
@@ -13989,7 +13989,7 @@
       "projectName": "osan-gyeolon",
       "plannedOrigin": "https://osan-gyeolon.pages.dev",
       "previewOrigin": "https://osan-gyeolon.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://osan-gyeolon.pages.dev",
       "brandName": "오산결온",
       "layoutVariant": "v1",
       "theme": {
@@ -14036,9 +14036,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_OSAN",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_OSAN",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "오산시"
@@ -14373,7 +14373,7 @@
       "projectName": "yongin-hyugyeol",
       "plannedOrigin": "https://yongin-hyugyeol.pages.dev",
       "previewOrigin": "https://yongin-hyugyeol.pages.dev",
-      "publicOrigin": null,
+      "publicOrigin": "https://yongin-hyugyeol.pages.dev",
       "brandName": "용인휴결",
       "layoutVariant": "v2",
       "theme": {
@@ -14420,9 +14420,9 @@
       },
       "gaMeasurementIdEnv": "NEXT_PUBLIC_GA_MEASUREMENT_ID_YONGIN",
       "gaPropertyIdEnv": "GA4_PROPERTY_ID_YONGIN",
-      "deploymentState": "planned",
-      "isPublic": false,
-      "indexingEnabled": false,
+      "deploymentState": "public",
+      "isPublic": true,
+      "indexingEnabled": true,
       "sourcePathPrefix": [
         "gyeonggi",
         "용인시"

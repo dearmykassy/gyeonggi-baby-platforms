@@ -11,6 +11,29 @@ import {
 const FORBIDDEN_ROOT_SUFFIX =
   /(?:특별자치도|특별자치시|특별시|광역시|도|시|군)$/u;
 
+const PUBLIC_SITE_KEYS = new Set([
+  "goyang",
+  "gwacheon",
+  "gwangmyeong",
+  "gwangju-gyeonggi",
+  "guri",
+  "gunpo",
+  "gimpo",
+  "namyangju",
+  "dongducheon",
+  "bucheon",
+  "seongnam",
+  "suwon",
+  "siheung",
+  "ansan",
+  "anseong",
+  "anyang",
+  "yangju",
+  "yeoncheon",
+  "osan",
+  "yongin",
+]);
+
 describe("Gyeonggi baby site registry", () => {
   it("contains exactly the 27 in-scope city and county platforms", () => {
     expect(BABY_SITE_KEYS).toHaveLength(27);
@@ -48,11 +71,12 @@ describe("Gyeonggi baby site registry", () => {
       expect(site.brandName).not.toContain(site.officialName);
       expect(site.plannedOrigin).toBe(`https://${site.projectName}.pages.dev`);
       expect(site.previewOrigin).toBe(site.plannedOrigin);
-      expect(site.publicOrigin).toBeNull();
-      expect(site.origin).toBe(site.previewOrigin);
-      expect(site.deploymentState).toBe("planned");
-      expect(site.isPublic).toBe(false);
-      expect(site.indexingEnabled).toBe(false);
+      const isPublic = PUBLIC_SITE_KEYS.has(site.key);
+      expect(site.publicOrigin).toBe(isPublic ? site.plannedOrigin : null);
+      expect(site.origin).toBe(site.plannedOrigin);
+      expect(site.deploymentState).toBe(isPublic ? "public" : "planned");
+      expect(site.isPublic).toBe(isPublic);
+      expect(site.indexingEnabled).toBe(isPublic);
       expect(site.gaMeasurementIdEnv).toMatch(
         /^NEXT_PUBLIC_GA_MEASUREMENT_ID_[A-Z0-9_]+$/u,
       );
@@ -62,6 +86,8 @@ describe("Gyeonggi baby site registry", () => {
     expect(getSiteConfig("gwangju-gyeonggi").plannedOrigin).toBe(
       "https://gwangju-onshim.pages.dev",
     );
+    expect(ALL_BABY_SITES.filter((site) => site.isPublic)).toHaveLength(20);
+    expect(ALL_BABY_SITES.filter((site) => !site.isPublic)).toHaveLength(7);
   });
 
   it("distributes the six substantial layout variants as 5/5/5/4/4/4", () => {

@@ -45,7 +45,7 @@ pnpm build:all
 내보냅니다. 배포 영수증이 필요한 공식 빌드는 계속 `pnpm build:site`를
 사용합니다.
 
-무료 배포 후보는 Cloudflare Pages Direct Upload이며, 도시별 정적 결과물을 별도 `*.pages.dev` 프로젝트로 배포합니다.
+무료 배포는 Cloudflare Pages Direct Upload를 사용하며, 도시별 정적 결과물을 별도 `*.pages.dev` 프로젝트로 배포합니다. 현재 실제 생성·검증된 20개 Pages 프로젝트만 public canonical과 `index,follow`로 승격했고, Cloudflare 신규 계정 프로젝트 생성 제한에 걸린 나머지 7개는 실제 HTTPS origin이 생길 때까지 preview canonical과 `noindex,nofollow`를 유지합니다.
 
 ## Cloudflare Pages 배포 안전 절차
 

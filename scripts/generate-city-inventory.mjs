@@ -172,7 +172,28 @@ if (
 // deployed, and audited. Keeping this explicit makes a public indexability
 // change reviewable and prevents an unverified free subdomain from leaking
 // into canonical, robots, sitemap, or RSS output.
-const PUBLIC_SITE_KEYS = [];
+const PUBLIC_SITE_KEYS = [
+  "goyang",
+  "gwacheon",
+  "gwangmyeong",
+  "gwangju-gyeonggi",
+  "guri",
+  "gunpo",
+  "gimpo",
+  "namyangju",
+  "dongducheon",
+  "bucheon",
+  "seongnam",
+  "suwon",
+  "siheung",
+  "ansan",
+  "anseong",
+  "anyang",
+  "yangju",
+  "yeoncheon",
+  "osan",
+  "yongin",
+];
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");

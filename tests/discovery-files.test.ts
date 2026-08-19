@@ -31,16 +31,22 @@ describe("baby platform discovery-file contract", () => {
     }
   });
 
-  it("keeps planned provider hosts fail-closed until publication", () => {
+  it("publishes only verified provider hosts and keeps pending hosts fail-closed", () => {
     for (const site of ALL_BABY_SITES) {
       const publication = getSitePublicationContract(site);
-      expect(publication.indexable).toBe(false);
-      expect(publication.origin).toMatch(/\.invalid$/u);
-      expect(publication.robots).toEqual({
-        index: false,
-        follow: false,
-        nocache: true,
-      });
+      if (site.deploymentState === "public") {
+        expect(publication.indexable).toBe(true);
+        expect(publication.origin).toBe(site.plannedOrigin);
+        expect(publication.robots).toEqual({ index: true, follow: true });
+      } else {
+        expect(publication.indexable).toBe(false);
+        expect(publication.origin).toMatch(/\.invalid$/u);
+        expect(publication.robots).toEqual({
+          index: false,
+          follow: false,
+          nocache: true,
+        });
+      }
     }
   });
 });

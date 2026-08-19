@@ -109,7 +109,7 @@ type CityInventory = Readonly<{
 const EXPECTED_SOURCE_FILE_SHA256 =
   "0242e5d86894321cba66b7f747675115520d856c7aaada870869e19f247500d2";
 const EXPECTED_INVENTORY_DIGEST =
-  "sha256:57b8fd77d0a5afbbde88fccbead6cab48367f1798fbd15e72e7329345c22bea5";
+  "sha256:1a7ac95ec2f15baacbdf472dffa513bf1dce56ae5cc73522fc61adf8cd6d6b82";
 
 const inventory = cityInventoryJson as unknown as CityInventory;
 
