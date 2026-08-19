@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-05-v1",
+  "siteKey": "osan",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-05-v1.txt",
+  "promptSha256": "1a5a0de9338738376028e2c590afb1ffaaf18b483cdecb818828211f45ebc8d0",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2b2c045e-0d5f-4812-af52-f8a05100c26e.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-05-v1.png",
+  "outputSha256": "4ae362a1b4a337fa5cd6f4e4c1a0966312bb22747fcbb8dfb0c1a358639446ce",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque business-casual knit and knee-covering skirt; hands are naturally posed; clean unbranded reception, no prohibited objects or marks, and safe responsive margins.",
+    "reviewedAt": "2026-08-19"
+  }
+}

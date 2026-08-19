@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hanam-04-v2",
+  "stableAssetId": "gbt11-hanam-04",
+  "siteKey": "hanam",
+  "sourceAttemptId": "gbt11-hanam-04-v1",
+  "sourceReceiptSha256": "bb10d485470cfcbd9dd038ef3bf7177ab475819bd6de6f6d9047a215316c295f",
+  "sourceRejectedOutputSha256": "8e6fdd5f2c8acf4ecb521473c54de133cb2d4f7b81ff13b3a3dcce323ac62fcf",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/hanam/gbt11-hanam-04-v2.txt",
+  "promptSha256": "707de3595244d31f97522cf13aab742e80d15c18415f0368871e3dd3bb853807",
+  "correction": "Replace the rejected bedroom-adjacent scene with one adult Korean woman in a standing portrait inside a clean entrance studio with a matte wall, closed door, and narrow wood console; absolutely no bed, no mattress, no massage table, no treatment table, no sofa, no padded bench, no bathroom, no machine, no phone, no mirror, no reflective surface, no text or logo; opaque professional clothing, natural visible hands, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/hanam/gbt11-hanam-04-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/hanam/gbt11-hanam-04-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

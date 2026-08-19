@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-01-v2",
+  "stableAssetId": "gbt11-pyeongtaek-01",
+  "siteKey": "pyeongtaek",
+  "sourceAttemptId": "gbt11-pyeongtaek-01-v1",
+  "sourceReceiptSha256": "f08f515f35ad8deebcc4078591a2b2442678c7f913f933dbf253362069331992",
+  "sourceRejectedOutputSha256": "fb0e062501d506988f533f79ccefe7e8a06184ea5ff46baae678201db373e10b",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/pyeongtaek/gbt11-pyeongtaek-01-v2.txt",
+  "promptSha256": "6c8160bafd6a003e3c2658c47f2899fb0dd1b7a0ded719597c17c6a4652556e8",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-01-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-86b6deef-a498-45a3-9e78-16e4e8abb2ac.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-01-v2.png",
+  "outputSha256": "f7a34617e8756169ffdee7515f5882f63c0da23f029a521be0d346e33be5216c",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque blue blouse and black trousers in a clean entry-studio standing portrait; natural hands and anatomy; no bed, massage table, treatment table, sofa, phone, mirror, text, logo, watermark, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

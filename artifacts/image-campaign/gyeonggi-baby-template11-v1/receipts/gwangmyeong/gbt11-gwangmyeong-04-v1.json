@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangmyeong-04-v1",
+  "siteKey": "gwangmyeong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangmyeong/gbt11-gwangmyeong-04-v1.txt",
+  "promptSha256": "7c65e4ab590abd8bc4b2adb8201df0cdee12a1f7575ba7dd90f9077931faa0aa",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-3b762388-e477-4877-916e-01191750ad2d.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-04-v1.png",
+  "outputSha256": "bcda054cf7953dfd9bf3b981ab6b062d2d2b56e075a3c29625f984ebb7dab3b0",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman seated upright; opaque modest outfit with tights; normal hands and anatomy; no prohibited objects or marks; centered responsive crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

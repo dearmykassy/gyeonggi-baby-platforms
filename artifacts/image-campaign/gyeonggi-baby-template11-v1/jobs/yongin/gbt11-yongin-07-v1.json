@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-07-v1",
+  "siteKey": "yongin",
+  "cityName": "용인",
+  "localIndex": 7,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-07-v1.txt",
+  "promptSha256": "53c4f6b338da4e51c5e323b0aec9ac53f02ca0339eef9a141facf164373f8d31",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-07-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/yongin/gbt11-yongin-07-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

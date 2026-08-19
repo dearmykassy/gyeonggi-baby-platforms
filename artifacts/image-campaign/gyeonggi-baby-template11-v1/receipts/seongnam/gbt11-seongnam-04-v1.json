@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-04-v1",
+  "siteKey": "seongnam",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/seongnam/gbt11-seongnam-04-v1.txt",
+  "promptSha256": "03da0d31dc6b0b9df4746a8a65958a2c5b0391e701b0281933411cadd5886ef3",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-04-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-3a797f57-0192-4ea4-96cd-c77e656a2427",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-04-v1.png",
+  "outputSha256": "cecf0ef6548a55c3d60a6530634335010bc41bd6fb541d0023ef44f8314f601c",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in a complete opaque wrap knit and cream skirt with tights; nonsexual seated pose; hands and anatomy are natural; no phone, text, logo, bed, bathroom, or machine; face and torso are crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

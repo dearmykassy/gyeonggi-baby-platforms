@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-02-v1",
+  "siteKey": "uijeongbu",
+  "cityName": "의정부",
+  "localIndex": 2,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uijeongbu/gbt11-uijeongbu-02-v1.txt",
+  "promptSha256": "93de4c38842c6bec6f62829b733f739e017934f2656d63e1496f9fe545cfda53",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uijeongbu/gbt11-uijeongbu-02-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/uijeongbu/gbt11-uijeongbu-02-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anseong-01-v1",
+  "siteKey": "anseong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/anseong/gbt11-anseong-01-v1.txt",
+  "promptSha256": "5f24862ae43b3132aae83697cbba935010e3e139a627303cb56a528deed89da5",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anseong/gbt11-anseong-01-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-48cb8650-8537-4531-93a7-3c6d40af9598",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anseong/gbt11-anseong-01-v1.png",
+  "outputSha256": "45f55b3bc2b5ad04d3f4246461bec73a66b6286075211c257f93740d7452881a",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in complete opaque taupe knit, skirt, and tights; nonsexual seated pose; normal hands/anatomy; no phone, text, logo, bed, bathroom, or machine; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

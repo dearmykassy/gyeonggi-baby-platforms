@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yangju-05-v1",
+  "siteKey": "yangju",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yangju/gbt11-yangju-05-v1.txt",
+  "promptSha256": "72b8b74adae452ec73d01cf0d1dab0dba49f6d28f00bc1ed04036ed6c0b367cd",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yangju/gbt11-yangju-05-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-efd72f0e-fd83-4981-b007-52d90b2ea75f",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yangju/gbt11-yangju-05-v1.png",
+  "outputSha256": "4f54eaa72e89e0491298ee868027f8377f9b72d447c65a9b7b319b4ff5d04147",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in complete opaque brown wrap knit and long taupe skirt; composed reception portrait; natural hands/anatomy; no phone, text, logo, bed, bathroom, or machine; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

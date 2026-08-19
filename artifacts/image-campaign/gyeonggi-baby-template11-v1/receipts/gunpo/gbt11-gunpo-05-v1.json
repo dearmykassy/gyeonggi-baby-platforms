@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gunpo-05-v1",
+  "siteKey": "gunpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gunpo/gbt11-gunpo-05-v1.txt",
+  "promptSha256": "633cda6c15489dc8a9c486e10b94c42e4f7c2227ffd102ed45a966b686818b6b",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-b9c01bd8-4dd2-4fa9-9929-bb3a84782ae2.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-05-v1.png",
+  "outputSha256": "75012d2f75af15586b539cd6d8055c390227a795308e52eb0bab824397f317f7",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman preparing towels; fully opaque clothing; normal hands; plain unlabeled pump; no prohibited scene elements, text, logo, or watermark; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

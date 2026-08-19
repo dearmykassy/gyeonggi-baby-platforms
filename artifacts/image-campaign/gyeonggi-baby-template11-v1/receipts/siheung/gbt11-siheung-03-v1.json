@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-siheung-03-v1",
+  "siteKey": "siheung",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/siheung/gbt11-siheung-03-v1.txt",
+  "promptSha256": "3188ad329695132025d507ce9c9a1148957bd01226de543eadc3d7fef1cea5ad",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/siheung/gbt11-siheung-03-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-5d62807f-9d63-425d-8c1a-5e902200f4e5",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/siheung/gbt11-siheung-03-v1.png",
+  "outputSha256": "f08ad279360d6e94f143965ca6f992597511504fd864252f480add8d72a32e63",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back carries a clearly visible central fruit-shaped/Apple-style mark despite the explicit no-central-mark and no-recognizable-branding constraint; reject preserved without retry.",
+    "reviewedAt": "2026-08-19"
+  }
+}

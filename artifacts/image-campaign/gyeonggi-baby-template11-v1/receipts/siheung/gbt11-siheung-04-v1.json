@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-siheung-04-v1",
+  "siteKey": "siheung",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/siheung/gbt11-siheung-04-v1.txt",
+  "promptSha256": "212c62c987e453b97e99cb76092c5f3b7061b46ff1a70d476f0b8edcbb95baa4",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/siheung/gbt11-siheung-04-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-a7d0c194-f950-4fff-a28e-1670b76527d3",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/siheung/gbt11-siheung-04-v1.png",
+  "outputSha256": "57dc3a105b7974591c73ff69e10d2f8ec43334a39ef8b355dd4dfe6a0b55e5b5",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in complete opaque beige cardigan and brown slacks; calm residential lounge portrait; natural hands/anatomy; no phone, text, logo, bed, bathroom, or machine; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

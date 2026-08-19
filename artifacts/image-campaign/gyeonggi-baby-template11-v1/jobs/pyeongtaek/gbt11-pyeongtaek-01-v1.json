@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-01-v1",
+  "siteKey": "pyeongtaek",
+  "cityName": "평택",
+  "localIndex": 1,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-01-v1.txt",
+  "promptSha256": "e482cb0d2a3d7e1e5e66ad2dd9f4ef6192638fc93435ec1f1008755e5fc04bbc",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/pyeongtaek/gbt11-pyeongtaek-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

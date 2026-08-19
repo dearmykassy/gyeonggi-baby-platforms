@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-05-v2",
+  "stableAssetId": "gbt11-goyang-05",
+  "siteKey": "goyang",
+  "sourceAttemptId": "gbt11-goyang-05-v1",
+  "sourceReceiptSha256": "a02d921f8d1787efb8ddcfb5356aae4ff2560fadd85a312fe3a1b339b64db88b",
+  "sourceRejectedOutputSha256": "8b5ba0aa0a4ba43c88a735aed8943c0404541b9faed6310266a8196efa78835f",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/goyang/gbt11-goyang-05-v2.txt",
+  "promptSha256": "9c082b8ebf30462048f3fc861c19c28173e83d5dd3afb66f2a351d8c224c0259",
+  "correction": "Use a plain matte phone back with exactly one small flat lens and no other lens, flash dot, sensor dot, raised module, camera island, central mark, logo, text, or decoration. Keep the full face visible beside the phone and exactly one coherent mirror reflection.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/goyang/gbt11-goyang-05-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/goyang/gbt11-goyang-05-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

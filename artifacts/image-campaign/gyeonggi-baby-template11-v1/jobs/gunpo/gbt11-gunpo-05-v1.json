@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gunpo-05-v1",
+  "siteKey": "gunpo",
+  "cityName": "군포",
+  "localIndex": 5,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gunpo/gbt11-gunpo-05-v1.txt",
+  "promptSha256": "633cda6c15489dc8a9c486e10b94c42e4f7c2227ffd102ed45a966b686818b6b",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gunpo/gbt11-gunpo-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-01-v1",
+  "siteKey": "yongin",
+  "cityName": "용인",
+  "localIndex": 1,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-01-v1.txt",
+  "promptSha256": "9a09ffaf6d15eedcb6cebe43486490bc6704582d53cdf169070b6aa02805f555",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/yongin/gbt11-yongin-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

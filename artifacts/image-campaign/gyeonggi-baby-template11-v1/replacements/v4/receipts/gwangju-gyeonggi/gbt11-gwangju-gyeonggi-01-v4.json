@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v4",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v3",
+  "sourceReceiptSha256": "860c35c693ac9768fa269ef195784013aab21aec1415c755262ed83e0e4e1368",
+  "sourceRejectedOutputSha256": "bac547c6cb09d3782dc2e4448822fda635f5967c1551a381e2fc7e965193dc0c",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.txt",
+  "promptSha256": "a9545795f66ecb13f09e97216de023b666813367d23a6d4805c34b66d57ce380",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.png",
+  "actualCallReference": "builtin:imagegen:exec-b8a5236c-39a9-46df-9fa2-40a0ae6b26f3.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.png",
+  "outputSha256": "47f15a39373ae6e2271abc2317e6e217f7e9a47200f609055637da82698aca4c",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "장면은 한 장의 연속된 거울 화면 안에 성인 한국 여성 1명만 보여 단일 반사·착의·비선정·해부·크롭 기준을 통과함. 그러나 휴대폰 후면 상단에 원형 렌즈 요소가 2개 보여 정확히 1개만 허용한 조건을 위반함. v4 후보를 보존하고 추가 재호출하지 않음.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hwaseong-01-v1",
+  "siteKey": "hwaseong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hwaseong/gbt11-hwaseong-01-v1.txt",
+  "promptSha256": "a9b2ff9ee6e818d629b3bd899fcb5bea1684265d0fd5fac72ca3700947aad0e2",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-595e5df6-7cbe-4e3d-a2c3-0ba7d46796a4.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-01-v1.png",
+  "outputSha256": "8d8a414dfd936eadf43ba2aed1e1d3cf8c96e3e2b73eb6907e8884374be9e9fd",
+  "width": 1672,
+  "height": 941,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque fitted knit and long skirt; natural hands and anatomy; no phone, extra person, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

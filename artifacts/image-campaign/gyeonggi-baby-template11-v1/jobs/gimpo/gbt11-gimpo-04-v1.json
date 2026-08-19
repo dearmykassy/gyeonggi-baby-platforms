@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-04-v1",
+  "siteKey": "gimpo",
+  "cityName": "김포",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-04-v1.txt",
+  "promptSha256": "02e6aa6343a956d69ef4e3740506c250a471b912dcf6e7d7b722ae50d130ad2a",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gimpo/gbt11-gimpo-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

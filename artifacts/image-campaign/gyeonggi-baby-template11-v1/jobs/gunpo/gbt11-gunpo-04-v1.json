@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gunpo-04-v1",
+  "siteKey": "gunpo",
+  "cityName": "군포",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gunpo/gbt11-gunpo-04-v1.txt",
+  "promptSha256": "2d836bdcec06ef5971a9bf9239c1d1d2e8541c4eb7b242100cfc543355212cde",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gunpo/gbt11-gunpo-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

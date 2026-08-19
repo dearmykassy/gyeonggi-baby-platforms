@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yeoncheon-04-v1",
+  "siteKey": "yeoncheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yeoncheon/gbt11-yeoncheon-04-v1.txt",
+  "promptSha256": "8b7264416d3f7f9f8c41df0b864e8057418319793478541712fc224ffddbe9b0",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yeoncheon/gbt11-yeoncheon-04-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-bd29491f-6a93-4568-bf60-1306dda6c15b",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yeoncheon/gbt11-yeoncheon-04-v1.png",
+  "outputSha256": "0fd48f262145d45de1000422d42504d87548dcabeb831f5a08b558f1ce7b79d0",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in complete opaque blue blouse and plum slacks; calm lounge portrait; natural anatomy; no phone, text, logo, bed, bathroom, or machine; subject is crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

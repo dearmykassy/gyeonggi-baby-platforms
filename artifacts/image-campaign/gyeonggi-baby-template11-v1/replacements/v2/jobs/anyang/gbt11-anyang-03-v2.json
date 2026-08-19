@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anyang-03-v2",
+  "stableAssetId": "gbt11-anyang-03",
+  "siteKey": "anyang",
+  "sourceAttemptId": "gbt11-anyang-03-v1",
+  "sourceReceiptSha256": "77d9569c5f372e6e3fc887b2ca467685bb2504eee33b21655cbb5d13d904597d",
+  "sourceRejectedOutputSha256": "9df83aa94adc4bddb619f791a1c2bf4ed61cbea30dce17fb10daa52e61714aa9",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/anyang/gbt11-anyang-03-v2.txt",
+  "promptSha256": "a976d5b4979aae1c516f4ea16b5e6d67192cdd7567aafdf3ec2fc75576893f4e",
+  "correction": "Override the original mirror-selfie direction completely: show the same single adult Korean woman standing beside a clean reception console with both hands naturally visible; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no text or logo; fully opaque professional clothing; crop-safe portrait.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anyang/gbt11-anyang-03-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/anyang/gbt11-anyang-03-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

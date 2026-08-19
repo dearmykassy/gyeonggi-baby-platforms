@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-suwon-06",
+  "selectedAttemptId": "gbt11-suwon-06-v1",
+  "siteKey": "suwon",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/suwon/gbt11-suwon-06-v1.png",
+  "sourceSha256": "dd50e5b94596ecdbb7afccc08e947d63a2ffe532e57a453d4b0ec5275185dc62",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/suwon/gbt11-suwon-06-v1.json",
+  "sourceReceiptSha256": "655c68ed223587207e58601cf8e7bc736f7faf805300b7e4e8dc5c209ed8da82",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/suwon/gbt11-suwon-06/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "1ed7e19be4b5380967de1321f4b25e6aeb879fe7f8134a9a137f795dc6d8e6da"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/suwon/gbt11-suwon-06/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "8acd61c2ebcf78ae965b6d6d8363863ec85f2d49e4183f896f40c62c46ca5538"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/suwon/gbt11-suwon-06/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "c51e46b85e08869597c1425415868a2dc383e18fdf2d90a58f6c3db2cc831195"
+    }
+  ]
+}

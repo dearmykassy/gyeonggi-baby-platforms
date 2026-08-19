@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-01-v1",
+  "siteKey": "osan",
+  "cityName": "오산",
+  "localIndex": 1,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-01-v1.txt",
+  "promptSha256": "3c79d04b1e2221c8975e7ff59e09479bbc4e94087408bc8f1f46c213ecc2e76f",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/osan/gbt11-osan-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

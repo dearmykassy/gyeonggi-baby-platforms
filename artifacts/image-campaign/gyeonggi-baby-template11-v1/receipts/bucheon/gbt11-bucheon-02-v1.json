@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-bucheon-02-v1",
+  "siteKey": "bucheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/bucheon/gbt11-bucheon-02-v1.txt",
+  "promptSha256": "c3c810e923877a2cbf155977333648f3482b82d57466e04dbef7c8b8f482bcd3",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/bucheon/gbt11-bucheon-02-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-09e3605e-88bc-4bc6-a3b2-acb2feee2995",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/bucheon/gbt11-bucheon-02-v1.png",
+  "outputSha256": "a94dea401f053b1e0dba3a4188a30e0874d1659aa48f3745cc1b9fa27e00455e",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in a complete opaque blouse and tailored slacks; calm professional portrait; hands and anatomy are natural; no phone, reflection, text, logo, bed, bathroom, or machine; central face is crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

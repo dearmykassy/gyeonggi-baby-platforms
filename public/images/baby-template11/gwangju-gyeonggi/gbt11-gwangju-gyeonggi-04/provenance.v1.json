@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-04",
+  "selectedAttemptId": "gbt11-gwangju-gyeonggi-04-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04-v1.png",
+  "sourceSha256": "24a1c558b3b2dff2217923c2422d028692368f519c2fa1503980ebffeb9268f0",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04-v1.json",
+  "sourceReceiptSha256": "949a2e580e22da70de9e60ec7085759e6b57eca62d01e7796524119341e218cc",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "e6045a3aef16a350b343dc259f64011525f6dc84a3c3f787cae31a3d2ba6a3d8"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "a263e55075e853c4fae6cf6defe5cc3875a6dfeff3c459712e3e0ea4ac16fc92"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "935c3168f62d1a72f0c72bf9070d9d52e1e75d118d069fe577389f70186a16ca"
+    }
+  ]
+}

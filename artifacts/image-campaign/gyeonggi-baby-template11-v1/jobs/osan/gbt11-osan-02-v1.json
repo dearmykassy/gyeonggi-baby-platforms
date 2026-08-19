@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-02-v1",
+  "siteKey": "osan",
+  "cityName": "오산",
+  "localIndex": 2,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-02-v1.txt",
+  "promptSha256": "11968c3ff59ec4f65a95d3172ba4595e0c88df2469b3c0ca1a1c6ecf90cfca7e",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-02-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/osan/gbt11-osan-02-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

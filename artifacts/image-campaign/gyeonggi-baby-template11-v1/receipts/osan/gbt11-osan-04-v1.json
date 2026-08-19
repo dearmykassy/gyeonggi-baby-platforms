@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-04-v1",
+  "siteKey": "osan",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-04-v1.txt",
+  "promptSha256": "41fafd08de6c2c0c0765cff7a0e130180d895a660db14383db62dc29d81a1c6c",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-b67154b0-b537-4126-bec0-ac9c65727118.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-04-v1.png",
+  "outputSha256": "640a0a3f5e0cf4990f84d8ba9002f80b90a43c2e2cc8dc376756939df1691c60",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in fully opaque fitted cardigan and trousers; normal visible hands and anatomy; no phone, extra person, text, logo, watermark, bed, bathroom, or machine; face and body are crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

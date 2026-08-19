@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-04-v1",
+  "siteKey": "seongnam",
+  "cityName": "성남",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/seongnam/gbt11-seongnam-04-v1.txt",
+  "promptSha256": "03da0d31dc6b0b9df4746a8a65958a2c5b0391e701b0281933411cadd5886ef3",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/seongnam/gbt11-seongnam-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

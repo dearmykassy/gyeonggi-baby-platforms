@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-paju-04-v1",
+  "siteKey": "paju",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/paju/gbt11-paju-04-v1.txt",
+  "promptSha256": "903e2610feae9b8a374d6caeba0b55a394104aea7ccd8e84c1f2a2f6f0e29e93",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2da724c7-136d-4722-bd8e-0fdda9ce2815.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-04-v1.png",
+  "outputSha256": "8301e0d3f85cf9dfa317b56f35df436e8c58dbd507ceab51256255c597d1cba5",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror selfie with one adult Korean woman; fully opaque blouse and trousers; phone has one small flat corner lens with no island, central mark, logo, or decoration; anatomy and crop are safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

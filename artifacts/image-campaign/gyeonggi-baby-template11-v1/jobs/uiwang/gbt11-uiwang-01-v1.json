@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uiwang-01-v1",
+  "siteKey": "uiwang",
+  "cityName": "의왕",
+  "localIndex": 1,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uiwang/gbt11-uiwang-01-v1.txt",
+  "promptSha256": "248686a853ddc81d3a35c5af7fee591898b9ba88af1b919ddd628c80e7357d8c",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/uiwang/gbt11-uiwang-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

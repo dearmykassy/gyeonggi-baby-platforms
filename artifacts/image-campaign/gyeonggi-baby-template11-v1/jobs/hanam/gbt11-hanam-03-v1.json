@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hanam-03-v1",
+  "siteKey": "hanam",
+  "cityName": "하남",
+  "localIndex": 3,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hanam/gbt11-hanam-03-v1.txt",
+  "promptSha256": "9c5b1a325fb5b9f195204d3b749152a414344bf7e395246df5bb6066e2f5b06a",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/hanam/gbt11-hanam-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

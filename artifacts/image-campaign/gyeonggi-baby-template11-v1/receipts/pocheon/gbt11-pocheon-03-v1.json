@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pocheon-03-v1",
+  "siteKey": "pocheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pocheon/gbt11-pocheon-03-v1.txt",
+  "promptSha256": "864cd8184109b1ce0bfd591bf5fc7563c037cf4812f45daca6b3f68aa1a296fe",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-aafab78c-aa0f-46b6-919d-d07c5072fa9a.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-03-v1.png",
+  "outputSha256": "6b7108373e89f006a5efa1b625942eda520069722d009322ebab3abf7e2ab2d4",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque cardigan, inner top, and trousers preparing folded towels; hands and anatomy are natural; no phone, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

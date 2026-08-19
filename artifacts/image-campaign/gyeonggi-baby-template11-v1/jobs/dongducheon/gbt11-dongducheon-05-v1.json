@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-dongducheon-05-v1",
+  "siteKey": "dongducheon",
+  "cityName": "동두천",
+  "localIndex": 5,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/dongducheon/gbt11-dongducheon-05-v1.txt",
+  "promptSha256": "aed344713e25027ab4e29853feb4ca79ed2dcb1fb1306fb767dc1ae5be7e90e3",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/dongducheon/gbt11-dongducheon-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

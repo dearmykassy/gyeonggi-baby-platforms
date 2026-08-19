@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-02-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02-v1.txt",
+  "promptSha256": "15ad6bca30d8495a59fd8bbd5e668c4dc6b17218cb1b1cb7658f718122e9adea",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-0b3c71dd-e831-483f-8f0f-11fe1a2b1646.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02-v1.png",
+  "outputSha256": "10b74a8fd71b32b130a81d6c8ba4c540c4c839b5539855dccff459752f53874e",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque business-casual clothing; normal anatomy and hands; no prohibited scene elements or marks; centered with responsive margins.",
+    "reviewedAt": "2026-08-19"
+  }
+}

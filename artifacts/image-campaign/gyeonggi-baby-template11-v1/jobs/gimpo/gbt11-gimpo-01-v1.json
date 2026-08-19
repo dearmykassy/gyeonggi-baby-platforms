@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-01-v1",
+  "siteKey": "gimpo",
+  "cityName": "김포",
+  "localIndex": 1,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-01-v1.txt",
+  "promptSha256": "5836f2cf3a5046d3cb3bffa6018d64b45302ce26bfd86b857c0bb896f3f9c358",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gimpo/gbt11-gimpo-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

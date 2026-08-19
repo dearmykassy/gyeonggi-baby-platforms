@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-siheung-03-v2",
+  "stableAssetId": "gbt11-siheung-03",
+  "siteKey": "siheung",
+  "sourceAttemptId": "gbt11-siheung-03-v1",
+  "sourceReceiptSha256": "18abd4f2050bfc61c4f3d9a626b34b2a2f27373c2363730806ab376f153621da",
+  "sourceRejectedOutputSha256": "f08ad279360d6e94f143965ca6f992597511504fd864252f480add8d72a32e63",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/siheung/gbt11-siheung-03-v2.txt",
+  "promptSha256": "41955748234fd0f5b7d80ead5fc31c07375a6e94cf578e9fe880fc575ce1dea1",
+  "correction": "Override the original mirror-selfie direction completely: show the same single adult Korean woman arranging folded towels on a clean stone console in a bright residential lounge; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no text or logo; fully opaque professional clothing; both hands anatomically clear and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/siheung/gbt11-siheung-03-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/siheung/gbt11-siheung-03-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

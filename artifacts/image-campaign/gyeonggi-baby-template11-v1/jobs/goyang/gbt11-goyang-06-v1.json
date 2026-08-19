@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-06-v1",
+  "siteKey": "goyang",
+  "cityName": "고양",
+  "localIndex": 6,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/goyang/gbt11-goyang-06-v1.txt",
+  "promptSha256": "6e4cbe661db19bdcda2ae3e9d047194c640f0025d71792efcbb58821b67ee323",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-06-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/goyang/gbt11-goyang-06-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

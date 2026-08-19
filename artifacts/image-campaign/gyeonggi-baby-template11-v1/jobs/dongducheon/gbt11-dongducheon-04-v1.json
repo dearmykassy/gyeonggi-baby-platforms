@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-dongducheon-04-v1",
+  "siteKey": "dongducheon",
+  "cityName": "동두천",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/dongducheon/gbt11-dongducheon-04-v1.txt",
+  "promptSha256": "6250eaa3622af40742e0f95beb27cfed59c855c75594f31c6b3061e2cb051191",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/dongducheon/gbt11-dongducheon-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-03-v1",
+  "siteKey": "osan",
+  "cityName": "오산",
+  "localIndex": 3,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-03-v1.txt",
+  "promptSha256": "7a9c14b63534b3164277b6b27f28ca368585706eabc1a147f66796d5ebfaf599",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/osan/gbt11-osan-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

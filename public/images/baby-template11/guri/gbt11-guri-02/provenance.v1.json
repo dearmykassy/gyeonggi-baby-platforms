@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-guri-02",
+  "selectedAttemptId": "gbt11-guri-02-v1",
+  "siteKey": "guri",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-02-v1.png",
+  "sourceSha256": "3f209d4c7c01f42b84683158952c34bcd1ff927c85554c9bbdf77b26023a40b6",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/guri/gbt11-guri-02-v1.json",
+  "sourceReceiptSha256": "f3aaa34cf216fd17e954bb442f00319f7c2e117b41fcad85dbc3aaec484c6bd4",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/guri/gbt11-guri-02/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "e5c7b0f9d177097a1fe4cfb757259aaaf679b49f656ad9762155d14674775383"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/guri/gbt11-guri-02/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "294cf74efb8bb2b64f852b2b6de965f81090ed4c7c2e3b7a4ff27703926dc729"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/guri/gbt11-guri-02/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "0f3f8f916f9551d682aefb4eae0b9fdf77af2e090f6de1f4e05539c82d299fea"
+    }
+  ]
+}

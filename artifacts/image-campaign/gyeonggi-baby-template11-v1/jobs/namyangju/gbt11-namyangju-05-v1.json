@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-namyangju-05-v1",
+  "siteKey": "namyangju",
+  "cityName": "남양주",
+  "localIndex": 5,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/namyangju/gbt11-namyangju-05-v1.txt",
+  "promptSha256": "dcf201f69d50a1d35ebd1d81be13977d43e060c4b71088176946e70ec51ebea7",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/namyangju/gbt11-namyangju-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

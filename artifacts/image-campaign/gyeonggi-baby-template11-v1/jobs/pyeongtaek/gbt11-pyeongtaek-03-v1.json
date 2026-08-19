@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-03-v1",
+  "siteKey": "pyeongtaek",
+  "cityName": "평택",
+  "localIndex": 3,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-03-v1.txt",
+  "promptSha256": "d29759d2c053da8d179aef3a8620f34e56a00ad68a235ec0ee0e39e09d1b6baa",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/pyeongtaek/gbt11-pyeongtaek-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

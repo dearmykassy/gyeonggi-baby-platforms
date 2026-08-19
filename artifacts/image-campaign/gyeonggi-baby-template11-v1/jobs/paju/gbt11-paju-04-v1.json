@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-paju-04-v1",
+  "siteKey": "paju",
+  "cityName": "파주",
+  "localIndex": 4,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/paju/gbt11-paju-04-v1.txt",
+  "promptSha256": "903e2610feae9b8a374d6caeba0b55a394104aea7ccd8e84c1f2a2f6f0e29e93",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/paju/gbt11-paju-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

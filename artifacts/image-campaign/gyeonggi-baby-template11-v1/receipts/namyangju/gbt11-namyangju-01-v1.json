@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-namyangju-01-v1",
+  "siteKey": "namyangju",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/namyangju/gbt11-namyangju-01-v1.txt",
+  "promptSha256": "918203c9b31ac157639fe6eea494f0414aba6d2b335c264dd85f1afebde6db02",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-c8bf971c-e12c-407c-8a9d-4d290fd786a5.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-01-v1.png",
+  "outputSha256": "b799fb7237d1250395a0afa9120d3d41c8dc42ea33812d894be5653b8d7ad1a2",
+  "width": 1535,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror selfie with full face visible; plain unbranded phone has one small flat lens, no raised island or central mark; reflection and anatomy are consistent; responsive crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

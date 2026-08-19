@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pocheon-05-v1",
+  "siteKey": "pocheon",
+  "cityName": "포천",
+  "localIndex": 5,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pocheon/gbt11-pocheon-05-v1.txt",
+  "promptSha256": "9f67e06776d6843049722d30d829ed934a89d2277bda2339c96b875df2e3b33f",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/pocheon/gbt11-pocheon-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

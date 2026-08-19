@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-07-v2",
+  "stableAssetId": "gbt11-seongnam-07",
+  "siteKey": "seongnam",
+  "sourceAttemptId": "gbt11-seongnam-07-v1",
+  "sourceReceiptSha256": "c2f51fe95d94e3ff730000a9b1800a3912cd433ca6d56ecbab21fcdf19a47dab",
+  "sourceRejectedOutputSha256": "2c7464f55563ef2f9ff36ae5aae7451b986b413b8ed7a34121236121752b589b",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/seongnam/gbt11-seongnam-07-v2.txt",
+  "promptSha256": "5f8980517732dd803320ee66898861aad58fea1687c6f77dce8d9226cd30d3a8",
+  "correction": "Replace the rejected setting with a bright uncluttered apartment entry foyer standing portrait: the single adult Korean woman stands upright with both hands naturally joined at waist level; no bed, no massage table, no sofa, no chair, no bench, no padded furniture, no phone, no mirror, no reflective surface, no medical machine, no text or logo; fully opaque professional clothing; keep face, hands, and torso crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-07-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/seongnam/gbt11-seongnam-07-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

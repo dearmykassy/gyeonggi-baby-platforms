@@ -1,0 +1,45 @@
+{
+  "name": "gyeonggi-baby-platforms",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "BABY_SITE_KEY=${BABY_SITE_KEY:-suwon} next dev -p 4340",
+    "test": "vitest run",
+    "test:baby-images": "vitest run tests/baby-image-campaign.test.mjs tests/baby-image-release-gate.test.mjs",
+    "test:baby-images:portable": "BABY_IMAGE_PORTABLE=1 vitest run tests/baby-image-campaign.test.mjs tests/baby-image-release-gate.test.mjs",
+    "test:baby-images:raw": "BABY_IMAGE_REQUIRE_AUTHORING_RAW=1 vitest run tests/baby-image-campaign.test.mjs tests/baby-image-release-gate.test.mjs",
+    "test:browser:install": "playwright install chromium",
+    "test:browser:production": "node scripts/test-production-browser.mjs",
+    "typecheck": "next typegen && tsc --noEmit",
+    "lint": "eslint .",
+    "build": "next build",
+    "build:site": "node scripts/build-site.mjs",
+    "build:all": "node scripts/build-all-sites.mjs",
+    "deploy:cloudflare": "node scripts/deploy-cloudflare-pages.mjs",
+    "provision:ga4": "node scripts/provision-ga4-properties.mjs",
+    "sanitize:public-authority": "node scripts/sanitize-baby-public-authority.mjs",
+    "audit:copy": "node --import tsx scripts/audit-copy-duplication.mjs",
+    "audit:build": "node scripts/audit-built-output.mjs",
+    "verify": "pnpm test && pnpm typecheck && pnpm lint && pnpm test:browser:production"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.0",
+    "playwright": "1.62.0",
+    "sharp": "0.34.5",
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "vitest": "^4.1.10",
+    "wrangler": "4.124.0"
+  },
+  "packageManager": "pnpm@10.29.3"
+}

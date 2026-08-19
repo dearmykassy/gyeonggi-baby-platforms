@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v2",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v1",
+  "sourceReceiptSha256": "f213d7486c193eb42dbeb642b25115bdb7902457046d6c00edb17fa833f3a56b",
+  "sourceRejectedOutputSha256": "e0c88054f96b9f8308b21e9b3509a31be5f89001fce434f0f2773f961e9c321f",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.txt",
+  "promptSha256": "0ea431b2ef5ff24f05c03b5f0b6995639597ad14e16265e88890119205f9a605",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-7b6d2940-db2b-414f-a6d7-70952a61709f.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.png",
+  "outputSha256": "5c244cd591a8eac135c9ab0548c51806462e3d0570198e7e7c0258ea2d497900",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "휴대폰 후면의 단일 렌즈 왼쪽 위에 별도의 밝은 원형 점이 남아 있어 flash/sensor/추가 하드웨어 전면 금지 보정 조건을 위반함. v2 실패 후보는 보존하고 재호출하지 않음.",
+    "reviewedAt": "2026-08-19"
+  }
+}

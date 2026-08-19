@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangmyeong-01-v1",
+  "siteKey": "gwangmyeong",
+  "cityName": "광명",
+  "localIndex": 1,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangmyeong/gbt11-gwangmyeong-01-v1.txt",
+  "promptSha256": "9418da87866d3dc22eabb6e03fd3ffb7864fd9bd84da7c907316c00abacf31cd",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwangmyeong/gbt11-gwangmyeong-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

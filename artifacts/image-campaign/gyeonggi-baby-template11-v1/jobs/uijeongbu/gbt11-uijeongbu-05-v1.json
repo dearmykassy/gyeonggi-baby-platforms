@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-05-v1",
+  "siteKey": "uijeongbu",
+  "cityName": "의정부",
+  "localIndex": 5,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uijeongbu/gbt11-uijeongbu-05-v1.txt",
+  "promptSha256": "10aec14a91e45d7c8aad3e3713e488016dbd6423d679fbf27a30fde5c188a397",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uijeongbu/gbt11-uijeongbu-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/uijeongbu/gbt11-uijeongbu-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

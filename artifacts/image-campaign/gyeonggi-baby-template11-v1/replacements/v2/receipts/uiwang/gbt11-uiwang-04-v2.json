@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uiwang-04-v2",
+  "stableAssetId": "gbt11-uiwang-04",
+  "siteKey": "uiwang",
+  "sourceAttemptId": "gbt11-uiwang-04-v1",
+  "sourceReceiptSha256": "36e80226648cf06f06e045020f0a8ed1433ae8063b2fafd092f089e48170724a",
+  "sourceRejectedOutputSha256": "92ef6a3964feed2e478be41fe178075ba826dfb239d4af18d2b28bf5284564d3",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/uiwang/gbt11-uiwang-04-v2.txt",
+  "promptSha256": "e817940a6a173a1af807b1e064b9819a750971f01ae3c014506203a2dbd186b6",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uiwang/gbt11-uiwang-04-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-a7c02869-9691-4e4a-bff6-a828c76588ae.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uiwang/gbt11-uiwang-04-v2.png",
+  "outputSha256": "d743e5b119ed8f1ff8e535415c2d85f9140588d2cf42c021eaad6b21af55fbaa",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque blouse and trousers preparing folded towels; hands and anatomy appear natural; no phone, mirror, reflection, extra person, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

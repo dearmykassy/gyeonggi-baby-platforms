@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gunpo-01-v1",
+  "siteKey": "gunpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gunpo/gbt11-gunpo-01-v1.txt",
+  "promptSha256": "25f2d1acf6c57a400d54d827015c09531209e3524b0a47ff689a7d23917f6c5d",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-ed6e4053-f72f-43a4-85ee-75c804da5c41.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-01-v1.png",
+  "outputSha256": "8d7d7c65567c30adc2604dff0ba2f7b8d5a9a60c4dcbd6e409181ebf93ae16d2",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror selfie with full face visible; plain unbranded phone has one small flat lens and tiny flash, no raised island or central mark; normal anatomy; responsive crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-01-v1",
+  "siteKey": "yongin",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-01-v1.txt",
+  "promptSha256": "9a09ffaf6d15eedcb6cebe43486490bc6704582d53cdf169070b6aa02805f555",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-16e4f449-c7f6-4ad8-a932-aa1e9457672b.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-01-v1.png",
+  "outputSha256": "1c0417d4c8f0fd57eda011c7432c535b491670ba0a7ee44ce65bc35c824ba58b",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman seated in opaque blouse and trousers; natural anatomy and visible hands; no phone, extra person, text, logo, watermark, bed, bathroom, or machine; centered crop-safe composition.",
+    "reviewedAt": "2026-08-19"
+  }
+}

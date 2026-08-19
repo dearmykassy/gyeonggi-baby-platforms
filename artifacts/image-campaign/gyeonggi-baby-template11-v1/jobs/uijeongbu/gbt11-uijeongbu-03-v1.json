@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-03-v1",
+  "siteKey": "uijeongbu",
+  "cityName": "의정부",
+  "localIndex": 3,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uijeongbu/gbt11-uijeongbu-03-v1.txt",
+  "promptSha256": "25f6b015388390533f292cf501cac0fec9546cd459478d9287d7f9a002c6e7f0",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uijeongbu/gbt11-uijeongbu-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/uijeongbu/gbt11-uijeongbu-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v3",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v2",
+  "sourceReceiptSha256": "3352cff36f2e7b3dc3ca9d84c3be9a9f31fa449ceb4f73029042573f6d475ddb",
+  "sourceRejectedOutputSha256": "5c244cd591a8eac135c9ab0548c51806462e3d0570198e7e7c0258ea2d497900",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.txt",
+  "promptSha256": "55d125fb6dd6242cf25d3e6f0034ee66a127be5ec18ba6f0965514fe24b863b3",
+  "correction": "If a phone is present, show a completely plain unbranded matte phone back with exactly ONE small FLAT camera lens and nothing else. The following must each be exactly ZERO: flash dots, sensor dots, second circular elements, second lenses, camera islands, raised camera modules, central marks, logos, text, and decoration. Keep the full face visible beside the phone and exactly one coherent mirror reflection. Preserve every other part of the original logical asset concept: scene, adult subject, clothing, composition, lighting, mood, and crop-safe framing.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

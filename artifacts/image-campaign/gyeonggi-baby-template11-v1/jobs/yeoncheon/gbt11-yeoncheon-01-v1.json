@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yeoncheon-01-v1",
+  "siteKey": "yeoncheon",
+  "cityName": "연천",
+  "localIndex": 1,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yeoncheon/gbt11-yeoncheon-01-v1.txt",
+  "promptSha256": "78ded235eec83fea8d76c00d69044251207cffdef85383738718f9afdaa6c073",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yeoncheon/gbt11-yeoncheon-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/yeoncheon/gbt11-yeoncheon-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

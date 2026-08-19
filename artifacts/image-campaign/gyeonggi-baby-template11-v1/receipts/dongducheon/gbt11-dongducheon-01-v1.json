@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-dongducheon-01-v1",
+  "siteKey": "dongducheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/dongducheon/gbt11-dongducheon-01-v1.txt",
+  "promptSha256": "4806ab59f7c24d25ed4be9d6d03cc2766e8c028df47d8f86aa6860ac8abfad88",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-529f37c2-744a-466f-90ec-d780d9119262",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-01-v1.png",
+  "outputSha256": "dc2b83130eb2f8d5792bb0619b5b946781c59865dade2fa17a7fb9b168b7fec2",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 단일 일관된 거울 반사, 무브랜드 2렌즈 평면 휴대폰, 완전 착의, 정상 해부, 크롭 안전",
+    "reviewedAt": "2026-08-19"
+  }
+}

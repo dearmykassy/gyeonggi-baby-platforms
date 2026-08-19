@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-paju-03-v1",
+  "siteKey": "paju",
+  "cityName": "파주",
+  "localIndex": 3,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/paju/gbt11-paju-03-v1.txt",
+  "promptSha256": "4e049b4376877c53bdb42b885e65c71bd195596a2c828566c2485035172cb270",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/paju/gbt11-paju-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anyang-03-v1",
+  "siteKey": "anyang",
+  "cityName": "안양",
+  "localIndex": 3,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/anyang/gbt11-anyang-03-v1.txt",
+  "promptSha256": "374660426efd8348ad0b1da3ee294cbef45665c10c21ae2f580ce6905fd44e23",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anyang/gbt11-anyang-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/anyang/gbt11-anyang-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

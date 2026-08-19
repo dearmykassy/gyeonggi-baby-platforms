@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-04-v1",
+  "siteKey": "pyeongtaek",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-04-v1.txt",
+  "promptSha256": "0209177a6a7e9227cbc93f8b5f076d9176b6a7552cbe7ec5db71f3cd90a6a0e1",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-23552f3f-96d8-4105-9495-b365169f87d7.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-04-v1.png",
+  "outputSha256": "f3cdb06a5d2c510904283c2127f50038db1fea4023dafb6a246d6467a5a3eba9",
+  "width": 1537,
+  "height": 1023,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": false,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "A second adjacent mirror panel creates an additional full-body duplicate reflection of the subject, violating the exactly-one-coherent-reflection/no-duplicated-reflection constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

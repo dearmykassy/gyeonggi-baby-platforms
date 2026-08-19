@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-04-v2",
+  "stableAssetId": "gbt11-pyeongtaek-04",
+  "siteKey": "pyeongtaek",
+  "sourceAttemptId": "gbt11-pyeongtaek-04-v1",
+  "sourceReceiptSha256": "1ac8543ff2a12a79d3382e5fcb2c44acd2e37f292f552f6b62d6eee1d2985d75",
+  "sourceRejectedOutputSha256": "f3cdb06a5d2c510904283c2127f50038db1fea4023dafb6a246d6467a5a3eba9",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/pyeongtaek/gbt11-pyeongtaek-04-v2.txt",
+  "promptSha256": "e813b3cf349ce3604c6e51909916e5c013fc0b262f900eb092ddd5173e29f5eb",
+  "correction": "Override every mirror and phone direction completely: show one adult Korean woman standing at a clean linen counter while arranging folded towels in a refined reception preparation nook; absolutely no mirror, no reflective surface, no phone, no camera device, no duplicate person, no bed, no sofa, no massage table, no bathroom, no machine, no text or logo; fully opaque professional clothing, natural visible hands, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-04-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pyeongtaek/gbt11-pyeongtaek-04-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v5",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v4",
+  "sourceReceiptSha256": "363177eb823c1903466bc49e2a1d5fefc192bbdfc684c7498250b83d5dea343d",
+  "sourceRejectedOutputSha256": "47f15a39373ae6e2271abc2317e6e217f7e9a47200f609055637da82698aca4c",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.txt",
+  "promptSha256": "e360fe1af02aefce865317bc321a0af0aa49e164d12ff74d5dc7c06b09ca4e97",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.png",
+  "actualCallReference": "builtin:imagegen:exec-0fb104b4-15a0-4e0a-9a94-e0fbc5fd2d3a.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.png",
+  "outputSha256": "e81eb80ac574e1ba8fa36c583bb4ca27a3d52ae32aa0029a8392659cb5075375",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "밝고 정돈된 웰니스 상담 공간에서 완전 착의한 성인 한국 여성 마사지사 1명이 접은 타월을 자연스럽게 준비함. 휴대폰·거울·가시적 반사·추가 인물·침대·마사지 테이블·욕실·기계·문자·로고·워터마크가 없고, 자세와 양손 해부가 정상이며 비선정적임. 얼굴·손·몸통·타월이 중앙에 배치되어 16:9 및 중앙 768x600 크롭에 안전함.",
+    "reviewedAt": "2026-08-19"
+  }
+}

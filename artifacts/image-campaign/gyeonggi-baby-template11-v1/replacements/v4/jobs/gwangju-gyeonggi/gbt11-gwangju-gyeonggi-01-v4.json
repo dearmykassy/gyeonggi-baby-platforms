@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v4",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v3",
+  "sourceReceiptSha256": "860c35c693ac9768fa269ef195784013aab21aec1415c755262ed83e0e4e1368",
+  "sourceRejectedOutputSha256": "bac547c6cb09d3782dc2e4448822fda635f5967c1551a381e2fc7e965193dc0c",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.txt",
+  "promptSha256": "a9545795f66ecb13f09e97216de023b666813367d23a6d4805c34b66d57ce380",
+  "correction": "The camera viewpoint must face straight into one continuous mirror surface, and the entire image must show only the reflected scene. Show exactly ONE visible woman total: only her single front-facing mirror image. Show ZERO separate physical body outside the reflection, ZERO second person, ZERO second face, ZERO duplicate body, ZERO secondary reflection, ZERO side mirror, and ZERO mirrored inset. If a phone is present, its completely plain unbranded matte back must have exactly ONE small FLAT camera lens; show ZERO other dots, ZERO flash, ZERO sensors, ZERO second circular elements, ZERO camera islands, ZERO raised modules, ZERO central marks, ZERO logos, and ZERO text. Preserve the adult Korean woman, fully opaque complete clothing, nonsexual professional styling, normal anatomy and hands, original burgundy blouse and navy slacks, apartment entry-lounge concept, lighting, mood, and wide/mobile crop-safe framing.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

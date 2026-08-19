@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-01-v1",
+  "siteKey": "pyeongtaek",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-01-v1.txt",
+  "promptSha256": "e482cb0d2a3d7e1e5e66ad2dd9f4ef6192638fc93435ec1f1008755e5fc04bbc",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-6be51378-ab42-4bf6-a280-89e9cf14c5f1.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-01-v1.png",
+  "outputSha256": "fb0e062501d506988f533f79ccefe7e8a06184ea5ff46baae678201db373e10b",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": false,
+      "responsiveCropSafe": true
+    },
+    "notes": "Subject, clothing, anatomy, and crop are otherwise acceptable, but a padded massage/treatment bed with folded blanket is visibly present across the lower-right foreground, violating the no-bed constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

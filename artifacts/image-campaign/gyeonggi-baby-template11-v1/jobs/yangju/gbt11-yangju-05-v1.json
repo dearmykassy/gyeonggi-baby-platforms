@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yangju-05-v1",
+  "siteKey": "yangju",
+  "cityName": "양주",
+  "localIndex": 5,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yangju/gbt11-yangju-05-v1.txt",
+  "promptSha256": "72b8b74adae452ec73d01cf0d1dab0dba49f6d28f00bc1ed04036ed6c0b367cd",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yangju/gbt11-yangju-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/yangju/gbt11-yangju-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

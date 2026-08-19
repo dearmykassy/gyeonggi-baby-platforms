@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-osan-03-v1",
+  "siteKey": "osan",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/osan/gbt11-osan-03-v1.txt",
+  "promptSha256": "7a9c14b63534b3164277b6b27f28ca368585706eabc1a147f66796d5ebfaf599",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-e7a21d8f-dd75-468b-85fc-b6b98895deda.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-03-v1.png",
+  "outputSha256": "5b80887b76a65098539691d3eeca1efcf99f73f96065132333bf01ad9c98709f",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Mirror scene, adult subject, clothing, anatomy, and crop are otherwise acceptable, but the phone has a conspicuous raised black pill-shaped camera island, which violates the immutable plain-phone constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

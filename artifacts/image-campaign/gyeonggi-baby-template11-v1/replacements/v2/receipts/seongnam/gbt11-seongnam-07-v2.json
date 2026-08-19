@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-07-v2",
+  "stableAssetId": "gbt11-seongnam-07",
+  "siteKey": "seongnam",
+  "sourceAttemptId": "gbt11-seongnam-07-v1",
+  "sourceReceiptSha256": "c2f51fe95d94e3ff730000a9b1800a3912cd433ca6d56ecbab21fcdf19a47dab",
+  "sourceRejectedOutputSha256": "2c7464f55563ef2f9ff36ae5aae7451b986b413b8ed7a34121236121752b589b",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/seongnam/gbt11-seongnam-07-v2.txt",
+  "promptSha256": "5f8980517732dd803320ee66898861aad58fea1687c6f77dce8d9226cd30d3a8",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-07-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-4b5c7c85-eb45-4786-a77b-197da8f91497",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-07-v2.png",
+  "outputSha256": "361e203ae8f7ee589314de66c72a567fb689f397de847e4ba400f5a9fb6ec68c",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman standing in a bright entry area; no bed, massage table, sofa, phone, mirror, bathroom, machine, extra person, text, watermark, logo, malformed anatomy, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

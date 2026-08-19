@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-04-v2",
+  "stableAssetId": "gbt11-uijeongbu-04",
+  "siteKey": "uijeongbu",
+  "sourceAttemptId": "gbt11-uijeongbu-04-v1",
+  "sourceReceiptSha256": "dfdf0798f88b66b8398631d582bc94d1142778c5aae6f08ad5ea5f3f8d1ed337",
+  "sourceRejectedOutputSha256": "49e96a44b3625bbc46acde6026438825de65f475ec3a27368687cfa9927fadc2",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/uijeongbu/gbt11-uijeongbu-04-v2.txt",
+  "promptSha256": "bf5d299400766d09e4f223861d085eb8960d14c86024bf41fd0a4f8f0eaa36e0",
+  "correction": "Override every mirror and reflection direction completely: show one adult Korean woman in a simple standing consultation portrait in a refined apartment entry studio with a matte wall and small wood console; absolutely no phone, no mirror, no reflective surface, no duplicated reflection, no bed, no sofa, no massage table, no bathroom, no machine, no text or logo; opaque professional clothing, natural visible hands, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uijeongbu/gbt11-uijeongbu-04-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/uijeongbu/gbt11-uijeongbu-04-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

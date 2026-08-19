@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-02-v1",
+  "siteKey": "goyang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/goyang/gbt11-goyang-02-v1.txt",
+  "promptSha256": "111615d4d3d3c2d99194bd32c4b1817585657c69200c103013fa7cfccd7a0507",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-d3e8c131-6b80-4e3b-a487-6645fa276cc2",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-02-v1.png",
+  "outputSha256": "fb72188a3c26f334b051a8fa94eb198effa8eb38241b668e270eca6df240b8b5",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "single adult Korean woman, opaque tailored outfit, normal hands/anatomy, no text/logo/watermark, crop safe",
+    "reviewedAt": "2026-08-19"
+  }
+}

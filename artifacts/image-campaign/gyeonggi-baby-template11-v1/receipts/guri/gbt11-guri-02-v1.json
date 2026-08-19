@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-guri-02-v1",
+  "siteKey": "guri",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/guri/gbt11-guri-02-v1.txt",
+  "promptSha256": "2d4878f7a031ae5c3f6f049a68c70896283f9ffc0f92d9d7866a9151add35482",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-99ce2c95-3367-41c8-953f-79d690db0500.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-02-v1.png",
+  "outputSha256": "3f209d4c7c01f42b84683158952c34bcd1ff927c85554c9bbdf77b26023a40b6",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque everyday attire; normal anatomy and hands; no prohibited objects, text, logo, or watermark; safe margins for wide and mobile crops.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-02-v1",
+  "siteKey": "gimpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-02-v1.txt",
+  "promptSha256": "1bc76478c366750718e1951891aa1dab9cc954377bd58ae92cb5c228c969840a",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-affc6ef7-37d7-4b95-b5a9-83b860ed8162.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-02-v1.png",
+  "outputSha256": "c42ca25d1a9f82f29ec1000fbfd74c81176a195189f8ab3a517471a5ef022060",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque everyday clothing; normal anatomy and hands; no prohibited objects or marks; safe responsive margins.",
+    "reviewedAt": "2026-08-19"
+  }
+}

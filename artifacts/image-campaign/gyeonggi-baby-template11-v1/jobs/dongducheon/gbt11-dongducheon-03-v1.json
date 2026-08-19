@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-dongducheon-03-v1",
+  "siteKey": "dongducheon",
+  "cityName": "동두천",
+  "localIndex": 3,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/dongducheon/gbt11-dongducheon-03-v1.txt",
+  "promptSha256": "55c22f8742b41775f9f768bc22dd610dbec25a9347bc5ce6016659d9e4913c9e",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/dongducheon/gbt11-dongducheon-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

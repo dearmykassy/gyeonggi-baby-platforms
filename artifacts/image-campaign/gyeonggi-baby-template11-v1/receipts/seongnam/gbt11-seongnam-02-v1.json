@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-02-v1",
+  "siteKey": "seongnam",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/seongnam/gbt11-seongnam-02-v1.txt",
+  "promptSha256": "1918b356a0ab742f35197736bbd17ac6a34f64dc8fd1ae1dadf5c46e1dffc428",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-02-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-eb0632ca-512a-4a88-8782-9a3275df602e",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-02-v1.png",
+  "outputSha256": "6ea6fb287dd2bfe4455725901cdb2abe0b1abf37d9dad5d7579c791642dbbe28",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in complete opaque cardigan and slacks; nonsexual professional portrait; normal hands and anatomy; no phone, text, logo, bed, bathroom, or machine; centered face is crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

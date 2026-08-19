@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anyang-03-v2",
+  "stableAssetId": "gbt11-anyang-03",
+  "siteKey": "anyang",
+  "sourceAttemptId": "gbt11-anyang-03-v1",
+  "sourceReceiptSha256": "77d9569c5f372e6e3fc887b2ca467685bb2504eee33b21655cbb5d13d904597d",
+  "sourceRejectedOutputSha256": "9df83aa94adc4bddb619f791a1c2bf4ed61cbea30dce17fb10daa52e61714aa9",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/anyang/gbt11-anyang-03-v2.txt",
+  "promptSha256": "a976d5b4979aae1c516f4ea16b5e6d67192cdd7567aafdf3ec2fc75576893f4e",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anyang/gbt11-anyang-03-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-113eb863-a4da-4ce1-929d-f9fb3b00ca6b",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anyang/gbt11-anyang-03-v2.png",
+  "outputSha256": "6770e26af0b4df08d6fa4e89aa2d5f8b75ca15249fe6282b01ab63c4065baba6",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman standing beside a console with natural posture and hands; no phone, mirror, bed, sofa, massage table, bathroom, machine, text, watermark, logo, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

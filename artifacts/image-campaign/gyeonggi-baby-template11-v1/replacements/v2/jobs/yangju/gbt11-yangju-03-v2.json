@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yangju-03-v2",
+  "stableAssetId": "gbt11-yangju-03",
+  "siteKey": "yangju",
+  "sourceAttemptId": "gbt11-yangju-03-v1",
+  "sourceReceiptSha256": "615ded5071c0be1333816ae53f91552c1ffe925b8cceb125fe012a32c6d5e757",
+  "sourceRejectedOutputSha256": "19bf67b01f33e8f0c3a8889f4f8f75fa06ce772e2df001947b464494e8842f96",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/yangju/gbt11-yangju-03-v2.txt",
+  "promptSha256": "791e1cc2fc5cf2825d7711f4bc2528ac0e888e54225c8af49cb9631aa1cfd8f5",
+  "correction": "Override the original mirror-selfie direction completely: show the same single adult Korean woman arranging neatly folded towels in a warm apartment entry lounge; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no text or logo; fully opaque professional clothing; both hands anatomically clear and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yangju/gbt11-yangju-03-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/yangju/gbt11-yangju-03-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

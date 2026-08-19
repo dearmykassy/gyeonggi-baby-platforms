@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-04-v2",
+  "stableAssetId": "gbt11-uijeongbu-04",
+  "siteKey": "uijeongbu",
+  "sourceAttemptId": "gbt11-uijeongbu-04-v1",
+  "sourceReceiptSha256": "dfdf0798f88b66b8398631d582bc94d1142778c5aae6f08ad5ea5f3f8d1ed337",
+  "sourceRejectedOutputSha256": "49e96a44b3625bbc46acde6026438825de65f475ec3a27368687cfa9927fadc2",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/uijeongbu/gbt11-uijeongbu-04-v2.txt",
+  "promptSha256": "bf5d299400766d09e4f223861d085eb8960d14c86024bf41fd0a4f8f0eaa36e0",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uijeongbu/gbt11-uijeongbu-04-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-70776256-a885-45e5-a493-8dcee8149745.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uijeongbu/gbt11-uijeongbu-04-v2.png",
+  "outputSha256": "40694291dd6a9883d5da212c5683c83288649711ff0ccd4b8694a573158deef5",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque burgundy blouse and tailored trousers in a matte entry-studio portrait; natural hands and anatomy; no phone, mirror, reflection, duplicate person, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

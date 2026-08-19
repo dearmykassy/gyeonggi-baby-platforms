@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-04-v1",
+  "siteKey": "goyang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/goyang/gbt11-goyang-04-v1.txt",
+  "promptSha256": "e874a28633cd81f3003a8e30200cc0377c0bcbc1e0ebfc94bb145d47380e64f5",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-3960ee10-291c-477a-b1e3-43150bc849ca",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-04-v1.png",
+  "outputSha256": "1e85521673b14047e46a3567648c449dc34577db5ad9c799c03b5dc7ff884bd5",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "single adult Korean woman preparing plain towels, opaque clothing, normal hands, unlabeled bottle, no text/logo/watermark, crop safe",
+    "reviewedAt": "2026-08-19"
+  }
+}

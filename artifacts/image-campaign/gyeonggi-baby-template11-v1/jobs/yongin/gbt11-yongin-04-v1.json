@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-04-v1",
+  "siteKey": "yongin",
+  "cityName": "용인",
+  "localIndex": 4,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-04-v1.txt",
+  "promptSha256": "2caa8644be477e4178993b7a8d07e71b4c586e0c9aef33de6b32068fe55d2a71",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/yongin/gbt11-yongin-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangmyeong-02-v1",
+  "siteKey": "gwangmyeong",
+  "cityName": "광명",
+  "localIndex": 2,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangmyeong/gbt11-gwangmyeong-02-v1.txt",
+  "promptSha256": "960e16bfad0be6ac72174ed6cf1dd40763a95c2147426ec8387c90d3822dacf3",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-02-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwangmyeong/gbt11-gwangmyeong-02-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

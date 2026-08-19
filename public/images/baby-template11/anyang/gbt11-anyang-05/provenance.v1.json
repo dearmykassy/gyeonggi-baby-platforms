@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-anyang-05",
+  "selectedAttemptId": "gbt11-anyang-05-v1",
+  "siteKey": "anyang",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anyang/gbt11-anyang-05-v1.png",
+  "sourceSha256": "8413276b3e5e7b7b4cfb60d3ecdb629eeaa34fee93d68aa6e33c5771d49177ea",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/anyang/gbt11-anyang-05-v1.json",
+  "sourceReceiptSha256": "721967637a50a54dac3a5975989677c42b27e55198a9ca4b56b6660681610a9b",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/anyang/gbt11-anyang-05/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "3bf2ed668be64faf4d1096b3bac9a3eb7c6f126d39165860afc74700eaa907b4"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/anyang/gbt11-anyang-05/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "d0dff9904d55a2045f9c7734b503d51cd037f66dbef383b1a91e3421be658b58"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/anyang/gbt11-anyang-05/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "6642bbc7e2461bf10f249d5e477947b4984cc70a843d28e43f88b067c88769e4"
+    }
+  ]
+}

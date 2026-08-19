@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-ansan-01-v1",
+  "siteKey": "ansan",
+  "cityName": "안산",
+  "localIndex": 1,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/ansan/gbt11-ansan-01-v1.txt",
+  "promptSha256": "8fe957db6b099a2cecfcf741845cc5309e50bfa9db81ec224932bd918e399167",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/ansan/gbt11-ansan-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/ansan/gbt11-ansan-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

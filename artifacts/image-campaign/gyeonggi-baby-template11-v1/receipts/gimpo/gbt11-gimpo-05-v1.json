@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-05-v1",
+  "siteKey": "gimpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-05-v1.txt",
+  "promptSha256": "94308baa8db1186590c293004b287e848aa69b74870926a78f303ca1bcb2829f",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-86dda593-40a8-4b91-a8f4-a13f2cbcd6b3.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-05-v1.png",
+  "outputSha256": "e5746b8864f3fb64f5d7f40b6d0ba4b4dbc9a2cba0e4f1926b77fad95cffc137",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman arranging plain towels; opaque clothing; normal visible hands; unlabeled pump; no bed, bathroom, machine, text, logo, or watermark; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

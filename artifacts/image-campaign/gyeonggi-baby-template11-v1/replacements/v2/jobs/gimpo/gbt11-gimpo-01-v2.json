@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-01-v2",
+  "stableAssetId": "gbt11-gimpo-01",
+  "siteKey": "gimpo",
+  "sourceAttemptId": "gbt11-gimpo-01-v1",
+  "sourceReceiptSha256": "581c549dd0a058c5cee2d48e40b6d9717d82b33645fae4b146f811904578c838",
+  "sourceRejectedOutputSha256": "7be7d9edcece11398d1594be24682bdb33c25bb7dedc2912d8e1a207da7f67e7",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/gimpo/gbt11-gimpo-01-v2.txt",
+  "promptSha256": "66608707e3e038a52290219a31e4a736f4cad3fdadbffe6111206b32befdf211",
+  "correction": "If a phone is present, its entire back must be plain unbranded matte material with exactly one small flat camera lens only. Absolutely no flash, no sensor, no second lens, no camera island, no raised camera module, no central mark, no logo, no text, and no decoration. Keep the full face visible beside the phone and exactly one coherent mirror reflection.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gimpo/gbt11-gimpo-01-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/gimpo/gbt11-gimpo-01-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yangju-03-v2",
+  "stableAssetId": "gbt11-yangju-03",
+  "siteKey": "yangju",
+  "sourceAttemptId": "gbt11-yangju-03-v1",
+  "sourceReceiptSha256": "615ded5071c0be1333816ae53f91552c1ffe925b8cceb125fe012a32c6d5e757",
+  "sourceRejectedOutputSha256": "19bf67b01f33e8f0c3a8889f4f8f75fa06ce772e2df001947b464494e8842f96",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/yangju/gbt11-yangju-03-v2.txt",
+  "promptSha256": "791e1cc2fc5cf2825d7711f4bc2528ac0e888e54225c8af49cb9631aa1cfd8f5",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yangju/gbt11-yangju-03-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-11279af2-42c6-448b-abbb-b35bfcd5520a",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yangju/gbt11-yangju-03-v2.png",
+  "outputSha256": "84523d5f911545f122b7273875ab58d4656f04d1479c1944fc88b00290b8898b",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman naturally arranging folded towels; hands and anatomy are coherent; no phone, mirror, bed, sofa, massage table, bathroom, machine, text, watermark, logo, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

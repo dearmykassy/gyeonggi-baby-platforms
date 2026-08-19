@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-02-v1",
+  "siteKey": "yongin",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-02-v1.txt",
+  "promptSha256": "6872a8da0a4db3d2f167b7b6a2c7466d5280c6785327388cce667a7f6ce0a16f",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-504b56b7-6eb7-4dfc-bb86-82a4ce289789.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-02-v1.png",
+  "outputSha256": "2b7c9198dfa8f956b3c78424285532e92e862d24fe6d66eb45629f3eb59c3f97",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque cardigan, inner top, and trousers arranging towels; natural hands; plain unlabeled bottle only; no prohibited objects, marks, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

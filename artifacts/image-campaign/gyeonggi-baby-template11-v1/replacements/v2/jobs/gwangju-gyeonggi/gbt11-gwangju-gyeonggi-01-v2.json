@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v2",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v1",
+  "sourceReceiptSha256": "f213d7486c193eb42dbeb642b25115bdb7902457046d6c00edb17fa833f3a56b",
+  "sourceRejectedOutputSha256": "e0c88054f96b9f8308b21e9b3509a31be5f89001fce434f0f2773f961e9c321f",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.txt",
+  "promptSha256": "0ea431b2ef5ff24f05c03b5f0b6995639597ad14e16265e88890119205f9a605",
+  "correction": "If a phone is present, its entire back must be plain unbranded matte material with exactly one small flat camera lens only. Absolutely no flash, no sensor, no second lens, no camera island, no raised camera module, no central mark, no logo, no text, and no decoration. Keep the full face visible beside the phone and exactly one coherent mirror reflection.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

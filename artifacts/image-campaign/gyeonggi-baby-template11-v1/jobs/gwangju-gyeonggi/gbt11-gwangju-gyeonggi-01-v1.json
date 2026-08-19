@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "cityName": "광주",
+  "localIndex": 1,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.txt",
+  "promptSha256": "49dd8a9c7bbc23a52a6ff581be7c8b663ce460e9bbcdd2aa44c58998cd1ecdd0",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-bucheon-03-v1",
+  "siteKey": "bucheon",
+  "cityName": "부천",
+  "localIndex": 3,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/bucheon/gbt11-bucheon-03-v1.txt",
+  "promptSha256": "d017b36bf5438b5f7930c791d31211ea7d9c1878c954d6f0ee0d5deecdbd16a4",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/bucheon/gbt11-bucheon-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/bucheon/gbt11-bucheon-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

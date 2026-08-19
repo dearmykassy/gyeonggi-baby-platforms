@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-01-v1",
+  "siteKey": "seongnam",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/seongnam/gbt11-seongnam-01-v1.txt",
+  "promptSha256": "d22bfbc35e354f932964a56b5885a7b9507122afc2baae10feea0ce9bc2e8101",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-01-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-2798e7e9-a246-42e2-b5ec-587b8510b950",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/seongnam/gbt11-seongnam-01-v1.png",
+  "outputSha256": "c199b616c1d70cb0c69c9a3285753801f561cb40997bc34b49b8d9555ddd2384",
+  "width": 1535,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back contains a visible circular central mark beneath the two lenses, violating the explicit no-central-mark phone constraint; reject preserved without retry.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-namyangju-03-v1",
+  "siteKey": "namyangju",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/namyangju/gbt11-namyangju-03-v1.txt",
+  "promptSha256": "f94ad13c791adf18883a8ef87136ee033412ae15a2130ef35e7b4fcaa57af332",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-5e6d1cbc-6519-4a7c-9efb-51ff2b34a298.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-03-v1.png",
+  "outputSha256": "15f7d62f197321ebe5a934cce2a3e7f124f424335c827718346c1d68bd086849",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque professional outfit; normal visible hands and anatomy; reception contains no prohibited elements, text, logos, or watermark; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangmyeong-01-v1",
+  "siteKey": "gwangmyeong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangmyeong/gbt11-gwangmyeong-01-v1.txt",
+  "promptSha256": "9418da87866d3dc22eabb6e03fd3ffb7864fd9bd84da7c907316c00abacf31cd",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-9f05087b-b501-49a5-9b13-11b6d81269e0.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangmyeong/gbt11-gwangmyeong-01-v1.png",
+  "outputSha256": "bb6a00bac5950b89ab1b7349f3d365cff96e0615b12d9ffb9d1d4efb642424a2",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror selfie with full face visible; plain matte phone has two small flat lenses and tiny flash with no branding or raised island; normal anatomy; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

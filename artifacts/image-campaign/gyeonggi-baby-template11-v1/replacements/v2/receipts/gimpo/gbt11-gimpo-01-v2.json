@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-01-v2",
+  "stableAssetId": "gbt11-gimpo-01",
+  "siteKey": "gimpo",
+  "sourceAttemptId": "gbt11-gimpo-01-v1",
+  "sourceReceiptSha256": "581c549dd0a058c5cee2d48e40b6d9717d82b33645fae4b146f811904578c838",
+  "sourceRejectedOutputSha256": "7be7d9edcece11398d1594be24682bdb33c25bb7dedc2912d8e1a207da7f67e7",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/gimpo/gbt11-gimpo-01-v2.txt",
+  "promptSha256": "66608707e3e038a52290219a31e4a736f4cad3fdadbffe6111206b32befdf211",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gimpo/gbt11-gimpo-01-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-c8f0c1af-776a-4392-bde9-03e522e374fa.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gimpo/gbt11-gimpo-01-v2.png",
+  "outputSha256": "9dfb4f8a05679a1ed2437e22cacf4b2c81319c6e7825911b2b1dd56787b53e6e",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 완전 불투명 착의와 비선정적 자세, 정상 손·해부, 얼굴이 보이는 단일 일관 거울 반사, 문자·로고·워터마크 없음, 침대·욕실·기계 없음, wide/mobile 크롭 안전. 휴대폰 후면은 무지 무광이며 작은 평면 렌즈 1개만 있고 flash·sensor·카메라섬·raised module·중앙마크·로고·텍스트가 없음.",
+    "reviewedAt": "2026-08-19"
+  }
+}

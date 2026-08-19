@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-05-v2",
+  "stableAssetId": "gbt11-goyang-05",
+  "siteKey": "goyang",
+  "sourceAttemptId": "gbt11-goyang-05-v1",
+  "sourceReceiptSha256": "a02d921f8d1787efb8ddcfb5356aae4ff2560fadd85a312fe3a1b339b64db88b",
+  "sourceRejectedOutputSha256": "8b5ba0aa0a4ba43c88a735aed8943c0404541b9faed6310266a8196efa78835f",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/goyang/gbt11-goyang-05-v2.txt",
+  "promptSha256": "9c082b8ebf30462048f3fc861c19c28173e83d5dd3afb66f2a351d8c224c0259",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/goyang/gbt11-goyang-05-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-987b2cfd-e501-4d24-9c64-19c3078b7e90",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/goyang/gbt11-goyang-05-v2.png",
+  "outputSha256": "4e491fb370b91304848ad141272ecbdb077053c6dd40d9325672a88b19473257",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "휴대폰 후면 단일 렌즈 오른쪽에 추가 밝은 원형 하드웨어 점이 있어 v2 교정 프롬프트를 위반함. 나머지 성인·착의·반사·해부·크롭 기준은 통과하며 실패 후보를 보존함.",
+    "reviewedAt": "2026-08-19"
+  }
+}

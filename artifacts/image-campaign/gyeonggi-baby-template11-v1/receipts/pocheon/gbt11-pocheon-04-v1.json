@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pocheon-04-v1",
+  "siteKey": "pocheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pocheon/gbt11-pocheon-04-v1.txt",
+  "promptSha256": "49cbe1e8872465ceff2277310bf2bf9dd2d97f92dae61c0c99e2507a91cac88e",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-08c32d5a-2cdc-4e4e-b151-5847f4a8552b.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-04-v1.png",
+  "outputSha256": "4e56129e0862def74b26238cc01a1eff9fe102ae08cee82984d08f037f7782e6",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Adult subject, clothing, single mirror reflection, anatomy, and crop are otherwise acceptable, but the phone has a distinct raised vertical pill-shaped camera island, violating the immutable plain-phone constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

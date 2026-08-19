@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-04-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "cityName": "광주",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04-v1.txt",
+  "promptSha256": "abf50b4431c11562407f9db23318792fbadb12b8d7f47200008ac09e5a710d1a",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

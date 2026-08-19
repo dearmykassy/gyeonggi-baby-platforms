@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwacheon-05-v1",
+  "siteKey": "gwacheon",
+  "cityName": "과천",
+  "localIndex": 5,
+  "concept": "towel-prep",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwacheon/gbt11-gwacheon-05-v1.txt",
+  "promptSha256": "9341e486b0018e3c4855cf2d191f2a4e6e03bd393209ce4a59625dc8e12e2b95",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-05-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/gwacheon/gbt11-gwacheon-05-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

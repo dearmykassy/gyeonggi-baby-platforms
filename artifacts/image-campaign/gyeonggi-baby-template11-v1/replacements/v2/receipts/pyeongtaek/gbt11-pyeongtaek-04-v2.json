@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-04-v2",
+  "stableAssetId": "gbt11-pyeongtaek-04",
+  "siteKey": "pyeongtaek",
+  "sourceAttemptId": "gbt11-pyeongtaek-04-v1",
+  "sourceReceiptSha256": "1ac8543ff2a12a79d3382e5fcb2c44acd2e37f292f552f6b62d6eee1d2985d75",
+  "sourceRejectedOutputSha256": "f3cdb06a5d2c510904283c2127f50038db1fea4023dafb6a246d6467a5a3eba9",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/pyeongtaek/gbt11-pyeongtaek-04-v2.txt",
+  "promptSha256": "e813b3cf349ce3604c6e51909916e5c013fc0b262f900eb092ddd5173e29f5eb",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-04-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-97883591-94fe-402e-a638-794bb5212e5f.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-04-v2.png",
+  "outputSha256": "8e4fa575698b37239449b83550e72eae250127198054d61916e3173777017888",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque burgundy blouse and trousers arranging folded towels; natural hands and anatomy; no phone, mirror, reflection, duplicate person, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

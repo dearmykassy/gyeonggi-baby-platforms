@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "status": "ROOT_APPROVED",
+  "selectionFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/selection.v1.json",
+  "selectionSha256": "08faf607b9eeaa3421ed849049089941b7600b1dda46e2ac57c5088c6f6fbf20",
+  "counts": {
+    "sites": 27,
+    "logicalAssets": 143,
+    "sheets": 27
+  },
+  "sheetHashes": [
+    {
+      "siteKey": "ansan",
+      "sha256": "4f1d3e4f0ecb797be9e06280a3a7e1d5647a9f98ecb3935a658a6b7e2c290e2d"
+    },
+    {
+      "siteKey": "anseong",
+      "sha256": "06dacbbdccba369dcd41932649b7cb296ebb984726f837d182336dfa261857c9"
+    },
+    {
+      "siteKey": "anyang",
+      "sha256": "161f108b9a35888b4a416b05a3b1b2b13c89365afe12da4d41b1bab1aa511c5e"
+    },
+    {
+      "siteKey": "bucheon",
+      "sha256": "583450dc014410ef91741008012ac6ba4bffb07296b7150de33951c6b8e2b1c5"
+    },
+    {
+      "siteKey": "dongducheon",
+      "sha256": "8af0320caa3e82a21e9f1526df40ec8891c941fc29e98523ff48ef88e89fab75"
+    },
+    {
+      "siteKey": "gimpo",
+      "sha256": "c97c26738bc612b31fd2634dce62d22fc29c01528aeabd5f4c40b32dba6bba1c"
+    },
+    {
+      "siteKey": "goyang",
+      "sha256": "3860942c0d856ba29ac734b198e964a3c28049aec1696dde97a7e18d9109fb56"
+    },
+    {
+      "siteKey": "gunpo",
+      "sha256": "8410d79f8ebc9c04b68914da2a25fedc120d8b4f1c3c3cbab32d8651171de58a"
+    },
+    {
+      "siteKey": "guri",
+      "sha256": "1d0a8040bccf667b943439814e1f751369e61fe04179738e7a32afd5f65e87bd"
+    },
+    {
+      "siteKey": "gwacheon",
+      "sha256": "1b570628143d11f280384f8d3bc34273b689335b9d9b94f5280bac067a40387d"
+    },
+    {
+      "siteKey": "gwangju-gyeonggi",
+      "sha256": "957360ae2a2d607fb6a5734c34b04b755551b5f3e262c26fc0f1bfc94dafb206"
+    },
+    {
+      "siteKey": "gwangmyeong",
+      "sha256": "474f654a3d41d8786d0f58c3215472790a20dc2fb84c373f0716f1e033fa3e0e"
+    },
+    {
+      "siteKey": "hanam",
+      "sha256": "6ee324d39dfd3ff55338308c1c6beddafd22fee56d95bb82d01ff95e417fae88"
+    },
+    {
+      "siteKey": "hwaseong",
+      "sha256": "ec5730376f55827facc9e55e25d33a91872fb6b95aaa1e10732d489fe56a3dee"
+    },
+    {
+      "siteKey": "namyangju",
+      "sha256": "91954db6e0ff71ad12adb7ca50fe760b17843ba230f400f3d4ab8c6b2db0c878"
+    },
+    {
+      "siteKey": "osan",
+      "sha256": "18f4ed19ac40c1cac760cf75924426466545ca66fd278abea211f1b760a8e9b3"
+    },
+    {
+      "siteKey": "paju",
+      "sha256": "c4980b5bdc3c6a2dd4c105010c24f6674371f018c8e16763e2ccdf69858e0fe8"
+    },
+    {
+      "siteKey": "pocheon",
+      "sha256": "536775a92546ea69a40cac1a09e597e62683d3bbe068f740a2de035e21106b1f"
+    },
+    {
+      "siteKey": "pyeongtaek",
+      "sha256": "2ca4e47ce6d6c54939085efceea4be62709443efc1a955f3f64a6ef85777f777"
+    },
+    {
+      "siteKey": "seongnam",
+      "sha256": "0b7eb6148a104e45602336f88b21d365ca481a98fdfe7da59af6e544c7108819"
+    },
+    {
+      "siteKey": "siheung",
+      "sha256": "85734dd68a9b8b34f5900258337d057de70ed64d1d72d689877ae61b38256f75"
+    },
+    {
+      "siteKey": "suwon",
+      "sha256": "0268e9b1a9c963d12da22a82ab9359231ffb854a06916787c59bf247fededb8e"
+    },
+    {
+      "siteKey": "uijeongbu",
+      "sha256": "1dd2c6e07cec5648b69b81d7dd11c17b04d218889cb22cb38040df5399322591"
+    },
+    {
+      "siteKey": "uiwang",
+      "sha256": "fac02ce0dea74d07b23ddf1bdcb222c76dede1fdd01608ae20e71af05d8ba899"
+    },
+    {
+      "siteKey": "yangju",
+      "sha256": "ef95c5d69146a5cea907e68662e34553e3e0ca00f5ecb9944cf5f844475d3142"
+    },
+    {
+      "siteKey": "yeoncheon",
+      "sha256": "80a7c991cc2f87c40ed800e47b4f96767ce0f37f82812c5b997ce38af411f7dc"
+    },
+    {
+      "siteKey": "yongin",
+      "sha256": "ad225c65a81412546d34c15a060535428ca58eb052d8f3c56400449d0cad2674"
+    }
+  ],
+  "visualCriteria": {
+    "adultKoreanWoman": true,
+    "opaqueCompleteClothing": true,
+    "nonsexual": true,
+    "singlePerson": true,
+    "coherentReflectionIfPresent": true,
+    "normalAnatomy": true,
+    "noTextLogoWatermark": true,
+    "plainUnbrandedPhoneIfPresent": true,
+    "noBedBathroomMachine": true,
+    "desktopCropSafe": true,
+    "mobileCropSafe": true
+  },
+  "notes": "Root visual QA completed on all 27 contact sheets and all 143 selected assets. Regenerated sheet-hash set is byte-identical to the 27 sheets already inspected after receipt migration. Source, desktop and mobile crops all show one adult Korean woman in opaque complete clothing with nonsexual presentation, coherent anatomy/reflections, no readable text/logo/watermark, no bed/bathroom/machine, and crop-safe face/subject framing.",
+  "reviewedAt": "2026-08-19"
+}

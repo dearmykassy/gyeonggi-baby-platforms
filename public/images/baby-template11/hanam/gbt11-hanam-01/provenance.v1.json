@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-hanam-01",
+  "selectedAttemptId": "gbt11-hanam-01-v1",
+  "siteKey": "hanam",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-01-v1.png",
+  "sourceSha256": "42c333142cc176b25480c2b5af37589fae12825f88138e41e9803957a4963ba3",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/hanam/gbt11-hanam-01-v1.json",
+  "sourceReceiptSha256": "270fe3b5f9ba8f0f4507701443639d851f19b83e9fe62cf452263a0d7db33bae",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/hanam/gbt11-hanam-01/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "cfc1160c9cd4c79dfb72e079c63c0aaec9fde04411ad55456e1b059e3b622e7e"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/hanam/gbt11-hanam-01/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "1b8d5e8a9f484527545d430a57b066832a965e2d75142a14ed27cf853955ff65"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/hanam/gbt11-hanam-01/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "2ecdaabf8fb9fe898fce2ee24299ab54c193769d0f843dfd3cfcb1866bd49e0b"
+    }
+  ]
+}

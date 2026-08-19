@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uiwang-04-v1",
+  "siteKey": "uiwang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uiwang/gbt11-uiwang-04-v1.txt",
+  "promptSha256": "58f5609a677ae869d6257750417ea8843c9970436965118de7201f88996ad3e5",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-6ecdf420-ecdf-431b-8eba-cd3497a83710.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-04-v1.png",
+  "outputSha256": "92ef6a3964feed2e478be41fe178075ba826dfb239d4af18d2b28bf5284564d3",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Adult subject, opaque clothing, coherent mirror scene, anatomy, and crop are otherwise acceptable, but the phone has a distinct horizontal capsule-like camera island enclosing the lenses, violating the no-raised-island constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

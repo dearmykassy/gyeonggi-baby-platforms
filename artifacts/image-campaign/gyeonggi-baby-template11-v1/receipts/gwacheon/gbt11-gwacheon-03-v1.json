@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwacheon-03-v1",
+  "siteKey": "gwacheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwacheon/gbt11-gwacheon-03-v1.txt",
+  "promptSha256": "15cf4b5feca22183c2c16c9f14b36d7c9ce5b25cc895de222b176a3243331c6d",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-6008c358-0ea0-4748-bba5-4e2cb5c53f88",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-03-v1.png",
+  "outputSha256": "b0e0580807c131224e052e31c4c3cca98fb93f98c2a0afb62289bea5c5bd413b",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 완전 착의 준비 장면, 정상 손·해부, 로고·문자·침대·욕실·기계 없음, 크롭 안전",
+    "reviewedAt": "2026-08-19"
+  }
+}

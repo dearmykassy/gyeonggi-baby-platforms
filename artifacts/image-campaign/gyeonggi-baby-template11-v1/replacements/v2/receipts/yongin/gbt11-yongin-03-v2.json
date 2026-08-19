@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-03-v2",
+  "stableAssetId": "gbt11-yongin-03",
+  "siteKey": "yongin",
+  "sourceAttemptId": "gbt11-yongin-03-v1",
+  "sourceReceiptSha256": "3ba94de33fe541337e16cbd8d46e93950a5f9282e5e3f29d77a3d5b5d629667e",
+  "sourceRejectedOutputSha256": "17b3955ba461b22c40246e423f320196b30953e74e67d301f03c2770e913f150",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/yongin/gbt11-yongin-03-v2.txt",
+  "promptSha256": "2bcfb5201944ec0eb8aaf28df5e88bc7d91a0e19c2f280831d14d63c317655b2",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yongin/gbt11-yongin-03-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-06989d0d-65a9-4704-bb38-1bc142d09b84.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yongin/gbt11-yongin-03-v2.png",
+  "outputSha256": "8792c12f07e83d4c41e0acb9f1244417acb25d8146cce5aff6419c0b0cd54761",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque burgundy blouse and tailored trousers in a standing reception portrait; natural hands and anatomy; no phone, mirror, reflection, extra person, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

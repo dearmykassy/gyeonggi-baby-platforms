@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uiwang-03-v1",
+  "siteKey": "uiwang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uiwang/gbt11-uiwang-03-v1.txt",
+  "promptSha256": "193b0ee46ddb6e3a7013b84384f42ade65562816bcc2d0534311f02f402488b2",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-eb276da4-f836-4239-adbb-cfa5dae38183.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-03-v1.png",
+  "outputSha256": "e45af33eb7e4433ac8dfd7d484aaf20b8dfb013dfb53bff315e87f1ebb3da536",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque blazer, inner top, and trousers arranging towels; hands are natural; unlabeled pump bottle only; no prohibited marks or setting elements; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

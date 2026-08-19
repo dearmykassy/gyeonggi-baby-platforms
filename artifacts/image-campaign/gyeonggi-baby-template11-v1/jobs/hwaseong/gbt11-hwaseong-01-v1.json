@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hwaseong-01-v1",
+  "siteKey": "hwaseong",
+  "cityName": "화성",
+  "localIndex": 1,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hwaseong/gbt11-hwaseong-01-v1.txt",
+  "promptSha256": "a9b2ff9ee6e818d629b3bd899fcb5bea1684265d0fd5fac72ca3700947aad0e2",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-01-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/hwaseong/gbt11-hwaseong-01-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

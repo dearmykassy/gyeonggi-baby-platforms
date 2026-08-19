@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-guri-03-v1",
+  "siteKey": "guri",
+  "cityName": "구리",
+  "localIndex": 3,
+  "concept": "tailored-portrait",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/guri/gbt11-guri-03-v1.txt",
+  "promptSha256": "638cd381b51511238cca3815e4d83cb8b158594e867863e6877686d030dc076a",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/guri/gbt11-guri-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

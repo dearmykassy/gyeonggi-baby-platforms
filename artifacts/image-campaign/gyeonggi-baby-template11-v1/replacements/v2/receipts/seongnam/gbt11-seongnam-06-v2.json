@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-seongnam-06-v2",
+  "stableAssetId": "gbt11-seongnam-06",
+  "siteKey": "seongnam",
+  "sourceAttemptId": "gbt11-seongnam-06-v1",
+  "sourceReceiptSha256": "688b97733319265408b4d23ba229b3df977a451b10402e9a28c6307820e3e343",
+  "sourceRejectedOutputSha256": "209ccaa2de1eb6d67ce55921b63124a422b9c79a26e52939656add0d97c50921",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/seongnam/gbt11-seongnam-06-v2.txt",
+  "promptSha256": "170f1d6c78a4887785ba6ac7cef77e5f49b99cb148c67d9d3abd2567365369c7",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-06-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-2ead9c79-9de5-4308-97b8-4424d6dbf9d5",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-06-v2.png",
+  "outputSha256": "373646f73f0acb1abfcbdcc66bb22ccf1cfcc885ba8d99b3e4141b0f415adb65",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman naturally arranging folded towels on a console; hands and anatomy are coherent; no phone, mirror, bed, sofa, massage table, bathroom, machine, text, watermark, logo, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

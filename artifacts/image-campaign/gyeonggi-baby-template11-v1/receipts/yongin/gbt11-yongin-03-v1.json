@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-03-v1",
+  "siteKey": "yongin",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yongin/gbt11-yongin-03-v1.txt",
+  "promptSha256": "d2019c7dd3a4f3877522898838f12afd3a7a01cb1b45122a298be5b69b535a71",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-c472563e-d5c7-4b46-a41d-e9217adaf3bc.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yongin/gbt11-yongin-03-v1.png",
+  "outputSha256": "17b3955ba461b22c40246e423f320196b30953e74e67d301f03c2770e913f150",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Adult subject, clothing, reflection, anatomy, and crop are otherwise acceptable, but the phone back contains a visible central circular mark, violating the no-central-mark/no-logo phone constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

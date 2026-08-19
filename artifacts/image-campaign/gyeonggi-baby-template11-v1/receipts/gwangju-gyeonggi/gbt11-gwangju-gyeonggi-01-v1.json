@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.txt",
+  "promptSha256": "49dd8a9c7bbc23a52a6ff581be7c8b663ce460e9bbcdd2aa44c58998cd1ecdd0",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-a6ae0270-45e7-4420-ae34-f41be9db80bc.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v1.png",
+  "outputSha256": "e0c88054f96b9f8308b21e9b3509a31be5f89001fce434f0f2773f961e9c321f",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back contains a conspicuous elongated raised camera island surrounding the lenses, violating the exact plain-phone rule even though the reflection and adult subject are otherwise coherent.",
+    "reviewedAt": "2026-08-19"
+  }
+}

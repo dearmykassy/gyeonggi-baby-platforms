@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-03-v1",
+  "siteKey": "gimpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-03-v1.txt",
+  "promptSha256": "93308a3b2cee8bc14344c3588a593abd672447c2fca2591d62f50881eff0e476",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-1fb30696-1d66-40f9-b86d-9cfe3637bfba.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-03-v1.png",
+  "outputSha256": "a72b6801125910e6b7d446ca6a71dcdc0079cc7446618ecad4eaae3ebbaec0f8",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque below-knee professional outfit; normal visible hands and anatomy; no prohibited elements or marks; generous crop-safe composition.",
+    "reviewedAt": "2026-08-19"
+  }
+}

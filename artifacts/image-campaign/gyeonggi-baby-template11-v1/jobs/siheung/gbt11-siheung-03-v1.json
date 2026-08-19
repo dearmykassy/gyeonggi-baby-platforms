@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-siheung-03-v1",
+  "siteKey": "siheung",
+  "cityName": "시흥",
+  "localIndex": 3,
+  "concept": "mirror-selfie",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/siheung/gbt11-siheung-03-v1.txt",
+  "promptSha256": "3188ad329695132025d507ce9c9a1148957bd01226de543eadc3d7fef1cea5ad",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/siheung/gbt11-siheung-03-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/siheung/gbt11-siheung-03-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

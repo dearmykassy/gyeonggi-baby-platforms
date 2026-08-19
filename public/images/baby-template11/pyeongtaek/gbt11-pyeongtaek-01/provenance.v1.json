@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-pyeongtaek-01",
+  "selectedAttemptId": "gbt11-pyeongtaek-01-v2",
+  "siteKey": "pyeongtaek",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-01-v2.png",
+  "sourceSha256": "f7a34617e8756169ffdee7515f5882f63c0da23f029a521be0d346e33be5216c",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pyeongtaek/gbt11-pyeongtaek-01-v2.json",
+  "sourceReceiptSha256": "576ccf194107bb6e71440724e2af5a4a31a54d5cdb5d71f1fec7ce3169fa7565",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "88d7f5b2cb66da2711b548f0314ed39db1d7482260454b5acd266a3a08f8ce69"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "2af22704f8fc85f12324e4a0a609be0a204ec0d7b5dd2c1bc95942917b00ab8b"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "e16ea652d2fd0e7c6b7ef774e8f42a842017e14b30b3f4384c6957fed0e37553"
+    }
+  ]
+}

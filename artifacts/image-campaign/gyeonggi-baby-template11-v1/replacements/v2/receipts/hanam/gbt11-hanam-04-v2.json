@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hanam-04-v2",
+  "stableAssetId": "gbt11-hanam-04",
+  "siteKey": "hanam",
+  "sourceAttemptId": "gbt11-hanam-04-v1",
+  "sourceReceiptSha256": "bb10d485470cfcbd9dd038ef3bf7177ab475819bd6de6f6d9047a215316c295f",
+  "sourceRejectedOutputSha256": "8e6fdd5f2c8acf4ecb521473c54de133cb2d4f7b81ff13b3a3dcce323ac62fcf",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/hanam/gbt11-hanam-04-v2.txt",
+  "promptSha256": "707de3595244d31f97522cf13aab742e80d15c18415f0368871e3dd3bb853807",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/hanam/gbt11-hanam-04-v2.png",
+  "actualCallReference": "builtin:imagegen:exec-25080f6b-757b-4eb9-ba74-23d9b6c11c4e.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/hanam/gbt11-hanam-04-v2.png",
+  "outputSha256": "4494f779ae298b5621c46cc130076d8dea30421036645c476697c431c453ef81",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Replacement correction succeeded: single clearly adult Korean woman in opaque burgundy blouse and tailored trousers in a clean entrance studio with a closed door; natural hands and anatomy; no bed, mattress, massage table, treatment table, sofa, phone, mirror, text, logo, watermark, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

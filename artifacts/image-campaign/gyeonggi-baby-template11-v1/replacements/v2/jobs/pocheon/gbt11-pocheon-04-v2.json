@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pocheon-04-v2",
+  "stableAssetId": "gbt11-pocheon-04",
+  "siteKey": "pocheon",
+  "sourceAttemptId": "gbt11-pocheon-04-v1",
+  "sourceReceiptSha256": "d8a6f6ffeb71db1898b4f41afe887dd678323dbf5fd67e55f4a5fe392f221e7c",
+  "sourceRejectedOutputSha256": "4e56129e0862def74b26238cc01a1eff9fe102ae08cee82984d08f037f7782e6",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/pocheon/gbt11-pocheon-04-v2.txt",
+  "promptSha256": "5e41f91609e5130331c3e54620eaa019b989bc5594ddb939371f59cffb988b6f",
+  "correction": "Override the original mirror-selfie direction completely: show one adult Korean woman in a calm standing consultation portrait beside a plain wood console in a bright reception studio; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no bathroom, no machine, no text or logo; fully opaque professional clothing, both hands naturally visible, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pocheon/gbt11-pocheon-04-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pocheon/gbt11-pocheon-04-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

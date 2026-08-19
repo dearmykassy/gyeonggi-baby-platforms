@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anseong-04-v1",
+  "siteKey": "anseong",
+  "cityName": "안성",
+  "localIndex": 4,
+  "concept": "window-lounge",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/anseong/gbt11-anseong-04-v1.txt",
+  "promptSha256": "c97621539032d9707fecc362dcf8361344511361d3554543fc2b093e1afd8385",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anseong/gbt11-anseong-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/anseong/gbt11-anseong-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

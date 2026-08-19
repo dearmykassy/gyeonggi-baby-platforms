@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hwaseong-03-v1",
+  "siteKey": "hwaseong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hwaseong/gbt11-hwaseong-03-v1.txt",
+  "promptSha256": "4a34d658e89382a7061a27953b94d94c451710ad52fa346bd5c126f4c700c6a7",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-43deea0b-e4fc-4ce7-af5c-9be333dfc53b.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-03-v1.png",
+  "outputSha256": "75e7a2bf7a5d3d222792cf37f05dc017eb8456b365c4aa61b799667430c19b2a",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque cardigan, inner top, and trousers preparing folded towels; hands and anatomy are natural; no phone, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v5",
+  "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+  "siteKey": "gwangju-gyeonggi",
+  "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v4",
+  "sourceReceiptSha256": "363177eb823c1903466bc49e2a1d5fefc192bbdfc684c7498250b83d5dea343d",
+  "sourceRejectedOutputSha256": "47f15a39373ae6e2271abc2317e6e217f7e9a47200f609055637da82698aca4c",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.txt",
+  "promptSha256": "e360fe1af02aefce865317bc321a0af0aa49e164d12ff74d5dc7c06b09ca4e97",
+  "correction": "FINAL v5 correction supersedes every earlier instruction that mentions a mirror, reflection, selfie, phone, or apartment entry mirror. Generate a fresh non-mirror, phone-free environmental portrait instead. Scene: a bright, tidy wellness consultation room with matte walls and a matte wooden console. Subject: exactly ONE adult Korean woman massage practitioner, age 28 to 36, fully clothed in an opaque burgundy long-sleeve blouse with a modest neckline and tailored navy slacks, naturally preparing a simple stack of folded solid-color cotton towels on the console. Show normal realistic hands and anatomy; calm professional nonsexual demeanor. Absolutely NO phone, NO mirror, NO reflective or glossy surface, NO reflection, NO second person, NO second face, NO duplicate body, NO bed, NO massage table, NO bathroom fixture, NO medical or beauty machine, NO text, NO letters, NO numbers, NO signage, NO logo, NO brand mark, and NO watermark. Landscape environmental lifestyle photograph; keep her face, hands, torso, and folded towels inside the central safe area shared by a 16:9 crop and a centered 768x600 crop, with generous surrounding margin.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

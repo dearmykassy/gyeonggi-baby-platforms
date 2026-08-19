@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pocheon-02-v1",
+  "siteKey": "pocheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pocheon/gbt11-pocheon-02-v1.txt",
+  "promptSha256": "fa8bd986cac252341dfe2d7b9c1cd0483831fb359678bb4af3dc0c7543185537",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-12314ae7-3a2a-4de9-9e14-aaa7b5229b66.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pocheon/gbt11-pocheon-02-v1.png",
+  "outputSha256": "ade2c71c4afec8a739a81c2438454ee258fc2101efa38ddf414834e45109a25a",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque wrap-style knit and modest skirt with tights; nonsexual seated portrait, natural hands and anatomy, with no phone, text, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

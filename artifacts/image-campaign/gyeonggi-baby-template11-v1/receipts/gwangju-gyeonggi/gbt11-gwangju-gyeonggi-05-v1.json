@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwangju-gyeonggi-05-v1",
+  "siteKey": "gwangju-gyeonggi",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05-v1.txt",
+  "promptSha256": "4bfab6ccc9aa392cbb571b74f1977c5f756cff568317e699888df86b004882bf",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-6db923e4-f57b-4572-9845-61d92a791930.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05-v1.png",
+  "outputSha256": "7f932675552c214b4d0ac8f6f252fcf6edc445757f6289c11efd9cc6beab8680",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman arranging towels; fully opaque clothing; normal hands; plain unlabeled pump; no bed, bathroom, machine, text, logo, or watermark; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

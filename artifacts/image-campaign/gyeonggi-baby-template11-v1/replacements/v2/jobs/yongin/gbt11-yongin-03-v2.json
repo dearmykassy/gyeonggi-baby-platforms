@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yongin-03-v2",
+  "stableAssetId": "gbt11-yongin-03",
+  "siteKey": "yongin",
+  "sourceAttemptId": "gbt11-yongin-03-v1",
+  "sourceReceiptSha256": "3ba94de33fe541337e16cbd8d46e93950a5f9282e5e3f29d77a3d5b5d629667e",
+  "sourceRejectedOutputSha256": "17b3955ba461b22c40246e423f320196b30953e74e67d301f03c2770e913f150",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/yongin/gbt11-yongin-03-v2.txt",
+  "promptSha256": "2bcfb5201944ec0eb8aaf28df5e88bc7d91a0e19c2f280831d14d63c317655b2",
+  "correction": "Override the original phone or mirror direction completely: show one adult Korean woman in a calm standing consultation portrait beside a plain wood console and blank plaster wall in a refined reception studio; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no bathroom, no machine, no text or logo; fully opaque professional clothing, natural visible hands, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yongin/gbt11-yongin-03-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/yongin/gbt11-yongin-03-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-guri-01-v1",
+  "siteKey": "guri",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/guri/gbt11-guri-01-v1.txt",
+  "promptSha256": "902822a8a69ce05a0cd1ce2502411a781e508e014244d2372c8321ead9ca5b1a",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-3df1deaa-b215-447a-8dc9-8caae304aeb6.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/guri/gbt11-guri-01-v1.png",
+  "outputSha256": "38685aea36923bca0d2a683ee024a75909dacb1ac33535accc0e9f106c3296fe",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror selfie with face unobstructed; plain unbranded phone has one small flat lens and one tiny flash, no raised island or central mark; normal anatomy; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

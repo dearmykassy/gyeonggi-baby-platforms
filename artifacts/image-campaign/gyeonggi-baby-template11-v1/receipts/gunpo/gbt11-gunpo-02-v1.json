@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gunpo-02-v1",
+  "siteKey": "gunpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gunpo/gbt11-gunpo-02-v1.txt",
+  "promptSha256": "90d0183d7d6267a8910a1cf4a7973fb833b568c826f746b1970ef0505d667e17",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-6abc634b-7877-41b3-8988-a580b605ae12.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gunpo/gbt11-gunpo-02-v1.png",
+  "outputSha256": "191e4892e8aa36983907ab2e79daf5e511428fbb9c76b45406d695ac0b4e8e6c",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque business-casual outfit; normal anatomy; no prohibited scene elements, text, logo, or watermark; safe responsive margins.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-namyangju-04-v1",
+  "siteKey": "namyangju",
+  "cityName": "남양주",
+  "localIndex": 4,
+  "concept": "seated-consultation",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/namyangju/gbt11-namyangju-04-v1.txt",
+  "promptSha256": "c99ac4f23cd9b6ed33772c0ea0bd8ce7c8022af5788c091d600c9ab6940db174",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/namyangju/gbt11-namyangju-04-v1.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/namyangju/gbt11-namyangju-04-v1.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

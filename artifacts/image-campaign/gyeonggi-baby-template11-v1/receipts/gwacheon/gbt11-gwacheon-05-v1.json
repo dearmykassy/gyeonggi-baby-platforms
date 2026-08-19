@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwacheon-05-v1",
+  "siteKey": "gwacheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwacheon/gbt11-gwacheon-05-v1.txt",
+  "promptSha256": "9341e486b0018e3c4855cf2d191f2a4e6e03bd393209ce4a59625dc8e12e2b95",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2bc208af-ccd4-4c44-8f36-69a3f4deec2f.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-05-v1.png",
+  "outputSha256": "79940b3f0dfb5d9c01598455f78559c9c8b41585de3267d26658d0b2316b7e36",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman arranging plain towels; opaque clothing; normal hands; unlabeled pump; no bed, bathroom, machine, text, logo, or watermark; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

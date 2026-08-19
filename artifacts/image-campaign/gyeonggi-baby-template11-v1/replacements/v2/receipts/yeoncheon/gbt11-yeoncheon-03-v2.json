@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yeoncheon-03-v2",
+  "stableAssetId": "gbt11-yeoncheon-03",
+  "siteKey": "yeoncheon",
+  "sourceAttemptId": "gbt11-yeoncheon-03-v1",
+  "sourceReceiptSha256": "fa81b8ed094d887e4014e12e60cd3d6e480a84489c0bc49d4c7ea7fde36b8e9e",
+  "sourceRejectedOutputSha256": "f12cfefb412e896305186071d17f32f89cd11b70294daa3ca7f3fcd6e90cb2bf",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/yeoncheon/gbt11-yeoncheon-03-v2.txt",
+  "promptSha256": "33328bcf18c8e78607ee8ffc7aac906cbcdcc2bf5cdc31afe8d2d30c2b360411",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yeoncheon/gbt11-yeoncheon-03-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-389e5cee-8cd1-4c73-8fae-c116306283c8",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yeoncheon/gbt11-yeoncheon-03-v2.png",
+  "outputSha256": "dc4188104db5c10a596fc1470652e3e10510682a1218a23c106dab915d717cfc",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman standing in a bright entry area with natural joined hands; no phone, mirror, bed, sofa, massage table, bathroom, machine, text, watermark, logo, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

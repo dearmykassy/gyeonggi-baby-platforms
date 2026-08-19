@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hanam-04-v1",
+  "siteKey": "hanam",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hanam/gbt11-hanam-04-v1.txt",
+  "promptSha256": "41ceffdaa0056feedbaa89463b74bb70f6efa6481970ce4bdaf5458af94e6cec",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-629717a2-3809-4aab-ad77-54c05db50f2c.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-04-v1.png",
+  "outputSha256": "8e6fdd5f2c8acf4ecb521473c54de133cb2d4f7b81ff13b3a3dcce323ac62fcf",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": false,
+      "responsiveCropSafe": true
+    },
+    "notes": "Adult subject, opaque clothing, anatomy, reflection, and permitted two-lens plain phone are otherwise acceptable, but a clearly recognizable bed is visible through the doorway in the background, violating the immutable no-bed constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

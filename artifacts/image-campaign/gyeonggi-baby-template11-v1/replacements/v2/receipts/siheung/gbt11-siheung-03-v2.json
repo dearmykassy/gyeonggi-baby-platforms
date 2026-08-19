@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-siheung-03-v2",
+  "stableAssetId": "gbt11-siheung-03",
+  "siteKey": "siheung",
+  "sourceAttemptId": "gbt11-siheung-03-v1",
+  "sourceReceiptSha256": "18abd4f2050bfc61c4f3d9a626b34b2a2f27373c2363730806ab376f153621da",
+  "sourceRejectedOutputSha256": "f08ad279360d6e94f143965ca6f992597511504fd864252f480add8d72a32e63",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/siheung/gbt11-siheung-03-v2.txt",
+  "promptSha256": "41955748234fd0f5b7d80ead5fc31c07375a6e94cf578e9fe880fc575ce1dea1",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/siheung/gbt11-siheung-03-v2.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-216ab36f-8d98-4346-b2f2-086adf8ad469",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/siheung/gbt11-siheung-03-v2.png",
+  "outputSha256": "4e3d7a0b232c6619106382de8f91e2b2f567ac9679239558398a65c1faee11a8",
+  "width": 1640,
+  "height": 959,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman arranging folded towels on a stone console; natural hands and safe clothing; no phone, mirror, bed, sofa, massage table, bathroom, machine, text, watermark, logo, or crop failure.",
+    "reviewedAt": "2026-08-19"
+  }
+}

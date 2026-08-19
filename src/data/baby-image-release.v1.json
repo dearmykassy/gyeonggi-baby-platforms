@@ -1,0 +1,4447 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "status": "ROOT_APPROVED_RELEASED",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "counts": {
+    "sites": 27,
+    "masters": 143,
+    "derivatives": 429
+  },
+  "released": [
+    {
+      "stableAssetId": "gbt11-ansan-01",
+      "selectedAttemptId": "gbt11-ansan-01-v1",
+      "siteKey": "ansan",
+      "sourceSha256": "627263f3be47e326351fffbba96f4a4add6d27930883f7679267cee73a57e68f",
+      "provenanceFile": "public/images/baby-template11/ansan/gbt11-ansan-01/provenance.v1.json",
+      "provenanceSha256": "a8abfca5ac4790c7db86f21f66342da620eb59d7cbc741bb1b1b0fe640adf9c6",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b48b4d981a292f56620f6268499a8ddd515d7f719032cf68060ad6faeab1f8f0"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a727aee23b4856f4f4a27e953cb55cc14f8c80a698884b4e561ce59343450616"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b94b6a1f0bfac25d4c0be0842d72093e01e91b3220d86066677f519ce4713734"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-ansan-02",
+      "selectedAttemptId": "gbt11-ansan-02-v1",
+      "siteKey": "ansan",
+      "sourceSha256": "106d3571166770ffb7c318d113bd9b3a6457cfdbf48fa155ce13b8b34737f608",
+      "provenanceFile": "public/images/baby-template11/ansan/gbt11-ansan-02/provenance.v1.json",
+      "provenanceSha256": "072980f73c6ce8668c946c4895782dadafa750a6c2e5764e580fff9ead408b67",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f9d7a49e48fc61b08db0c6c1addcf346238ca16cea96c933d64f1c8e2a210615"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c0ce1ac9ca4cb6210f341b955b3b80dcdceeffd96c9ebf83b3b7b7ed7ed5f59e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "dc5bef9cdcd546c584c3adde6479d5cfe18c87df9f3db4b7d49d485b54ac8bd9"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-ansan-03",
+      "selectedAttemptId": "gbt11-ansan-03-v1",
+      "siteKey": "ansan",
+      "sourceSha256": "ec8af4e389e2afa9da986e68eaa013a44f0fa5efa0290fd14a6061af2ce0d031",
+      "provenanceFile": "public/images/baby-template11/ansan/gbt11-ansan-03/provenance.v1.json",
+      "provenanceSha256": "eb640a221674c3bd19a885200b6146bf3985e8fa4c8ce1303271e5701fd8d603",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4ab2ec169c996280bddff6cb36871acb569984d41b50c4be80b3fb7f3ae80b38"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "ff1fe6a4039ea45f4ff8d17c293abb0a66a1e4f16a9c292348733c6d9b5bde7e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f4e964c8e70e859a3d09350d6d4654f4ce3b40ff865433dd1d2c2b9399f91e6f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-ansan-04",
+      "selectedAttemptId": "gbt11-ansan-04-v1",
+      "siteKey": "ansan",
+      "sourceSha256": "612abf50fa700baf3185fe8ba20120d8ccaf6fdc820221ff3383683327bafa8a",
+      "provenanceFile": "public/images/baby-template11/ansan/gbt11-ansan-04/provenance.v1.json",
+      "provenanceSha256": "b94469ca0d0d11f05a1c5fc808c34d59ca3a06a4922f4a2987ae0ea79a23939d",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3e8ff74a8573de24d86687f86f5578451ff5945475f817be37b93077df2e8da7"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "3405f532ae58ceba176b6ec027e856ca51bd8d97b49b90cd7ada707a7e28a93f"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "23e628bc18e20d5e2e9c6ab2cf6c323546ca93886b87f19c26a034da98753788"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-ansan-05",
+      "selectedAttemptId": "gbt11-ansan-05-v1",
+      "siteKey": "ansan",
+      "sourceSha256": "890da2731b4ad770e454fcd70b2385dcecd02c9864a5665bcf54483e718acc8c",
+      "provenanceFile": "public/images/baby-template11/ansan/gbt11-ansan-05/provenance.v1.json",
+      "provenanceSha256": "93d0f3504df7d325da534ca6b4774207920d88155c9607ff3f3e5fbd547cad4c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "18f181058ef1e1dc3835b5eb788762f362ca6d74f400b1f2d78cd1abbc2c07f8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "8b4e882afd69a965baa70996317b8d160c0ca0eed792575bfca68cc82acc6548"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/ansan/gbt11-ansan-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f72039b3e894fd2028b0d0458407a4bc849c314a56fa9a4803f51a0ae7c640f9"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anseong-01",
+      "selectedAttemptId": "gbt11-anseong-01-v1",
+      "siteKey": "anseong",
+      "sourceSha256": "45f55b3bc2b5ad04d3f4246461bec73a66b6286075211c257f93740d7452881a",
+      "provenanceFile": "public/images/baby-template11/anseong/gbt11-anseong-01/provenance.v1.json",
+      "provenanceSha256": "e67add71b5b6c11ca65cdd0e33b2b1ec1ae31d54f20c72fea4ec169087560a16",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e988db3355f869dad6cd58a23d37818bef2cdc6053cebd4a43843b0b90f1ffc1"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "f111abf7c47ad7614f9164310ffd87229acae4a81ad9429b14efb120739f6e2a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "986915b5542db318524b68fe5ae3d3da8a558153b4819ba01cb0727cd12d0534"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anseong-02",
+      "selectedAttemptId": "gbt11-anseong-02-v1",
+      "siteKey": "anseong",
+      "sourceSha256": "a7ca3a675c744b5dfa0a1e348429c75f0054bb1b081576d02a1b19299c90c26c",
+      "provenanceFile": "public/images/baby-template11/anseong/gbt11-anseong-02/provenance.v1.json",
+      "provenanceSha256": "82928552a8fd76be664ffdc17a131e76704258c69e2926a83cba7ebb93754b15",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6cf97a9131d1f8b5527b31a2314795f111c07655f29082f404e4c5e32b5cacce"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c9aaead44bdf84e86c1f704d966d6297ebf36fbcda56969e5dd45b0a2b054512"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e49b4888e6d3b12fc3e16fa134c65c0daced1e31c698e5ef2337651898a1ce6a"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anseong-03",
+      "selectedAttemptId": "gbt11-anseong-03-v2",
+      "siteKey": "anseong",
+      "sourceSha256": "2893ffa9c676dfa5dfe50a7877879d78ab9f6111b8712ac797bd94565aaac095",
+      "provenanceFile": "public/images/baby-template11/anseong/gbt11-anseong-03/provenance.v1.json",
+      "provenanceSha256": "2b36152c6b064af135006a5cf8310f8a677b4a2ac80ee33048f4fe0e2ca153c6",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "53406a93c40686ef563bf96c184fc4d9f70fc07865bd3d8a39737953404a986c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "3f5f09b36cfef754cc000dd7982865552d18bc6bd1a09136720770405cf6f2c4"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8000b3976c9c1dfb295f5219cab7b93511d78273107d9049a0de4509ffa38bc0"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anseong-04",
+      "selectedAttemptId": "gbt11-anseong-04-v1",
+      "siteKey": "anseong",
+      "sourceSha256": "3857d5947ffad83841a7c876d8c9416de2a71b88d2ae30e12febec5166def86a",
+      "provenanceFile": "public/images/baby-template11/anseong/gbt11-anseong-04/provenance.v1.json",
+      "provenanceSha256": "2b59885744c9d25c1e574483ee82d780187ada2e2e20e8826326968f2eca0d4f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a74019f95fa200479f8ef3088535bdc69bf02c8984b5fb633d34b7a47ef9325f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "989da94c69f962a26c94263bbd4cd7cc427cdfd09dfc8138760b68287c03de0b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "3586be97a53449518ade1a06da0019cda191e89d7053b57f05499d674d4b53be"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anseong-05",
+      "selectedAttemptId": "gbt11-anseong-05-v1",
+      "siteKey": "anseong",
+      "sourceSha256": "5a553a70c7736fe5b5a9c8d3b541d74d5c9bf535558973ed65d5fc3a4c48a0a2",
+      "provenanceFile": "public/images/baby-template11/anseong/gbt11-anseong-05/provenance.v1.json",
+      "provenanceSha256": "0785ba332a64a51c1ff2604a46a2678e64e897a6cfd7bd39902d90b1b209d719",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "eb258f185fef89226911132c4b68336fc96311f23bddb7133a93db78803359e4"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a466b41e2ba61520cc109cc4ac79cf1865c84e518c460384ed74217a0bc7c877"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anseong/gbt11-anseong-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b53442dec541403d721b94c7ba98e4f766e9d3c8fee889235d588d966b66ee51"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anyang-01",
+      "selectedAttemptId": "gbt11-anyang-01-v1",
+      "siteKey": "anyang",
+      "sourceSha256": "5095bffbe3fed9144edb1476faffaf6391c36571766f5f38fd55e7d88494ab71",
+      "provenanceFile": "public/images/baby-template11/anyang/gbt11-anyang-01/provenance.v1.json",
+      "provenanceSha256": "e501e22e36f8943bf2d129aaa772353db93ddd81836d1fc0804dfe7d94abfd26",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8660998e13cb75ca13e36c2086d5c4c9cb8da21afdc9e42c83daf464b3fa193e"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c1a65d458de146eddb5e24aad80b7097e2df2047f5b998b6d0ee897dd257eda6"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "428ca0a1347da08efdc40f03d18f77daa8adf855caa3ba32663b3ef59b6825cf"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anyang-02",
+      "selectedAttemptId": "gbt11-anyang-02-v1",
+      "siteKey": "anyang",
+      "sourceSha256": "fb96b1b2bf995c7bb7d9c1471872aed94c221ecfc88c8a17bcfc4aee47f2336c",
+      "provenanceFile": "public/images/baby-template11/anyang/gbt11-anyang-02/provenance.v1.json",
+      "provenanceSha256": "f87b942e8fc25110a4d6213cfd515eb93fa2be5b5c2f2d1393d65af735c6650b",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0fe802478c00234f1c33a8d1c857148e58f384c9d452d2ce938b30f8bf47453a"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "52f8af0c3d17cf36003639067e451d4fc4c048bfb212e1577a107c18c1f8f005"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d8c3ac6fdc8bc50286e34c1d19c50cb37e958e73af1709c7fa467a8828ea3f05"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anyang-03",
+      "selectedAttemptId": "gbt11-anyang-03-v2",
+      "siteKey": "anyang",
+      "sourceSha256": "6770e26af0b4df08d6fa4e89aa2d5f8b75ca15249fe6282b01ab63c4065baba6",
+      "provenanceFile": "public/images/baby-template11/anyang/gbt11-anyang-03/provenance.v1.json",
+      "provenanceSha256": "acecca00f8d7c44cb99b138b18ae6a822bc9d48c21abb4af66a0e6f2976bd62d",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "21920e67ab540f1d9da23c35bb1f4360c37b080ddd219742f85ffdc3f5074fd9"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7dfb414c9210b9ec164cdeeeca0d773d1b1029d8e7f8738732f483748f2d1f51"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "ecb7a6fa7dbd0f223dda2687dbb3033b53e9821b807a27e93c18ab5400e22d79"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anyang-04",
+      "selectedAttemptId": "gbt11-anyang-04-v1",
+      "siteKey": "anyang",
+      "sourceSha256": "f4fff9af618a01b9540cc589951573c366a5cbf57623872025b68eb146300b0a",
+      "provenanceFile": "public/images/baby-template11/anyang/gbt11-anyang-04/provenance.v1.json",
+      "provenanceSha256": "32fabb869e36dd0c3354ab76ade3901f27e660daf042c1e3818256bf0a2782e3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "86fcd5aaff7b6b795e224766a3bd8c6e3a5791df470eb7034fcca854867d560a"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "71495364086f4d335ddb7b7712207fe30b7687a4f536403bb74d14685dc81f2f"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "7543704e21ca4253d488e17d34744369b1c3d7e5cdf1f7c2cdfe612180ddab07"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-anyang-05",
+      "selectedAttemptId": "gbt11-anyang-05-v1",
+      "siteKey": "anyang",
+      "sourceSha256": "8413276b3e5e7b7b4cfb60d3ecdb629eeaa34fee93d68aa6e33c5771d49177ea",
+      "provenanceFile": "public/images/baby-template11/anyang/gbt11-anyang-05/provenance.v1.json",
+      "provenanceSha256": "c36ad4be3b977be38a67924bf58ced5685660009392a274146486f4c20f7964c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3bf2ed668be64faf4d1096b3bac9a3eb7c6f126d39165860afc74700eaa907b4"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d0dff9904d55a2045f9c7734b503d51cd037f66dbef383b1a91e3421be658b58"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/anyang/gbt11-anyang-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "6642bbc7e2461bf10f249d5e477947b4984cc70a843d28e43f88b067c88769e4"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-bucheon-01",
+      "selectedAttemptId": "gbt11-bucheon-01-v1",
+      "siteKey": "bucheon",
+      "sourceSha256": "b4b4d3f9f491da28b4c011f884982c53c47dc9f6ca19c8c28a56dc81cadda3b0",
+      "provenanceFile": "public/images/baby-template11/bucheon/gbt11-bucheon-01/provenance.v1.json",
+      "provenanceSha256": "3706fec32b8d7de06f7e7710446e7660ec004f9a17ffe4ef895ef760fa9b720f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7fc05489a9fe60dd1e7b5e00895cebfbea86d511b6866d8d80d860dc87086588"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "70a10f06e26364303344a563e53d639c67654cefb9b6362671c84033fc65cde4"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "42fae45dedffc4c5fa0292402c7ae1610d8cd3e1810ef9f9b51994f7315f11d6"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-bucheon-02",
+      "selectedAttemptId": "gbt11-bucheon-02-v1",
+      "siteKey": "bucheon",
+      "sourceSha256": "a94dea401f053b1e0dba3a4188a30e0874d1659aa48f3745cc1b9fa27e00455e",
+      "provenanceFile": "public/images/baby-template11/bucheon/gbt11-bucheon-02/provenance.v1.json",
+      "provenanceSha256": "a771ce55a9c9d9edc869abbc99dfd6602ceecaae4aaa589536b80817400cdcfe",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4277244da27206bc6b65e87c43e662bf7bcd46eab08e7cd74f6099a66c23e351"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "61177d1873bd7dd7a8e4a54c57cc499afaf97b1d8f95e0cf48b636fcd12354a2"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "5e05a92fd9dd4e42c5cd734d8bb6b2a40364c8d3fc149ddcef96280b3a30d56b"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-bucheon-03",
+      "selectedAttemptId": "gbt11-bucheon-03-v1",
+      "siteKey": "bucheon",
+      "sourceSha256": "2ce5d0b80253e938a342e2072266ff76b266ef05b952fc32f1541d8a9a46aa80",
+      "provenanceFile": "public/images/baby-template11/bucheon/gbt11-bucheon-03/provenance.v1.json",
+      "provenanceSha256": "0876ec03ef7a233a19ac302dc0a73a931222ab6beced425ee0788e5bfa152eb3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e892ba6c92d18b64e28bf4adadcf29e60b3466de38ab10a76ea2c37802ff17e7"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "affb1decddaae895f45240e29ed3315e68d5920997677594edfc01a8a2da60b5"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8d586d1ce2599c088cdb4a21d746a81b71dc7f2f064e1ac8b709fb08d005403c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-bucheon-04",
+      "selectedAttemptId": "gbt11-bucheon-04-v1",
+      "siteKey": "bucheon",
+      "sourceSha256": "e60a4c3e8c2b1cb74538c7d910c9b6b4a14a5107651399b45ddaafe05e4a261c",
+      "provenanceFile": "public/images/baby-template11/bucheon/gbt11-bucheon-04/provenance.v1.json",
+      "provenanceSha256": "d87342a16e19ba9287fc66f8e299245fc06644ec94cc3b1f59ba1ed2223e6641",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b9e366f8aa132eadac01517f0cb9a704dd681717cc93b43fcfdf2eb215a55f74"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b019c566d74d0cbd6ac7329d139fb222060172165a0d75cd54bb9957283d756b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b91511b6e888e1f503425616ac90c5905c9f37a23ec8e24e538404d583b069dd"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-bucheon-05",
+      "selectedAttemptId": "gbt11-bucheon-05-v1",
+      "siteKey": "bucheon",
+      "sourceSha256": "25ed267a2eaedb2acf8401b5fd1c4948aa107ed2d42322ef29a037b3bbeb2993",
+      "provenanceFile": "public/images/baby-template11/bucheon/gbt11-bucheon-05/provenance.v1.json",
+      "provenanceSha256": "380c4cd93c6f89fe996655af774b022bd21a524a1b44bef4f988a511841485eb",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5cb63e6fcd37942a74c708cecd64a47f99f339f84eb36950f64add79f549747c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "ec6b001a473cb38493b5fa625835f9b6145802b90c33e3eb63cf722c7a870a96"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/bucheon/gbt11-bucheon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "ab6bd5896103edd9bfd3f1b7596b0b9f369cb5fe12dc4eb361cac8babd0e92c7"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-dongducheon-01",
+      "selectedAttemptId": "gbt11-dongducheon-01-v1",
+      "siteKey": "dongducheon",
+      "sourceSha256": "dc2b83130eb2f8d5792bb0619b5b946781c59865dade2fa17a7fb9b168b7fec2",
+      "provenanceFile": "public/images/baby-template11/dongducheon/gbt11-dongducheon-01/provenance.v1.json",
+      "provenanceSha256": "5784606e3ec4c72afb14b5adce8fae46eff391f0ed0f8c6c5a95c0a5eb7ce18b",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bee7e8693e369fceb5db5733c2d9a9f107083b087a81bd3d982bd9f65cf4829b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "1df8b469f4e7f5bf64727c5d8f55cc09d9791588d16c761fe38e4a84b3e9c8cb"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "0f83c5dce799469b71527374eb42345ad98eae7b3f79e127e5bab529c2313ce8"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-dongducheon-02",
+      "selectedAttemptId": "gbt11-dongducheon-02-v1",
+      "siteKey": "dongducheon",
+      "sourceSha256": "a4788b67501a043f33299319bcb6e29e43e7d77e3c902c48a7723514dd797592",
+      "provenanceFile": "public/images/baby-template11/dongducheon/gbt11-dongducheon-02/provenance.v1.json",
+      "provenanceSha256": "8b54dfbaf6cb028bcec20e869b4e0133edac2a96660bbccfa059d352b6fd188a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5c503db30258cb3fe2761df015246f727c324f1fae2de4efdc2cc7fb92a74422"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d7dcbac42f0ac5f911918dd51385ad85918bce684ade5e35b8b6ae7e5c893daa"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c3efa36538c6f4a75d81e247f00309a9fffd8f99b9ddbbd95e8472db7e2382b6"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-dongducheon-03",
+      "selectedAttemptId": "gbt11-dongducheon-03-v1",
+      "siteKey": "dongducheon",
+      "sourceSha256": "8734be1613f394f0cdc56be75c446568e05ef5093bb0f621c3dac460394929b7",
+      "provenanceFile": "public/images/baby-template11/dongducheon/gbt11-dongducheon-03/provenance.v1.json",
+      "provenanceSha256": "84d2115f4f1d07644ed7f9e9d57127cf5853850cf71bf432c43e0ee5ba5deaa1",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "de98b02fa175a36cea0dbbcc9eef3431d0cde62373a34af5c3fd3def7c1b64e9"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "38be24e11f0ccfde833d2c6c1fb50c6444246bd6ab45433018b4c2fa703ae13f"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4626c0b66924555d1d489d4993d9894730f94047c396d60105cb80942e937a23"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-dongducheon-04",
+      "selectedAttemptId": "gbt11-dongducheon-04-v1",
+      "siteKey": "dongducheon",
+      "sourceSha256": "d74eb18b830cf0e95c0718c6c90056ec3a95a41b3c9710d1cdb00e1be9dbf768",
+      "provenanceFile": "public/images/baby-template11/dongducheon/gbt11-dongducheon-04/provenance.v1.json",
+      "provenanceSha256": "1a5e7c82111bbe8ad459309dd41d90b2b7e4f31e2adec984e9b069210a294520",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e0188c3cb775de4602f8b8b03bb346c14a6088cb408d5492e271a6ed5f47211f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b1d1bdded356212ce5b516650353f2473645990540339ceb78ec6c45f585da5b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "a971e02a8e0ec21656497248a45f2613d01a6d52d1b412e3cfb58a7ab20a6e50"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-dongducheon-05",
+      "selectedAttemptId": "gbt11-dongducheon-05-v1",
+      "siteKey": "dongducheon",
+      "sourceSha256": "06bffe0e5ef7c07101193913f2de086e99545e353c7cec4631ad407fb55b3048",
+      "provenanceFile": "public/images/baby-template11/dongducheon/gbt11-dongducheon-05/provenance.v1.json",
+      "provenanceSha256": "f4d283f786f69a16c351457923a727860e717af9cf6d05673f8af9e5ef9729c0",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "dac2e55ab1b02f17845a533db07be52741ff9d320f513ca53406e47390892474"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "37530195c0cdff35df0d42310f0c83d4ea09420125b3cdd82671f0e5dcd8fd5a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/dongducheon/gbt11-dongducheon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "372f8fd393bdfae74143dfef5205927a343f55f553b497a8364584ce0e83c1ba"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gimpo-01",
+      "selectedAttemptId": "gbt11-gimpo-01-v2",
+      "siteKey": "gimpo",
+      "sourceSha256": "9dfb4f8a05679a1ed2437e22cacf4b2c81319c6e7825911b2b1dd56787b53e6e",
+      "provenanceFile": "public/images/baby-template11/gimpo/gbt11-gimpo-01/provenance.v1.json",
+      "provenanceSha256": "e34c0e4f34add7e36c516e09a76ab8c61bad1f292e501fe279f7b479474265af",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f2e304177cfdbd88dd56b6bde9b2ca4fd5dae8a9b045b382ed66b2ef3ae503cf"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b5f90da37254d846a3ecd92491d523fca02871fa1c72680eb2127561128f1441"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e27ad02631947d0b556907c83fdaa4af35840896eef9504ef88dedfe10647368"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gimpo-02",
+      "selectedAttemptId": "gbt11-gimpo-02-v1",
+      "siteKey": "gimpo",
+      "sourceSha256": "c42ca25d1a9f82f29ec1000fbfd74c81176a195189f8ab3a517471a5ef022060",
+      "provenanceFile": "public/images/baby-template11/gimpo/gbt11-gimpo-02/provenance.v1.json",
+      "provenanceSha256": "daf2036cf0f0a03d0057e3b488cf4632614375e34112e8e605e0df27c03a59c3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bac374a8717c716404632032f891b978a5029a11ccfb5d20c64da23681f552f8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b820cf07f8ef5aee0299861e0d826e3cb9d2471f4c58524afddd42a61b9c6928"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "311539868804a0972d5785df26e765a99e5b1b641737e19361ce851ff456a70d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gimpo-03",
+      "selectedAttemptId": "gbt11-gimpo-03-v1",
+      "siteKey": "gimpo",
+      "sourceSha256": "a72b6801125910e6b7d446ca6a71dcdc0079cc7446618ecad4eaae3ebbaec0f8",
+      "provenanceFile": "public/images/baby-template11/gimpo/gbt11-gimpo-03/provenance.v1.json",
+      "provenanceSha256": "38478fde92cb8b1caa9f1e6498dedf81141c0691346ddace5452803a0c341533",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "658888164d760a90b373e273e982d0be5d94ea5551f80322606a9d59c65be855"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "fd7c3ec080ad99b50caa6b1538ecafc51a6c405a326657f868c1714dca40b1e2"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "89741a00de887c835c2a8032510c512abbe2e71ae0cadff4e48ccfb8e784e2c8"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gimpo-04",
+      "selectedAttemptId": "gbt11-gimpo-04-v1",
+      "siteKey": "gimpo",
+      "sourceSha256": "3f4443cc0c19bd4a6bd2d29d2f896cee8b41cb4b8e425ac6d4de1738b6346730",
+      "provenanceFile": "public/images/baby-template11/gimpo/gbt11-gimpo-04/provenance.v1.json",
+      "provenanceSha256": "87c0fbdce186543a196997c6dd19bc44a8e89eb75b2bb720488fc4cbf7dc0be8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "aa0b0af9e58e46190f4aa043fe4a8dfdba3c03034731265fee7cd32075622cc8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a085d43d02556ffee1393ab5c4003835205297c086daa45f5c67a08ed4fba8ac"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "63aa54064c29770a7acbbb5a2bea377155913082febac7b3bd2704a254a06fdb"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gimpo-05",
+      "selectedAttemptId": "gbt11-gimpo-05-v1",
+      "siteKey": "gimpo",
+      "sourceSha256": "e5746b8864f3fb64f5d7f40b6d0ba4b4dbc9a2cba0e4f1926b77fad95cffc137",
+      "provenanceFile": "public/images/baby-template11/gimpo/gbt11-gimpo-05/provenance.v1.json",
+      "provenanceSha256": "392657e98a226b19927409735c8644fc92523d6ada9851e03a3299c4e9c7dba9",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "705e082780b314093611841822057d79f16349f099b1b946be1a7c84840028f1"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b8aa139f9fc651801d215eeee8280ddb7d811ce065994bf907cdf843dde9f54a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gimpo/gbt11-gimpo-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d21dbd66eae63f6dac556f3d0d8187e6c1ea27a3ea875f74cddad161c73f5458"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-01",
+      "selectedAttemptId": "gbt11-goyang-01-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "1844be732ef2d47b1e68c26386303373b500886806c2d6c8f488b7d24f4a91ca",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-01/provenance.v1.json",
+      "provenanceSha256": "a3494cfd53934c521c1fd2433c9bff0549f49bd0dc74969858a8cb08ec10a69d",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6dfd171ff9e472734c5aa7d1a04ecbc544dd2d8efdffbbb526e470b067c0bf6d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "0c93deb30606d3c85fd0fa9028794fb6d49d28bbd7743ab35cb64d7b072a88bc"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "5554b392d7a6bc1c6f51093811c281c0d3ff7005bdda3ccc42eea98145f0ccd3"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-02",
+      "selectedAttemptId": "gbt11-goyang-02-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "fb72188a3c26f334b051a8fa94eb198effa8eb38241b668e270eca6df240b8b5",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-02/provenance.v1.json",
+      "provenanceSha256": "0d1364148d23bf31da4993ced7524f3ffa0e73595079cfcf060533de7cc3c8b9",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f18932a11d66bd831991b37d2a3472bb50570d50b0b56d35c30c42c3099fc625"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "03c0d8b1eb7f5d5028404ed13a84f9aebe2523aa47dac1335a199c1236428c22"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "0c17608f52a577b33ae5031d6d09f88f0f91f05d31ff42b02dfda5be72c528c0"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-03",
+      "selectedAttemptId": "gbt11-goyang-03-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "5ef92a465f914018219664a7fc40942a01894cc32554263a7c64192f1569ea82",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-03/provenance.v1.json",
+      "provenanceSha256": "ec5753daef2546721a4a2c1d21f054039e7c49604bcd21e38589509fee8e081c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e0dc96b21bb6b9fb427204f3a7cc4f3b0f800effa320fc78bfa1dcb7192f5c21"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b11bc3f383c5a296721b2c8c9d70ee6b4f8ba11d4418a44c8525ae43d89805d2"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "ddb38890be6a01d78a1139563d93caba8d4cbf1f558c0099610c8d38d8be13ad"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-04",
+      "selectedAttemptId": "gbt11-goyang-04-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "1e85521673b14047e46a3567648c449dc34577db5ad9c799c03b5dc7ff884bd5",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-04/provenance.v1.json",
+      "provenanceSha256": "197a3969038e2ab48afb670da4c0b1f503808d26ab43cc80206dcddd4322ce4a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f921bb9377d8b4ef3bca43b752908108030d15b7d6e4bf52a74ca0af2cbb3786"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a87d27aadac2921d6f0afadde1183ca991f1e7bc104fd5762bada5f56c2e4e49"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "95dd2a24961262f0bba28b70de690e816f88e9338a74447aa1ebea740eb8c82e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-05",
+      "selectedAttemptId": "gbt11-goyang-05-v4",
+      "siteKey": "goyang",
+      "sourceSha256": "d80edf1957530b52a8837e6cfba62bff7b264e8466b028196d6e7c717a9a7a5f",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-05/provenance.v1.json",
+      "provenanceSha256": "e9cd02013cfb9b6b0ed59e7a7760fe76ca711d5c0c3a300521a0868a66f09c72",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1fc62025f216a6e05ad9ca673105ded7969f78d6351bcc93103a3417ddbef116"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "3dbadedf241034612ae6cb96536edc69a1f0d2052360679d5a783508a9bdf44b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e5c19ae3baae99a3fb3d5888446319140262de5b1b73b8cf2f02004e9766196e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-06",
+      "selectedAttemptId": "gbt11-goyang-06-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "36d5a6f8b7783a93908f990badcaa2c4b4eeaa20e2e77c7e8e1e2e18feb0e210",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-06/provenance.v1.json",
+      "provenanceSha256": "d195e04d1989c2357470d883b4d4f53918f8d154ed5fc9c7fbbb14e33eb1b677",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-06/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5394131d3ee4d9934061f0b8cf3afbde461277f809c3eead9ce31b9aecac9de0"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-06/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "dbe412b0a8aa610202e86761b52da0f6280f1c5838eafe3b057345267a190cd3"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-06/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "11015be1ceee2ccb8e819c9fea0fe3bbbb90ed7366714ec62d78686ba9e8bb23"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-goyang-07",
+      "selectedAttemptId": "gbt11-goyang-07-v1",
+      "siteKey": "goyang",
+      "sourceSha256": "19bdbf5a50b45b4ef2e58143c37aa64d3a8e2bd9fa3ddedf53a3d4b05e87f773",
+      "provenanceFile": "public/images/baby-template11/goyang/gbt11-goyang-07/provenance.v1.json",
+      "provenanceSha256": "855f11fa4eca3d1fbedf3ba8e3282e84ab5b32db268b8c312400fa99cd4c6092",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-07/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5bbebdfe4165773521f217bf82797a461206071578500c72642ec12212b4e2e6"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-07/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "fc295a9e05ced23a16e9696539e1c892db59c3a75c44098e8c41a2a57c528734"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/goyang/gbt11-goyang-07/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "adfb60a6b5cac0841a7bc4f617c432b44bd0367afb4ec34e06960bca02ed8ebe"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gunpo-01",
+      "selectedAttemptId": "gbt11-gunpo-01-v1",
+      "siteKey": "gunpo",
+      "sourceSha256": "8d7d7c65567c30adc2604dff0ba2f7b8d5a9a60c4dcbd6e409181ebf93ae16d2",
+      "provenanceFile": "public/images/baby-template11/gunpo/gbt11-gunpo-01/provenance.v1.json",
+      "provenanceSha256": "fe1aaa3be991d6cea0f9fac7fe55efbc133658159b472b2bf86cdc74f0ca676a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "264606a2ef31ddcc0103810c5081768ba7609d7049da3ca3c5674abeea148d66"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "36fb9dd5e833013931054a957edadebd1fb2d88993cbbe87f1fa4654c7a999e5"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f175cbc5d98a8c15eb5d388a369a86b6df2224b1345db23585248f104b09a8f4"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gunpo-02",
+      "selectedAttemptId": "gbt11-gunpo-02-v1",
+      "siteKey": "gunpo",
+      "sourceSha256": "191e4892e8aa36983907ab2e79daf5e511428fbb9c76b45406d695ac0b4e8e6c",
+      "provenanceFile": "public/images/baby-template11/gunpo/gbt11-gunpo-02/provenance.v1.json",
+      "provenanceSha256": "53bbcb2ab2634ad29df6855a49458049ae5178849c3da30c48f9245c790879bc",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7d40c5f8d1f2b81ae3b88fbd1dc6b7304d8cb458391ffed78c1f334eb290a4fa"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "bd05bf0aeb73b297299171461b8d9709e4dbb0c4082e9f1108676b9ed165533c"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d59b5081f12dba23031fd12f4d16542e89293a628bd345c67f5a0a85bd0f350d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gunpo-03",
+      "selectedAttemptId": "gbt11-gunpo-03-v1",
+      "siteKey": "gunpo",
+      "sourceSha256": "c31503672db5ab42e6301519293e8225365a88cf8cbb8cd9e67fa05b1b1fe7cb",
+      "provenanceFile": "public/images/baby-template11/gunpo/gbt11-gunpo-03/provenance.v1.json",
+      "provenanceSha256": "0a423b6bb50d3d25a538972b68b47cfd42075374a33bcd8dba9280f8f7e0ac1f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c83425618075e4aac70268a10a6fd1468e85e1774cdab00f01f4fa1a724c1418"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a150b5f3bb08b9eb2426ab0d36362db768ad37ddbdec8a5d3a399bd4eb1dc122"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d84eaaf38492da0ea479bf920e76dd86951c57c85614a0e7ba0543dcd741df94"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gunpo-04",
+      "selectedAttemptId": "gbt11-gunpo-04-v1",
+      "siteKey": "gunpo",
+      "sourceSha256": "598fd235395aac85487aa0e0f923c976c35403ba1da8f21beedf43d198fa20b4",
+      "provenanceFile": "public/images/baby-template11/gunpo/gbt11-gunpo-04/provenance.v1.json",
+      "provenanceSha256": "f81692c1ac5af516bb292855ec75b7d660cd3070ac03374fd1f5caf212f8d803",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7efc50bc9b5b2d93c123d55ae95be543daafc37d4e5425c7ef86fe0bff32aa90"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e156a527e30901cecb0e9fa4bc9668e0e37deb33faa75070ac35b372cab8ee3e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4630965697bbfc82d9644f1b8d29c82b97209328126d5b6abf3607e3c73ef49e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gunpo-05",
+      "selectedAttemptId": "gbt11-gunpo-05-v1",
+      "siteKey": "gunpo",
+      "sourceSha256": "75012d2f75af15586b539cd6d8055c390227a795308e52eb0bab824397f317f7",
+      "provenanceFile": "public/images/baby-template11/gunpo/gbt11-gunpo-05/provenance.v1.json",
+      "provenanceSha256": "6cb79cadb8dffaf47ff814bd05675cee4ba5422d4df0c7bb5cdd271ccba3583b",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "527f430f8618f1232ac26a25c0e2e2a6cba710348b16455956b7a7cf4e397465"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "8dd67b35ff5e2b3570c735fc9bad6f55c1474c2ac76333f54dc36af76307464d"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gunpo/gbt11-gunpo-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "99d44c29d6e52d7a0616b09cd58f99a51404abe75a42be9e7ecb35c5dc9a1bd9"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-guri-01",
+      "selectedAttemptId": "gbt11-guri-01-v1",
+      "siteKey": "guri",
+      "sourceSha256": "38685aea36923bca0d2a683ee024a75909dacb1ac33535accc0e9f106c3296fe",
+      "provenanceFile": "public/images/baby-template11/guri/gbt11-guri-01/provenance.v1.json",
+      "provenanceSha256": "b1a0b6e62e32ed6b828d13bfa12b39b10388b9b398f2f56efdfecb72e9602f7c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/guri/gbt11-guri-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e91bd671068f32c3c8f394f82711a739876d3b691e9f31e8fc44fd1531ba5714"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/guri/gbt11-guri-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d4a658b30ab8399702610ef93b9bbf57f175efc408e0a21702dfcf913739aa32"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/guri/gbt11-guri-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "61f72d1bb8322d8fc2baabf26d2b474568367cfe52d2f4e6f9d8f94966b909cc"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-guri-02",
+      "selectedAttemptId": "gbt11-guri-02-v1",
+      "siteKey": "guri",
+      "sourceSha256": "3f209d4c7c01f42b84683158952c34bcd1ff927c85554c9bbdf77b26023a40b6",
+      "provenanceFile": "public/images/baby-template11/guri/gbt11-guri-02/provenance.v1.json",
+      "provenanceSha256": "5a6085f39725b20f2a57c484c8810f2e974d009015e94fbaca65a9e97c4a54aa",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/guri/gbt11-guri-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e5c7b0f9d177097a1fe4cfb757259aaaf679b49f656ad9762155d14674775383"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/guri/gbt11-guri-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "294cf74efb8bb2b64f852b2b6de965f81090ed4c7c2e3b7a4ff27703926dc729"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/guri/gbt11-guri-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "0f3f8f916f9551d682aefb4eae0b9fdf77af2e090f6de1f4e05539c82d299fea"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-guri-03",
+      "selectedAttemptId": "gbt11-guri-03-v1",
+      "siteKey": "guri",
+      "sourceSha256": "5a87aa09ed8bed0fb5df20803ee36bb3c4224418ca433725520d957eed2f135c",
+      "provenanceFile": "public/images/baby-template11/guri/gbt11-guri-03/provenance.v1.json",
+      "provenanceSha256": "5bde9037b27576167b3c3f4cf88024f10bf27ab7a47450aa9173dbd1abe1a175",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/guri/gbt11-guri-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "775bebbb35b7beb117900e3f9c27c9b0c9434c8e3eea9c88894224f7e0126416"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/guri/gbt11-guri-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "84cdbbd40ad3331f0bd82c323c9162c5eaf132f4c9af588b694e4d72b5412647"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/guri/gbt11-guri-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "7b3b92223706d8c847431b146690f31baafece911af0a00265f3ae8f447c7eea"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-guri-04",
+      "selectedAttemptId": "gbt11-guri-04-v1",
+      "siteKey": "guri",
+      "sourceSha256": "7bfa0dbefcf953fdc058f5c7077cb944a5931c44e8176b04a9048fe3f5d8e50b",
+      "provenanceFile": "public/images/baby-template11/guri/gbt11-guri-04/provenance.v1.json",
+      "provenanceSha256": "59fa9e3ebec466b12faeba1f5aec334e632663b64c46ddfd0ca3e4efe8d6b2bf",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/guri/gbt11-guri-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4ecf27d87c4b76473babbe4f328dc1367e6fd047965e2cf4bdd86c8cb329ab12"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/guri/gbt11-guri-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "99d64009971f40f9263f343cf61581e20db07dd63d28be1117096076de6d46e0"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/guri/gbt11-guri-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e21097b3cf7a6b28a6b176f75b10a5524caa29383238a8d73dac157792b8d849"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-guri-05",
+      "selectedAttemptId": "gbt11-guri-05-v1",
+      "siteKey": "guri",
+      "sourceSha256": "4cfa26b924a030ab2e33e9b8d8acd01bcc025f7b6ae7f7b5a1a31315582d4246",
+      "provenanceFile": "public/images/baby-template11/guri/gbt11-guri-05/provenance.v1.json",
+      "provenanceSha256": "dce1256e9e5d5cf569aece698b422fdd268f92d4d81d2577f2fcc3979096c4c7",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/guri/gbt11-guri-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "94e38a5c44552acc6de30d719d579f8a424e80eda1dd8f0ea7d17d357639fa54"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/guri/gbt11-guri-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "eb272122dce4cb0a78cb82754254bf0a8603cf0cd65abb425bdaf7e0519b3d27"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/guri/gbt11-guri-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "18b853062a43f81034caf25e7a8c8bd058dc8e8a5a5062573638268246121c8f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwacheon-01",
+      "selectedAttemptId": "gbt11-gwacheon-01-v1",
+      "siteKey": "gwacheon",
+      "sourceSha256": "2e65949ed642ecc8df7e76b4ecf20dd1b67d3010ef383df45a88c6229db9b2e3",
+      "provenanceFile": "public/images/baby-template11/gwacheon/gbt11-gwacheon-01/provenance.v1.json",
+      "provenanceSha256": "8824f2ac5f43ee43a47d614dcaac0a40eab2a4b8548d6fe55d1d13286a5807db",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9d48881cbd2d777eac7584f496a1cbbb4085a1824435de6a336e26937619d067"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "bf65b2459562f6ac123c3fb8e5294125d6ad571c8f1840c4c01c40c7393a9849"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4497ea308b2bc56716ad21c3a511fd5d299de355363069bd4a62f8dd8277161d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwacheon-02",
+      "selectedAttemptId": "gbt11-gwacheon-02-v1",
+      "siteKey": "gwacheon",
+      "sourceSha256": "fb2a8d48827b4f3b67fcff578482816f7313d4e1dd6b2c2abc1852b2140449ae",
+      "provenanceFile": "public/images/baby-template11/gwacheon/gbt11-gwacheon-02/provenance.v1.json",
+      "provenanceSha256": "3137efc9e9e8b8ba47c990d77fcb5ec0603c302ed541e4bc46f7def5f411e92c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e3d0695dd1756de061291e9feaad15873d36e1ec792a3aa5953e1cd2916d7c20"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "bba202b65be797784e0b55fadbe29adfd1bc21d3801544b11c6063f47cb2a34a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "10c526522274d13fb2166b6770c590e59722fd2010c6b3a52261774e5be90770"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwacheon-03",
+      "selectedAttemptId": "gbt11-gwacheon-03-v1",
+      "siteKey": "gwacheon",
+      "sourceSha256": "b0e0580807c131224e052e31c4c3cca98fb93f98c2a0afb62289bea5c5bd413b",
+      "provenanceFile": "public/images/baby-template11/gwacheon/gbt11-gwacheon-03/provenance.v1.json",
+      "provenanceSha256": "4e38b8f25ed4625c7d2452db6849527d49ffa0508b41d6697aea5a9a311c0ae3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fdec01e7e5b776f816544effb33acba23390b48d69ee31e1ed6afa19e6a83b4d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c989ed92534274ee8c26f91a71b1554d0237e28b6b9adabcbe00f45371c45742"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "99c804dcce67560447fda5ec66fe8e90e9be6a413d029cc4dc7aadb3b1e24788"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwacheon-04",
+      "selectedAttemptId": "gbt11-gwacheon-04-v1",
+      "siteKey": "gwacheon",
+      "sourceSha256": "7636be02dc037e1f170e145542a548f74beaf01a58fcb2b4c0e4af2861438c7d",
+      "provenanceFile": "public/images/baby-template11/gwacheon/gbt11-gwacheon-04/provenance.v1.json",
+      "provenanceSha256": "bddb4ec5b3a47b06d8f37481a17b62537c986a6ddd06f26c2584718654a62eab",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "94850c41dda9fcbbc2d303822bec07dede1ed4d7fda846e4f567b03b18980a1d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "6face23c8b7bb2098f720a7ae61c3c7eefcec7ca901db319eff9c20d2cba5282"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "62b2439af87eb103c184d1f91ed3851ff767346e66940ae23beb100ecb7367fa"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwacheon-05",
+      "selectedAttemptId": "gbt11-gwacheon-05-v1",
+      "siteKey": "gwacheon",
+      "sourceSha256": "79940b3f0dfb5d9c01598455f78559c9c8b41585de3267d26658d0b2316b7e36",
+      "provenanceFile": "public/images/baby-template11/gwacheon/gbt11-gwacheon-05/provenance.v1.json",
+      "provenanceSha256": "c099c3caac9c911c8faf43fe8520eb159d1f034e838f21d6c2d5771f9f894ebb",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4908146e1bc98396a2a67d1ab0712be29966f86b5f480a34b0bec49631f1f435"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d963006debc1ed682d543792b0a56c5ada2f253628401bae24e80dd365f4eb13"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwacheon/gbt11-gwacheon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "3e2707056d140a2b4142dcd303501038d07950b2c6a46efecc99696812c399ab"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+      "selectedAttemptId": "gbt11-gwangju-gyeonggi-01-v5",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceSha256": "e81eb80ac574e1ba8fa36c583bb4ca27a3d52ae32aa0029a8392659cb5075375",
+      "provenanceFile": "public/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01/provenance.v1.json",
+      "provenanceSha256": "df746e1e61b5ab4a08b9aa9fadfc6f18589960f472bab33f1c7b5068933dd193",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "31d66ea4c7efa703b2de61a9fd3b2f3079e282f54147eca468e160a844775f2b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b8a1ccef96f2c7e7a41c03cb11fdd0c99b8cf1bcdf0c14d228cd00a802d1d527"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "044027d0a5ab5507504a787dcc2c0d958126008347169d27c67d10fbe404e680"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangju-gyeonggi-02",
+      "selectedAttemptId": "gbt11-gwangju-gyeonggi-02-v1",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceSha256": "10b74a8fd71b32b130a81d6c8ba4c540c4c839b5539855dccff459752f53874e",
+      "provenanceFile": "public/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02/provenance.v1.json",
+      "provenanceSha256": "38991ad1e0067d17ff84d9ca109b2763af02549254690a56d683f0116adaf73a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "76094dcb6a77998b3a9dbff53960187d7e4b3f058507670d71b30dcf29c3950e"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "6cfef2789c025b2cf71d9205480c4886b56f489b660c6db392f30f67320fdfaa"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "087fed674e18a3f19d4b8efab627ea96a6858340e4b8cab58b2eb61c28481eb4"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangju-gyeonggi-03",
+      "selectedAttemptId": "gbt11-gwangju-gyeonggi-03-v1",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceSha256": "7ed22214d4333e4661a7a2204340f92a1c8195548d27bf9133c38c7f422265c1",
+      "provenanceFile": "public/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-03/provenance.v1.json",
+      "provenanceSha256": "f7480937bb5a530352e1d9e4d6adb365d6dddcce232273cca763ea372d92a717",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "222cc6cbe84c5122a11ca36217cf9425bb34ff6f2a19f93a7b1b5564442f314f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d9c67053c104b2206b7c0eef1e43bda4d901f9ba54bd25470e270626db69b715"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c449e6b810aa94f05333f6f805c867b9a7ae67ecd2d9cdba21e92e40b7b545f7"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangju-gyeonggi-04",
+      "selectedAttemptId": "gbt11-gwangju-gyeonggi-04-v1",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceSha256": "24a1c558b3b2dff2217923c2422d028692368f519c2fa1503980ebffeb9268f0",
+      "provenanceFile": "public/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/provenance.v1.json",
+      "provenanceSha256": "6be56dfc434c1f7e3f2512fd0c4f75311da4983e03d7e2d95137123c3e3aeda9",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e6045a3aef16a350b343dc259f64011525f6dc84a3c3f787cae31a3d2ba6a3d8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a263e55075e853c4fae6cf6defe5cc3875a6dfeff3c459712e3e0ea4ac16fc92"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "935c3168f62d1a72f0c72bf9070d9d52e1e75d118d069fe577389f70186a16ca"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangju-gyeonggi-05",
+      "selectedAttemptId": "gbt11-gwangju-gyeonggi-05-v1",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceSha256": "7f932675552c214b4d0ac8f6f252fcf6edc445757f6289c11efd9cc6beab8680",
+      "provenanceFile": "public/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05/provenance.v1.json",
+      "provenanceSha256": "77bbfd6c73d4244c153fc5af0fff799c0ebf49786c0d72891f66727bfdfd8e3a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3bbb0456f98a6d9d47bb6fc72e5ccc545fcb06649924090b9a2953175cd6bec5"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "8d3ae754ee1a9c937b59b0d369cf6a99614208918c126a121b9bbc1ab25917b3"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "137a6bc8f77370750c0e62c317c7e7cbdaea9c23daac362dc94ae50ba87406c6"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangmyeong-01",
+      "selectedAttemptId": "gbt11-gwangmyeong-01-v1",
+      "siteKey": "gwangmyeong",
+      "sourceSha256": "bb6a00bac5950b89ab1b7349f3d365cff96e0615b12d9ffb9d1d4efb642424a2",
+      "provenanceFile": "public/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-01/provenance.v1.json",
+      "provenanceSha256": "9c85d41345894bd4bdaa2a0d7f2a31538d8c37c622dfbf4c599b9363495146d2",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8572e9452fd8d82dfd45c7359ba42a2c3851cfd67a041f08cb674ff5728dfb10"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "03422ef97b1302dd14c5e86e982778b01933b096f8acbb11502f42c102fae879"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "fdff5d57c02687658cff873dd6c922a8d0def787cab808368e4684501050ef33"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangmyeong-02",
+      "selectedAttemptId": "gbt11-gwangmyeong-02-v1",
+      "siteKey": "gwangmyeong",
+      "sourceSha256": "1f0cbf7911b9f9b26c766e73bfb88426792373b32e83411225516ec01be81fa9",
+      "provenanceFile": "public/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-02/provenance.v1.json",
+      "provenanceSha256": "fbf0da87406021700128b27c939a0d5ad5c6415c6ff29f7c27c4fc3c40ab433b",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "73d6e46b5ecea3f55f956fb37ceca995bbeb4e3d067b5e019fe657ff8427b8fa"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7f459bfd397b4b26425e72ba2e7162d241a2949a60a4ec7078ff77e680c380be"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4ade446fc6008db86a3928c0fdd1c85d13bdfe2026c3aa3cf1d6bcf7fdb91c99"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangmyeong-03",
+      "selectedAttemptId": "gbt11-gwangmyeong-03-v1",
+      "siteKey": "gwangmyeong",
+      "sourceSha256": "fefbd59aee2893622765606e5e8303c6648b5f3e9cd236628be0c80caefd0f8d",
+      "provenanceFile": "public/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-03/provenance.v1.json",
+      "provenanceSha256": "b8a7cb149050cd4b565bee0523558a061bf21d3d6e9905d725ed9c64ce71466c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b707c14e82e4d10ae34ca33cd5d0b3ca4cc9dcc0957b924d4d00579628e8478c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "57905acb0b4388e63cec3a6a57d2f97e97adb37fcbe32c3ea808bdcb7935250b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "aa5bcd32c1bfa3dbf646cb40682136b9e1d5a3c14b0d384def9f3683f6f85a27"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangmyeong-04",
+      "selectedAttemptId": "gbt11-gwangmyeong-04-v1",
+      "siteKey": "gwangmyeong",
+      "sourceSha256": "bcda054cf7953dfd9bf3b981ab6b062d2d2b56e075a3c29625f984ebb7dab3b0",
+      "provenanceFile": "public/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-04/provenance.v1.json",
+      "provenanceSha256": "7d1798216c667dbf2bcf5ae9a029923e23f0dab83f2de700cc20295357817057",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "41c62ed37a5faf11e71abef2884e8e53ae0f8f720f25cad14da035204029f776"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e4432ae00512933682de2475f8c7fac3b366a31c9ec928c9667f540dbb4807ca"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c3960b4d90fa2b425499f7b53124010183cefce350728c70413039d0909fc479"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-gwangmyeong-05",
+      "selectedAttemptId": "gbt11-gwangmyeong-05-v1",
+      "siteKey": "gwangmyeong",
+      "sourceSha256": "76685da877c09675114f986fadad4e13ce257b7db54812c28b2c73b307ef2486",
+      "provenanceFile": "public/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-05/provenance.v1.json",
+      "provenanceSha256": "7fcc96c8a24684a074f07cbb56ab6a85d298ca6f243206ed6dfb3618d809e211",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "102947fbe1f78dc281ea9021eeea5ecfbad90f1b9c7246818a09b24537223d4f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7236481501a6ecab881d18403c261bcde1d2e9100a228011458913ba3db89325"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/gwangmyeong/gbt11-gwangmyeong-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c93fb069a344b46f6eda44ebe30f9c5ea86d72ccfca6f6f374ea5e7d271c7084"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hanam-01",
+      "selectedAttemptId": "gbt11-hanam-01-v1",
+      "siteKey": "hanam",
+      "sourceSha256": "42c333142cc176b25480c2b5af37589fae12825f88138e41e9803957a4963ba3",
+      "provenanceFile": "public/images/baby-template11/hanam/gbt11-hanam-01/provenance.v1.json",
+      "provenanceSha256": "de93bcc443e3107b9a553e58d29d6ca04adfa4cf86d722d0820a407f0a841fed",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cfc1160c9cd4c79dfb72e079c63c0aaec9fde04411ad55456e1b059e3b622e7e"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "1b8d5e8a9f484527545d430a57b066832a965e2d75142a14ed27cf853955ff65"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "2ecdaabf8fb9fe898fce2ee24299ab54c193769d0f843dfd3cfcb1866bd49e0b"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hanam-02",
+      "selectedAttemptId": "gbt11-hanam-02-v1",
+      "siteKey": "hanam",
+      "sourceSha256": "e1cdf8df0339ca32b12c73b3fd06843bb38fbd961b5c0374e5d1877ec19bc6b4",
+      "provenanceFile": "public/images/baby-template11/hanam/gbt11-hanam-02/provenance.v1.json",
+      "provenanceSha256": "9cf8c52a3db5ddf4001f25a0d82cbfa0b8ef85b02950402baa0a5ce07984079f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "49b81f27f5713341246e3bef7620a1fa38f725e9928484222edf487c3f71e51e"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "f37c420269fdc387c90abc861c8976e332f3cc4233f17f75b80bb27482398a5c"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b8786ff32bf537e5ba012f5dde1e5307d1c405ba39a59e77c516958677eb62fd"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hanam-03",
+      "selectedAttemptId": "gbt11-hanam-03-v1",
+      "siteKey": "hanam",
+      "sourceSha256": "ac7fdb8e53692b8f981c10611845f774524e358efdecf0e1750b6272156755b9",
+      "provenanceFile": "public/images/baby-template11/hanam/gbt11-hanam-03/provenance.v1.json",
+      "provenanceSha256": "db79b2e31bdc231a8ddf4dff29eb0ef517b27424e09f02325f127184410f82df",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "23a9b36a13ed33f63d88a49600c269de7bd5f60d7864715debef332643dd42c0"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "3cdee3e2d9183734a3d02ac46c4d4845bd763191109e49ada97635b1fdee00d6"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "ae3bd29ff33a1c12106f8b0cad38a09453cfa8f7b4826c887d603e4b7518cfb6"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hanam-04",
+      "selectedAttemptId": "gbt11-hanam-04-v2",
+      "siteKey": "hanam",
+      "sourceSha256": "4494f779ae298b5621c46cc130076d8dea30421036645c476697c431c453ef81",
+      "provenanceFile": "public/images/baby-template11/hanam/gbt11-hanam-04/provenance.v1.json",
+      "provenanceSha256": "6332e872037d33bb7b2fe1c2861968760754390b7e7f34e5601a57aa7cad3c0f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c60fa9e5d51b1316b0331ea9bd3962ad5a9d260c9790351e4d2fd94d8a5c1f47"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "2ab90bbde01144d4fcde99074f959f8754e5c43026753c79d0eeb40823282f7f"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "149ae23ac23691ec6cbb56f25f2d90d65be2cd079153a1f3654059f294037c3c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hanam-05",
+      "selectedAttemptId": "gbt11-hanam-05-v1",
+      "siteKey": "hanam",
+      "sourceSha256": "875632333a94e34b2b0104d5c41cbb3e1530366669d517ab7852d6a65688010a",
+      "provenanceFile": "public/images/baby-template11/hanam/gbt11-hanam-05/provenance.v1.json",
+      "provenanceSha256": "e77c67bd961f87d0dc63aaee31e3e9151504211dda9ec9ffb9bab69114f87a7b",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f4ef121af151b475dab8e6235fbab072c983f7c2995265c47e7856ca812648b3"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a8d1b988748a7f0a7786450ce05c678e8b33b80ef2b8748c9f6769915d926b0d"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hanam/gbt11-hanam-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "1aa24b0345eabf0b851b542294c5339d95c392629968d1d4ed9a767b68e2272f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hwaseong-01",
+      "selectedAttemptId": "gbt11-hwaseong-01-v1",
+      "siteKey": "hwaseong",
+      "sourceSha256": "8d8a414dfd936eadf43ba2aed1e1d3cf8c96e3e2b73eb6907e8884374be9e9fd",
+      "provenanceFile": "public/images/baby-template11/hwaseong/gbt11-hwaseong-01/provenance.v1.json",
+      "provenanceSha256": "8e508864d4d3e8aec81e1885274f168f47abad56124d9069263b800213925d17",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5b44892ada674b630b0bebfd6b4b26f43c5ab3f60cf749a2576496dc9fdf6401"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "41fd8e4a8cdf9e3bd5148128a4727c2db5adbb9e3cec9fa087f0096ad90e0b2e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b644cb78e962aefec4d3733bd7c1ed38424594ce0d27a2771a6493304597f227"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hwaseong-02",
+      "selectedAttemptId": "gbt11-hwaseong-02-v1",
+      "siteKey": "hwaseong",
+      "sourceSha256": "b95d46df4ccc622151b424634a8bd8074416f320cb8954c891cb8f6d299fb647",
+      "provenanceFile": "public/images/baby-template11/hwaseong/gbt11-hwaseong-02/provenance.v1.json",
+      "provenanceSha256": "66718c3e242a6980491188bbfcea61a685463fa1ba16926ceeab42f7cccc1a38",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c923ed849b5b6393e06e1afc709e432f3ae510b7359b6664762d36924eefbdcb"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "5648946078274413fa5d22600ecae260e7b86cc88edb28c49e989dc89e40e525"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e5a3ab6ca08a7e718219e65c9ed11d694c49b36acd8efef3e862965d4f3eebad"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hwaseong-03",
+      "selectedAttemptId": "gbt11-hwaseong-03-v1",
+      "siteKey": "hwaseong",
+      "sourceSha256": "75e7a2bf7a5d3d222792cf37f05dc017eb8456b365c4aa61b799667430c19b2a",
+      "provenanceFile": "public/images/baby-template11/hwaseong/gbt11-hwaseong-03/provenance.v1.json",
+      "provenanceSha256": "f24e9f48ea69663b6fb143d3bf7ecd31025a60307d4f783935abbbdc3e57faae",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "c6d982f20be3206b4659d3411623a12a1ab12a7db06df5f2a855d6792ecf287c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "972e2f8fa457188bb2caf6bdbf9fc83e5965362739df940966507b58bdce0c27"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "91e0ec902bb6d4569c6e08ca9688583698d72568de004986ed714c3161fd987c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hwaseong-04",
+      "selectedAttemptId": "gbt11-hwaseong-04-v1",
+      "siteKey": "hwaseong",
+      "sourceSha256": "93df0000f5079c0b680af5155656d85ba808e98b25126908cffe0b44b6907fa7",
+      "provenanceFile": "public/images/baby-template11/hwaseong/gbt11-hwaseong-04/provenance.v1.json",
+      "provenanceSha256": "7503576a42f87393e85f6d849d27abc712192ebec8cae80fb01079d1084cce69",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "7305ed964dc8befaab12d332a70f2fae0f06415f7648a945ec191497b24f1158"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e9977a9321d8dfbb73317ebcfbdc53c71928b96242e632d836736e62e27d2c67"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f791afce41e12cbb81f841fa3dfd02b17b0206b02f4010e64d6c7baa2d4bdee3"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-hwaseong-05",
+      "selectedAttemptId": "gbt11-hwaseong-05-v1",
+      "siteKey": "hwaseong",
+      "sourceSha256": "0281db2cdd303532463132210da360ae3f8cd3de180df8fa6fb1437b9d221a4f",
+      "provenanceFile": "public/images/baby-template11/hwaseong/gbt11-hwaseong-05/provenance.v1.json",
+      "provenanceSha256": "7427eae3774d5638c0e5415f3ce3984d71292d522e7575ad624fc4bbfd7e7e67",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "02e11ffc3020217b475ebe11dcac4fbf8d4ef68f53ccfd7fb7c58a722e730455"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "fde7da1112daa74a997d38028864b6bb9843b70ca7fea11e315560c10a00e1a3"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/hwaseong/gbt11-hwaseong-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b6bcf688349470165caf4eb67d158e5c5d82f8bae58b5f53aefdd1bcec5ce677"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-namyangju-01",
+      "selectedAttemptId": "gbt11-namyangju-01-v1",
+      "siteKey": "namyangju",
+      "sourceSha256": "b799fb7237d1250395a0afa9120d3d41c8dc42ea33812d894be5653b8d7ad1a2",
+      "provenanceFile": "public/images/baby-template11/namyangju/gbt11-namyangju-01/provenance.v1.json",
+      "provenanceSha256": "18abf536b50db3e13a3ee30256c33f3cf830a8539f49723c22d878b4f1c774aa",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "936a29c7bb9e1b3b4925e1e68e87fabe4defec45b94a9827f479cc6d0c19f112"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "18e86cfc897e50740e9ace886873696c7b0a64659a3f47c15ac333726d646230"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8aca5603c15e430c192f21a1c45ab0977a6af73ff91836bc0b0c8157692aab55"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-namyangju-02",
+      "selectedAttemptId": "gbt11-namyangju-02-v1",
+      "siteKey": "namyangju",
+      "sourceSha256": "3267fbd05f54b5ef862939d03f9cbfafb4b2253de1439131c19ea22b171e1ee6",
+      "provenanceFile": "public/images/baby-template11/namyangju/gbt11-namyangju-02/provenance.v1.json",
+      "provenanceSha256": "a734a2a708eaad4f8012e99de267ffe30f58e25d82c7336ec51b19d07a010f32",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b3e3dd038b72334010f638525cc86010f29094d8e1384a00aa789bb86bcb903b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e65ba05bbb6e295f32ed377841d083827e5521aabb461edf208d2a6f0d4aea5b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c38138f9998a4ec9badc1dde76b0ead7329a1baa3d801963e0294d9b66af0c1a"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-namyangju-03",
+      "selectedAttemptId": "gbt11-namyangju-03-v1",
+      "siteKey": "namyangju",
+      "sourceSha256": "15f7d62f197321ebe5a934cce2a3e7f124f424335c827718346c1d68bd086849",
+      "provenanceFile": "public/images/baby-template11/namyangju/gbt11-namyangju-03/provenance.v1.json",
+      "provenanceSha256": "e3c30f60594f1c4851a64efaa8bd446749dbccd25b4a1e44244479b1c1bc650c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3d4baf147a2dadcf15a468a4ad1f0bd245c6bb0dfeb3c54ba6a0f8e093d0854b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d699202795a6fb07f9530e50b23017d05efa86b7dbbcd597fd284a3afc3e4713"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "66a0f3a3fc557fdd0bfa61e8ce89dac325fdeacd06dc57c227f3f27207f7dafd"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-namyangju-04",
+      "selectedAttemptId": "gbt11-namyangju-04-v1",
+      "siteKey": "namyangju",
+      "sourceSha256": "bb15b651b6a2cea1b417e49a4b5900627e410d06313ef3f14ecf5a2e7dfa8440",
+      "provenanceFile": "public/images/baby-template11/namyangju/gbt11-namyangju-04/provenance.v1.json",
+      "provenanceSha256": "7e66589ddf6217547de2b3b33edf06d8958ac5a2330836819b817443d75011fa",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "09c6c5ca6f01863cfe13ea2680cda3630878aa2d6f4c5fafda1ff5e5b64324be"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "768051bdefd5e4bd557d9dd616871eca51648e9f62810c042eadc6d8bbfeb530"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b551bb18ef8bd78d0f5c9f70e8de941ff13a046b296a58edac2d5127cd00eca5"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-namyangju-05",
+      "selectedAttemptId": "gbt11-namyangju-05-v1",
+      "siteKey": "namyangju",
+      "sourceSha256": "bfd5723fe6d9ee4f61c39af1cb34f21d5b37a8897199e345c4b96e9a04eb9cbf",
+      "provenanceFile": "public/images/baby-template11/namyangju/gbt11-namyangju-05/provenance.v1.json",
+      "provenanceSha256": "8e29ab03c54b60314f0cea933d8d9b471e9ce6e2c86ddc80f37f99e64052311c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e80cf0c5286b947873eba20eec4d34de58e8f3b6da9869733ba36fd85f641177"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "813af1293bd7df666d8b7da01d82790e4345856c43861b892cb3980f381f091e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/namyangju/gbt11-namyangju-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "220fa30bc61396de7186ceb76274d78c3692b111f1ac16f5aaa57d272b8eab23"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-osan-01",
+      "selectedAttemptId": "gbt11-osan-01-v1",
+      "siteKey": "osan",
+      "sourceSha256": "2815b66667768fe60298ab91bf7615f55d7b4932cdeba93be74824c8fa31d173",
+      "provenanceFile": "public/images/baby-template11/osan/gbt11-osan-01/provenance.v1.json",
+      "provenanceSha256": "4c047351465b68b9652f7ca487c5336a1de3c53bdb79423052a133f3d91d2f9f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/osan/gbt11-osan-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a864fb5199e67f07a1385c7af706f166902dc723a82fd894693bba8db21a64d9"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/osan/gbt11-osan-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b0654432694287ad77cc0611a2f504301f1233859738cb2ed627857a2edcfc78"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/osan/gbt11-osan-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "5231451c05e43da2665aa2233abb959e310c2fd85f8416de73fe2b29e4977787"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-osan-02",
+      "selectedAttemptId": "gbt11-osan-02-v1",
+      "siteKey": "osan",
+      "sourceSha256": "e0aed3ec95177e28174eb27c84fa0fe1155efa388f326daf6dc7ea2de5321e88",
+      "provenanceFile": "public/images/baby-template11/osan/gbt11-osan-02/provenance.v1.json",
+      "provenanceSha256": "a112a7012b3cb674d1c02ef2ab893d5b31887f11a15d40830a7230cdcdb633b3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/osan/gbt11-osan-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6d0ed5c40f7e4b6581ca15bf1cd0561242537d0068d05730008d5269c5018eb8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/osan/gbt11-osan-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "32ed8471d40b0757643f7cb409d9cb7248fb10b8a16512b34b199d16ac3ec54a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/osan/gbt11-osan-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "415a5b193bdd1b64652ad7ba8c2988eef1ecace4fc7f77062c17517f78d7e76a"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-osan-03",
+      "selectedAttemptId": "gbt11-osan-03-v2",
+      "siteKey": "osan",
+      "sourceSha256": "6218045765f6019cf141362404d1ad204dece5786c2055af308413db928bd644",
+      "provenanceFile": "public/images/baby-template11/osan/gbt11-osan-03/provenance.v1.json",
+      "provenanceSha256": "7b9a1dde18f48ca7e9f648a63a757ddf60797a22ccc62320bd52d642bee663c7",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/osan/gbt11-osan-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cec7f4c5b70ec99391478ee33b2d4ec69ac604ddb7818dfa2ba9a6ca40fc1c62"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/osan/gbt11-osan-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "4b7993c24e1c8bab301752bb8a23b7772f131075722932bdc4c434748f0834df"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/osan/gbt11-osan-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "9bd4898274da19b8d44293d9697998f0a87d33f80dd48dcd9a85c0d9a927526f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-osan-04",
+      "selectedAttemptId": "gbt11-osan-04-v1",
+      "siteKey": "osan",
+      "sourceSha256": "640a0a3f5e0cf4990f84d8ba9002f80b90a43c2e2cc8dc376756939df1691c60",
+      "provenanceFile": "public/images/baby-template11/osan/gbt11-osan-04/provenance.v1.json",
+      "provenanceSha256": "e2616cbd9d707e70c33e9e0f66009972aea47ba40aff0fc479556b19af6b7ccb",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/osan/gbt11-osan-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a87e9e1aed33ac595d50e72cb66f69881c44b6c899c4c9603901cf1d5723c1ef"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/osan/gbt11-osan-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "af784b78e282646ccb57f86a53a5cc58a566879f6a3c23db7884563b9099b894"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/osan/gbt11-osan-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "5d4ad186060622240f464fda6d266b73641d95bf8df2f9167a61163411a48e67"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-osan-05",
+      "selectedAttemptId": "gbt11-osan-05-v1",
+      "siteKey": "osan",
+      "sourceSha256": "4ae362a1b4a337fa5cd6f4e4c1a0966312bb22747fcbb8dfb0c1a358639446ce",
+      "provenanceFile": "public/images/baby-template11/osan/gbt11-osan-05/provenance.v1.json",
+      "provenanceSha256": "6cc9d79af9aa9f1af7fa3385135abc3fb3ce51da35e89bb62b4db793bb1258a2",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/osan/gbt11-osan-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "207cf3b109490a5ab1a8b15fab8770adf9d2a42cb53819cf6cad26df0a32e16a"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/osan/gbt11-osan-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "de83d1f3c7752251a8e88534a9072d9c591eab5f1f7a50f55bf48e6de01fa045"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/osan/gbt11-osan-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "03bbae4ed8e4e09f39b06ac65d9efd7b3a5af3453949121aff8953f738a82fd3"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-paju-01",
+      "selectedAttemptId": "gbt11-paju-01-v1",
+      "siteKey": "paju",
+      "sourceSha256": "7dc9d71a1d0b29f71ca21c48d190ed02a9257219cf7eae45041c370ae410a772",
+      "provenanceFile": "public/images/baby-template11/paju/gbt11-paju-01/provenance.v1.json",
+      "provenanceSha256": "1ec650e2676f653c852b2e7cb1762add0be9149e8b9d79781b280eabb8466ef3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/paju/gbt11-paju-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0cb8367f110fc0e1c8638833b2af9ae270173615a453ec4f219145282ad67e98"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/paju/gbt11-paju-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "08f1e344ae24105978ea2cae552b72ac455e7697d3e10b525e5581589c4ec2ec"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/paju/gbt11-paju-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "16b5025de81d3a7054d5d889a4a6f4e7a14dadbcc4ccc994f0717158ab761643"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-paju-02",
+      "selectedAttemptId": "gbt11-paju-02-v1",
+      "siteKey": "paju",
+      "sourceSha256": "ca4d0126bbaaac8d2642ae88bcc835a5a19e811b5d9c770dc4350955cc17b32a",
+      "provenanceFile": "public/images/baby-template11/paju/gbt11-paju-02/provenance.v1.json",
+      "provenanceSha256": "da270dcb091c6389391b3328a4ec201c557218ea6a81e9770e31843cac350543",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/paju/gbt11-paju-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1ee329b19582ba1d2df8197613ed3ec6fed38dfc2409b7184f121ed5cd8f0356"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/paju/gbt11-paju-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "4abc97896bcbe721ef9108858168f3df0e85b3cab930035bb2ac4a19a12462f5"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/paju/gbt11-paju-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c85baca9db2b488fdba2178b60662442991f5aff155b9aab9e04e7441a79e949"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-paju-03",
+      "selectedAttemptId": "gbt11-paju-03-v1",
+      "siteKey": "paju",
+      "sourceSha256": "3db847ba4a0a5992e47b28b85be1a4cd297515df6a362be6c64a93f1fdbca6a5",
+      "provenanceFile": "public/images/baby-template11/paju/gbt11-paju-03/provenance.v1.json",
+      "provenanceSha256": "0baebf734865c035e9e3b5f20fbeaacdf97e5475bcacd4fa9e36dffc1e6ca4c8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/paju/gbt11-paju-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "8a2e49d69f1c9ab342d9156985793e0e936c55b78a102fa5be56d50f555381b7"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/paju/gbt11-paju-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "709093a50e63862fe7b6845828bdcb448c4462998dbf0f3f8068d37bf29fdfb9"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/paju/gbt11-paju-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "6e914706a309c38b2e9e1643e574064a2df2c64f1f7c57db6304f566e03be425"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-paju-04",
+      "selectedAttemptId": "gbt11-paju-04-v1",
+      "siteKey": "paju",
+      "sourceSha256": "8301e0d3f85cf9dfa317b56f35df436e8c58dbd507ceab51256255c597d1cba5",
+      "provenanceFile": "public/images/baby-template11/paju/gbt11-paju-04/provenance.v1.json",
+      "provenanceSha256": "4177398fcf576edeff7d104433421bd0891613f232130e5a1542e7d33a175451",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/paju/gbt11-paju-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3144a0273b5d25ac9e7542ff621723895ae9e2e64ee3b1299fbc6205a1982b67"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/paju/gbt11-paju-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "633f085c2c736ae5ef964e26351a962dfd0560bc1cff0183a9ec7de1b7de7970"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/paju/gbt11-paju-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "48a8de55cddf9cdd980f637a829c85c635160b25ea4bd70b02e982b5311ca6c8"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-paju-05",
+      "selectedAttemptId": "gbt11-paju-05-v1",
+      "siteKey": "paju",
+      "sourceSha256": "63f52a75b2e65a9c472fc0bfe013b611ef60ff397b9af57284b29cb5f49c022b",
+      "provenanceFile": "public/images/baby-template11/paju/gbt11-paju-05/provenance.v1.json",
+      "provenanceSha256": "e2f991593607019ab3ab45658b8ac86c08ff1022bc80920744d9dba19026b966",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/paju/gbt11-paju-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f4030dcfdf8026608d0243b2003f205de8e77e9d5e1a092450092d85546f0b49"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/paju/gbt11-paju-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "136d6243a0823e3bd83d2f4715b8529e909f230f44e2e14ec2f3e145bc5ca3fb"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/paju/gbt11-paju-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "1155bc09432eb0897fbb646d51e43c9cfece077e8c4564fbd00a05c97832b35c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pocheon-01",
+      "selectedAttemptId": "gbt11-pocheon-01-v1",
+      "siteKey": "pocheon",
+      "sourceSha256": "2b65d15e3d15ac7c71a498ea28673ecb79ec4f52c5e8e7774656b8c9ce03b0be",
+      "provenanceFile": "public/images/baby-template11/pocheon/gbt11-pocheon-01/provenance.v1.json",
+      "provenanceSha256": "a50d4230c4846862ea8f9c1bd918c3342ef099962e3b385ff9d2082cffd8458f",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bd89cf3f1982bdd07dfc34ad645001e732b92afbb2a4fd07d63f0fb1844f6401"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "6d4e2b83416e002b0d3ad27cb1d96ac4c213b842095f897ae4c4cc15a0fa3a6d"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "030b2b1ed52b365f1ef8b3db084cafc5f24ad774be0d7fb609d9846b63af7205"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pocheon-02",
+      "selectedAttemptId": "gbt11-pocheon-02-v1",
+      "siteKey": "pocheon",
+      "sourceSha256": "ade2c71c4afec8a739a81c2438454ee258fc2101efa38ddf414834e45109a25a",
+      "provenanceFile": "public/images/baby-template11/pocheon/gbt11-pocheon-02/provenance.v1.json",
+      "provenanceSha256": "583808e85c2ffc8396265adcd37fcc7de4fa81f6eec18798822c6c988a4e53b3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4e4747f1447ae657d8ecebf3d22e68744ab2e84cf575904e92eb4291311890ff"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c05dfa0b42d9cd41bf1c7e87bc14618ab9dd5c480477b9c18d0eaea3ff2f8695"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8ac5b606ab42e28a605261becced4b6af4b76d00f8bd9f1892f4c04779478bdf"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pocheon-03",
+      "selectedAttemptId": "gbt11-pocheon-03-v1",
+      "siteKey": "pocheon",
+      "sourceSha256": "6b7108373e89f006a5efa1b625942eda520069722d009322ebab3abf7e2ab2d4",
+      "provenanceFile": "public/images/baby-template11/pocheon/gbt11-pocheon-03/provenance.v1.json",
+      "provenanceSha256": "bbd91e25cb2611ba87c7a57d0d9af975596de92a34528d4852877383f9934c51",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d8dea548abc801435a0fa224bf59e7da100f1f9f7f5703f62e4108009923fecd"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "4ffacb239f1bfb37371fe3ced88e23a43fb761f97b2629c7c6de8f1e9bb019da"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b143d0d9b0ace7537083675c34fa9ffaaa5d4b64aa81b98bd5cec328b45302a1"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pocheon-04",
+      "selectedAttemptId": "gbt11-pocheon-04-v2",
+      "siteKey": "pocheon",
+      "sourceSha256": "6693f1359fe1c439a19890cd3ba22ac7396f84dd3a3a8953456c17d4ab4c771a",
+      "provenanceFile": "public/images/baby-template11/pocheon/gbt11-pocheon-04/provenance.v1.json",
+      "provenanceSha256": "6575f2bbe8176e2cb3ccc4654fd93e1df41ecc1b886bab23b4571127962c00ae",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3fde8cfd700c7758ba5090f25ebd77961a10f2159ad70ace21ff10c59b6ac86b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "ec537b9477ef0c635a1104ccb914a422357e3dac721eed7a0e212dda2b1a45ce"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f47a2c5baa97ffc25d7b203d0f6a0fa9820cf11bae7a545b7e58c7e55f0bae1b"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pocheon-05",
+      "selectedAttemptId": "gbt11-pocheon-05-v1",
+      "siteKey": "pocheon",
+      "sourceSha256": "cf65f2e1e0c61113e28a5ed43cd84de94d570895dbe5c6e48748fae7abc0e9a2",
+      "provenanceFile": "public/images/baby-template11/pocheon/gbt11-pocheon-05/provenance.v1.json",
+      "provenanceSha256": "5ab61cd2032a3ee24cc9365e141ae2039e80f522db8703145fa50b420f7f6064",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "bdc930711bbeb9fa6161a3a654fc54287d8288286bfd8f6c48f343d5cdc97a82"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "a735d2f33a3474a29aa67fae154bb59f665497384af24e62a6c391234692ded2"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pocheon/gbt11-pocheon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "09cbe586af6ecd2d3226b2d70e4a1f1bd5b792ceb296a794ec97416f94317cde"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pyeongtaek-01",
+      "selectedAttemptId": "gbt11-pyeongtaek-01-v2",
+      "siteKey": "pyeongtaek",
+      "sourceSha256": "f7a34617e8756169ffdee7515f5882f63c0da23f029a521be0d346e33be5216c",
+      "provenanceFile": "public/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/provenance.v1.json",
+      "provenanceSha256": "919be45b4f50ed1141a32639b1fe8a46631646ed127a0f6142f34d2ffdd6780a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "88d7f5b2cb66da2711b548f0314ed39db1d7482260454b5acd266a3a08f8ce69"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "2af22704f8fc85f12324e4a0a609be0a204ec0d7b5dd2c1bc95942917b00ab8b"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e16ea652d2fd0e7c6b7ef774e8f42a842017e14b30b3f4384c6957fed0e37553"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pyeongtaek-02",
+      "selectedAttemptId": "gbt11-pyeongtaek-02-v1",
+      "siteKey": "pyeongtaek",
+      "sourceSha256": "ffa824b66ef6a77f2ebc938f7ad91dcec55afd74fa701114488fec2cea971560",
+      "provenanceFile": "public/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-02/provenance.v1.json",
+      "provenanceSha256": "a6b51ecca943cf857e90e09ce6856d21669431fb369e7b3781c1c4e371ce8366",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6744781ada5d79ac39e01fc2f873716867da38b85f95abba97febde442a2b1e9"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "81c20f3be26ec9ca6ab9091c58ebfb86a18fdb5cea47f4ab05fdbbd0c4d51266"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b4abc78128b1345c7face9188c8e1850703d78aa49eae3df8a57172eabedb29d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pyeongtaek-03",
+      "selectedAttemptId": "gbt11-pyeongtaek-03-v1",
+      "siteKey": "pyeongtaek",
+      "sourceSha256": "400e8e00fec10c262fc5a859cc0d6afa848144bc6421f04085aebfeeb0070829",
+      "provenanceFile": "public/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-03/provenance.v1.json",
+      "provenanceSha256": "e476168d02d8a7ad9ab756482749382709df44c26f9d4447d0354b2252dea74e",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e3cbf44e6d066aa225c8087bbbfe164c49850b8f6c4be2166ca34c84d9c35903"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "34e39bcb366d8287fd41d28d8368a3648448359350a736439b400b52f659bfbc"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d0213ca2557254afeaa6f8ebc32857b4a9cca666e80704712971fcd0a09ae4cf"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pyeongtaek-04",
+      "selectedAttemptId": "gbt11-pyeongtaek-04-v2",
+      "siteKey": "pyeongtaek",
+      "sourceSha256": "8e4fa575698b37239449b83550e72eae250127198054d61916e3173777017888",
+      "provenanceFile": "public/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-04/provenance.v1.json",
+      "provenanceSha256": "23eca9d7deef2534087d4fc6a6a78e4b01bae71e514974a9dbcbebe4557f70c8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "19716cb6bfac19671dffbd14eaf2bbe570316b74acb9a80029ce7667a820c5fa"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "f327d09d1b5caee6c0d12a4e549bbd61b88cc3f585dc808b0c43d02ae2d73bf9"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "44cebb93a1a190eaa59bafeed7b29c2e868dc521060f5be76ab1ef604a3ac62d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-pyeongtaek-05",
+      "selectedAttemptId": "gbt11-pyeongtaek-05-v1",
+      "siteKey": "pyeongtaek",
+      "sourceSha256": "73cbf8761097c0f9c0965e58b9cb184c1049c045c0db8aef86186095bc93f52f",
+      "provenanceFile": "public/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-05/provenance.v1.json",
+      "provenanceSha256": "454629c4a071a1036ea8577e27d10fcf23e9260c1f2fd41fa5e0b85bcbd65a92",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fa5ae37f6c938db3004250d45aa2e45e2d89ea0cce5f6af304e2bb9bafb1a0c3"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "1eb8254c0c598f33b9028e55137fd061119d6610cca4e6b7b8fd7a28f144f6d7"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/pyeongtaek/gbt11-pyeongtaek-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "6831f9ae63e659f7dd329ac761ee196cdb4add8b9393c845eda20e2fbfd7761a"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-01",
+      "selectedAttemptId": "gbt11-seongnam-01-v2",
+      "siteKey": "seongnam",
+      "sourceSha256": "5cdcd47a29fbad65f3b6fe93947b8c1fec57b13fb642101a144f3e86c60a1731",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-01/provenance.v1.json",
+      "provenanceSha256": "e41663f0017b9d84263376ebcadd827c56b54f50da0e211a1ab611847a68a710",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "ed3fdd322c97b58bdfd1fca11a8ca9eb91de7f415e98148312575da336826b79"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "6ed44762aa9ec3a1232f41951acd5088753a3f203aab9658b4c17123166c8144"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "9b1db3e9fa0e08a27a8cce9659d0d234788ffd0592c0523044953590f7378c2b"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-02",
+      "selectedAttemptId": "gbt11-seongnam-02-v1",
+      "siteKey": "seongnam",
+      "sourceSha256": "6ea6fb287dd2bfe4455725901cdb2abe0b1abf37d9dad5d7579c791642dbbe28",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-02/provenance.v1.json",
+      "provenanceSha256": "1fb0ff2335698ce27f835f9ffb12ef4946ae9611b9c70a6a24a1da91df566a8e",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "667054239ac60f46687ed80c464be6aff45b86c54d874ff8fc23e4cbec1ed98d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "1b921de9a9bb8ff62354acdb471750e72fc2fad616fbdd8531bd90328db34eac"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4ed4f1be0e3ead2b8cbf2f7cf8602d163f7835bbaab850d14f0aaf996c77e14f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-03",
+      "selectedAttemptId": "gbt11-seongnam-03-v1",
+      "siteKey": "seongnam",
+      "sourceSha256": "213a1b27dd38b09443cd669bacc14b82d1abc6da18cc9117891d3bc987589103",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-03/provenance.v1.json",
+      "provenanceSha256": "b8c9d219560c5be559832a82b1107bf7e08035efa076f06c368afb0e55d66bd1",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0e8199c4bff9de645c2e48c770ee3c6a8993175017a97b4404bfcc83e6c3314e"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "f660f5823899258d1c27126f1402c7ab7be09ded925bb7a224479c97416162ac"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "87e1d89d081ae61df362236cfb09b80de98563f05a8b99170f9c88271e23caf4"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-04",
+      "selectedAttemptId": "gbt11-seongnam-04-v1",
+      "siteKey": "seongnam",
+      "sourceSha256": "cecf0ef6548a55c3d60a6530634335010bc41bd6fb541d0023ef44f8314f601c",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-04/provenance.v1.json",
+      "provenanceSha256": "6388e905be6ebdf105693354faed49091df51c0c5b4b56c46d5961a7b0f46c8e",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "ab17bc3d0574a8b0bfcba735629b2efeb9632fbfb0a563115a81d6e79f06d444"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "cc61155b5aa9900ec5cf98c731f8343735ac71aec81a0aa02088c63db05265b2"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8962c7b191a917a97fff424545835e1bcd60f8e951f35240aaca04e0c75af781"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-05",
+      "selectedAttemptId": "gbt11-seongnam-05-v1",
+      "siteKey": "seongnam",
+      "sourceSha256": "c99dbef49532f9a4f133880298f5cc4e3381c981ca12f884b36b878d7f68e83e",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-05/provenance.v1.json",
+      "provenanceSha256": "45747411afa812883d0935c2be19b005012cb2245ed45b153b34d258821c2528",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9d9c5caef57e4136ccacdb125342f8cdfda2c97ab1a58bb896405a54a971692f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7a73000a11b4d441cc1fdd4a3811150421a1c1c8125b4253030874b27c59961e"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d09827ce7c5c4fa96c5ca2aa9e52f1cf86ddfffad09c58df867be64b8ae60690"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-06",
+      "selectedAttemptId": "gbt11-seongnam-06-v2",
+      "siteKey": "seongnam",
+      "sourceSha256": "373646f73f0acb1abfcbdcc66bb22ccf1cfcc885ba8d99b3e4141b0f415adb65",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-06/provenance.v1.json",
+      "provenanceSha256": "f33a958983e345230416cd60a4327333d919aa4067ee7f28916d879ec945aca8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-06/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d0348a4461bd35149fdb216877c64f5e3c7b0d579ae538f641fd66ef5ad4a812"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-06/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7014b209d5684c089af7e73fbef4f589e27d792bc9f99c099a7f5028229bc358"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-06/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "5651f29cef3db22a84fdbb7833f2d2e07d126aea77d1353a69153717b684f3f4"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-seongnam-07",
+      "selectedAttemptId": "gbt11-seongnam-07-v2",
+      "siteKey": "seongnam",
+      "sourceSha256": "361e203ae8f7ee589314de66c72a567fb689f397de847e4ba400f5a9fb6ec68c",
+      "provenanceFile": "public/images/baby-template11/seongnam/gbt11-seongnam-07/provenance.v1.json",
+      "provenanceSha256": "0cbc78780b611892d497befe5b0a7d141e02ec1e1ebad6c29aac7965062dc593",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-07/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "4e99f74a0c8e718ffffbda4cbbf1bea31e7271e5979970c279b3048c58c38f5c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-07/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "858c9d1c98a3b3e9a1e90e70816687533b2e4b9785c548fbdda9eae958d14749"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/seongnam/gbt11-seongnam-07/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "2aef142b3d27b281afa6865fe46ffffe9a27ce46730f12e3dc2e3903da3c18a0"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-siheung-01",
+      "selectedAttemptId": "gbt11-siheung-01-v1",
+      "siteKey": "siheung",
+      "sourceSha256": "72d3e78990f5df5a05bdf18f5f96490e9b59f9b4b8e2925c4c1ccdacfbd80d87",
+      "provenanceFile": "public/images/baby-template11/siheung/gbt11-siheung-01/provenance.v1.json",
+      "provenanceSha256": "5b91e811323b19c45b2a2fbd0c5ff19b5398c8fb5b656ed5c669804a33c4f0ce",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5ab583979b89adb66086324dc4ed65effc4ba0d10cddc89bb18d1932fe24cb5c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "68f05c78b473527b0cfd9ffc2b6ca2bc637f64bdfb2d3be10759ff8548c7ea70"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "cff937be862ea9e09b6718d7bc4cab551604242acbc8886d6531476135e8c6c1"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-siheung-02",
+      "selectedAttemptId": "gbt11-siheung-02-v1",
+      "siteKey": "siheung",
+      "sourceSha256": "b48178d5401c83152066b219d27d9caea28c66059ad8beb2c55f184dc2ccef0c",
+      "provenanceFile": "public/images/baby-template11/siheung/gbt11-siheung-02/provenance.v1.json",
+      "provenanceSha256": "0d7fe65622f41ae41cc75bea51f521d7f3b7271ad09d2a171cf87615d63f91e7",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "10b7072b74ce0f6547eba6f7af419820e98a5c7168ee2dc0f2329267fd083a43"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e98e28f3f25c52ce8d05e750526d69e6bd254f0d7de7c4393ad90146ac05375a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "43f0b47531bae50a66f38b09ccf7d2bd73679a370bbbda5ed33243e7ec8d641b"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-siheung-03",
+      "selectedAttemptId": "gbt11-siheung-03-v2",
+      "siteKey": "siheung",
+      "sourceSha256": "4e3d7a0b232c6619106382de8f91e2b2f567ac9679239558398a65c1faee11a8",
+      "provenanceFile": "public/images/baby-template11/siheung/gbt11-siheung-03/provenance.v1.json",
+      "provenanceSha256": "08591d32cc87304025c054b4e99a995e187935cddeebad8bd8d53869ed6fe6a6",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "41ea7d0622eeac05e9881c47825f98a1035a5ace5bfaadd501255b4b179ecc46"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "5293ef35ce6a6ce776acf52d5086984b484fd1b8b979b8db149bdecdd0651099"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "17e34e34e1a8e81b0ac5c6162d381ef4a1be92fc3f32faf27ca9721990ea8d7e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-siheung-04",
+      "selectedAttemptId": "gbt11-siheung-04-v1",
+      "siteKey": "siheung",
+      "sourceSha256": "57dc3a105b7974591c73ff69e10d2f8ec43334a39ef8b355dd4dfe6a0b55e5b5",
+      "provenanceFile": "public/images/baby-template11/siheung/gbt11-siheung-04/provenance.v1.json",
+      "provenanceSha256": "54c69e5f63d83dfb4bf0030197bda17c28ee555a9fe02ed07fe73141d516c639",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "556a0775c789ea7be1fb5f6c7a0117af686d4a5c25f571f7fad76dc1024b4c4d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "f2fe6695c50808b0df1d3ef913644e3a503f7c3460d12e165ce634b06960e9d7"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "dcecac2c7898776b0ac126dfc4d6ef12a8a78e7e134a5e8c7f2dedb586cee287"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-siheung-05",
+      "selectedAttemptId": "gbt11-siheung-05-v1",
+      "siteKey": "siheung",
+      "sourceSha256": "5eca27ee61dd80fb60bf4c38a8b77780cd5d889a85076bb92be665237942ef98",
+      "provenanceFile": "public/images/baby-template11/siheung/gbt11-siheung-05/provenance.v1.json",
+      "provenanceSha256": "d843c585709e051665bd7c6fd49e879caf7f61558fca602c76c0f7293794045c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "14893618095a8717d59907de914c4d8874beef56c2304a99b30208d155a9b318"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "5bbd1536dd2e4ec03c929caeda5b6340ad68bc5d94bf0236d959e715b3b06706"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/siheung/gbt11-siheung-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "ecf436fdfb0dcbe74a237391a793a2863a50695f9aeddc26882796f99cbfbec2"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-01",
+      "selectedAttemptId": "gbt11-suwon-01-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "68776eb03b53c7ed62a35bf8dd93d36ab274d9ac283c0b31e137c7f5fd3eee8d",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-01/provenance.v1.json",
+      "provenanceSha256": "c82c546a7f11f31d07fa33dbcbbca176f2d87cbfcbd77b2c4f4379147da386f4",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6a7106b9e62ddf6bb934e15c52d252bd26bc0573cfb176ed37625df40c69920f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "6fdb5ab0751c060f6fe022215d5b8145d3de4db4d6e633322d65ff97b1e570fa"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "6c9f415e4a2fa83da49d4fbcd08db2d190fae839746863acd1b173dcf85f18bb"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-02",
+      "selectedAttemptId": "gbt11-suwon-02-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "df5507d1fd614d70e36139e15992f745aba3eb379665bc2c017004734603feb3",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-02/provenance.v1.json",
+      "provenanceSha256": "a9389609e584aa452b6319ccd31eac1da06e1110b6eb27163bd3b5d14635fbf7",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "db48e9f1879d99777d006c46875a1cd4e8d04d815d95a737020965c70dafb000"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "88e1161900680855c9121dc405332a72fa8d16062848a1307653b0a25611a486"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d18131ee82ace4e67935720513c94ec52632ddac910102e13965490a3a362b63"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-03",
+      "selectedAttemptId": "gbt11-suwon-03-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "84c42f51c152802d051750fd61a02b4c9cfed15db27262c836902e9749a6ae55",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-03/provenance.v1.json",
+      "provenanceSha256": "ccc72265420070ac1ab1f0eb126a0b75d49bf5cbd5232103dab3e918364a5ca1",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "9653ba18420f2351b5278654b937b8ca4aff368205593beaeac02338c9f7dd6c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "ddd7fa3f877f799328537d9c6c736c2ef8b8107b8b44736a90b9ccb16db22344"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "eab77adcd462cea8e2d67443fdb745cd51c989b0efc1e22b9fc9954a4040699c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-04",
+      "selectedAttemptId": "gbt11-suwon-04-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "07641faabe7d7e2dd817e57aa6f9ce2d5064a8d9d6a2786ef8865441f04f6fd2",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-04/provenance.v1.json",
+      "provenanceSha256": "1af0159b14f3aa663dee91a9c4cb68f0c49370699a1aad0ac0d79064a960149c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "b806a583cf34545689923dbe020cd8cfddff0b19915edb7d64531a3d3d8366c6"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "937401a61342e854ac6f262a99f347fd8db6a90b3fa45a70ac67c394b7527712"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b9dd7b3a1d5ec65840dc4eaaff0055aa6fa4008901ad89132923ea766cb80eff"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-05",
+      "selectedAttemptId": "gbt11-suwon-05-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "a8c4a309f7fea0441d87afbf8486546bf3d38bbc04dbef6ba3f3832a31a6809d",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-05/provenance.v1.json",
+      "provenanceSha256": "3a40869e805364876b315d67102baf4e977d3e26c07f6f65dc93dc7296b87bc3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "37e4386cafec8f8c333959cd88b6bbe42645218eb39341d79280d305a7f8b6c9"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "ecc4b5d72aeacbeaa89c7d3d516b380f88b6464cf9477d448814d8172ac524e5"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b7746e81c91f4f93ee582976eea3cc91305341f2873a39d319475020bb577507"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-06",
+      "selectedAttemptId": "gbt11-suwon-06-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "dd50e5b94596ecdbb7afccc08e947d63a2ffe532e57a453d4b0ec5275185dc62",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-06/provenance.v1.json",
+      "provenanceSha256": "f47a907e1c78b99a8d52f092c6e331e4b98d4f04e7c375fadb1418a8d848bec9",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-06/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1ed7e19be4b5380967de1321f4b25e6aeb879fe7f8134a9a137f795dc6d8e6da"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-06/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "8acd61c2ebcf78ae965b6d6d8363863ec85f2d49e4183f896f40c62c46ca5538"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-06/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c51e46b85e08869597c1425415868a2dc383e18fdf2d90a58f6c3db2cc831195"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-suwon-07",
+      "selectedAttemptId": "gbt11-suwon-07-v1",
+      "siteKey": "suwon",
+      "sourceSha256": "7d34050791b236f7d02e6c34409986b8a26dcf6f2dc18d4b4478dd9e5b2f4856",
+      "provenanceFile": "public/images/baby-template11/suwon/gbt11-suwon-07/provenance.v1.json",
+      "provenanceSha256": "81a679e7c17ee52c10dd2408f3bf6bef5d65ba26995cd7adac51ec66f631b26d",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-07/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0435f236b3899f3316aca4284eaa1ea164b84a549ff91ab4bebadb2181d263ff"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-07/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "7070fa9d2183a171f2ccfd21912d17aba7854e8fd5156a285c8f49339d3f13d1"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/suwon/gbt11-suwon-07/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "46a11e6b3744581f266234bb764a9cc32f7eb14c56e514bb44a85759a8f036e3"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uijeongbu-01",
+      "selectedAttemptId": "gbt11-uijeongbu-01-v1",
+      "siteKey": "uijeongbu",
+      "sourceSha256": "ca334c2b380ef4f9fb49b3b3c7d0117a029b6bd3d0b77d7701e5bb43a2e3e8f9",
+      "provenanceFile": "public/images/baby-template11/uijeongbu/gbt11-uijeongbu-01/provenance.v1.json",
+      "provenanceSha256": "90dc3ef5540272c1facfea8316845c56e580d5abc06e45ccfa56eebeacfddecd",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "cf4315c6678c5910df648e5cd7fe7fea43357f54583ee9239e6c5de60d978d60"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b8abe6d5f200272f6f80d0567bd4d56f473a6d7d8329805df9d7847ed30b6289"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c21b3952773a6cf82c691dc093618471638378a3bf3c5f4d6be9408fa6777539"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uijeongbu-02",
+      "selectedAttemptId": "gbt11-uijeongbu-02-v1",
+      "siteKey": "uijeongbu",
+      "sourceSha256": "ed63661e88e69b30d2ea3ab3564c2137d5256edf9e650f675c088ac74b1a252d",
+      "provenanceFile": "public/images/baby-template11/uijeongbu/gbt11-uijeongbu-02/provenance.v1.json",
+      "provenanceSha256": "259c65df24d386249c7e53369dda3b3dcfb3577b1308cfdb7921f3b4bf3e3566",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "edcaed2e439bd155f6a13c297b94e6721c16c7b615742a84d890d224a553a8d5"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "49afc721e91e8625ed5dc50a115b0fdfef61ca274d00123871f56f1d8ebb2f8a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "49cfc5b3ac9aaf57918ad3e7b6b4c2d39e6f0794e18cfd8b8a3a8e898865ddf5"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uijeongbu-03",
+      "selectedAttemptId": "gbt11-uijeongbu-03-v1",
+      "siteKey": "uijeongbu",
+      "sourceSha256": "7062506baba4fd8303527941532792d9e874e10855241cca8c820f3250550b2a",
+      "provenanceFile": "public/images/baby-template11/uijeongbu/gbt11-uijeongbu-03/provenance.v1.json",
+      "provenanceSha256": "90613cd5aa2dece4c5fe8e3630152184aa098282ff631402bd8a585962fec0e8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "02906c01685a570a0fce986d21731ecce5422070e8e9b00f7e890204e41456dc"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b7f8057120ec5bb0b8a61f87ee1b2a5393f4e7bdab13004904ab6d284b1c2872"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "9436f3377d49f3b5fd406d058c30a6e7d6c0bde3e288de161ca2b709e6acbb38"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uijeongbu-04",
+      "selectedAttemptId": "gbt11-uijeongbu-04-v2",
+      "siteKey": "uijeongbu",
+      "sourceSha256": "40694291dd6a9883d5da212c5683c83288649711ff0ccd4b8694a573158deef5",
+      "provenanceFile": "public/images/baby-template11/uijeongbu/gbt11-uijeongbu-04/provenance.v1.json",
+      "provenanceSha256": "b64835391fda1f17cdca7a9dba9fd602aba84033f52681b0359296f909efbae6",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "0a00a5f6f442cefb94b88d6d9d26cae96ea8a0846e1b155dd2026d71e64db68f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "5ad97725d12e9e94a07cd7aceef56d0443ab4952da3fddd8ddfcb461ca0341b5"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "d52a8873228d51f57e24fb913291eb0f22d3a64e63ecf4c891b8d185cca551d3"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uijeongbu-05",
+      "selectedAttemptId": "gbt11-uijeongbu-05-v1",
+      "siteKey": "uijeongbu",
+      "sourceSha256": "36d3ba449b4036bc1a4cfa0e73ad4c3b313893dac471927f30be3e13d0e7c0f1",
+      "provenanceFile": "public/images/baby-template11/uijeongbu/gbt11-uijeongbu-05/provenance.v1.json",
+      "provenanceSha256": "8c2164957ecfc2709c0e26630cef8b4a58558186a11fad4a16a0c42057f38421",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e842278d798abb34a15a4e075d72465494ed15fc936a192777d50c4caa4b78ad"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "2473789eb6870ce7f87e8ebd13fba190f8991bc3ebf0620017b51930fe2985b6"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uijeongbu/gbt11-uijeongbu-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "73ee98081f59ea264dbc653c91a27cad86774a2d5748ee397a230ed1daaf4d7e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uiwang-01",
+      "selectedAttemptId": "gbt11-uiwang-01-v1",
+      "siteKey": "uiwang",
+      "sourceSha256": "cfbdaf3a9e4e62e1c19ab3f362320c31cda6d17f8472b551b52a8bc8f5070023",
+      "provenanceFile": "public/images/baby-template11/uiwang/gbt11-uiwang-01/provenance.v1.json",
+      "provenanceSha256": "8135cb747fa9f79762e096c382b4c0c81f03f3db209d992ee4b30376f502032a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "a012467ef681e0529ea2022b5aa611efc188316e9cae4f0f7de8ac64cbb3dff3"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "59330c46153bb9c6943bc8481419521db1f11018a846ce484604a4bf5ac649cb"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "7b2dd7ad38c843a5d0744478775999d6b37d23be8814b04402f9c22b9685c7e8"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uiwang-02",
+      "selectedAttemptId": "gbt11-uiwang-02-v1",
+      "siteKey": "uiwang",
+      "sourceSha256": "16abc5da5cf449c96ba6cdfddbeac1bc3926d04eecf8b86ce0b5204c3c24c2b7",
+      "provenanceFile": "public/images/baby-template11/uiwang/gbt11-uiwang-02/provenance.v1.json",
+      "provenanceSha256": "142de667ef8135a4a03f98c463e91bc89fde25af9ed380e0aa851da84f229b91",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "42a2cafd1fb5c281bfb514e9c13f82a933cb03dafd9a58e253a268098d2ec252"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "5c38e09c9acea9f9ef492b0049357836b0fbb01365362f0709df9a109bff7806"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "9a7ad0a448c7f56c8db30c2d3b792e1f50aee1c8caad2ae9f1e87149368f0f6c"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uiwang-03",
+      "selectedAttemptId": "gbt11-uiwang-03-v1",
+      "siteKey": "uiwang",
+      "sourceSha256": "e45af33eb7e4433ac8dfd7d484aaf20b8dfb013dfb53bff315e87f1ebb3da536",
+      "provenanceFile": "public/images/baby-template11/uiwang/gbt11-uiwang-03/provenance.v1.json",
+      "provenanceSha256": "b4ca27f235e283b83f28ef62351ba2dd096c3eaefc7826eaa41c020126286172",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "319eb5b406d4d8cbea5d12efb86668686a4e999753bff383f543f3ddeba5412f"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "c90472e05e397a73604fadceec16d3e26b4e089e8b726ad8a32dddc2ce2dc107"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e10bd539d62b0d331119a2c99f0e074729a328853d6b67f7f0a0e96dc8a7c233"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uiwang-04",
+      "selectedAttemptId": "gbt11-uiwang-04-v2",
+      "siteKey": "uiwang",
+      "sourceSha256": "d743e5b119ed8f1ff8e535415c2d85f9140588d2cf42c021eaad6b21af55fbaa",
+      "provenanceFile": "public/images/baby-template11/uiwang/gbt11-uiwang-04/provenance.v1.json",
+      "provenanceSha256": "d3b413c61d7b765b52b0812f2dec1340b1b057d68bbf699ba7846f76b4af61e0",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "6cba7278049496942b0f3f0441fee51a1f42c706e04e1a86d155333c3acf479b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e80c5752a62673772dd5ba5797e8ace7f6a911ec0ff27102c40172758807eaea"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "256f71fd0cbdcf67061940030c77745c331b14e89a5d5a0f324da9daebf3ce78"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-uiwang-05",
+      "selectedAttemptId": "gbt11-uiwang-05-v1",
+      "siteKey": "uiwang",
+      "sourceSha256": "ecadb1b8d164c741e578e600f89d240c0639da81542ab60f73a7e5b489ff85a5",
+      "provenanceFile": "public/images/baby-template11/uiwang/gbt11-uiwang-05/provenance.v1.json",
+      "provenanceSha256": "23fc24a6732ebff3c6bc91d60da856b50cd9da1473d714d05e37d0b4cca37b2e",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fdab53ee1056a3b433d71154e2c91ae766a69add15526d31a237e4d2f1e69db7"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "aea024f1dce3265279b80222c1ade9119e4aa09bbd96ed455700e39b3961bab4"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/uiwang/gbt11-uiwang-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f9282cc4d146fe456a75473c7b69d83c0f945194dd409e7d7a52a96bd8251bf1"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yangju-01",
+      "selectedAttemptId": "gbt11-yangju-01-v1",
+      "siteKey": "yangju",
+      "sourceSha256": "499249493d65de9606f0f0d755715050c1998537e06c1eae2b0d77d39fef487f",
+      "provenanceFile": "public/images/baby-template11/yangju/gbt11-yangju-01/provenance.v1.json",
+      "provenanceSha256": "642741a6e426ea0b5de2e391e5bf3110ab76ac152cb690dfbe7279a1ce4f40c3",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "365743b5bf33598f3e1c9fc3d4a52f4a9391136691b48527d8d15d479677fbce"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "2563e66fba9d7187472b7e221db9bff5f686162e309c9d499e84742643677fcc"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c8f5f7acdfb8daa93691087b5990aa131341a947e4ed16ab7f80e622fd61225e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yangju-02",
+      "selectedAttemptId": "gbt11-yangju-02-v1",
+      "siteKey": "yangju",
+      "sourceSha256": "fefbc988582992dca179cf65263e7dbf1c84bcee0967fec025adf591b9c03ae0",
+      "provenanceFile": "public/images/baby-template11/yangju/gbt11-yangju-02/provenance.v1.json",
+      "provenanceSha256": "e11573603c692943c6a32457b9c3047391101f23fa643312d11dd56eda280247",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1ae554be3c2094fb8df6ccb2122413c5371a1d4b9faeb720f0ae292818106cd8"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "8737f9590180dd266cbe279bc865bd53d99ebe9b4f4e39459fe26267c71e4ff3"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "48e5e17aebe438bd4b6503351bc1f9aa0d4d856c3a557f78d9dfea0f5dec2203"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yangju-03",
+      "selectedAttemptId": "gbt11-yangju-03-v2",
+      "siteKey": "yangju",
+      "sourceSha256": "84523d5f911545f122b7273875ab58d4656f04d1479c1944fc88b00290b8898b",
+      "provenanceFile": "public/images/baby-template11/yangju/gbt11-yangju-03/provenance.v1.json",
+      "provenanceSha256": "57cb3b4c862d0dc8180cffc59940ea38d2d8e0c30393190eac8d17d64c695fde",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d92a5df339041f723accd69662452e36ecce3c9fee2bb154d805bea214466260"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "3d30c5daec3edbaccc0e100dc618d923165131e17f7a6d590109e05c8d0d2fca"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "f2e3c15fae4f69361784aae4c9dabd0c1c18d690f5e3a525b06532c1a0c75c47"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yangju-04",
+      "selectedAttemptId": "gbt11-yangju-04-v1",
+      "siteKey": "yangju",
+      "sourceSha256": "ae0f90093226f717e94443af341751599039a0b9ff7b6c0e1c8553267c1bf643",
+      "provenanceFile": "public/images/baby-template11/yangju/gbt11-yangju-04/provenance.v1.json",
+      "provenanceSha256": "5a27c94baf311c4232f0c7ff43b858fd4ab3194a3dd96c53c0b4a8911b843b90",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "f2423c1cedfc9f25842bc854ab3dac56bdd0be2d894d19ed4ef33c3bee818ab3"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "71d53766031b21f122b150e036a32c5253cabd038f078806f7485d7b1dfa33fe"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "4dd356fc46eb8b37c5433e73a0bd0693646d7a1b1e184b43541841805df6d15d"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yangju-05",
+      "selectedAttemptId": "gbt11-yangju-05-v1",
+      "siteKey": "yangju",
+      "sourceSha256": "4f54eaa72e89e0491298ee868027f8377f9b72d447c65a9b7b319b4ff5d04147",
+      "provenanceFile": "public/images/baby-template11/yangju/gbt11-yangju-05/provenance.v1.json",
+      "provenanceSha256": "cad1b2dc729e767502a2ec67253f8d5dd57f63d2b57aaf7754d1568b53ef6890",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "3d095220db6db397ac3cb62ca7e458a02a9cf830fe33b28907bc7450959a7705"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "21464f90bee45abba4b503ed208b2eed03babee758422e4635da544c083171f0"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yangju/gbt11-yangju-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "0c223c394c149bd4f4a47d2504c1b8fa3078d5b8cfc13fe057b9bba11ae7d1ab"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yeoncheon-01",
+      "selectedAttemptId": "gbt11-yeoncheon-01-v1",
+      "siteKey": "yeoncheon",
+      "sourceSha256": "c38e4ca65452a13953d87e3afb619a5b412fa22a8d575dc0c1d6865d6cebde19",
+      "provenanceFile": "public/images/baby-template11/yeoncheon/gbt11-yeoncheon-01/provenance.v1.json",
+      "provenanceSha256": "f944055494aa35ef391861b31750d8106ce003dc148c27ac3b337bbd70294250",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "07fc0ca4aab421774bb0c6c5ac3498a187457afd5a0c23a03821236f3b49d98c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "646b2ce8a1e1bb2db546c7bcf1a1fd5dd57fcd81a1f9d4ea756ad9c792661064"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "45888878a03121e21d3cfd5e72674f75058fc1702e90d34a5aebb4ef86c919df"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yeoncheon-02",
+      "selectedAttemptId": "gbt11-yeoncheon-02-v1",
+      "siteKey": "yeoncheon",
+      "sourceSha256": "0034c7e96c4fd344f0f4fce42d30e6f611fb61a191fd50b19e5c67452d05b4e9",
+      "provenanceFile": "public/images/baby-template11/yeoncheon/gbt11-yeoncheon-02/provenance.v1.json",
+      "provenanceSha256": "fc078ed68eddef50a8711d7b7dd0f3924b20ddacb3edee32f92d8d2ebe901f2a",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fea7344de8f63fdaf9c8c811976c659cd07ae7ea2be12ca7d0d69a66904bb1ec"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b1efe2bbf86244edc234e12c202b98668519a6016753201162466dc1903ad9ed"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "46de16f5c3ef5cbcd7c53018b4147b33f8ac246d0e20e12d4e2fcab865252e9e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yeoncheon-03",
+      "selectedAttemptId": "gbt11-yeoncheon-03-v2",
+      "siteKey": "yeoncheon",
+      "sourceSha256": "dc4188104db5c10a596fc1470652e3e10510682a1218a23c106dab915d717cfc",
+      "provenanceFile": "public/images/baby-template11/yeoncheon/gbt11-yeoncheon-03/provenance.v1.json",
+      "provenanceSha256": "583f5e841aa3a562b4cf24c8e41bd38a0b5c6babfa45f109eef190254a5e35f7",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "86665eed4db99138c26323765f3f4a72087ddeb9db33def4617b3feb69630b99"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "2a45b9cab44de83b8e91fd798eedef35f1ea22b0fdcdbf4864721afe2d671c26"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c09a46b7f9434d655d3f2be576b4135925bcc6a90d556299c045626d9062c3ea"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yeoncheon-04",
+      "selectedAttemptId": "gbt11-yeoncheon-04-v1",
+      "siteKey": "yeoncheon",
+      "sourceSha256": "0fd48f262145d45de1000422d42504d87548dcabeb831f5a08b558f1ce7b79d0",
+      "provenanceFile": "public/images/baby-template11/yeoncheon/gbt11-yeoncheon-04/provenance.v1.json",
+      "provenanceSha256": "c3f8ff259a7c7a2a34cca3da3965d123c1f892f26aaba71613616235a8f22180",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "d20989130dc36618cdb14236401d17c6ba457eb9144407bc1c9774e3f9eb2772"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d27ba853cc8872b1322610a55e0571ca29be4df25d05a573e3262c1d51ec7628"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c3fa6c295247788a3f2cb51c2b5e8d7588e026418a3562a44305359e0fd497de"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yeoncheon-05",
+      "selectedAttemptId": "gbt11-yeoncheon-05-v1",
+      "siteKey": "yeoncheon",
+      "sourceSha256": "c4d9db58b204b54f77c7330d352435a2f2c184b6e782404cfc60a8f44ac99a8e",
+      "provenanceFile": "public/images/baby-template11/yeoncheon/gbt11-yeoncheon-05/provenance.v1.json",
+      "provenanceSha256": "603f8c16a4d5b142969ffbc8cf47f095b84a1620e8c0b89fdb5f0aea34e1bd64",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "fc2e8345eb522047256b5d51e2cb1bb7547d4f3fc1a14d05a9bdd58e1f078c12"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "b15241f8ff0afe44b3f0739659e9abfad0374efa42f3858ac95ce9093343b6d9"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yeoncheon/gbt11-yeoncheon-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "c40e1781ece9ee395e433d7b483e2ff3f903e8921434ef39c4214c0556542355"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-01",
+      "selectedAttemptId": "gbt11-yongin-01-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "1c0417d4c8f0fd57eda011c7432c535b491670ba0a7ee44ce65bc35c824ba58b",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-01/provenance.v1.json",
+      "provenanceSha256": "8df6e3b1384e9337a85258322f6b500e9319531a3427cbc67aa0edeb4da1a22c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-01/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "525fe08bf9feb0e895ca2541c26ca6a55d910af749498f254ab5c4b6e46e3b12"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-01/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "d4ff33bde4417e035af29515320937ea9e041059f065d74d4a4cac73f431dcea"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-01/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "b4cf370924d76f0036c79b10d14519c25c0c0fa0e256d7ccc6b78c196ad96699"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-02",
+      "selectedAttemptId": "gbt11-yongin-02-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "2b7c9198dfa8f956b3c78424285532e92e862d24fe6d66eb45629f3eb59c3f97",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-02/provenance.v1.json",
+      "provenanceSha256": "d27ffc18e8d5643cccb3254feb614af76887813a54db7c3354a15487e2d446b4",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-02/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "5506c2eb9f7f92ec479c2e0fe247899850d6f6f22e1cdfe43665be020023414b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-02/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "fa92d574b262ab35e65213daee06b0ec5c5cb4cc13cb17f25684cef7b0c04252"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-02/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e52c0e982b0fcad64c3ce136c8394d2d33e587c76a19a067dce908f690d282dc"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-03",
+      "selectedAttemptId": "gbt11-yongin-03-v2",
+      "siteKey": "yongin",
+      "sourceSha256": "8792c12f07e83d4c41e0acb9f1244417acb25d8146cce5aff6419c0b0cd54761",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-03/provenance.v1.json",
+      "provenanceSha256": "4fdaff00395ecd423bf95a658c22cf428e11354d5c2779442a712d95950fd1b8",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-03/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1f3a9aead0dff53732d59b428de0785ec7c872ce0541effd91e703c46cc1ab7c"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-03/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "72207e5ba40cc62cbc103e5e7826fec990ad83f39b4954cabb527e84c03cc318"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-03/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "664c658843e766cbacbe993150ad69e4ffc8dd58285daa3e0b9310279fbc693f"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-04",
+      "selectedAttemptId": "gbt11-yongin-04-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "7e5d8f53ec227141780c69891a9ade3ff5ed50a9a47eb34e9135b12535710cb1",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-04/provenance.v1.json",
+      "provenanceSha256": "f56e1696c57ca2ee39d21284c0b4e114a3ce330c8a54b8c5f132903994df7cf5",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-04/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "e3eec72edcf6a28a801f879fef684da438f900bafa6d005b92a9cc84bbe0b80d"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-04/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "e67047a771a6ce6f4c07b76c8be57923f50345beeb30fc8778b5cb3ada072bb9"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-04/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "004365e8570043cc2b76ef9b2bc10aa2920329816718aad58ec0aacce017f1de"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-05",
+      "selectedAttemptId": "gbt11-yongin-05-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "d333336dddaee2c6ce0cd2cc0b0a8258f82abcbb8cc3ec72a96f8a0bffef07c2",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-05/provenance.v1.json",
+      "provenanceSha256": "8e17843af109d59aef37e68a70ee32512693ea46223f79562ea5335463ec4b58",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-05/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1eb6ff08a5ecf8af47ba4787eb18850725a3707eb23c2a90d361c3fef83ae643"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-05/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "1a4a54ae7737adad1d994966f8088e097f4e74057c99ae73a3e1fe6cffb8ab4a"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-05/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e094a7abdc976136eed473f2c4300222e0efac9e27dde5cf405ccb3de76406dd"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-06",
+      "selectedAttemptId": "gbt11-yongin-06-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "5c55e2882738943e4d3d2926e33d45b7c46e4c7dfadfce3d5e82dc73b444c5f9",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-06/provenance.v1.json",
+      "provenanceSha256": "3771a083f3598245e110047fd2a010945b8149554246bece0aa5dbb8bd986b83",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-06/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "497550b8a34ebdf68c7d45649d122905b4c28c6f5e2ec3a6e45a6bc2865f5e4b"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-06/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "51b0dd960d8a7425693b1bd5c3571582ac597f290f36c4614ee915166e983593"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-06/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "e2a876b44cceccc5f85edddd49b58940ce5961817dcd9344a7d0001ef82ca11e"
+        }
+      ]
+    },
+    {
+      "stableAssetId": "gbt11-yongin-07",
+      "selectedAttemptId": "gbt11-yongin-07-v1",
+      "siteKey": "yongin",
+      "sourceSha256": "39e344b7e92ab91d6063f7897540c9cbbe127668ddcbe40b9d0e5ee538ed6f87",
+      "provenanceFile": "public/images/baby-template11/yongin/gbt11-yongin-07/provenance.v1.json",
+      "provenanceSha256": "ad2b7292b0e24cf92cb78c77a7f59f5de151aee024da525233a4e8f375fcc49c",
+      "derivatives": [
+        {
+          "key": "desktop",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-07/desktop.webp",
+          "width": 1600,
+          "height": 900,
+          "sha256": "1267f39e07e8c91c59dd67bcce548caa511f67362b30876b7a94cca2414ab051"
+        },
+        {
+          "key": "tablet",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-07/tablet.webp",
+          "width": 1200,
+          "height": 675,
+          "sha256": "60b667e1d353596f32e7fe98d7dfaca53c69eb97b9e478ba47376c8e2c54b8ba"
+        },
+        {
+          "key": "mobile",
+          "path": "/images/baby-template11/yongin/gbt11-yongin-07/mobile.webp",
+          "width": 768,
+          "height": 600,
+          "sha256": "8f50ab4e4d1a4aacb98a8a92792107af0c92c46a786c3a3624a15d9b8a21205e"
+        }
+      ]
+    }
+  ]
+}

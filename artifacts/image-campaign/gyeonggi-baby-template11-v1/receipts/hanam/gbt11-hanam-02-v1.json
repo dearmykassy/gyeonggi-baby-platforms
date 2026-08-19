@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hanam-02-v1",
+  "siteKey": "hanam",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hanam/gbt11-hanam-02-v1.txt",
+  "promptSha256": "8f5148c667c56598ec811e87433c4adfcdbb11ba8ea9c2f17d8df46a88989f67",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-3d756810-3638-4bc0-a6d2-04b7baf43783.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hanam/gbt11-hanam-02-v1.png",
+  "outputSha256": "e1cdf8df0339ca32b12c73b3fd06843bb38fbd961b5c0374e5d1877ec19bc6b4",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque dark blouse and cream trousers; nonsexual seated portrait with natural hands and anatomy; no phone, text, logo, watermark, bed, bathroom, machine, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

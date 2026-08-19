@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-02-v1",
+  "siteKey": "pyeongtaek",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-02-v1.txt",
+  "promptSha256": "7e31f28d75272ec9586b0df688392bd3bcc9064f40d720b1f6aea8c3f3bd6aa8",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-e98a9abc-f784-485c-9387-a00d7ebe7dbc.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-02-v1.png",
+  "outputSha256": "ffa824b66ef6a77f2ebc938f7ad91dcec55afd74fa701114488fec2cea971560",
+  "width": 1535,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman seated in fully opaque blouse and trousers; hands and anatomy are natural; no phone, extra person, text, logo, watermark, bed, bathroom, or machine; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

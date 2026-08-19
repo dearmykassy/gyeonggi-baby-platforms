@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-paju-01-v1",
+  "siteKey": "paju",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/paju/gbt11-paju-01-v1.txt",
+  "promptSha256": "7a8909b04cb90cbe4d80be2bb055f4952983ab56385107a8e226fc4fd5850ef2",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-b4d909f9-84be-4cff-b0f6-521dbfc07d50.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/paju/gbt11-paju-01-v1.png",
+  "outputSha256": "7dc9d71a1d0b29f71ca21c48d190ed02a9257219cf7eae45041c370ae410a772",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque fitted knit and below-knee skirt; hands and anatomy appear natural; no phone, extra person, text, logo, watermark, bed, bathroom, or machine; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}

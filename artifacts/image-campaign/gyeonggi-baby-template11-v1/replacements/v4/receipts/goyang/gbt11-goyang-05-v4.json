@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-05-v4",
+  "stableAssetId": "gbt11-goyang-05",
+  "siteKey": "goyang",
+  "sourceAttemptId": "gbt11-goyang-05-v3",
+  "sourceReceiptSha256": "b5c510529337938104b7c387dde3fde02a17a1e5f1956aa35bcf99c68beab3ec",
+  "sourceRejectedOutputSha256": "dd2061658359472962a06de6fa284c7bf63e0de77ba830d8d08b8dfa20c7e201",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/prompts/goyang/gbt11-goyang-05-v4.txt",
+  "promptSha256": "d07619d9c9fa2140a749fe4bdfe2ce36200185cc06389b1b274f3b27bed7edd4",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/goyang/gbt11-goyang-05-v4.png",
+  "actualCallReference": "builtin:imagegen:exec-792924be-f35a-4c4d-a085-05f56c5fcf53",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/goyang/gbt11-goyang-05-v4.png",
+  "outputSha256": "d80edf1957530b52a8837e6cfba62bff7b264e8466b028196d6e7c717a9a7a5f",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 단일 일관된 거울 반사, 얼굴 완전 노출, 휴대폰 후면은 정확히 작은 평면 렌즈 1개뿐이며 로고·점·센서·카메라섬 없음. 완전 착의·정상 해부·문자 없음·크롭 안전. 배경의 낮은 가구는 침구 없는 벤치로 확인.",
+    "reviewedAt": "2026-08-19"
+  }
+}

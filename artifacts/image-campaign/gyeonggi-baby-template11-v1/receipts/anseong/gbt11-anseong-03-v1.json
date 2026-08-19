@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anseong-03-v1",
+  "siteKey": "anseong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/anseong/gbt11-anseong-03-v1.txt",
+  "promptSha256": "1893b1b5c61eba26072dd38631b0efd8d7e5db8eacd3d684a38b7277447f1b00",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anseong/gbt11-anseong-03-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-ff714de8-dedc-4836-a3ff-67b0bce04838",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anseong/gbt11-anseong-03-v1.png",
+  "outputSha256": "44366c113017b6766731e9c24ed4eb38d2b4513ff884712bff77a700650f14ff",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back contains a visible fruit-like central logo/mark beneath the lenses, violating the explicit unbranded no-central-mark constraint; reject preserved without retry.",
+    "reviewedAt": "2026-08-19"
+  }
+}

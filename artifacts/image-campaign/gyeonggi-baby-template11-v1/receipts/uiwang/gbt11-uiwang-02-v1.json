@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uiwang-02-v1",
+  "siteKey": "uiwang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uiwang/gbt11-uiwang-02-v1.txt",
+  "promptSha256": "81fc95e67f29a92f3303a370a02b6e911b400c067f531607d474af1779586946",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-02-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2c5ea747-9b46-4cc6-a303-d1a98c3d75a8.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uiwang/gbt11-uiwang-02-v1.png",
+  "outputSha256": "16abc5da5cf449c96ba6cdfddbeac1bc3926d04eecf8b86ce0b5204c3c24c2b7",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman seated in opaque knit, skirt, and tights; naturally formed visible hands; no phone, extra person, text, logo, watermark, bed, bathroom, or machine; centered crop-safe composition.",
+    "reviewedAt": "2026-08-19"
+  }
+}

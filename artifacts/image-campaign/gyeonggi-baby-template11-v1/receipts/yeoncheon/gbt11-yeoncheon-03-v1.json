@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-yeoncheon-03-v1",
+  "siteKey": "yeoncheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/yeoncheon/gbt11-yeoncheon-03-v1.txt",
+  "promptSha256": "03630d82e7308d0f345c98e60aa0f908c35c6cb206cfb97f1aa48612caddf327",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yeoncheon/gbt11-yeoncheon-03-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-fd7e9c6d-4ce3-42b8-ab8a-e049a7bcacd2",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/yeoncheon/gbt11-yeoncheon-03-v1.png",
+  "outputSha256": "f12cfefb412e896305186071d17f32f89cd11b70294daa3ca7f3fcd6e90cb2bf",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back contains a clear central circular/fruit-like branding mark below the camera, violating the explicit plain unbranded no-central-mark constraint; reject preserved without retry.",
+    "reviewedAt": "2026-08-19"
+  }
+}

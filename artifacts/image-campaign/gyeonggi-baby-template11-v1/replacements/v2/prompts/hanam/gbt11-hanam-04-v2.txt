@@ -1,0 +1,13 @@
+Use case: photorealistic-natural
+Asset type: responsive regional and editorial website banner for the 하남 baby platform
+Primary request: a distinct, natural Korean lifestyle photograph for asset hanam-04; mature feminine styling with a polished Dongtan-inspired look, tasteful and professional rather than provocative
+Scene/backdrop: a refined apartment entry lounge with a large clean wall mirror, no bed and no bathroom fixtures
+Subject: one adult Korean woman massage practitioner, age 28 to 36, taking a natural mirror selfie; her full face is visible beside the phone and there is exactly one coherent reflection; wearing a burgundy long-sleeve blouse with a modest neckline and tailored navy slacks; fully opaque complete clothing with no exposed cleavage, lingerie, swimwear, transparent fabric, or fetish styling
+Style/medium: photorealistic Korean lifestyle photography, realistic pores and fabric texture, restrained retouching, not an advertisement mockup
+Composition/framing: landscape editorial photograph, three-quarter body, eye-level, subject near the center third; keep face, hands, phone, and reflection inside both wide and mobile crop-safe zones
+Lighting/mood: warm indirect interior light balanced with cool window daylight; calm, confident, approachable
+Color palette: dusty blue and light wood
+Constraints: plain unbranded matte phone back with one or two small flat camera lenses and at most one ordinary tiny flash; no raised camera island, central mark, logo, text, or decoration; exactly one adult woman; Korean adult appearance; normal anatomy and hands; nonsexual; no extra people; no duplicated body or reflection; no bed; no bathroom; no medical machine; no text; no letters; no numbers; no logo; no brand mark; no watermark
+Avoid: celebrity likeness, school uniform, youthful or underage appearance, lingerie, cleavage emphasis, exaggerated body proportions, seductive pose, selfie-face obstruction, Apple-style marks, recognizable phone branding, malformed fingers, extra limbs, plastic skin, visible signage
+Replacement correction (mandatory): Replace the rejected bedroom-adjacent scene with one adult Korean woman in a standing portrait inside a clean entrance studio with a matte wall, closed door, and narrow wood console; absolutely no bed, no mattress, no massage table, no treatment table, no sofa, no padded bench, no bathroom, no machine, no phone, no mirror, no reflective surface, no text or logo; opaque professional clothing, natural visible hands, single person, and crop-safe.
+This is a fresh independent candidate for the same logical asset. Do not reproduce the rejected defect.

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-suwon-02-v1",
+  "siteKey": "suwon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/suwon/gbt11-suwon-02-v1.txt",
+  "promptSha256": "bdefa1a20a835683e228906b6ed9b209259c4548a326392cc95e652f947daa01",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/suwon/gbt11-suwon-02-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-7f791e8d-ae83-4807-9b93-6a385f737702",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/suwon/gbt11-suwon-02-v1.png",
+  "outputSha256": "df5507d1fd614d70e36139e15992f745aba3eb379665bc2c017004734603feb3",
+  "width": 1642,
+  "height": 958,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "One adult Korean woman in opaque burgundy blouse and navy slacks; nonsexual mirror selfie; plain two-lens phone without mark or raised island; natural hand and crop-safe face; no text, logo, bed, bathroom, or machine.",
+    "reviewedAt": "2026-08-19"
+  }
+}

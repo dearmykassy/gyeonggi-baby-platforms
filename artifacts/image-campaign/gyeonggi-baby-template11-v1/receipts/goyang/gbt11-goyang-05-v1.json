@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-05-v1",
+  "siteKey": "goyang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/goyang/gbt11-goyang-05-v1.txt",
+  "promptSha256": "85a13ed84eccc20c6409532a296a9c2d98b69dd49a5dd5fd9efbf8c1b8bebe3c",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-05-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-022fa4d5-bac0-4414-871f-46bfba0077b8",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-05-v1.png",
+  "outputSha256": "8b5ba0aa0a4ba43c88a735aed8943c0404541b9faed6310266a8196efa78835f",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "mirror and reflection are coherent, but phone back has an additional bright hardware dot next to the lens, violating the exact plain one-lens phone contract; preserve as rejected candidate",
+    "reviewedAt": "2026-08-19"
+  }
+}

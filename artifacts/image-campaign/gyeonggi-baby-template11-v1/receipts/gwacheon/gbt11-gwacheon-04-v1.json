@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwacheon-04-v1",
+  "siteKey": "gwacheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwacheon/gbt11-gwacheon-04-v1.txt",
+  "promptSha256": "fab9e05b3d9aa4b7ef1bc2ea1f8982a4e0872594b90fa5feba9f88a477c95ef2",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2972d50f-9785-4043-bba0-ef39c1b09862.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-04-v1.png",
+  "outputSha256": "7636be02dc037e1f170e145542a548f74beaf01a58fcb2b4c0e4af2861438c7d",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman; opaque professional outfit; normal visible hands; no prohibited scene elements or marks; centered crop-safe framing.",
+    "reviewedAt": "2026-08-19"
+  }
+}

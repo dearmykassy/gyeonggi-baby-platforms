@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-hwaseong-04-v1",
+  "siteKey": "hwaseong",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/hwaseong/gbt11-hwaseong-04-v1.txt",
+  "promptSha256": "f700c2d10d3bd03ce857ac1673f071fb9468b73996e52c59f58fb23dc23fe844",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-8a922758-bff2-4c82-92b9-30d06b321e12.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/hwaseong/gbt11-hwaseong-04-v1.png",
+  "outputSha256": "93df0000f5079c0b680af5155656d85ba808e98b25126908cffe0b44b6907fa7",
+  "width": 1535,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single coherent mirror reflection of a clearly adult Korean woman in opaque blouse and trousers; natural anatomy; phone is plain and unbranded with two small flat lenses and no raised island or central mark; no prohibited setting, text, watermark, or unsafe crop.",
+    "reviewedAt": "2026-08-19"
+  }
+}

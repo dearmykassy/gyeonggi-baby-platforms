@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-goyang-06-v1",
+  "siteKey": "goyang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/goyang/gbt11-goyang-06-v1.txt",
+  "promptSha256": "6e4cbe661db19bdcda2ae3e9d047194c640f0025d71792efcbb58821b67ee323",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-06-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-d3af7ad1-19ef-4953-9fe1-4fd4cdee8a43",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/goyang/gbt11-goyang-06-v1.png",
+  "outputSha256": "36d5a6f8b7783a93908f990badcaa2c4b4eeaa20e2e77c7e8e1e2e18feb0e210",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 완전 착의, 정상 해부, 로고·문자·침대·욕실·기계 없음, 반응형 크롭 안전",
+    "reviewedAt": "2026-08-19"
+  }
+}

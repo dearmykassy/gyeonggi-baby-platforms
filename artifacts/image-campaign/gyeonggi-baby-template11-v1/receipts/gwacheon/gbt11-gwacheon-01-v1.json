@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gwacheon-01-v1",
+  "siteKey": "gwacheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gwacheon/gbt11-gwacheon-01-v1.txt",
+  "promptSha256": "db07d61a15385c3c6fe29f3ba0f3fb8b023938c133b90ed12b29b25fe23df654",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-bcbae831-1ddd-457b-93ed-8fb6186d43aa",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gwacheon/gbt11-gwacheon-01-v1.png",
+  "outputSha256": "2e65949ed642ecc8df7e76b4ecf20dd1b67d3010ef383df45a88c6229db9b2e3",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명의 단일 일관된 거울 반사, 무브랜드 평면 렌즈 휴대폰, 완전 착의, 정상 해부, 크롭 안전",
+    "reviewedAt": "2026-08-19"
+  }
+}

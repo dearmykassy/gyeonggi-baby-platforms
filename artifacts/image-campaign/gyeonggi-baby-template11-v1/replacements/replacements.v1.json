@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "attempts": [
+    {
+      "logicalAssetId": "gbt11-anseong-03-v2",
+      "stableAssetId": "gbt11-anseong-03",
+      "siteKey": "anseong",
+      "sourceAttemptId": "gbt11-anseong-03-v1",
+      "sourceReceiptSha256": "aa2b79dec4038e96b3ddb2d49a7ac1126b4adbb24e0d6673f8a37835215087af",
+      "promptSha256": "214705a57e45b4005370711ef3d6c919356fb2ed32a3a5df1142a7644bedd86d",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/anseong/gbt11-anseong-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anseong/gbt11-anseong-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/anseong/gbt11-anseong-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-anyang-03-v2",
+      "stableAssetId": "gbt11-anyang-03",
+      "siteKey": "anyang",
+      "sourceAttemptId": "gbt11-anyang-03-v1",
+      "sourceReceiptSha256": "77d9569c5f372e6e3fc887b2ca467685bb2504eee33b21655cbb5d13d904597d",
+      "promptSha256": "a976d5b4979aae1c516f4ea16b5e6d67192cdd7567aafdf3ec2fc75576893f4e",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/anyang/gbt11-anyang-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anyang/gbt11-anyang-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/anyang/gbt11-anyang-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-gimpo-01-v2",
+      "stableAssetId": "gbt11-gimpo-01",
+      "siteKey": "gimpo",
+      "sourceAttemptId": "gbt11-gimpo-01-v1",
+      "sourceReceiptSha256": "581c549dd0a058c5cee2d48e40b6d9717d82b33645fae4b146f811904578c838",
+      "promptSha256": "66608707e3e038a52290219a31e4a736f4cad3fdadbffe6111206b32befdf211",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/gimpo/gbt11-gimpo-01-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gimpo/gbt11-gimpo-01-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/gimpo/gbt11-gimpo-01-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-goyang-05-v2",
+      "stableAssetId": "gbt11-goyang-05",
+      "siteKey": "goyang",
+      "sourceAttemptId": "gbt11-goyang-05-v1",
+      "sourceReceiptSha256": "a02d921f8d1787efb8ddcfb5356aae4ff2560fadd85a312fe3a1b339b64db88b",
+      "promptSha256": "9c082b8ebf30462048f3fc861c19c28173e83d5dd3afb66f2a351d8c224c0259",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/goyang/gbt11-goyang-05-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/goyang/gbt11-goyang-05-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/goyang/gbt11-goyang-05-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-goyang-05-v3",
+      "stableAssetId": "gbt11-goyang-05",
+      "siteKey": "goyang",
+      "sourceAttemptId": "gbt11-goyang-05-v2",
+      "sourceReceiptSha256": "df131df01d1babd6fa501cdaace4b33cd3f1e8218fd90249c94833e62a2ca5aa",
+      "promptSha256": "b6df9b89edd8278369852a0031afd842aa2cacc4ea2c90b48f3c6a360be9cfc4",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/jobs/goyang/gbt11-goyang-05-v3.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/generated/goyang/gbt11-goyang-05-v3.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/receipts/goyang/gbt11-goyang-05-v3.json"
+    },
+    {
+      "logicalAssetId": "gbt11-goyang-05-v4",
+      "stableAssetId": "gbt11-goyang-05",
+      "siteKey": "goyang",
+      "sourceAttemptId": "gbt11-goyang-05-v3",
+      "sourceReceiptSha256": "b5c510529337938104b7c387dde3fde02a17a1e5f1956aa35bcf99c68beab3ec",
+      "promptSha256": "d07619d9c9fa2140a749fe4bdfe2ce36200185cc06389b1b274f3b27bed7edd4",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/jobs/goyang/gbt11-goyang-05-v4.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/goyang/gbt11-goyang-05-v4.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/receipts/goyang/gbt11-goyang-05-v4.json"
+    },
+    {
+      "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v2",
+      "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v1",
+      "sourceReceiptSha256": "f213d7486c193eb42dbeb642b25115bdb7902457046d6c00edb17fa833f3a56b",
+      "promptSha256": "0ea431b2ef5ff24f05c03b5f0b6995639597ad14e16265e88890119205f9a605",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v3",
+      "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v2",
+      "sourceReceiptSha256": "3352cff36f2e7b3dc3ca9d84c3be9a9f31fa449ceb4f73029042573f6d475ddb",
+      "promptSha256": "55d125fb6dd6242cf25d3e6f0034ee66a127be5ec18ba6f0965514fe24b863b3",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/jobs/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v3/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v3.json"
+    },
+    {
+      "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v4",
+      "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v3",
+      "sourceReceiptSha256": "860c35c693ac9768fa269ef195784013aab21aec1415c755262ed83e0e4e1368",
+      "promptSha256": "a9545795f66ecb13f09e97216de023b666813367d23a6d4805c34b66d57ce380",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/jobs/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v4/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v4.json"
+    },
+    {
+      "logicalAssetId": "gbt11-gwangju-gyeonggi-01-v5",
+      "stableAssetId": "gbt11-gwangju-gyeonggi-01",
+      "siteKey": "gwangju-gyeonggi",
+      "sourceAttemptId": "gbt11-gwangju-gyeonggi-01-v4",
+      "sourceReceiptSha256": "363177eb823c1903466bc49e2a1d5fefc192bbdfc684c7498250b83d5dea343d",
+      "promptSha256": "e360fe1af02aefce865317bc321a0af0aa49e164d12ff74d5dc7c06b09ca4e97",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/jobs/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/generated/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v5/receipts/gwangju-gyeonggi/gbt11-gwangju-gyeonggi-01-v5.json"
+    },
+    {
+      "logicalAssetId": "gbt11-hanam-04-v2",
+      "stableAssetId": "gbt11-hanam-04",
+      "siteKey": "hanam",
+      "sourceAttemptId": "gbt11-hanam-04-v1",
+      "sourceReceiptSha256": "bb10d485470cfcbd9dd038ef3bf7177ab475819bd6de6f6d9047a215316c295f",
+      "promptSha256": "707de3595244d31f97522cf13aab742e80d15c18415f0368871e3dd3bb853807",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/hanam/gbt11-hanam-04-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/hanam/gbt11-hanam-04-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/hanam/gbt11-hanam-04-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-osan-03-v2",
+      "stableAssetId": "gbt11-osan-03",
+      "siteKey": "osan",
+      "sourceAttemptId": "gbt11-osan-03-v1",
+      "sourceReceiptSha256": "4d3e486ec627b3871ae55244360ceae14a46813ce76c22aa5ed994e99464cb89",
+      "promptSha256": "57c070cfc64638b24ce2a5e6fb6e09e6dd24dcb8b558bfe3f0621ae4b4595bb8",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/osan/gbt11-osan-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/osan/gbt11-osan-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/osan/gbt11-osan-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-pocheon-04-v2",
+      "stableAssetId": "gbt11-pocheon-04",
+      "siteKey": "pocheon",
+      "sourceAttemptId": "gbt11-pocheon-04-v1",
+      "sourceReceiptSha256": "d8a6f6ffeb71db1898b4f41afe887dd678323dbf5fd67e55f4a5fe392f221e7c",
+      "promptSha256": "5e41f91609e5130331c3e54620eaa019b989bc5594ddb939371f59cffb988b6f",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/pocheon/gbt11-pocheon-04-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pocheon/gbt11-pocheon-04-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pocheon/gbt11-pocheon-04-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-pyeongtaek-01-v2",
+      "stableAssetId": "gbt11-pyeongtaek-01",
+      "siteKey": "pyeongtaek",
+      "sourceAttemptId": "gbt11-pyeongtaek-01-v1",
+      "sourceReceiptSha256": "f08f515f35ad8deebcc4078591a2b2442678c7f913f933dbf253362069331992",
+      "promptSha256": "6c8160bafd6a003e3c2658c47f2899fb0dd1b7a0ded719597c17c6a4652556e8",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/pyeongtaek/gbt11-pyeongtaek-01-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-01-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pyeongtaek/gbt11-pyeongtaek-01-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-pyeongtaek-04-v2",
+      "stableAssetId": "gbt11-pyeongtaek-04",
+      "siteKey": "pyeongtaek",
+      "sourceAttemptId": "gbt11-pyeongtaek-04-v1",
+      "sourceReceiptSha256": "1ac8543ff2a12a79d3382e5fcb2c44acd2e37f292f552f6b62d6eee1d2985d75",
+      "promptSha256": "e813b3cf349ce3604c6e51909916e5c013fc0b262f900eb092ddd5173e29f5eb",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/pyeongtaek/gbt11-pyeongtaek-04-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-04-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pyeongtaek/gbt11-pyeongtaek-04-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-seongnam-01-v2",
+      "stableAssetId": "gbt11-seongnam-01",
+      "siteKey": "seongnam",
+      "sourceAttemptId": "gbt11-seongnam-01-v1",
+      "sourceReceiptSha256": "ebe7bf02c21e2396d8f9d435344c579a570a4dc268cc46912865be5839096669",
+      "promptSha256": "9bce27dd1ec2050e0f7d9add7113583003f4ce3b34aa330b0be890b75c98beaa",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/seongnam/gbt11-seongnam-01-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-01-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/seongnam/gbt11-seongnam-01-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-seongnam-06-v2",
+      "stableAssetId": "gbt11-seongnam-06",
+      "siteKey": "seongnam",
+      "sourceAttemptId": "gbt11-seongnam-06-v1",
+      "sourceReceiptSha256": "688b97733319265408b4d23ba229b3df977a451b10402e9a28c6307820e3e343",
+      "promptSha256": "170f1d6c78a4887785ba6ac7cef77e5f49b99cb148c67d9d3abd2567365369c7",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/seongnam/gbt11-seongnam-06-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-06-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/seongnam/gbt11-seongnam-06-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-seongnam-07-v2",
+      "stableAssetId": "gbt11-seongnam-07",
+      "siteKey": "seongnam",
+      "sourceAttemptId": "gbt11-seongnam-07-v1",
+      "sourceReceiptSha256": "c2f51fe95d94e3ff730000a9b1800a3912cd433ca6d56ecbab21fcdf19a47dab",
+      "promptSha256": "5f8980517732dd803320ee66898861aad58fea1687c6f77dce8d9226cd30d3a8",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/seongnam/gbt11-seongnam-07-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/seongnam/gbt11-seongnam-07-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/seongnam/gbt11-seongnam-07-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-siheung-03-v2",
+      "stableAssetId": "gbt11-siheung-03",
+      "siteKey": "siheung",
+      "sourceAttemptId": "gbt11-siheung-03-v1",
+      "sourceReceiptSha256": "18abd4f2050bfc61c4f3d9a626b34b2a2f27373c2363730806ab376f153621da",
+      "promptSha256": "41955748234fd0f5b7d80ead5fc31c07375a6e94cf578e9fe880fc575ce1dea1",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/siheung/gbt11-siheung-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/siheung/gbt11-siheung-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/siheung/gbt11-siheung-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-uijeongbu-04-v2",
+      "stableAssetId": "gbt11-uijeongbu-04",
+      "siteKey": "uijeongbu",
+      "sourceAttemptId": "gbt11-uijeongbu-04-v1",
+      "sourceReceiptSha256": "dfdf0798f88b66b8398631d582bc94d1142778c5aae6f08ad5ea5f3f8d1ed337",
+      "promptSha256": "bf5d299400766d09e4f223861d085eb8960d14c86024bf41fd0a4f8f0eaa36e0",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/uijeongbu/gbt11-uijeongbu-04-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uijeongbu/gbt11-uijeongbu-04-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/uijeongbu/gbt11-uijeongbu-04-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-uiwang-04-v2",
+      "stableAssetId": "gbt11-uiwang-04",
+      "siteKey": "uiwang",
+      "sourceAttemptId": "gbt11-uiwang-04-v1",
+      "sourceReceiptSha256": "36e80226648cf06f06e045020f0a8ed1433ae8063b2fafd092f089e48170724a",
+      "promptSha256": "e817940a6a173a1af807b1e064b9819a750971f01ae3c014506203a2dbd186b6",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/uiwang/gbt11-uiwang-04-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/uiwang/gbt11-uiwang-04-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/uiwang/gbt11-uiwang-04-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-yangju-03-v2",
+      "stableAssetId": "gbt11-yangju-03",
+      "siteKey": "yangju",
+      "sourceAttemptId": "gbt11-yangju-03-v1",
+      "sourceReceiptSha256": "615ded5071c0be1333816ae53f91552c1ffe925b8cceb125fe012a32c6d5e757",
+      "promptSha256": "791e1cc2fc5cf2825d7711f4bc2528ac0e888e54225c8af49cb9631aa1cfd8f5",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/yangju/gbt11-yangju-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yangju/gbt11-yangju-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/yangju/gbt11-yangju-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-yeoncheon-03-v2",
+      "stableAssetId": "gbt11-yeoncheon-03",
+      "siteKey": "yeoncheon",
+      "sourceAttemptId": "gbt11-yeoncheon-03-v1",
+      "sourceReceiptSha256": "fa81b8ed094d887e4014e12e60cd3d6e480a84489c0bc49d4c7ea7fde36b8e9e",
+      "promptSha256": "33328bcf18c8e78607ee8ffc7aac906cbcdcc2bf5cdc31afe8d2d30c2b360411",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/yeoncheon/gbt11-yeoncheon-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yeoncheon/gbt11-yeoncheon-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/yeoncheon/gbt11-yeoncheon-03-v2.json"
+    },
+    {
+      "logicalAssetId": "gbt11-yongin-03-v2",
+      "stableAssetId": "gbt11-yongin-03",
+      "siteKey": "yongin",
+      "sourceAttemptId": "gbt11-yongin-03-v1",
+      "sourceReceiptSha256": "3ba94de33fe541337e16cbd8d46e93950a5f9282e5e3f29d77a3d5b5d629667e",
+      "promptSha256": "2bcfb5201944ec0eb8aaf28df5e88bc7d91a0e19c2f280831d14d63c317655b2",
+      "jobFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/jobs/yongin/gbt11-yongin-03-v2.json",
+      "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/yongin/gbt11-yongin-03-v2.png",
+      "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/yongin/gbt11-yongin-03-v2.json"
+    }
+  ]
+}

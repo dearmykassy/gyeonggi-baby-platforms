@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anyang-03-v1",
+  "siteKey": "anyang",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/anyang/gbt11-anyang-03-v1.txt",
+  "promptSha256": "374660426efd8348ad0b1da3ee294cbef45665c10c21ae2f580ce6905fd44e23",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anyang/gbt11-anyang-03-v1.png",
+  "actualCallReference": "imagegen:01a016f6-a972-7ec0-b245-9175626c9428/exec-422408eb-c5d4-48e0-9f7e-206c111491be",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/anyang/gbt11-anyang-03-v1.png",
+  "outputSha256": "9df83aa94adc4bddb619f791a1c2bf4ed61cbea30dce17fb10daa52e61714aa9",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "The phone cameras are grouped in a visible raised vertical camera island, especially clear in the reflection, violating the required one-or-two flat lenses with no raised island; reject preserved without retry.",
+    "reviewedAt": "2026-08-19"
+  }
+}

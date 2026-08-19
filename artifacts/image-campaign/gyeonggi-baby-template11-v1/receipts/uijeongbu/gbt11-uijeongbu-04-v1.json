@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-uijeongbu-04-v1",
+  "siteKey": "uijeongbu",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/uijeongbu/gbt11-uijeongbu-04-v1.txt",
+  "promptSha256": "48f572534aa69c96886f86de04e47d7da390ffc1a8afe769d278fdd7cf942358",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uijeongbu/gbt11-uijeongbu-04-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-b0fc68d2-f2eb-49e8-9e26-0aa415a7aaca.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/uijeongbu/gbt11-uijeongbu-04-v1.png",
+  "outputSha256": "49e96a44b3625bbc46acde6026438825de65f475ec3a27368687cfa9927fadc2",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": false,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "The phone itself is plain enough, but a second mirror behind the subject produces an additional full-body back reflection, violating the exactly-one-coherent-reflection/no-duplicated-reflection constraint.",
+    "reviewedAt": "2026-08-19"
+  }
+}

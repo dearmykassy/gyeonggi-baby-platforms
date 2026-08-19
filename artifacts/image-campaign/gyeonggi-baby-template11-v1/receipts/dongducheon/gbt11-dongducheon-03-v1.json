@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-dongducheon-03-v1",
+  "siteKey": "dongducheon",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/dongducheon/gbt11-dongducheon-03-v1.txt",
+  "promptSha256": "55c22f8742b41775f9f768bc22dd610dbec25a9347bc5ce6016659d9e4913c9e",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-26ce7da8-94c4-4a36-b975-efee1ccda0e9",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/dongducheon/gbt11-dongducheon-03-v1.png",
+  "outputSha256": "8734be1613f394f0cdc56be75c446568e05ef5093bb0f621c3dac460394929b7",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "성인 한국 여성 1명, 완전 착의 리셉션 장면, 정상 손과 해부, 로고·문자·금지 배경 없음, 크롭 안전",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-osan-01",
+  "selectedAttemptId": "gbt11-osan-01-v1",
+  "siteKey": "osan",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/osan/gbt11-osan-01-v1.png",
+  "sourceSha256": "2815b66667768fe60298ab91bf7615f55d7b4932cdeba93be74824c8fa31d173",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/receipts/osan/gbt11-osan-01-v1.json",
+  "sourceReceiptSha256": "8a8ab6684f3c404a9267039027f56690a68dbfa847c5ef51caf54944e0d9377a",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/osan/gbt11-osan-01/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a864fb5199e67f07a1385c7af706f166902dc723a82fd894693bba8db21a64d9"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/osan/gbt11-osan-01/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "b0654432694287ad77cc0611a2f504301f1233859738cb2ed627857a2edcfc78"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/osan/gbt11-osan-01/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "5231451c05e43da2665aa2233abb959e310c2fd85f8416de73fe2b29e4977787"
+    }
+  ]
+}

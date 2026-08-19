@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-01-v2",
+  "stableAssetId": "gbt11-pyeongtaek-01",
+  "siteKey": "pyeongtaek",
+  "sourceAttemptId": "gbt11-pyeongtaek-01-v1",
+  "sourceReceiptSha256": "f08f515f35ad8deebcc4078591a2b2442678c7f913f933dbf253362069331992",
+  "sourceRejectedOutputSha256": "fb0e062501d506988f533f79ccefe7e8a06184ea5ff46baae678201db373e10b",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/pyeongtaek/gbt11-pyeongtaek-01-v2.txt",
+  "promptSha256": "6c8160bafd6a003e3c2658c47f2899fb0dd1b7a0ded719597c17c6a4652556e8",
+  "correction": "Replace the rejected treatment-room scene with one adult Korean woman in a standing portrait inside a clean reception entry studio with a plain plaster wall and narrow wood console; absolutely no bed, no massage table, no treatment table, no sofa, no padded bench, no bathroom, no machine, no phone, no mirror, no reflective surface, no text or logo; opaque professional clothing, natural visible hands, single person, and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/pyeongtaek/gbt11-pyeongtaek-01-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/pyeongtaek/gbt11-pyeongtaek-01-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

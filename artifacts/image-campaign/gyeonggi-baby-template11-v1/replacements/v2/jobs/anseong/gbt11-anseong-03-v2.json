@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-anseong-03-v2",
+  "stableAssetId": "gbt11-anseong-03",
+  "siteKey": "anseong",
+  "sourceAttemptId": "gbt11-anseong-03-v1",
+  "sourceReceiptSha256": "aa2b79dec4038e96b3ddb2d49a7ac1126b4adbb24e0d6673f8a37835215087af",
+  "sourceRejectedOutputSha256": "44366c113017b6766731e9c24ed4eb38d2b4513ff884712bff77a700650f14ff",
+  "promptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/prompts/anseong/gbt11-anseong-03-v2.txt",
+  "promptSha256": "214705a57e45b4005370711ef3d6c919356fb2ed32a3a5df1142a7644bedd86d",
+  "correction": "Override the original mirror-selfie direction completely: show the same single adult Korean woman in a calm seated consultation portrait on a simple upright chair in a refined reception nook; absolutely no phone, no mirror, no reflective surface, no camera device, no bed, no sofa, no massage table, no text or logo; fully opaque professional clothing; hands naturally resting and crop-safe.",
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/anseong/gbt11-anseong-03-v2.png",
+  "receiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/anseong/gbt11-anseong-03-v2.json",
+  "builtInImageGenCallCountRequired": 1,
+  "reviewStatus": "PENDING_ROOT_REVIEW"
+}

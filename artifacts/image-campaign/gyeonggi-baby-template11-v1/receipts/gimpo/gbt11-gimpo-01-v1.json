@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-gimpo-01-v1",
+  "siteKey": "gimpo",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/gimpo/gbt11-gimpo-01-v1.txt",
+  "promptSha256": "5836f2cf3a5046d3cb3bffa6018d64b45302ce26bfd86b857c0bb896f3f9c358",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-01-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-2cb12135-001b-45b8-91be-8e96e776023f.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/gimpo/gbt11-gimpo-01-v1.png",
+  "outputSha256": "7be7d9edcece11398d1594be24682bdb33c25bb7dedc2912d8e1a207da7f67e7",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "REJECT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": false,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Phone back shows two lenses enclosed by a visible elongated raised camera island, violating the strict plain-phone constraint; subject and reflection are otherwise coherent.",
+    "reviewedAt": "2026-08-19"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "stableAssetId": "gbt11-siheung-03",
+  "selectedAttemptId": "gbt11-siheung-03-v2",
+  "siteKey": "siheung",
+  "sourceFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/generated/siheung/gbt11-siheung-03-v2.png",
+  "sourceSha256": "4e3d7a0b232c6619106382de8f91e2b2f567ac9679239558398a65c1faee11a8",
+  "sourceReceiptFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/replacements/v2/receipts/siheung/gbt11-siheung-03-v2.json",
+  "sourceReceiptSha256": "38f0a97d6840052c675ecc378a6c3e348399933f08349937a91062075f09e041",
+  "rootReviewFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/root-review/root-review.v1.json",
+  "rootReviewSha256": "39471a9c64e95fd983dde5e203cf37c8b2204274ae7389eb0413d1960849aeb1",
+  "derivatives": [
+    {
+      "key": "desktop",
+      "path": "/images/baby-template11/siheung/gbt11-siheung-03/desktop.webp",
+      "width": 1600,
+      "height": 900,
+      "sha256": "41ea7d0622eeac05e9881c47825f98a1035a5ace5bfaadd501255b4b179ecc46"
+    },
+    {
+      "key": "tablet",
+      "path": "/images/baby-template11/siheung/gbt11-siheung-03/tablet.webp",
+      "width": 1200,
+      "height": 675,
+      "sha256": "5293ef35ce6a6ce776acf52d5086984b484fd1b8b979b8db149bdecdd0651099"
+    },
+    {
+      "key": "mobile",
+      "path": "/images/baby-template11/siheung/gbt11-siheung-03/mobile.webp",
+      "width": 768,
+      "height": 600,
+      "sha256": "17e34e34e1a8e81b0ac5c6162d381ef4a1be92fc3f32faf27ca9721990ea8d7e"
+    }
+  ]
+}

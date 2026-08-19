@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "gyeonggi-baby-template11-v1",
+  "logicalAssetId": "gbt11-pyeongtaek-03-v1",
+  "siteKey": "pyeongtaek",
+  "exactPromptPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/prompts/pyeongtaek/gbt11-pyeongtaek-03-v1.txt",
+  "promptSha256": "d29759d2c053da8d179aef3a8620f34e56a00ad68a235ec0ee0e39e09d1b6baa",
+  "sourceOutputPath": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-03-v1.png",
+  "actualCallReference": "builtin:imagegen:exec-b06bbbf0-fbf8-4465-8ccc-176de8d3de64.png",
+  "builtInImageGenCallCount": 1,
+  "outputFile": "artifacts/image-campaign/gyeonggi-baby-template11-v1/generated/pyeongtaek/gbt11-pyeongtaek-03-v1.png",
+  "outputSha256": "400e8e00fec10c262fc5a859cc0d6afa848144bc6421f04085aebfeeb0070829",
+  "width": 1536,
+  "height": 1024,
+  "format": "png",
+  "review": {
+    "status": "ACCEPT",
+    "criteria": {
+      "adultKoreanWoman": true,
+      "opaqueCompleteClothing": true,
+      "nonsexual": true,
+      "singlePerson": true,
+      "coherentReflectionIfPresent": true,
+      "normalAnatomy": true,
+      "noTextLogoWatermark": true,
+      "plainUnbrandedPhoneIfPresent": true,
+      "noBedBathroomMachine": true,
+      "responsiveCropSafe": true
+    },
+    "notes": "Single clearly adult Korean woman in opaque cardigan, inner top, and trousers arranging plain towels; natural hands; unlabeled pump bottle only; no prohibited marks or setting elements; crop-safe.",
+    "reviewedAt": "2026-08-19"
+  }
+}
