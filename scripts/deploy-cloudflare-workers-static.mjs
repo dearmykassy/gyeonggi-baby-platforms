@@ -40,20 +40,21 @@ function fail(code, detail = "") {
 }
 
 export function parseWorkersDeployArgs(argv) {
+  const cliArgs = argv.filter((argument) => argument !== "--");
   const allowed = new Set([
     "--site",
     "--create-workers",
     "--allow-nonpublic",
     "--dry-run",
   ]);
-  if (argv.length % 2 !== 0) {
+  if (cliArgs.length % 2 !== 0) {
     fail("BABY_WORKERS_ARGUMENT_VALUE_MISSING");
   }
 
   const values = new Map();
-  for (let index = 0; index < argv.length; index += 2) {
-    const key = argv[index];
-    const value = argv[index + 1];
+  for (let index = 0; index < cliArgs.length; index += 2) {
+    const key = cliArgs[index];
+    const value = cliArgs[index + 1];
     if (!allowed.has(key)) fail("BABY_WORKERS_ARGUMENT_UNKNOWN", key);
     if (values.has(key)) fail("BABY_WORKERS_ARGUMENT_DUPLICATE", key);
     if (!value || value.startsWith("--")) {

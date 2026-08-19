@@ -172,6 +172,10 @@ describe("Cloudflare Pages inventory and command contract", () => {
   });
 
   it("rejects unknown, duplicate, and malformed CLI arguments", () => {
+    expect(parseDeployArgs(["--", "--site", "suwon", "--dry-run", "yes"])).toMatchObject({
+      requestedSite: "suwon",
+      dryRun: true,
+    });
     expect(() => parseDeployArgs(["--wat", "yes"])).toThrow(
       "BABY_DEPLOY_ARGUMENT_UNKNOWN",
     );

@@ -285,6 +285,9 @@ describe("Cloudflare Workers static-assets hosting contract", () => {
   });
 
   it("rejects unknown scopes and malformed CLI booleans", () => {
+    expect(
+      parseWorkersDeployArgs(["--", "--site", "uiwang", "--dry-run", "yes"]),
+    ).toMatchObject({ requestedSite: "uiwang", dryRun: true });
     expect(() => parseWorkersDeployArgs(["--site", "suwon"])).not.toThrow();
     expect(() => parseWorkersDeployArgs(["--dry-run", "true"])).toThrow(
       "BABY_WORKERS_ARGUMENT_BOOLEAN",

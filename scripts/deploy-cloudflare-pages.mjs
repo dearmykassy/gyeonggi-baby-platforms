@@ -28,6 +28,7 @@ function fail(code, detail = "") {
 }
 
 export function parseDeployArgs(argv) {
+  const cliArgs = argv.filter((argument) => argument !== "--");
   const allowed = new Set([
     "--site",
     "--create-projects",
@@ -35,12 +36,12 @@ export function parseDeployArgs(argv) {
     "--branch",
     "--dry-run",
   ]);
-  if (argv.length % 2 !== 0) fail("BABY_DEPLOY_ARGUMENT_VALUE_MISSING");
+  if (cliArgs.length % 2 !== 0) fail("BABY_DEPLOY_ARGUMENT_VALUE_MISSING");
 
   const values = new Map();
-  for (let index = 0; index < argv.length; index += 2) {
-    const key = argv[index];
-    const value = argv[index + 1];
+  for (let index = 0; index < cliArgs.length; index += 2) {
+    const key = cliArgs[index];
+    const value = cliArgs[index + 1];
     if (!allowed.has(key)) fail("BABY_DEPLOY_ARGUMENT_UNKNOWN", key);
     if (values.has(key)) fail("BABY_DEPLOY_ARGUMENT_DUPLICATE", key);
     if (!value || value.startsWith("--")) {
