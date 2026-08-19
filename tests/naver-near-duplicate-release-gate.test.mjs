@@ -32,6 +32,8 @@ describe("NAVER near-duplicate release gate", () => {
         sitemapDocuments: 455,
         eligibleRegionalInventorySha256:
           "1c6e72e9614aae92347983a60fbf359e27aa792f8886c7cc2b02974192bf90f4",
+        regionRoadFactProvenanceDocuments: 404,
+        regionPublicFacilityProvenanceDocuments: 404,
       });
       expect(report.collisions).toMatchObject({
         exactDocument: 0,
@@ -67,6 +69,7 @@ describe("NAVER near-duplicate release gate", () => {
       expect(report.leafFailures).toEqual([]);
       expect(report.regionalSharedDetailFailures).toEqual([]);
       expect(report.structuralFailures).toEqual([]);
+      expect(report.contentScopeFailures).toEqual([]);
       expect(report.emptyRegionPlaceholderFailures).toEqual([]);
       expect(report.headingCounts.regionalContentH2HardGate.minimum).toBeGreaterThanOrEqual(10);
       expect(report.headingCounts.regionalContentH2HardGate.maximum).toBeLessThanOrEqual(12);
@@ -76,7 +79,15 @@ describe("NAVER near-duplicate release gate", () => {
       expect(report.indexEligibilityFailures).toEqual([]);
       expect(report.indexableInventoryFailures).toEqual([]);
       expect(report.homeFactProvenanceFailures).toEqual([]);
+      expect(report.roadFactProvenanceFailures).toEqual([]);
+      expect(report.facilityFactProvenanceFailures).toEqual([]);
       expect(report.counts.cityHomeFactProvenanceSha256).toMatch(
+        /^[a-f0-9]{64}$/u,
+      );
+      expect(report.counts.regionRoadFactProvenanceSha256).toMatch(
+        /^[a-f0-9]{64}$/u,
+      );
+      expect(report.counts.regionPublicFacilityProvenanceSha256).toMatch(
         /^[a-f0-9]{64}$/u,
       );
       expect(report.eligibilitySelectionFailures).toEqual([]);

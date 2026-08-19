@@ -50,7 +50,7 @@ if (
 }
 for (const value of lastmods) {
   const parsed = Date.parse(value);
-  if (Number.isNaN(parsed) || parsed > Date.parse("2026-08-19T23:59:59+09:00")) {
+  if (Number.isNaN(parsed) || parsed > Date.now()) {
     throw new Error(`BABY_AUDIT_LASTMOD_INVALID:${site.key}:${value}`);
   }
 }

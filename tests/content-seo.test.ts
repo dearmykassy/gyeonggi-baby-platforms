@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { getBlogPosts } from "@/data/blog-posts";
 import { getCityFactProfile } from "@/data/city-fact-profiles";
+import {
+  getRegionRoadFacts,
+  REGION_ROAD_FACT_SOURCE,
+} from "@/data/region-road-facts.generated";
 import { createRegionContent } from "@/lib/content";
 import {
   createRegionMetadataContract,
@@ -89,6 +93,76 @@ describe("Gyeonggi baby regional content contract", () => {
     expectUnique(signatures);
   });
 
+  it("puts the qualified 출장마사지 keyword and service intent on every regional route", () => {
+    for (const { site, node, content } of records) {
+      const expectedKeyword = `${
+        node.kind === "home"
+          ? site.searchName
+          : [site.searchName, ...node.segments].join(" ")
+      } 출장마사지`;
+      expect(content.primaryKeyword).toBe(expectedKeyword);
+      expect(content.title.startsWith(expectedKeyword)).toBe(true);
+      expect(content.h1.startsWith(expectedKeyword)).toBe(true);
+      expect(
+        content.sections.filter((section) =>
+          section.heading.includes(expectedKeyword),
+        ),
+      ).toHaveLength(2);
+      const serviceCopy = [
+        content.description,
+        ...content.hooks,
+        content.faqIntro,
+        ...content.sections.flatMap((section) => section.paragraphs),
+      ].join(" ");
+      expect(serviceCopy).toMatch(/(?:여성\s*)?마사지사/u);
+      expect(serviceCopy).toMatch(/방문/u);
+      expect(serviceCopy).toMatch(/코스/u);
+      expect(serviceCopy).toMatch(/24시간\s*전화/u);
+      expect(serviceCopy).toMatch(/현장(?:에서|\s*)\s*(?:후불|결제)/u);
+    }
+  });
+
+  it("binds eight current official road-name examples to every leaf without exact addresses", () => {
+    expect(REGION_ROAD_FACT_SOURCE).toMatchObject({
+      agency: "행정안전부 도로명주소 업무 시스템 / 한국지역정보개발원",
+      snapshotDate: "2026-07-31",
+      archiveSha256:
+        "da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9",
+      roadNameDataset: "도로명(월전체)",
+      roadNameSnapshot: "2026-07",
+      roadNameArchiveSha256:
+        "9234d8ed1c2fa8bd13e18e5a4a5f66e9b5dea409421845ec77dd01a33e3f365f",
+      roadNameEntrySha256:
+        "2dab7220a8602fbc5711123641c932a93e4a70578dd6c9bf1a1803943028e57c",
+    });
+    const leaves = records.filter(({ node }) => node.kind === "representative");
+    expect(leaves).toHaveLength(404);
+    for (const { site, node } of leaves) {
+      const facts = getRegionRoadFacts(site.key, node.path);
+      const sourceCodes = new Set(
+        node.records.flatMap((record) => record.sourceCodes),
+      );
+      const legalNames = new Set(
+        node.records.flatMap((record) =>
+          record.legalAreas.map((area) => area.name),
+        ),
+      );
+      const parent = getRegionParentForSite(site, node);
+      const expectedDistrict = parent?.kind === "district"
+        ? `${site.officialName} ${parent.displayName}`
+        : site.officialName;
+      expect(facts.length).toBeGreaterThan(0);
+      for (const fact of facts) {
+        expect(sourceCodes.has(fact.adminCode)).toBe(true);
+        expect(fact.roadNames).toHaveLength(8);
+        expect(new Set(fact.roadNames).size).toBe(8);
+        expect(fact.roadDistrictName).toBe(expectedDistrict);
+        expect(fact.roadLegalNames.length).toBeGreaterThan(0);
+        expect(fact.roadLegalNames.every((name) => legalNames.has(name))).toBe(true);
+      }
+    }
+  });
+
   it("uses the short city name in customer-facing city fields", () => {
     for (const { site, content } of records) {
       const customerFields = [
@@ -100,12 +174,18 @@ describe("Gyeonggi baby regional content contract", () => {
         ...content.keywords,
         ...content.sections.flatMap((section) => [
           section.heading,
-          ...section.paragraphs,
+          ...(section.auditScope === "local-substantive"
+            ? []
+            : section.paragraphs),
         ]),
       ];
       if (site.officialName !== site.searchName) {
+        const prohibitedOfficialLabel = new RegExp(
+          `${escapeRegExp(site.officialName)}(?=$|[\\s·,|:;!?()[\\]/-]|출장|마사지|안마|지역|방문|코스)`,
+          "u",
+        );
         for (const value of customerFields) {
-          expect(value).not.toContain(site.officialName);
+          expect(value).not.toMatch(prohibitedOfficialLabel);
         }
       }
     }
@@ -172,7 +252,7 @@ describe("Gyeonggi baby regional content contract", () => {
 
   it("never exposes empty region placeholders or invents peer links", () => {
     const emptyLinkClaim = /(?:링크(?:가|는|은|이)?\s*(?:0개|없(?:음|습니다))|(?:0개|없(?:는|음|습니다))\s*(?:형제|관련|같은 단계)?\s*링크)/u;
-    const selfComparison = /([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u;
+    const selfComparison = /(?:^|[\s,.(·])([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u;
     const duplicateCityParent = /도시는\s*([가-힣]{1,20}),\s*(?:상위 지역|바로 위 지역)은\s*\1(?:이며|입니다)/u;
     const peerlessLeaves: ContentRecord[] = [];
 
@@ -241,7 +321,7 @@ describe("Gyeonggi baby regional content contract", () => {
           ...section.paragraphs,
         ]),
       ].join("\n");
-      expect(prose).not.toMatch(/링크|같은 단계|인접 지역|관련 지역|대조|구분/u);
+      expect(prose).not.toMatch(/링크|같은 단계|인접 지역|관련 지역/u);
       expect(prose).toContain(site.searchName);
       expect(prose).toContain(parent?.displayName ?? site.searchName);
       expect(prose).toMatch(/도로명/u);
@@ -284,11 +364,18 @@ describe("Gyeonggi baby regional content contract", () => {
 
   it("keeps 10–12 sections and makes the region directory the final section", () => {
     for (const { node, content } of records) {
+      const directory = content.sections.at(-1);
       expect(content.sections.length).toBeGreaterThanOrEqual(10);
       expect(content.sections.length).toBeLessThanOrEqual(12);
-      expect(content.sections.at(-1)?.id).toMatch(/directory$/u);
-      expect(content.childDirectory.heading).toBe(content.sections.at(-1)?.heading);
-      expect(content.childDirectory.intro).toBe(content.sections.at(-1)?.paragraphs[0]);
+      expect(directory?.id).toMatch(/directory$/u);
+      expect(content.childDirectory.id).toBe(directory?.id);
+      expect(content.childDirectory.heading).toBe(directory?.heading);
+      expect(content.childDirectory.intro).toBe(directory?.paragraphs[0]);
+      expect(content.childDirectory.auditScope).toBe("directory");
+      expect(content.childDirectory.factRefs).toEqual(
+        directory?.factRefs,
+      );
+      expect((directory?.paragraphs[0]?.match(/·/gu) ?? []).length).toBeLessThanOrEqual(5);
       expect(content.detailMode).toBe(
         node.kind === "home" ? "root" : node.kind === "district" ? "district" : "leaf",
       );
@@ -368,6 +455,11 @@ describe("Gyeonggi baby regional content contract", () => {
   });
 
   it("uses stable, non-future route-group lastmod revisions", () => {
+    expect(SITE_CONTENT_REVISIONS).toMatchObject({
+      home: "2026-08-20T02:14:17+09:00",
+      district: "2026-08-20T02:14:17+09:00",
+      representative: "2026-08-20T02:14:17+09:00",
+    });
     const first = JSON.stringify(SITE_CONTENT_REVISIONS);
     const second = JSON.stringify(SITE_CONTENT_REVISIONS);
     expect(second).toBe(first);

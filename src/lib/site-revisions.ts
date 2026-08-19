@@ -7,9 +7,9 @@ import { CONTENT_RELEASED_AT } from "@/lib/metadata";
  * only the route group whose visible copy, metadata, schema, or links changed.
  */
 export const SITE_CONTENT_REVISIONS = {
-  home: "2026-08-19T18:49:10+09:00",
-  district: "2026-08-19T06:05:00+09:00",
-  representative: "2026-08-19T06:10:00+09:00",
+  home: "2026-08-20T02:14:17+09:00",
+  district: "2026-08-20T02:14:17+09:00",
+  representative: "2026-08-20T02:14:17+09:00",
   fixed: "2026-08-19T06:15:00+09:00",
   blogIndex: "2026-08-19T06:20:00+09:00",
 } as const;

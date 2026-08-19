@@ -21,7 +21,23 @@ export type NarrativeSection = {
   id: string;
   heading: string;
   paragraphs: readonly string[];
+  auditScope: "shared-service" | "local-substantive" | "directory";
+  factRefs: readonly string[];
 };
+
+type AuthoredDirectoryTrace = Pick<
+  NarrativeSection,
+  "id" | "auditScope" | "factRefs"
+>;
+
+function serializeFactRefs(factRefs: readonly string[]): string {
+  return JSON.stringify(
+    [...factRefs]
+      .map((reference) => reference.normalize("NFC").trim())
+      .filter(Boolean)
+      .sort((left, right) => left.localeCompare(right, "ko")),
+  );
+}
 
 export type BreadcrumbItem = {
   href: string;
@@ -81,13 +97,27 @@ export function Narrative({
   return (
     <div className={`narrative ${className}`.trim()}>
       {sections.map((section, index) => (
-        <section className="narrative__section" id={section.id} key={section.id}>
+        <section
+          className="narrative__section"
+          data-authored-audit-scope={section.auditScope}
+          data-authored-fact-refs={serializeFactRefs(section.factRefs)}
+          data-authored-section-id={section.id}
+          id={section.id}
+          key={section.id}
+        >
           <span aria-hidden="true" className="section-number">
             {String(index + 1).padStart(2, "0")}
           </span>
           <div>
             <h2>{section.heading}</h2>
-            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            {section.paragraphs.map((paragraph, paragraphIndex) => (
+              <p
+                data-authored-paragraph-index={paragraphIndex}
+                key={`${paragraphIndex}:${paragraph}`}
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
         </section>
       ))}
@@ -208,14 +238,28 @@ export function RegionDirectory({
   heading,
   intro,
   items,
+  auditTrace,
 }: {
   heading: string;
   intro: string;
   items: readonly DirectoryItem[];
+  auditTrace?: AuthoredDirectoryTrace;
 }) {
   return (
-    <section className="region-directory" id="region-directory">
-      <div className="section-heading"><p>AREA DIRECTORY</p><h2>{heading}</h2><p>{intro}</p></div>
+    <section
+      className="region-directory"
+      data-authored-audit-scope={auditTrace?.auditScope}
+      data-authored-fact-refs={
+        auditTrace ? serializeFactRefs(auditTrace.factRefs) : undefined
+      }
+      data-authored-section-id={auditTrace?.id}
+      id="region-directory"
+    >
+      <div className="section-heading">
+        <p>AREA DIRECTORY</p>
+        <h2>{heading}</h2>
+        <p data-authored-paragraph-index={auditTrace ? 0 : undefined}>{intro}</p>
+      </div>
       {items.length ? (
         <ul>
           {items.map((item, index) => (

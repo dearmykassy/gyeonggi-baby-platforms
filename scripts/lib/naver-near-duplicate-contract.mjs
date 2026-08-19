@@ -1,5 +1,9 @@
 import { createHash } from "node:crypto";
 import ts from "typescript";
+import {
+  SHARED_SERVICE_SECTION_IDS,
+  sharedServiceContractFailures,
+} from "./shared-service-copy-contract.mjs";
 
 export const NAVER_NEAR_DUPLICATE_THRESHOLDS = Object.freeze({
   primaryContent: Object.freeze({
@@ -19,6 +23,9 @@ export const NAVER_NEAR_DUPLICATE_THRESHOLDS = Object.freeze({
     normalizedMaximum: 0.35,
   }),
   minimumLeafVerifiedRegionFacts: 3,
+  minimumLocalSubstantiveSections: 3,
+  minimumLocalSubstantiveParagraphs: 3,
+  minimumLocalSubstantiveCharacters: 240,
   minimumContextualLinksWhereAvailable: 3,
   minimumContentSections: 10,
   maximumContentSections: 12,
@@ -29,19 +36,15 @@ export const FULL_INDEXABLE_REGIONAL_INVENTORY = Object.freeze({
   sha256: "1c6e72e9614aae92347983a60fbf359e27aa792f8886c7cc2b02974192bf90f4",
 });
 
-export const VERIFIED_LEAF_FACT_SECTION_IDS = Object.freeze(
-  new Set([
-    "parent-hierarchy",
-    "sibling-scope",
-    "adjacent-routes",
-    "source-aliases",
-    "source-units",
-    "legal-area-map",
-    "route-depth",
-    "route-type",
-    "city-scope",
-  ]),
+export const CONTENT_AUDIT_SCOPES = Object.freeze(
+  new Set(["shared-service", "local-substantive", "directory"]),
 );
+
+export const DIRECTORY_SECTION_IDS = Object.freeze(
+  new Set(["child-directory", "related-region-directory"]),
+);
+
+const SHARED_SERVICE_SECTION_ID_SET = new Set(SHARED_SERVICE_SECTION_IDS);
 
 export const ARTIFICIAL_EDITORIAL_FILLER_PATTERNS = Object.freeze([
   /\bEDITORIAL(?:\s+CUE)?\b/iu,
@@ -50,6 +53,18 @@ export const ARTIFICIAL_EDITORIAL_FILLER_PATTERNS = Object.freeze([
   /(?:경계선|위치|순서|확인)\s*표식/u,
   /(?:일정|시간|주소|메모|확인|서로\s*다른|서로다른)\s*칸/u,
   /(?:첫째|둘째|셋째|넷째|다섯째|여섯째|일곱째|여덟째|아홉째|열째|다음)\s*(?:칸|갈래|묶음|줄|표식)/u,
+  /가까운\s*기준/u,
+  /주소가\s*아닌\s*현재\s*방문지/u,
+  /목록(?:의|에서)?\s*(?:첫|마지막|앞|뒤)(?:째|쪽)?/u,
+  /목록\s*(?:표시\s*)?순서/u,
+  /(?:이전|다음)\s*(?:지역|구|동|읍|면|카드|링크)/u,
+  /(?:목록|지역|주소)\s*끝/u,
+  /(?:→|->)/u,
+  /같은\s*단계에\s*놓인/u,
+  /묶음\s*별칭\s*없이/u,
+  /상위\s*목록의\s*다른\s*이름으로\s*남겨/u,
+  /페이지\s*끝의?\s*주소\s*목록/u,
+  /같은\s*가격표와\s*절차를\s*지역\s*본문마다\s*반복하지/u,
 ]);
 
 export const CUSTOMER_FACING_TECHNICAL_FILLER_PATTERNS = Object.freeze([
@@ -59,7 +74,7 @@ export const CUSTOMER_FACING_TECHNICAL_FILLER_PATTERNS = Object.freeze([
   /(?:지역\s*)?(?:그래프|레코드|루트|허브)/u,
   /원천\s*(?:지역)?(?:명|명칭|별칭)/u,
   /원본\s*(?:행정\s*)?(?:자료|깊이)/u,
-  /(?:밀도|분포|최댓값|최솟값|최대값|최소값|배수)/u,
+  /(?:밀도|분포|최댓값|최솟값|최대값|최소값|배수)(?=$|[\s,.:;!?])/u,
   /원천명(?:\s*수)?\s*(?:근접|집중|분포|밀도|비중)/u,
   /법정지역\s*연결\s*수\s*(?:근접|집중|분포|밀도|비중)/u,
   /(?:원본|소스)\s*(?:행정\s*자료의\s*)?경로\s*깊이/u,
@@ -70,6 +85,16 @@ export const CUSTOMER_FACING_TECHNICAL_FILLER_PATTERNS = Object.freeze([
   /지역\s*그래프/u,
   /(?:원천|소스)\s*코드/u,
   /URL\s*지역\s*단계/iu,
+]);
+
+export const REGIONAL_ADMIN_UI_FILLER_PATTERNS = Object.freeze([
+  /(?:지역|하위|개별)\s*카드/u,
+  /카드\s*(?:이름|안|가운데)/u,
+  /실제\s*지역\s*링크/u,
+  /(?:상위|하위|지역)\s*목록/u,
+  /행정\s*단계/u,
+  /법정\s*표기/u,
+  /공식\s*도시\s*안내/u,
 ]);
 
 const BLOCK_TAG_PATTERN =
@@ -160,13 +185,74 @@ export function primaryContentText(recordOrContent) {
 }
 
 /**
+ * Page-specific regional prose only. Shared, truthful operating copy such as
+ * course/price, 24-hour phone booking, hygiene, on-site post-payment, and the
+ * common primary-keyword heading contract is validated separately and must
+ * not be forced through synonym rotation merely to lower similarity scores.
+ */
+export function regionalUniqueNarrativeBlocks(content) {
+  return canonicalRegionalUniqueParagraphEntries(content.sections ?? []).map(
+    (entry) => entry.paragraph,
+  );
+}
+
+export function canonicalRegionalUniqueParagraphEntries(sections) {
+  return (sections ?? [])
+    .filter((section) => section.auditScope === "local-substantive")
+    .flatMap((section) => {
+      const sectionId = cleanText(section.id);
+      return (section.paragraphs ?? []).map((paragraph) => ({
+        sectionId,
+        paragraph: cleanText(paragraph),
+      }));
+    })
+    .filter((entry) => entry.sectionId && entry.paragraph)
+    .sort(
+      (left, right) =>
+        left.sectionId.localeCompare(right.sectionId, "en") ||
+        left.paragraph.localeCompare(right.paragraph, "ko"),
+    );
+}
+
+export function recordRegionalUniqueNarrativeBlocks(record) {
+  if (Array.isArray(record.renderedRegionalUniqueParagraphs)) {
+    return record.renderedRegionalUniqueParagraphs
+      .map((entry) => ({
+        sectionId: cleanText(entry?.sectionId),
+        paragraph: cleanText(entry?.paragraph),
+      }))
+      .filter((entry) => entry.sectionId && entry.paragraph)
+      .sort(
+        (left, right) =>
+          left.sectionId.localeCompare(right.sectionId, "en") ||
+          left.paragraph.localeCompare(right.paragraph, "ko"),
+      )
+      .map((entry) => entry.paragraph);
+  }
+  if (Array.isArray(record.renderedRegionalUniqueBlocks)) {
+    return record.renderedRegionalUniqueBlocks
+      .map(cleanText)
+      .filter(Boolean)
+      .sort((left, right) => left.localeCompare(right, "ko"));
+  }
+  return regionalUniqueNarrativeBlocks(record.content);
+}
+
+export function regionalUniqueContentText(recordOrContent) {
+  const blocks = recordOrContent?.content
+    ? recordRegionalUniqueNarrativeBlocks(recordOrContent)
+    : regionalUniqueNarrativeBlocks(recordOrContent);
+  return cleanText(blocks.join("\u001f"));
+}
+
+/**
  * Authored regional narrative blocks only. Shared site chrome, image captions,
  * fixed-route service details, and the separately hard-gated directory block
  * are intentionally not part of the 25%/35% release gate.
  */
 export function primaryNarrativeBlocks(content) {
   const narrativeSections = (content.sections ?? []).filter(
-    (section) => !cleanText(section.id).includes("directory"),
+    (section) => section.auditScope !== "directory",
   );
   return [
     content.title,
@@ -449,8 +535,16 @@ function duplicateIndexGroups(values, transform = (value) => value) {
 function sameKindSimilarities(records, normalize, pairIsInScope) {
   const prepared = records.map((record) => ({
     ...record,
-    trigrams: wordTrigrams(
-      normalizeRegionalRecordText(record, primaryContentText(record), normalize),
+    trigrams: recordRegionalUniqueNarrativeBlocks(record).reduce(
+      (trigrams, block) => {
+        for (const trigram of wordTrigrams(
+          normalizeRegionalRecordText(record, block, normalize),
+        )) {
+          trigrams.add(trigram);
+        }
+        return trigrams;
+      },
+      new Set(),
     ),
   }));
   const pairs = [];
@@ -571,7 +665,7 @@ export function primaryNarrativeRepeatedCharacterShares(records, normalize) {
   return repeatedTextBlockCharacterShares(
     records,
     normalize,
-    (record) => recordPrimaryNarrativeBlocks(record),
+    (record) => recordRegionalUniqueNarrativeBlocks(record),
     true,
   );
 }
@@ -654,16 +748,14 @@ export function contextualInternalHrefs(html, currentPath) {
 }
 
 export function verifiedLeafFactCount(content) {
-  return new Set(
-    (content.sections ?? [])
-      .filter(
-        (section) =>
-          VERIFIED_LEAF_FACT_SECTION_IDS.has(section.id) &&
-          cleanText(section.heading) &&
-          (section.paragraphs ?? []).some((paragraph) => cleanText(paragraph)),
-      )
-      .map((section) => section.id),
-  ).size;
+  return (content.sections ?? []).filter(
+    (section) =>
+      section.auditScope === "local-substantive" &&
+      cleanText(section.heading) &&
+      (section.paragraphs ?? []).some((paragraph) => cleanText(paragraph)) &&
+      Array.isArray(section.factRefs) &&
+      section.factRefs.some((reference) => cleanText(reference)),
+  ).length;
 }
 
 export function indexEligibilityContractFailures(records) {
@@ -831,14 +923,14 @@ function compactPair(pair, recordByKey, normalize) {
   const leftText = leftRecord
     ? normalizeRegionalRecordText(
         leftRecord,
-        primaryContentText(leftRecord),
+        regionalUniqueContentText(leftRecord),
         normalize,
       )
     : "";
   const rightText = rightRecord
     ? normalizeRegionalRecordText(
         rightRecord,
-        primaryContentText(rightRecord),
+        regionalUniqueContentText(rightRecord),
         normalize,
       )
     : "";
@@ -1034,6 +1126,15 @@ export function evaluateCrossPlatformCopyAuditBoundary(report) {
     if (report[field] !== 0) failures.push(code);
   }
   if (report.officialSuffixLeakCount !== 0) failures.push("OFFICIAL_SUFFIX_LEAK");
+  if (report.sharedServiceContractViolationCount !== 0) {
+    failures.push("SHARED_SERVICE_COPY_CONTRACT");
+  }
+  if (
+    report.allowlist?.sharedServiceAllowlistSource !==
+    "FIXED_SECTION_ID_AND_COPY_CONTRACT"
+  ) {
+    failures.push("DYNAMIC_SHARED_SERVICE_ALLOWLIST");
+  }
   const externalEntries = Object.values(report.comparisons ?? {});
   if (
     externalEntries.length !== 8 ||
@@ -1064,6 +1165,261 @@ export function evaluateCrossPlatformCopyAuditBoundary(report) {
         "DIAGNOSTIC_REPLACED_BY_NEAR_DUPLICATE_REPEATED_SHARE_GATE",
     },
   };
+}
+
+function semanticAuditScope(sectionId) {
+  const id = cleanText(sectionId);
+  if (SHARED_SERVICE_SECTION_ID_SET.has(id)) return "shared-service";
+  if (DIRECTORY_SECTION_IDS.has(id)) return "directory";
+  return "local-substantive";
+}
+
+export function contentAuditScopeFailures(
+  records,
+  thresholds = NAVER_NEAR_DUPLICATE_THRESHOLDS,
+) {
+  return records.flatMap((record) => {
+    const sections = record.content?.sections ?? [];
+    const localSections = sections.filter(
+      (section) => section.auditScope === "local-substantive",
+    );
+    const sharedSections = sections.filter(
+      (section) => section.auditScope === "shared-service",
+    );
+    const directorySections = sections.filter(
+      (section) => section.auditScope === "directory",
+    );
+    const localParagraphs = localSections
+      .flatMap((section) => section.paragraphs ?? [])
+      .map(cleanText)
+      .filter(Boolean);
+    const nonLocalParagraphs = [...sharedSections, ...directorySections]
+      .flatMap((section) => section.paragraphs ?? [])
+      .map(cleanText)
+      .filter(Boolean);
+    const escapedLocalParagraphs = nonLocalParagraphs.filter((paragraph) =>
+      localParagraphs.includes(paragraph),
+    );
+    const localCharacters = localParagraphs
+      .join("")
+      .replace(/\s/gu, "").length;
+    const localFactRefs = [
+      ...new Set(
+        localSections
+          .flatMap((section) => section.factRefs ?? [])
+          .map(cleanText)
+          .filter(Boolean),
+      ),
+    ];
+    const sectionIds = sections.map((section) => cleanText(section.id));
+    const semanticScopeMismatches = sections
+      .map((section) => ({
+        id: cleanText(section.id),
+        expected: semanticAuditScope(section.id),
+        actual: section.auditScope,
+      }))
+      .filter((entry) => entry.expected !== entry.actual);
+    let fixedSharedServiceFailures = [];
+    try {
+      fixedSharedServiceFailures = sharedServiceContractFailures(record.content);
+    } catch (error) {
+      fixedSharedServiceFailures = [
+        error instanceof Error ? error.message : "SHARED_SERVICE_CONTRACT_ERROR",
+      ];
+    }
+    const expectedRenderedEntries = canonicalRegionalUniqueParagraphEntries(
+      sections,
+    );
+    const renderedEntries = Array.isArray(
+      record.renderedRegionalUniqueParagraphs,
+    )
+      ? record.renderedRegionalUniqueParagraphs
+          .map((entry) => ({
+            sectionId: cleanText(entry?.sectionId),
+            paragraph: cleanText(entry?.paragraph),
+          }))
+          .filter((entry) => entry.sectionId && entry.paragraph)
+          .sort(
+            (left, right) =>
+              left.sectionId.localeCompare(right.sectionId, "en") ||
+              left.paragraph.localeCompare(right.paragraph, "ko"),
+          )
+      : null;
+    const renderedBlocks = Array.isArray(record.renderedRegionalUniqueBlocks)
+      ? record.renderedRegionalUniqueBlocks.map(cleanText).filter(Boolean)
+      : null;
+    const expectedRenderedBlocks = expectedRenderedEntries.map(
+      (entry) => entry.paragraph,
+    );
+    const reasons = [];
+
+    if (
+      sections.some(
+        (section) => !CONTENT_AUDIT_SCOPES.has(section.auditScope),
+      )
+    ) {
+      reasons.push("UNKNOWN_CONTENT_AUDIT_SCOPE");
+    }
+    if (new Set(sectionIds).size !== sectionIds.length) {
+      reasons.push("DUPLICATE_CONTENT_SECTION_ID");
+    }
+    if (semanticScopeMismatches.length > 0) {
+      reasons.push("SECTION_SEMANTIC_SCOPE_MISMATCH");
+    }
+    if (fixedSharedServiceFailures.length > 0) {
+      reasons.push("SHARED_SERVICE_COPY_CONTRACT");
+    }
+    if (
+      sharedSections.length !== SHARED_SERVICE_SECTION_IDS.length ||
+      SHARED_SERVICE_SECTION_IDS.some(
+        (id) => !sharedSections.some((section) => cleanText(section.id) === id),
+      )
+    ) {
+      reasons.push("SHARED_SERVICE_SECTION_ID_CONTRACT");
+    }
+    if (
+      directorySections.length !== 1 ||
+      sections.at(-1)?.auditScope !== "directory" ||
+      !DIRECTORY_SECTION_IDS.has(cleanText(sections.at(-1)?.id))
+    ) {
+      reasons.push("DIRECTORY_SCOPE_CONTRACT");
+    }
+    if (
+      sharedSections.some(
+        (section) => (section.factRefs ?? []).some((reference) => cleanText(reference)),
+      )
+    ) {
+      reasons.push("LOCAL_FACT_REF_IN_SHARED_SCOPE");
+    }
+    if (
+      localSections.some(
+        (section) =>
+          !(section.factRefs ?? []).some((reference) => cleanText(reference)) ||
+          !(section.paragraphs ?? []).some((paragraph) => cleanText(paragraph)),
+      )
+    ) {
+      reasons.push("LOCAL_SCOPE_MISSING_FACT_OR_PARAGRAPH");
+    }
+    if (
+      directorySections.some(
+        (section) => (section.factRefs ?? []).some((reference) => cleanText(reference)),
+      )
+    ) {
+      reasons.push("LOCAL_FACT_REF_IN_DIRECTORY_SCOPE");
+    }
+    if (localSections.length < thresholds.minimumLocalSubstantiveSections) {
+      reasons.push("LOCAL_SUBSTANTIVE_SECTION_COUNT");
+    }
+    if (localParagraphs.length < thresholds.minimumLocalSubstantiveParagraphs) {
+      reasons.push("LOCAL_SUBSTANTIVE_PARAGRAPH_COUNT");
+    }
+    if (localCharacters < thresholds.minimumLocalSubstantiveCharacters) {
+      reasons.push("LOCAL_SUBSTANTIVE_CHARACTER_COUNT");
+    }
+    if (
+      record.renderedAuthoredScopePass !== true ||
+      !Array.isArray(record.renderedAuthoredScopeFailures) ||
+      record.renderedAuthoredScopeFailures.length > 0
+    ) {
+      reasons.push("RENDERED_AUTHORED_SCOPE_CONTRACT");
+    }
+    if (renderedEntries === null || renderedBlocks === null) {
+      reasons.push("RENDERED_LOCAL_SCOPE_CORPUS_MISSING");
+    } else if (
+      JSON.stringify(renderedEntries) !==
+        JSON.stringify(expectedRenderedEntries) ||
+      JSON.stringify(renderedBlocks) !==
+        JSON.stringify(expectedRenderedBlocks)
+    ) {
+      reasons.push("RENDERED_LOCAL_SCOPE_CORPUS_MISMATCH");
+    }
+    if (record.regionalUniqueBlocksVerified !== true) {
+      reasons.push("LOCAL_SUBSTANTIVE_BLOCK_NOT_RENDERED");
+    }
+    if (record.localFactEscapedSharedScope === true) {
+      reasons.push("LOCAL_FACT_ESCAPED_SHARED_SCOPE");
+    }
+    if (escapedLocalParagraphs.length > 0) {
+      reasons.push("LOCAL_PARAGRAPH_ESCAPED_NONLOCAL_SCOPE");
+    }
+    if (
+      record.kind === "representative" &&
+      record.siteKey === "hanam" &&
+      record.path === "/areas/%EC%B4%88%EC%9D%B4%EB%8F%99/" &&
+      localFactRefs.length < 6
+    ) {
+      reasons.push("LOW_COVERAGE_LEAF_FACT_FALLBACK");
+    }
+
+    return reasons.length > 0
+      ? [{
+          siteKey: record.siteKey,
+          path: record.path,
+          reasons: [...new Set(reasons)],
+          semanticScopeMismatches,
+          sharedServiceContractFailures: fixedSharedServiceFailures,
+          renderedScopeFailures: record.renderedAuthoredScopeFailures ?? null,
+          localSectionCount: localSections.length,
+          localParagraphCount: localParagraphs.length,
+          localCharacters,
+          localFactRefCount: localFactRefs.length,
+        }]
+      : [];
+  });
+}
+
+export function roadFactProvenanceContractFailures(records) {
+  return records.flatMap((record) => {
+    if (record.kind !== "representative") {
+      return record.roadFactProvenance === null ||
+        record.roadFactProvenance === undefined
+        ? []
+        : [{
+            siteKey: record.siteKey,
+            path: record.path,
+            reasons: ["ROAD_FACT_ON_NON_LEAF"],
+          }];
+    }
+    const provenance = record.roadFactProvenance;
+    const reasons = [];
+    if (!provenance || provenance.factCount < 1) {
+      reasons.push("ROAD_FACT_COVERAGE");
+    }
+    if (
+      provenance?.sourceAgency !==
+        "행정안전부 도로명주소 업무 시스템 / 한국지역정보개발원" ||
+      provenance?.snapshotDate !== "2026-07-31" ||
+      provenance?.archiveSha256 !==
+        "da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9" ||
+      provenance?.roadNameSnapshot !== "2026-07" ||
+      provenance?.roadNameArchiveSha256 !==
+        "9234d8ed1c2fa8bd13e18e5a4a5f66e9b5dea409421845ec77dd01a33e3f365f" ||
+      provenance?.roadNameEntrySha256 !==
+        "2dab7220a8602fbc5711123641c932a93e4a70578dd6c9bf1a1803943028e57c" ||
+      provenance?.dataDigest !==
+        "sha256:acf74bc883028b4570deef4a8d87248ba17ec35150e506e3836937d180402438"
+    ) {
+      reasons.push("ROAD_FACT_SOURCE_PROVENANCE");
+    }
+    if (provenance?.sourceCodeJoinPass !== true) {
+      reasons.push("ROAD_FACT_SOURCE_CODE_JOIN");
+    }
+    if (provenance?.safeSelectionPass !== true) {
+      reasons.push("ROAD_FACT_UNSAFE_SAMPLE");
+    }
+    if (provenance?.roadNameAreaJoinPass !== true) {
+      reasons.push("ROAD_FACT_AREA_JOIN");
+    }
+    if (provenance?.serviceContextSectionsPass !== true) {
+      reasons.push("ROAD_FACT_LOCAL_REF_RENDER_CONTRACT");
+    }
+    if (provenance?.preciseAddressExposurePass !== true) {
+      reasons.push("ROAD_FACT_PRECISE_ADDRESS_EXPOSURE");
+    }
+    return reasons.length > 0
+      ? [{ siteKey: record.siteKey, path: record.path, reasons, provenance }]
+      : [];
+  });
 }
 
 export function evaluateNaverNearDuplicateGate({
@@ -1191,6 +1547,74 @@ export function evaluateNaverNearDuplicateGate({
   );
   const indexEligibilityFailures = indexEligibilityContractFailures(records);
   const homeFactProvenanceFailures = cityHomeProvenanceFailures(records);
+  const roadFactProvenanceFailures =
+    roadFactProvenanceContractFailures(records);
+  const facilityFactProvenanceFailures = records.flatMap((record) => {
+    if (record.kind !== "representative") {
+      return record.facilityFactProvenance === null ||
+        record.facilityFactProvenance === undefined
+        ? []
+        : [{
+            siteKey: record.siteKey,
+            path: record.path,
+            reasons: ["FACILITY_FACT_ON_NON_LEAF"],
+          }];
+    }
+    const provenance = record.facilityFactProvenance;
+    const lowCoverageException =
+      record.siteKey === "hanam" &&
+      record.path === "/areas/%EC%B4%88%EC%9D%B4%EB%8F%99/";
+    const reasons = [];
+    if (
+      !provenance ||
+      provenance.factCount < (lowCoverageException ? 2 : 3) ||
+      provenance.factCount > 6
+    ) {
+      reasons.push("FACILITY_FACT_COVERAGE");
+    }
+    if (
+      provenance?.sourceAgency !==
+        "행정안전부 도로명주소 업무 시스템 / 한국지역정보개발원" ||
+      provenance?.sourceDataset !== "주소DB 전국 전체분" ||
+      provenance?.snapshotDate !== "2026-07-31" ||
+      provenance?.archiveSha256 !==
+        "da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9" ||
+      provenance?.dataDigest !==
+        "sha256:cfee0fa7239df1d1422af491b46e7f44130818117986c98edc9c72bc0888afa2"
+    ) {
+      reasons.push("FACILITY_FACT_SOURCE_PROVENANCE");
+    }
+    if (provenance?.sourceCodeJoinPass !== true) {
+      reasons.push("FACILITY_FACT_SOURCE_CODE_JOIN");
+    }
+    if (provenance?.adminNameJoinPass !== true) {
+      reasons.push("FACILITY_FACT_ADMIN_NAME_JOIN");
+    }
+    if (provenance?.legalNameJoinPass !== true) {
+      reasons.push("FACILITY_FACT_LEGAL_NAME_JOIN");
+    }
+    if (provenance?.sourceRowHashesPass !== true) {
+      reasons.push("FACILITY_FACT_SOURCE_ROW_HASHES");
+    }
+    if (provenance?.renderedExactlyOncePass !== true) {
+      reasons.push("FACILITY_FACT_RENDERED_EXACTLY_ONCE");
+    }
+    if (provenance?.buildingNumberExposurePass !== true) {
+      reasons.push("FACILITY_FACT_PRECISE_ADDRESS_EXPOSURE");
+    }
+    const unsafeNamePattern =
+      /(?:법원사|교회|성당|사찰|병원|의원|약국|요양|어린이집|아파트|빌라|오피스텔|호텔|모텔|마트|슈퍼|상가|공장|주식회사)/u;
+    if (
+      (provenance?.displayedFacilities ?? []).some((fact) =>
+        unsafeNamePattern.test(cleanText(fact.name)),
+      )
+    ) {
+      reasons.push("FACILITY_FACT_UNSAFE_NAME");
+    }
+    return reasons.length > 0
+      ? [{ siteKey: record.siteKey, path: record.path, reasons, provenance }]
+      : [];
+  });
   const eligibilitySelectionFailures =
     eligibilitySelectionContractFailures(records);
   const factProfileFailures = factProfileSelectionFailures(records, normalize);
@@ -1295,6 +1719,7 @@ export function evaluateNaverNearDuplicateGate({
       return {
         siteKey: record.siteKey,
         path: record.path,
+        regional: true,
         visibleBlocks: rendered
           ? extractVisibleBlocks(rendered.html)
           : recordPrimaryNarrativeBlocks(record),
@@ -1303,13 +1728,20 @@ export function evaluateNaverNearDuplicateGate({
     ...stagedRecords.map((record) => ({
       siteKey: record.siteKey,
       path: record.path,
+      regional: false,
       visibleBlocks: extractVisibleBlocks(record.html),
     })),
   ];
   const antiFillerFailures = customerVisibleRecords.flatMap((record) => {
     const visibleBlocks = record.visibleBlocks;
+    const patterns = record.regional
+      ? [
+          ...ARTIFICIAL_EDITORIAL_FILLER_PATTERNS,
+          ...REGIONAL_ADMIN_UI_FILLER_PATTERNS,
+        ]
+      : ARTIFICIAL_EDITORIAL_FILLER_PATTERNS;
     const matches = visibleBlocks.flatMap((block) =>
-      ARTIFICIAL_EDITORIAL_FILLER_PATTERNS.flatMap((pattern) =>
+      patterns.flatMap((pattern) =>
         pattern.test(block)
           ? [{ pattern: pattern.source, text: block.slice(0, 240) }]
           : [],
@@ -1332,6 +1764,8 @@ export function evaluateNaverNearDuplicateGate({
       ? [{ siteKey: record.siteKey, path: record.path, matches: matches.slice(0, 8) }]
       : [];
   });
+
+  const contentScopeFailures = contentAuditScopeFailures(records, thresholds);
 
   const leafFailures = records
     .filter(
@@ -1414,6 +1848,30 @@ export function evaluateNaverNearDuplicateGate({
     }
     if (record.h1Count !== 1) reasons.push("H1_COUNT");
     if (record.metaContractPass !== true) reasons.push("META_CONTRACT");
+    if (record.keywordContract?.titlePrefixPass !== true) {
+      reasons.push("PRIMARY_KEYWORD_TITLE_PREFIX");
+    }
+    if (record.keywordContract?.h1Pass !== true) {
+      reasons.push("PRIMARY_KEYWORD_H1");
+    }
+    if (record.keywordContract?.first100WordsPass !== true) {
+      reasons.push("PRIMARY_KEYWORD_FIRST_100_WORDS");
+    }
+    if (record.keywordContract?.h2Pass !== true) {
+      reasons.push("PRIMARY_KEYWORD_TWO_H2");
+    }
+    if (record.serviceIntentContract?.renderedPass !== true) {
+      reasons.push("RENDERED_SERVICE_INTENT");
+    }
+    if (record.serviceIntentContract?.descriptionPass !== true) {
+      reasons.push("META_DESCRIPTION_SERVICE_INTENT");
+    }
+    if (record.serviceIntentContract?.hooksPass !== true) {
+      reasons.push("HOOKS_SERVICE_INTENT");
+    }
+    if (record.serviceIntentContract?.faqIntroPass !== true) {
+      reasons.push("FAQ_INTRO_SERVICE_INTENT");
+    }
     if (record.primaryBlocksVerified !== true) {
       reasons.push("PRIMARY_BLOCK_NOT_RENDERED");
     }
@@ -1449,7 +1907,7 @@ export function evaluateNaverNearDuplicateGate({
       reasons.push("EMPTY_REGION_PLACEHOLDER_TEXT");
     }
     if (
-      /([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u.test(
+      /(?:^|[\s,.(·])([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u.test(
         prose,
       )
     ) {
@@ -1617,6 +2075,9 @@ export function evaluateNaverNearDuplicateGate({
     failures.push("REGIONAL_SHARED_DETAIL_CONTRACT");
   }
   if (structuralFailures.length > 0) failures.push("SEO_STRUCTURE_CONTRACT");
+  if (contentScopeFailures.length > 0) {
+    failures.push("CONTENT_AUDIT_SCOPE_CONTRACT");
+  }
   if (emptyRegionPlaceholderFailures.length > 0) {
     failures.push("EMPTY_REGION_LINK_CLAIM_CONTRACT");
   }
@@ -1633,6 +2094,12 @@ export function evaluateNaverNearDuplicateGate({
   }
   if (homeFactProvenanceFailures.length > 0) {
     failures.push("CITY_HOME_FACT_PROVENANCE_CONTRACT");
+  }
+  if (roadFactProvenanceFailures.length > 0) {
+    failures.push("REGION_ROAD_FACT_PROVENANCE_CONTRACT");
+  }
+  if (facilityFactProvenanceFailures.length > 0) {
+    failures.push("REGION_PUBLIC_FACILITY_PROVENANCE_CONTRACT");
   }
   if (eligibilitySelectionFailures.length > 0) {
     failures.push("INDEX_ELIGIBILITY_SELECTION_CONTRACT");
@@ -1668,11 +2135,19 @@ export function evaluateNaverNearDuplicateGate({
     thresholdPolicy: {
       classification: "INTERNAL_RELEASE_HEURISTIC",
       note:
-        "The same strict p95 and pair limits apply to cross-site, within-site, and per-kind comparisons across the full 455-route factual corpus. They are not NAVER documentation, a crawler classification boundary, or a ranking guarantee.",
+        "The same strict p95 and pair limits apply to cross-site, within-site, and per-kind comparisons of authored local-substantive paragraphs across all 455 regional routes. Shared-service operating facts and the separately truth-gated directory are outside this similarity corpus. These limits are not NAVER documentation, a crawler classification boundary, or a ranking guarantee.",
       nonNegotiableHardGates:
         "Exact rendered/document/meta/H1 collisions, artificial or technical filler, full shared service blocks, missing directory links, and discovery metadata remain zero-tolerance.",
       copyRule:
         "Do not add invented facts, filler, or lexical rotation merely to lower a similarity score.",
+      scopes: {
+        sharedService:
+          "Reusable truthful service copy: primary keyword headings, course/price, 24-hour phone booking, female therapist visit, hygiene, onsite post-payment, and service flow.",
+        localSubstantive:
+          "Verified city, administrative, public-facility, road-name, legal-area, and alias prose. This scope alone is measured by the p95/max and repeated-share hard gates.",
+        directory:
+          "Excluded from similarity and checked separately against actual rendered internal links.",
+      },
     },
     counts: {
       regionalDocuments: records.length,
@@ -1704,6 +2179,31 @@ export function evaluateNaverNearDuplicateGate({
             (record.cityFactProvenance?.sourceUrls ?? []).map(
               (url) => `${record.siteKey}:${url}`,
             ),
+          )
+          .sort()
+          .join("\n"),
+      ),
+      regionRoadFactProvenanceDocuments: records.filter(
+        (record) => record.roadFactProvenance?.factCount > 0,
+      ).length,
+      regionRoadFactProvenanceSha256: digestText(
+        records
+          .filter((record) => record.roadFactProvenance?.factCount > 0)
+          .map(
+            (record) =>
+              `${record.siteKey}:${record.path}:${record.roadFactProvenance.snapshotDate}:${record.roadFactProvenance.archiveSha256}:${record.roadFactProvenance.roadNameSnapshot}:${record.roadFactProvenance.roadNameArchiveSha256}:${record.roadFactProvenance.dataDigest}:${record.roadFactProvenance.displayedRoadNames.join("|")}`,
+          )
+          .sort()
+          .join("\n"),
+      ),
+      regionPublicFacilityProvenanceDocuments: records.filter(
+        (record) => record.facilityFactProvenance?.factCount > 0,
+      ).length,
+      regionPublicFacilityProvenanceSha256: digestText(
+        records
+          .filter((record) => record.facilityFactProvenance?.factCount > 0)
+          .map((record) =>
+            `${record.siteKey}:${record.path}:${record.facilityFactProvenance.snapshotDate}:${record.facilityFactProvenance.archiveSha256}:${record.facilityFactProvenance.dataDigest}:${record.facilityFactProvenance.displayedFacilities.map((fact) => `${fact.name}|${fact.roadName}|${fact.legalName}`).join(";")}`,
           )
           .sort()
           .join("\n"),
@@ -1759,6 +2259,7 @@ export function evaluateNaverNearDuplicateGate({
     leafFailures: leafFailures.slice(0, 30),
     regionalSharedDetailFailures: regionalSharedDetailFailures.slice(0, 30),
     structuralFailures: structuralFailures.slice(0, 30),
+    contentScopeFailures: contentScopeFailures.slice(0, 30),
     emptyRegionPlaceholderFailures:
       emptyRegionPlaceholderFailures.slice(0, 30),
     fixedPages,
@@ -1771,6 +2272,9 @@ export function evaluateNaverNearDuplicateGate({
     indexEligibilityFailures: indexEligibilityFailures.slice(0, 30),
     indexableInventoryFailures,
     homeFactProvenanceFailures: homeFactProvenanceFailures.slice(0, 30),
+    roadFactProvenanceFailures: roadFactProvenanceFailures.slice(0, 30),
+    facilityFactProvenanceFailures:
+      facilityFactProvenanceFailures.slice(0, 30),
     eligibilitySelectionFailures: eligibilitySelectionFailures.slice(0, 30),
     routeDiscoveryFailures: routeDiscoveryFailures.slice(0, 30),
     sitemapCorpusFailures: sitemapCorpusFailures.slice(0, 30),

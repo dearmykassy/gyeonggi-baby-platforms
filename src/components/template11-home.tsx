@@ -65,8 +65,11 @@ export type TemplateHomeContent = {
   faqIntro: string;
   sections: readonly NarrativeSection[];
   childDirectory: {
+    id: string;
     heading: string;
     intro: string;
+    auditScope: "directory";
+    factRefs: readonly string[];
   };
   officialSources: readonly {
     label: string;
@@ -91,7 +94,9 @@ export function Template11Home({
 }) {
   const variant = normalizeLayoutVariant(layoutVariant);
   const images = getRegionImageSet("/");
-  const narrative = content.sections.filter((section) => !section.id.includes("directory"));
+  const narrative = content.sections.filter(
+    (section) => section.auditScope !== "directory",
+  );
   const introSections = narrative.slice(0, Math.max(2, Math.ceil(narrative.length / 2)));
   const additionalSections = narrative.slice(introSections.length);
   const sectionNodes: Record<HomeSectionKey, ReactNode> = {
@@ -159,6 +164,7 @@ export function Template11Home({
     ),
     directory: (
       <RegionDirectory
+        auditTrace={content.childDirectory}
         heading={content.childDirectory.heading}
         intro={content.childDirectory.intro}
         items={directoryItems}

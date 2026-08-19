@@ -442,3 +442,87 @@
   `6639883409e9b10f2d0692a81afc9a50f4b3b446a5ca1a024b85300a585ef4b7`
 - `AGENTS.md`:
   `c7cc7eb74dbc6978e956443df6636ca110c29d2eaa5db96e7791c89466d911a2`
+
+## 2026-08-19 — 455개 지역문서 서비스 의도 교정 및 등록 보류
+
+- 마사지봄·마사지러브·건마에반하다 대표 지역문서와 콜미토닥이·랑테라피·
+  필링홈타이 운영 정본을 비교했다. 채택한 흐름은 지역 출장마사지 의도, 고객
+  지정 장소 방문, 코스·가격 정본 링크, 24시간 전화 준비, 현장 후불·카드,
+  이용 흐름, 실제 관련 지역 링크다. 다중 H1, 주소 중심 첫 화면, 전체 가격표·
+  FAQ 복제와 단순 문장 치환은 제외했다. 정본 문장 복사는 하지 않았다.
+- 455개 regional 문서의 title 앞부분·H1·첫 100단어·H2 두 개에
+  `<표시 지역명> 출장마사지`를 actual-render 기준으로 검사하고, description·
+  hooks·FAQ와 화면 본문에 여성 마사지사 방문, 코스, 24시간 전화, 관리 후 현장
+  결제 설명이 있는지 fail-closed로 검사한다.
+- 행정안전부/한국지역정보개발원 주소DB `2026-07-31` 검증 표본과 공식
+  `2026-07` 도로명 월전체 자료를 결합했다. 주소 표본 archive SHA-256은
+  `da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9`,
+  도로명 archive SHA-256은
+  `9234d8ed1c2fa8bd13e18e5a4a5f66e9b5dea409421845ec77dd01a33e3f365f`다.
+  404개 말단 모두 sourceCode·법정지역·시군구 join을 검증하고, 각 페이지의
+  전화 예약 주소 준비 문단 한 곳에서 도로명 표기 세 개를 건물번호 작성 예시로만
+  사용한다. 서비스 거점·인기·인접 주장과 정확한 건물번호·사적 주거 주소는 없다.
+- 455개 actual-render 구조, keyword/service intent, 404개 도로 provenance,
+  빈 링크·목록순서 filler·고객 비노출 기술문구는 실패 0이다. 반복 block share는
+  exact `0.216296`, normalized `0.349520`으로 내부 한도를 통과했다. 교차 사이트
+  전체 유사도는 p95 `0.418155`, max `0.524116`으로 통과했다.
+- 동일 사이트 말단 중 검증 사실이 같은 쌍은 공식 도로명 세 개를 더해도 p95
+  `0.559406`, max `0.832061`로 strict `0.45/0.55`를 통과하지 못했다. 구 페이지
+  교차 p95도 `0.493750`이다. 임의 어휘 회전·path/hash·목록 순서 문구로 수치를
+  낮추지 않았다. full Juso의 추가 독립 사실을 더 검증하거나 사실 등가 말단을
+  noindex/통합하기 전에는 출시 게이트가 계속 FAIL이며 배포하면 안 된다.
+- Naver 외부 작업 상태는 `DEFERRED — different owner account pending`이다.
+  오너가 기존 등록을 삭제했으므로 소유확인·sitemap·RSS·수집 요청·수집 주기
+  변경은 0건이며 다른 오너 계정 제공 전까지 금지한다.
+- Google Search Console은 별도 상태다. 읽기 전용 확인에서 27개 속성과 sitemap
+  제출이 존재했고 Workers 7개는 성공, Pages 20개는 `가져올 수 없음`으로 보였다.
+  같은 Pages sitemap의 Googlebot 직접 요청은 HTTP 200 `application/xml`이었다.
+  이번 콘텐츠 작업에서 Google 외부 상태 변경도 0건이다.
+
+## 2026-08-20 — 공통 운영문과 지역 고유 본문의 감사 범위 분리
+
+- 오너가 `<지역> 출장마사지`, 코스·가격, 예약, 여성 마사지사 방문, 위생,
+  현장후불, 이용 흐름 같은 H1·H2와 운영 안내는 플랫폼 수가 늘어도 어느 정도
+  같은 문형을 유지해야 한다고 명시했다. 공통 운영 사실까지 억지로 다르게 쓰는
+  방식은 문장 품질을 해치므로 영구 금지했다.
+- 지역 섹션은 `shared-service | local-substantive | directory` scope로 구분한다.
+  공통 운영 블록은 실제 서비스 계약을 별도로 검사하고, 엄격한 p95 `0.45`·pair
+  max `0.55`·반복 exact `0.25`·normalized `0.35` 검사는 검증된 지역 고유
+  문단에만 적용한다. 전체 문서·title·description·H1 exact 충돌 0과 455개
+  canonical·index·sitemap 계약은 그대로 유지한다.
+- 경기 베이비 플랫폼 Naver 외부 작업은 계속
+  `DEFERRED — different owner account pending`이며, 새 오너 계정이 제공되기
+  전까지 소유확인·sitemap·RSS·수집 요청은 수행하지 않는다.
+
+최종 구현 및 검증:
+
+- 위 범위 분리는 직전의 공통 운영문 포함 전체 문서 유사도 실패 판정을 대체한다.
+  455개 문서는 공통 `출장마사지 서비스 안내`, `코스별 가격`, 24시간 전화,
+  여성 마사지사 방문·위생, 현장후불, 이용 흐름을 일관된 짧은 문형으로 제공하고,
+  지역별 3개 `local-substantive` 섹션과 실제 지역 링크 `directory`를 별도로 둔다.
+- 행정안전부/한국지역정보개발원 주소DB 전국 전체분 2026-07-31 정본에서
+  404개 말단에 공공시설-행정동-도로명-법정지역 관계 2,325건을 결속했다.
+  route별 3~6건이며 하남 초이동만 검증된 시설 2건과 별도 도로·법정지역 사실로
+  보완한다. 원본 archive SHA-256은
+  `da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9`,
+  공개 데이터 digest는
+  `sha256:cfee0fa7239df1d1422af491b46e7f44130818117986c98edc9c72bc0888afa2`다.
+  주거·민간업체·종교·의료·숙박·소매·개인정보 명칭은 생성 단계와 테스트에서
+  차단하며 시설은 서비스 장소가 아니라 주소 확인용 공개 기준점으로만 설명한다.
+- 최종 actual-render 전수 감사 결과 regional/indexable/sitemap은 모두 455개다.
+  authored DOM trace는 455/455, 지역 고유 문단은 3,098개이며 source와 DOM의
+  scope·문단 순서·fact reference가 정확히 일치한다. 지역 고유 문단
+  word-trigram은 교차 사이트 p95 `0.295181`, max `0.467456`, 동일 사이트 p95
+  `0.318182`, max `0.447059`이다. 구 페이지도 교차 p95/max
+  `0.350993/0.373494`, 동일 사이트 `0.360000/0.362500`으로 strict 기준을
+  통과했다. 지역 고유 문단 반복 비중은 exact/normalized max 모두 `0`이다.
+  404개 말단의 시설명-정확 도로명 동일 문단 결속과 명시 도로 reference
+  1,870/1,870이 통과했고 scope escape·정확 주소 노출·canonical·robots·sitemap·
+  외부 8개 정본 중복 실패는 모두 0이다.
+- 홈·구·말단 regional route group의 sitemap `lastmod`를 최종 안정 편집시각
+  `2026-08-20T02:14:17+09:00`로 함께 갱신하고 테스트에 exact pin했다. build
+  시각이나 요청 시각으로 매번 바뀌지 않는다.
+- `pnpm test` 25 files / 155 tests, `pnpm typecheck`, warning 0 full lint,
+  `audit:copy`, full near-duplicate audit, portable image 5 PASS/2 SKIP,
+  raw image 7 PASS, generator `--check`, `git diff --check`를 모두 통과했다.
+- 이 단계에서는 build·commit·push·deploy 및 Naver 외부 작업을 수행하지 않았다.

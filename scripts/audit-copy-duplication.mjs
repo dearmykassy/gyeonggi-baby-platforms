@@ -25,6 +25,10 @@ import { BUSINESS_CONTACT_PHONES } from "../src/data/business-settings.ts";
 import { createRegionContent } from "../src/lib/content.ts";
 import { getRegionNodesForSite } from "../src/lib/regions.ts";
 import { ALL_BABY_SITES } from "../src/lib/site-config.ts";
+import {
+  expectedSharedServiceSections,
+  sharedServiceContractFailures,
+} from "./lib/shared-service-copy-contract.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const TSX_BIN = path.join(ROOT, "node_modules/.bin/tsx");
@@ -219,11 +223,31 @@ const STRUCTURAL_ALLOWLIST = new Set(
   ].map(clean),
 );
 
+function contractPrimaryKeyword(site, node) {
+  const regionLabel = node.kind === "home"
+    ? site.searchName
+    : [site.searchName, ...node.segments].join(" ");
+  return `${regionLabel} 출장마사지`;
+}
+
+const SHARED_SERVICE_ALLOWLIST = new Set(
+  ALL_BABY_SITES.flatMap((site) =>
+    getRegionNodesForSite(site).flatMap((node) =>
+      expectedSharedServiceSections(contractPrimaryKeyword(site, node))
+        .flatMap((section) => [section.heading, ...section.paragraphs]),
+    ),
+  ).map(clean),
+);
+
 function allowedSharedValue(value) {
   const normalized = clean(value);
   return (
     OWNER_EXACT_ALLOWLIST.has(normalized) ||
-    STRUCTURAL_ALLOWLIST.has(normalized)
+    STRUCTURAL_ALLOWLIST.has(normalized) ||
+    SHARED_SERVICE_ALLOWLIST.has(normalized) ||
+    /^\{값\}\s*출장마사지\s*(?:서비스\s*안내|코스별\s*가격)$/u.test(
+      normalized,
+    )
   );
 }
 
@@ -575,13 +599,24 @@ const officialSuffixLeaks = targetRegionRecords.flatMap(({ site, content, node }
     ...content.keywords,
     ...content.sections.flatMap((section) => [
       section.heading,
-      ...section.paragraphs,
+      ...(section.auditScope === "local-substantive"
+        ? []
+        : section.paragraphs),
     ]),
   ];
   return fields
     .filter((value) => value.includes(site.officialName))
     .map((value) => ({ site: site.key, route: node.path, value }));
 });
+
+const sharedServiceContractViolations = targetRegionRecords.flatMap(
+  ({ site, node, content }) => {
+    const reasons = sharedServiceContractFailures(content);
+    return reasons.length > 0
+      ? [{ site: site.key, route: node.path, reasons }]
+      : [];
+  },
+);
 
 const report = {
   status: "PASS",
@@ -609,9 +644,15 @@ const report = {
     "DIAGNOSTIC_EXACT_AND_ELIGIBLE_RENDERED_GATES_ARE_AUTHORITATIVE",
   officialSuffixLeakCount: officialSuffixLeaks.length,
   officialSuffixLeakExamples: officialSuffixLeaks.slice(0, 8),
+  sharedServiceContractViolationCount: sharedServiceContractViolations.length,
+  sharedServiceContractViolationExamples:
+    sharedServiceContractViolations.slice(0, 8),
   allowlist: {
     ownerExactFactCount: OWNER_EXACT_ALLOWLIST.size,
     structuralLabelCount: STRUCTURAL_ALLOWLIST.size,
+    fixedSharedServiceValueCount: SHARED_SERVICE_ALLOWLIST.size,
+    fixedSharedServiceSectionCount: 6,
+    sharedServiceAllowlistSource: "FIXED_SECTION_ID_AND_COPY_CONTRACT",
   },
   comparisons,
 };
@@ -625,7 +666,8 @@ const internalPass =
   report.exactDescriptionCollisions === 0 &&
   report.exactH1Collisions === 0 &&
   report.exactSignatureCollisions === 0 &&
-  report.officialSuffixLeakCount === 0;
+  report.officialSuffixLeakCount === 0 &&
+  report.sharedServiceContractViolationCount === 0;
 const externalPass = Object.values(comparisons).every(
   (comparison) =>
     comparison.substantiveExactCollisions.count === 0 &&

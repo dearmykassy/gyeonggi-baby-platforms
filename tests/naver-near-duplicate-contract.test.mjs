@@ -4,7 +4,9 @@ import {
   ARTIFICIAL_EDITORIAL_FILLER_PATTERNS,
   CUSTOMER_FACING_TECHNICAL_FILLER_PATTERNS,
   NAVER_NEAR_DUPLICATE_THRESHOLDS,
+  canonicalRegionalUniqueParagraphEntries,
   cityHomeProvenanceFailures,
+  contentAuditScopeFailures,
   createRegionalNormalizer,
   evaluateCrossPlatformCopyAuditBoundary,
   evaluateFactDerivedSelectionSource,
@@ -20,10 +22,16 @@ import {
   primaryNarrativeBlocks,
   primaryNarrativeRepeatedCharacterShares,
   primaryContentText,
+  regionalUniqueContentText,
+  regionalUniqueNarrativeBlocks,
   renderedHeadingQualityFailures,
+  roadFactProvenanceContractFailures,
   withinSiteSameKindSimilarities,
   wordTrigrams,
 } from "../scripts/lib/naver-near-duplicate-contract.mjs";
+import {
+  expectedSharedServiceSections,
+} from "../scripts/lib/shared-service-copy-contract.mjs";
 
 describe("NAVER near-duplicate contract primitives", () => {
   it("keeps the permanent strict cross-site and within-site limits", () => {
@@ -106,7 +114,15 @@ describe("NAVER near-duplicate contract primitives", () => {
       eyebrow: unique,
       hooks: [shared, unique],
       faqIntro: unique,
-      sections: [{ heading: unique, paragraphs: [unique, unique] }],
+      sections: [
+        {
+          id: "local-facts",
+          heading: unique,
+          paragraphs: [shared, unique],
+          auditScope: "local-substantive",
+          factRefs: [`fact:${unique}`],
+        },
+      ],
     });
     const shares = primaryNarrativeRepeatedCharacterShares(
       [
@@ -148,11 +164,15 @@ describe("NAVER near-duplicate contract primitives", () => {
           id: "regional-facts",
           heading: "지역 사실",
           paragraphs: ["지역 본문"],
+          auditScope: "local-substantive",
+          factRefs: ["fixture:regional-facts"],
         },
         {
           id: "regional-directory",
           heading: "주변 지역",
           paragraphs: ["반복될 수 있는 링크 안내"],
+          auditScope: "directory",
+          factRefs: [],
         },
       ],
     });
@@ -160,6 +180,178 @@ describe("NAVER near-duplicate contract primitives", () => {
     expect(blocks).toContain("지역 본문");
     expect(blocks).not.toContain("주변 지역");
     expect(blocks).not.toContain("반복될 수 있는 링크 안내");
+  });
+
+  it("canonicalizes local sections and paragraphs before trigram measurement", () => {
+    const localSection = (id, paragraphs) => ({
+      id,
+      heading: id,
+      paragraphs,
+      auditScope: "local-substantive",
+      factRefs: [`fixture:${id}`],
+    });
+    const first = {
+      sections: [
+        localSection("z-local", ["여섯 일곱 여덟", "하나 둘 셋"]),
+        localSection("a-local", ["열 하나 열둘", "넷 다섯 여섯"]),
+      ],
+    };
+    const reordered = {
+      sections: [
+        localSection("a-local", ["넷 다섯 여섯", "열 하나 열둘"]),
+        localSection("z-local", ["하나 둘 셋", "여섯 일곱 여덟"]),
+      ],
+    };
+    expect(regionalUniqueNarrativeBlocks(first)).toEqual(
+      regionalUniqueNarrativeBlocks(reordered),
+    );
+    expect(canonicalRegionalUniqueParagraphEntries(first.sections)).toEqual(
+      canonicalRegionalUniqueParagraphEntries(reordered.sections),
+    );
+    expect(wordTrigrams(regionalUniqueContentText(first))).toEqual(
+      wordTrigrams(regionalUniqueContentText(reordered)),
+    );
+    expect(
+      withinSiteSameKindSimilarities(
+        [
+          {
+            siteKey: "fixture",
+            path: "/first/",
+            kind: "representative",
+            content: first,
+          },
+          {
+            siteKey: "fixture",
+            path: "/reordered/",
+            kind: "representative",
+            content: reordered,
+          },
+        ],
+        (value) => value,
+      )[0].similarity,
+    ).toBe(1);
+  });
+
+  it("fails closed when local facts are relabeled or escape into fixed shared copy", () => {
+    const primaryKeyword = "테스트 출장마사지";
+    const shared = expectedSharedServiceSections(primaryKeyword).map(
+      (section) => ({
+        ...section,
+        auditScope: "shared-service",
+        factRefs: [],
+      }),
+    );
+    const local = ["a-local", "b-local", "c-local"].map((id, index) => ({
+      id,
+      heading: `${id} 지역 사실`,
+      paragraphs: [
+        `${id} 검증된 지역 사실과 도로명 관계를 설명하는 문단입니다. `.repeat(5),
+      ],
+      auditScope: "local-substantive",
+      factRefs: [`fact:${index}`],
+    }));
+    const sections = [
+      ...shared,
+      ...local,
+      {
+        id: "child-directory",
+        heading: "하위 지역",
+        paragraphs: ["하위 지역 링크를 고릅니다."],
+        auditScope: "directory",
+        factRefs: [],
+      },
+    ];
+    const renderedEntries = canonicalRegionalUniqueParagraphEntries(sections);
+    const validRecord = {
+      siteKey: "fixture",
+      path: "/",
+      kind: "home",
+      content: { primaryKeyword, sections },
+      renderedRegionalUniqueParagraphs: renderedEntries,
+      renderedRegionalUniqueBlocks: renderedEntries.map(
+        (entry) => entry.paragraph,
+      ),
+      renderedAuthoredScopePass: true,
+      renderedAuthoredScopeFailures: [],
+      regionalUniqueBlocksVerified: true,
+      localFactEscapedSharedScope: false,
+    };
+    expect(contentAuditScopeFailures([validRecord])).toEqual([]);
+
+    for (const escapedScope of ["shared-service", "directory"]) {
+      const escaped = structuredClone(validRecord);
+      escaped.content.sections.find((section) => section.id === "a-local")
+        .auditScope = escapedScope;
+      const failure = contentAuditScopeFailures([escaped])[0];
+      expect(failure.reasons).toContain("SECTION_SEMANTIC_SCOPE_MISMATCH");
+      expect(failure.reasons).toContain("RENDERED_LOCAL_SCOPE_CORPUS_MISMATCH");
+    }
+
+    const copiedIntoShared = structuredClone(validRecord);
+    copiedIntoShared.content.sections.find(
+      (section) => section.id === "service-overview",
+    ).paragraphs = [local[0].paragraphs[0]];
+    expect(
+      contentAuditScopeFailures([copiedIntoShared])[0].reasons,
+    ).toContain("SHARED_SERVICE_COPY_CONTRACT");
+
+    const copiedIntoDirectory = structuredClone(validRecord);
+    copiedIntoDirectory.content.sections.find(
+      (section) => section.id === "child-directory",
+    ).paragraphs = [local[0].paragraphs[0]];
+    expect(
+      contentAuditScopeFailures([copiedIntoDirectory])[0].reasons,
+    ).toContain("LOCAL_PARAGRAPH_ESCAPED_NONLOCAL_SCOPE");
+
+    const missingDomScope = structuredClone(validRecord);
+    delete missingDomScope.renderedRegionalUniqueParagraphs;
+    missingDomScope.renderedAuthoredScopePass = false;
+    missingDomScope.renderedAuthoredScopeFailures = ["MISSING_RENDERED_SECTION"];
+    expect(contentAuditScopeFailures([missingDomScope])[0].reasons).toEqual(
+      expect.arrayContaining([
+        "RENDERED_AUTHORED_SCOPE_CONTRACT",
+        "RENDERED_LOCAL_SCOPE_CORPUS_MISSING",
+      ]),
+    );
+  });
+
+  it("hard-gates the pinned road digest and rendered local road-ref contract", () => {
+    const valid = {
+      siteKey: "hanam",
+      path: "/areas/%EC%B4%88%EC%9D%B4%EB%8F%99/",
+      kind: "representative",
+      roadFactProvenance: {
+        sourceAgency: "행정안전부 도로명주소 업무 시스템 / 한국지역정보개발원",
+        snapshotDate: "2026-07-31",
+        archiveSha256:
+          "da5c4007d696bf98f066b3832b53dc1f95d85b32fe1c479b7be79c42b3c6c1d9",
+        roadNameSnapshot: "2026-07",
+        roadNameArchiveSha256:
+          "9234d8ed1c2fa8bd13e18e5a4a5f66e9b5dea409421845ec77dd01a33e3f365f",
+        roadNameEntrySha256:
+          "2dab7220a8602fbc5711123641c932a93e4a70578dd6c9bf1a1803943028e57c",
+        dataDigest:
+          "sha256:acf74bc883028b4570deef4a8d87248ba17ec35150e506e3836937d180402438",
+        factCount: 1,
+        sourceCodeJoinPass: true,
+        safeSelectionPass: true,
+        roadNameAreaJoinPass: true,
+        serviceContextSectionsPass: true,
+        preciseAddressExposurePass: true,
+      },
+    };
+    expect(roadFactProvenanceContractFailures([valid])).toEqual([]);
+    const escaped = structuredClone(valid);
+    escaped.roadFactProvenance.dataDigest = "sha256:untrusted";
+    escaped.roadFactProvenance.serviceContextSectionsPass = false;
+    escaped.roadFactProvenance.preciseAddressExposurePass = false;
+    expect(roadFactProvenanceContractFailures([escaped])[0].reasons).toEqual(
+      expect.arrayContaining([
+        "ROAD_FACT_SOURCE_PROVENANCE",
+        "ROAD_FACT_LOCAL_REF_RENDER_CONTRACT",
+        "ROAD_FACT_PRECISE_ADDRESS_EXPOSURE",
+      ]),
+    );
   });
 
   it("rejects route identity, hash, and randomness as SEO copy selectors", () => {
@@ -536,6 +728,10 @@ describe("NAVER near-duplicate contract primitives", () => {
       normalizedParagraphCollisions: 312,
       normalizedSignatureCollisions: 0,
       officialSuffixLeakCount: 0,
+      sharedServiceContractViolationCount: 0,
+      allowlist: {
+        sharedServiceAllowlistSource: "FIXED_SECTION_ID_AND_COPY_CONTRACT",
+      },
       comparisons: Object.fromEntries(
         Array.from({ length: 8 }, (_, index) => [`platform-${index}`, comparison()]),
       ),
@@ -565,5 +761,13 @@ describe("NAVER near-duplicate contract primitives", () => {
     });
     expect(hardFailure.status).toBe("FAIL");
     expect(hardFailure.failures).toContain("EXTERNAL_PLATFORM_COPY_COLLISION");
+
+    const dynamicAllowlist = evaluateCrossPlatformCopyAuditBoundary({
+      ...report,
+      allowlist: { sharedServiceAllowlistSource: "RUNTIME_OUTPUT" },
+    });
+    expect(dynamicAllowlist.failures).toContain(
+      "DYNAMIC_SHARED_SERVICE_ALLOWLIST",
+    );
   });
 });

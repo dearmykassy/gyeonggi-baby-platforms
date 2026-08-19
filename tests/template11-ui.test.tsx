@@ -61,10 +61,28 @@ describe("Template11 composition contract", () => {
           hooks: ["지역과 희망 시각을 확인합니다.", "코스와 이용 시간을 확인합니다."],
           faqIntro: "공통 질문은 이용 방법 페이지에서 확인합니다.",
           sections: [
-            { id: "overview", heading: "수원 이용 개요", paragraphs: ["첫 문단", "둘째 문단"] },
-            { id: "child-directory", heading: "수원 지역", paragraphs: ["지역을 고릅니다.", "상세 주소를 준비합니다."] },
+            {
+              id: "overview",
+              heading: "수원 이용 개요",
+              paragraphs: ["첫 문단", "둘째 문단"],
+              auditScope: "local-substantive",
+              factRefs: ["fixture:overview"],
+            },
+            {
+              id: "child-directory",
+              heading: "수원 지역",
+              paragraphs: ["지역을 고릅니다.", "상세 주소를 준비합니다."],
+              auditScope: "directory",
+              factRefs: [],
+            },
           ],
-          childDirectory: { heading: "수원 지역", intro: "받을 지역을 고르세요." },
+          childDirectory: {
+            id: "child-directory",
+            heading: "수원 지역",
+            intro: "받을 지역을 고르세요.",
+            auditScope: "directory",
+            factRefs: [],
+          },
           officialSources: [],
         }}
         designProfile={getSiteConfig("suwon").designProfile}
