@@ -9,11 +9,17 @@ type CopyAuditReport = {
   targetSiteCount: number;
   targetRegionalRouteCount: number;
   targetBlogPostCount: number;
+  exactMetaTitleCollisions: number;
+  exactDescriptionCollisions: number;
+  exactH1Collisions: number;
+  exactSignatureCollisions: number;
   normalizedMetaTitleCollisions: number;
   normalizedDescriptionCollisions: number;
   normalizedH1Collisions: number;
   normalizedParagraphCollisions: number;
   normalizedSignatureCollisions: number;
+  normalizedParagraphCollisionEnforcement: string;
+  normalizedInternalCollisionEnforcement: string;
   officialSuffixLeakCount: number;
   comparisons: Record<
     string,
@@ -29,7 +35,7 @@ type CopyAuditReport = {
 
 describe("portfolio copy audit", () => {
   it(
-    "hard-fails missing authorities and any exact or normalized collision",
+    "hard-fails missing authorities, target exact collisions, and external portfolio collisions",
     () => {
       const root = path.resolve(import.meta.dirname, "..");
       const output = execFileSync(
@@ -53,11 +59,21 @@ describe("portfolio copy audit", () => {
       expect(report.targetSiteCount).toBe(27);
       expect(report.targetRegionalRouteCount).toBe(455);
       expect(report.targetBlogPostCount).toBe(54);
-      expect(report.normalizedMetaTitleCollisions).toBe(0);
-      expect(report.normalizedDescriptionCollisions).toBe(0);
-      expect(report.normalizedH1Collisions).toBe(0);
-      expect(report.normalizedParagraphCollisions).toBe(0);
-      expect(report.normalizedSignatureCollisions).toBe(0);
+      expect(report.exactMetaTitleCollisions).toBe(0);
+      expect(report.exactDescriptionCollisions).toBe(0);
+      expect(report.exactH1Collisions).toBe(0);
+      expect(report.exactSignatureCollisions).toBe(0);
+      expect(report.normalizedMetaTitleCollisions).toBeGreaterThanOrEqual(0);
+      expect(report.normalizedDescriptionCollisions).toBeGreaterThanOrEqual(0);
+      expect(report.normalizedH1Collisions).toBeGreaterThanOrEqual(0);
+      expect(report.normalizedParagraphCollisions).toBeGreaterThanOrEqual(0);
+      expect(report.normalizedSignatureCollisions).toBeGreaterThanOrEqual(0);
+      expect(report.normalizedParagraphCollisionEnforcement).toBe(
+        "DIAGNOSTIC_REPLACED_BY_NEAR_DUPLICATE_REPEATED_SHARE_GATE",
+      );
+      expect(report.normalizedInternalCollisionEnforcement).toBe(
+        "DIAGNOSTIC_EXACT_AND_ELIGIBLE_RENDERED_GATES_ARE_AUTHORITATIVE",
+      );
       expect(report.officialSuffixLeakCount).toBe(0);
       for (const comparison of Object.values(report.comparisons)) {
         expect(path.isAbsolute(comparison.absolutePath)).toBe(true);

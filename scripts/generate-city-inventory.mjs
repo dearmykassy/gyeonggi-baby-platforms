@@ -9,64 +9,103 @@ const EXPECTED_SOURCE_FILE_SHA256 =
 
 const EXCLUDED_MUNICIPALITIES = ["가평군", "이천시", "양평군", "여주시"];
 
-const THEMES = {
-  v1: {
-    primary: "#C94A66",
-    secondary: "#F3A6B8",
-    accent: "#F4B942",
-    ink: "#1F2430",
-    surface: "#FFF8F7",
-  },
-  v2: {
-    primary: "#7E5AA6",
-    secondary: "#C3A6DE",
-    accent: "#E9A64A",
-    ink: "#24202B",
-    surface: "#FBF8FF",
-  },
-  v3: {
-    primary: "#2D7C78",
-    secondary: "#8CC8C0",
-    accent: "#E5A94A",
-    ink: "#172A2A",
-    surface: "#F5FBFA",
-  },
-  v4: {
-    primary: "#A35B3F",
-    secondary: "#D9A58D",
-    accent: "#E8BF52",
-    ink: "#2B211D",
-    surface: "#FFF9F4",
-  },
-  v5: {
-    primary: "#4B6898",
-    secondary: "#9DB4D6",
-    accent: "#E7AE45",
-    ink: "#1C2638",
-    surface: "#F6F9FE",
-  },
-  v6: {
-    primary: "#8A5F50",
-    secondary: "#C9A99C",
-    accent: "#D9A441",
-    ink: "#29211E",
-    surface: "#FCF8F5",
-  },
-};
-
-const VOICE_VARIANTS = [
-  "steady",
-  "clear",
-  "warm",
-  "concise",
-  "local",
-  "practical",
+const SECTION_ORDERS = [
+  ["introduction", "visual-one", "pricing", "process", "visual-two", "standards", "faq", "directory"],
+  ["introduction", "standards", "visual-one", "process", "pricing", "visual-two", "faq", "directory"],
+  ["visual-one", "introduction", "process", "visual-two", "pricing", "standards", "faq", "directory"],
+  ["process", "introduction", "pricing", "standards", "visual-one", "faq", "visual-two", "directory"],
+  ["introduction", "visual-one", "standards", "pricing", "visual-two", "process", "faq", "directory"],
+  ["standards", "introduction", "process", "pricing", "visual-one", "visual-two", "faq", "directory"],
+  ["pricing", "introduction", "visual-one", "standards", "process", "visual-two", "faq", "directory"],
+  ["visual-one", "pricing", "introduction", "process", "standards", "visual-two", "faq", "directory"],
+  ["process", "visual-one", "introduction", "standards", "pricing", "visual-two", "faq", "directory"],
+  ["standards", "pricing", "introduction", "visual-one", "process", "visual-two", "faq", "directory"],
+  ["introduction", "process", "visual-one", "pricing", "standards", "faq", "visual-two", "directory"],
+  ["pricing", "standards", "introduction", "process", "visual-one", "faq", "visual-two", "directory"],
+  ["visual-two", "introduction", "visual-one", "pricing", "process", "standards", "faq", "directory"],
+  ["introduction", "visual-two", "standards", "visual-one", "process", "pricing", "faq", "directory"],
+  ["process", "pricing", "visual-one", "introduction", "visual-two", "standards", "faq", "directory"],
+  ["standards", "visual-one", "process", "introduction", "pricing", "visual-two", "faq", "directory"],
+  ["visual-one", "standards", "pricing", "introduction", "process", "visual-two", "faq", "directory"],
+  ["pricing", "visual-one", "process", "standards", "introduction", "visual-two", "faq", "directory"],
+  ["visual-two", "process", "introduction", "pricing", "visual-one", "standards", "faq", "directory"],
+  ["introduction", "pricing", "visual-two", "process", "standards", "visual-one", "faq", "directory"],
+  ["standards", "visual-two", "introduction", "process", "pricing", "visual-one", "faq", "directory"],
+  ["process", "standards", "visual-two", "introduction", "visual-one", "pricing", "faq", "directory"],
+  ["visual-one", "process", "pricing", "visual-two", "introduction", "standards", "faq", "directory"],
+  ["pricing", "process", "standards", "visual-one", "introduction", "visual-two", "faq", "directory"],
+  ["visual-two", "standards", "pricing", "introduction", "visual-one", "process", "faq", "directory"],
+  ["standards", "process", "visual-one", "pricing", "visual-two", "introduction", "faq", "directory"],
+  ["process", "visual-two", "standards", "pricing", "introduction", "visual-one", "faq", "directory"],
 ];
+
+const DESIGN_PROFILES = [
+  ["goyang", "goyang-crimson-journal", ["#B63D58", "#EFA8B5", "#F2C14E", "#202531", "#FFF5F4", "#FFFCFA"], "glass", "underline", "center", "center", "cinematic", "soft", "hairline", "none", "alternating", "pill", "split", "balanced"],
+  ["gwacheon", "gwacheon-plum-rail", ["#68458D", "#BFA5D5", "#E8AA55", "#27212D", "#F8F3FC", "#FFFCFF"], "solid", "capsule", "left", "top", "classic", "square", "strong", "soft", "paper", "soft", "compact-right", "editorial"],
+  ["gwangmyeong", "gwangmyeong-teal-spread", ["#21736F", "#82C5BC", "#E7B05A", "#172A2A", "#F0FAF8", "#FAFFFE"], "outline", "bracket", "right", "right", "panorama", "round", "accent", "lifted", "bands", "square", "split", "large"],
+  ["gwangju-gyeonggi", "gwangju-rust-ledger", ["#925038", "#D5A18A", "#E7BE5A", "#2D211D", "#FFF6EF", "#FFFCF8"], "contrast", "blocks", "bottom-left", "left", "cinematic", "ledger", "strong", "none", "ruled", "notched", "full", "compact"],
+  ["guri", "guri-blue-magazine", ["#3D5F91", "#93ACD0", "#E5AC4A", "#1D2738", "#F1F6FD", "#FBFDFF"], "floating", "capsule", "panel-left", "top", "classic", "panel", "hairline", "lifted", "inset", "pill", "floating-right", "dramatic"],
+  ["gunpo", "gunpo-mocha-bands", ["#785144", "#C4A398", "#DCA94C", "#2A211E", "#FAF5F1", "#FFFDFC"], "minimal", "dots", "left", "center", "panorama", "soft", "none", "soft", "bands", "soft", "split", "balanced"],
+  ["gimpo", "gimpo-emerald-index", ["#2D6B4E", "#94BCA6", "#E0B15A", "#1D2923", "#F2F8F4", "#FCFEFC"], "solid", "underline", "right", "top", "classic", "round", "accent", "none", "paper", "square", "compact-right", "large"],
+  ["namyangju", "namyangju-wine-column", ["#7F3F52", "#C995A5", "#E4B85D", "#2C2025", "#FCF3F6", "#FFFDFE"], "glass", "bracket", "panel-right", "right", "cinematic", "square", "hairline", "offset", "alternating", "notched", "full", "editorial"],
+  ["dongducheon", "dongducheon-indigo-grid", ["#4D5792", "#9FA8D2", "#E4AD53", "#20243A", "#F3F5FC", "#FCFDFF"], "outline", "blocks", "center", "left", "panorama", "ledger", "strong", "soft", "ruled", "pill", "floating-right", "compact"],
+  ["bucheon", "bucheon-charcoal-coral", ["#41464F", "#E19A8E", "#F0B34C", "#1D2025", "#F6F3F1", "#FFFDFC"], "contrast", "capsule", "bottom-left", "top", "classic", "panel", "accent", "lifted", "inset", "soft", "split", "dramatic"],
+  ["seongnam", "seongnam-forest-review", ["#315F45", "#A2B88E", "#E2B24C", "#1E2922", "#F3F7EF", "#FEFFF9"], "floating", "dots", "left", "right", "cinematic", "soft", "none", "offset", "bands", "square", "compact-right", "balanced"],
+  ["suwon", "suwon-slate-guide", ["#3E6174", "#97B4C1", "#E2A94C", "#1F2A30", "#F1F7F9", "#FBFEFF"], "minimal", "underline", "right", "center", "panorama", "round", "hairline", "soft", "paper", "pill", "full", "large"],
+  ["siheung", "siheung-terracotta-notes", ["#9A513D", "#DE9F86", "#EDBD58", "#30221E", "#FFF4EE", "#FFFCF9"], "glass", "blocks", "panel-left", "left", "classic", "ledger", "accent", "none", "alternating", "notched", "floating-right", "editorial"],
+  ["ansan", "ansan-violet-frame", ["#674D86", "#B69FCC", "#E8AD59", "#292332", "#F8F3FB", "#FEFCFF"], "solid", "dots", "center", "top", "cinematic", "panel", "strong", "lifted", "ruled", "soft", "split", "compact"],
+  ["anseong", "anseong-pine-catalog", ["#386255", "#9CB8AE", "#DDAE52", "#1F2A27", "#F3F8F5", "#FCFFFD"], "outline", "underline", "bottom-left", "right", "panorama", "soft", "hairline", "offset", "inset", "square", "compact-right", "dramatic"],
+  ["anyang", "anyang-rose-ledger", ["#874658", "#C99AA7", "#E3B65A", "#2D2025", "#FBF2F5", "#FFFCFD"], "contrast", "bracket", "left", "left", "classic", "square", "accent", "soft", "bands", "pill", "full", "balanced"],
+  ["yangju", "yangju-steel-panels", ["#48657A", "#9BB5C6", "#DCAE55", "#202A32", "#F1F6F9", "#FBFEFF"], "floating", "blocks", "right", "top", "cinematic", "round", "none", "lifted", "paper", "notched", "floating-right", "large"],
+  ["yeoncheon", "yeoncheon-olive-field", ["#66703B", "#AFB98C", "#E0AD45", "#292C20", "#F6F7EE", "#FFFFFA"], "minimal", "capsule", "panel-right", "center", "panorama", "ledger", "strong", "none", "alternating", "soft", "split", "editorial"],
+  ["osan", "osan-cobalt-digest", ["#315E9B", "#8FAED3", "#E8B34F", "#1B283C", "#F0F6FD", "#FBFDFF"], "solid", "dots", "center", "right", "classic", "panel", "hairline", "soft", "ruled", "square", "compact-right", "compact"],
+  ["yongin", "yongin-aubergine-spread", ["#69405F", "#B893AD", "#E1AE57", "#2B2028", "#F8F1F6", "#FFFDFE"], "glass", "underline", "bottom-left", "top", "cinematic", "soft", "accent", "offset", "inset", "pill", "full", "dramatic"],
+  ["uiwang", "uiwang-deep-teal-card", ["#256462", "#87B8B3", "#D9A653", "#1C2929", "#EFF8F7", "#FBFFFE"], "outline", "bracket", "left", "left", "panorama", "round", "strong", "lifted", "bands", "notched", "floating-right", "balanced"],
+  ["uijeongbu", "uijeongbu-maroon-lines", ["#763E45", "#BE9297", "#E2B65A", "#2B2022", "#F9F1F2", "#FFFCFC"], "contrast", "blocks", "right", "right", "classic", "ledger", "none", "none", "paper", "soft", "split", "large"],
+  ["paju", "paju-ocean-panels", ["#2D6577", "#8FBAC5", "#E2AD4C", "#1D2A30", "#EFF7F9", "#FBFEFF"], "floating", "capsule", "panel-left", "center", "cinematic", "panel", "hairline", "soft", "alternating", "square", "compact-right", "editorial"],
+  ["pyeongtaek", "pyeongtaek-midnight-index", ["#414A73", "#949CBC", "#E5B04E", "#202438", "#F1F3F9", "#FCFDFF"], "minimal", "dots", "panel-right", "top", "panorama", "square", "accent", "lifted", "ruled", "pill", "full", "compact"],
+  ["pocheon", "pocheon-ochre-journal", ["#815B2C", "#C5A77B", "#E2B146", "#2C251C", "#FAF6ED", "#FFFDF8"], "glass", "underline", "center", "left", "classic", "soft", "strong", "offset", "inset", "notched", "floating-right", "dramatic"],
+  ["hanam", "hanam-graphite-calm", ["#455653", "#9AAEAA", "#DCAF55", "#202827", "#F2F6F5", "#FCFEFD"], "solid", "bracket", "left", "right", "cinematic", "round", "none", "soft", "bands", "soft", "split", "balanced"],
+  ["hwaseong", "hwaseong-berry-atlas", ["#844B6A", "#C69BB3", "#E6B255", "#2D222A", "#FAF2F7", "#FFFCFE"], "outline", "blocks", "right", "center", "panorama", "ledger", "hairline", "lifted", "paper", "square", "compact-right", "large"],
+].map(([
+  siteKey,
+  id,
+  [primary, secondary, accent, ink, surface, paper],
+  headerTreatment,
+  navTreatment,
+  heroComposition,
+  heroCrop,
+  heroAspect,
+  cardGeometry,
+  cardBorder,
+  cardShadow,
+  sectionRhythm,
+  ctaShape,
+  ctaPlacement,
+  typographyScale,
+], index) => ({
+  siteKey,
+  id,
+  palette: { primary, secondary, accent, ink, surface, paper },
+  headerTreatment,
+  navTreatment,
+  heroComposition,
+  heroCrop,
+  heroAspect,
+  cardGeometry,
+  cardBorder,
+  cardShadow,
+  sectionRhythm,
+  ctaShape,
+  ctaPlacement,
+  typographyScale,
+  sectionOrder: SECTION_ORDERS[index],
+}));
 
 /**
  * This is the campaign registry, not a national service-area list. Keep its
- * order stable: layout and voice variants are deliberately distributed by
- * index and therefore changing the order is a public design revision.
+ * order stable: layout variants and explicit design profiles are distributed
+ * by index and therefore changing the order is a public design revision.
  */
 const SITE_DEFINITIONS = [
   ["goyang", "고양시", "고양", "고양온케어", "goyang-oncare"],
@@ -97,6 +136,37 @@ const SITE_DEFINITIONS = [
   ["hanam", "하남시", "하남", "하남휴온", "hanam-hyuon"],
   ["hwaseong", "화성시", "화성", "화성온쉼", "hwaseong-onshim"],
 ];
+
+const DESIGN_PROFILE_BY_SITE = new Map(
+  DESIGN_PROFILES.map((profile) => [profile.siteKey, profile]),
+);
+const REQUIRED_SECTION_KEYS = new Set([
+  "introduction",
+  "visual-one",
+  "pricing",
+  "process",
+  "visual-two",
+  "standards",
+  "faq",
+  "directory",
+]);
+
+if (
+  DESIGN_PROFILES.length !== SITE_DEFINITIONS.length ||
+  DESIGN_PROFILE_BY_SITE.size !== SITE_DEFINITIONS.length ||
+  new Set(DESIGN_PROFILES.map((profile) => profile.id)).size !== SITE_DEFINITIONS.length ||
+  new Set(DESIGN_PROFILES.map((profile) => JSON.stringify(profile.palette))).size !== SITE_DEFINITIONS.length ||
+  new Set(DESIGN_PROFILES.map((profile) => profile.sectionOrder.join("|"))).size !== SITE_DEFINITIONS.length ||
+  DESIGN_PROFILES.some(
+    (profile) =>
+      profile.sectionOrder.length !== REQUIRED_SECTION_KEYS.size ||
+      profile.sectionOrder.at(-1) !== "directory" ||
+      new Set(profile.sectionOrder).size !== REQUIRED_SECTION_KEYS.size ||
+      profile.sectionOrder.some((key) => !REQUIRED_SECTION_KEYS.has(key)),
+  )
+) {
+  throw new Error("BABY_DESIGN_PROFILE_INTEGRITY_FAILURE");
+}
 
 // Promote a site only after its exact HTTPS Pages origin has been created,
 // deployed, and audited. Keeping this explicit makes a public indexability
@@ -159,7 +229,10 @@ if (
 const sites = SITE_DEFINITIONS.map(
   ([key, officialName, searchName, brandName, projectName], index) => {
     const layoutVariant = `v${(index % 6) + 1}`;
-    const voiceVariant = VOICE_VARIANTS[index % VOICE_VARIANTS.length];
+    const designProfile = DESIGN_PROFILE_BY_SITE.get(key);
+    if (!designProfile) {
+      throw new Error(`BABY_DESIGN_PROFILE_MISSING:${key}`);
+    }
     const slug = key;
     const plannedOrigin = `https://${projectName}.pages.dev`;
     const publicRelease = PUBLIC_SITE_KEYS.includes(key);
@@ -208,8 +281,8 @@ const sites = SITE_DEFINITIONS.map(
       publicOrigin: publicRelease ? plannedOrigin : null,
       brandName,
       layoutVariant,
-      voiceVariant,
-      theme: THEMES[layoutVariant],
+      theme: designProfile.palette,
+      designProfile,
       gaMeasurementIdEnv: `NEXT_PUBLIC_GA_MEASUREMENT_ID_${envSuffix}`,
       gaPropertyIdEnv: `GA4_PROPERTY_ID_${envSuffix}`,
       deploymentState: publicRelease ? "public" : "planned",

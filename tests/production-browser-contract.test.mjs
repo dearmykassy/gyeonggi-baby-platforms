@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import {
   expectedLayoutSemantic,
   expectedPublicationOrigin,
+  expectedRouteIndexing,
   hasRscQuery,
   PRODUCTION_BROWSER_VARIANTS,
   PRODUCTION_BROWSER_VIEWPORTS,
@@ -85,5 +86,50 @@ describe("production browser release contract", () => {
       indexable: true,
       origin: "https://published.example",
     });
+  });
+
+  it("keeps staged public indexing route-aware while previews remain closed", () => {
+    const base = inventory.sites[0];
+    const preview = {
+      ...base,
+      deploymentState: "planned",
+      isPublic: false,
+      indexingEnabled: false,
+      publicOrigin: null,
+    };
+    const published = {
+      ...base,
+      deploymentState: "public",
+      isPublic: true,
+      indexingEnabled: true,
+      publicOrigin: "https://published.example",
+    };
+
+    expect(expectedRouteIndexing(preview, "/")).toEqual({
+      index: false,
+      follow: false,
+    });
+    expect(expectedRouteIndexing(preview, "/areas/")).toEqual({
+      index: false,
+      follow: false,
+    });
+    expect(expectedRouteIndexing(published, "/")).toEqual({
+      index: true,
+      follow: true,
+    });
+    for (const route of [
+      "/areas/",
+      "/areas/%EC%9E%A5%EC%95%88%EA%B5%AC/",
+      "/areas/%EC%9E%A5%EC%95%88%EA%B5%AC/%EC%A0%95%EC%9E%90%EB%8F%99/",
+      "/pricing/",
+      "/guide/",
+      "/notice/",
+      "/blog/",
+    ]) {
+      expect(expectedRouteIndexing(published, route)).toEqual({
+        index: false,
+        follow: true,
+      });
+    }
   });
 });

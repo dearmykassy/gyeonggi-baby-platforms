@@ -4,6 +4,22 @@ Template11의 시각 구조를 기반으로 경기 27개 시·군별 독립 플�
 
 각 빌드는 한 도시의 홈과 실제 구·동·읍·면 경로만 포함합니다. 전국 1,291개 지역을 각 사이트에 복제하지 않습니다. 운영 origin이 확정되기 전에는 프리뷰 canonical과 검색 차단을 유지합니다.
 
+Template11의 6개 기본 family 위에는 도시별 27개 lightweight design profile이
+있습니다. palette·header/nav·hero·card·section rhythm·CTA·type scale·section
+order 조합은 도시마다 다르지만, 이 시각 차이를 SEO 고유성으로 간주하지 않습니다.
+검색 대상 홈 본문은 공식 도시 자료에서 확인한 지형·수계·철도·공원·생활권
+사실을 주소 확인 문맥으로 작성하고 화면에 실제 출처 링크를 제공합니다.
+
+초기 공개 인벤토리는 사이트마다 홈 `/` 하나뿐입니다. sitemap과 RSS도 홈 한
+건만 내보냅니다. `/areas/`, 구·동·읍·면, 가격·이용 방법·공지·블로그 경로는
+200과 self-canonical을 유지하되 `noindex,follow`이며 sitemap/RSS에 포함하지
+않습니다. 전체 가격표·절차·FAQ는 고정 안내 경로에만 두고 지역 본문에서는 해당
+경로로 연결하는 짧은 요약만 제공합니다.
+
+중복 감사의 p95 0.45·pair max 0.55·반복 본문 exact 0.25/normalized 0.35는
+내부 출시 휴리스틱입니다. NAVER의 공식 임계값이나 상위 노출 보장이 아닙니다.
+경로 hash, 문장 순서 섞기, 의미 없는 표현으로 수치를 맞추지 않습니다.
+
 ```bash
 pnpm install
 BABY_SITE_KEY=suwon pnpm dev
@@ -69,8 +85,8 @@ pnpm test:browser:install
 pnpm test:browser:production
 ```
 
-게이트는 Template11 v1~v6에서 구 허브가 있는 대표 사이트를 한 곳씩 골라
-각 사이트의 홈, `/areas/`, 구 허브, 대표 말단을 1440px desktop과 390px
+게이트는 Template11 v1~v6에서 구 지역 안내가 있는 대표 사이트를 한 곳씩 골라
+각 사이트의 홈, `/areas/`, 구 지역 안내, 대표 말단을 1440px desktop과 390px
 mobile의 새 브라우저 context로 검사합니다. 캐시와 Service Worker를 끄고,
 클릭·입력·hover 없이 최초 load와 단계별 scroll만 수행합니다.
 

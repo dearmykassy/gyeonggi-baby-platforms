@@ -1,21 +1,20 @@
 import type { ReactNode } from "react";
 
 import {
-  FaqSection,
   Narrative,
   PhotoSection,
-  PricingPreview,
-  ProcessSection,
   RegionDirectory,
-  StandardsSection,
   type DirectoryItem,
   type NarrativeSection,
 } from "@/components/content-blocks";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { ResponsivePicture } from "@/components/responsive-picture";
 import { SiteLink } from "@/components/site-link";
-import { buildRegionServiceFaqs } from "@/data/service-guide";
 import { getRegionImageSet } from "@/lib/images";
+import type {
+  BabySiteDesignProfile,
+  HomeSectionKey,
+} from "@/lib/site-config";
 
 export const TEMPLATE11_LAYOUT_VARIANTS = [
   "v1-center-chronicle",
@@ -27,16 +26,6 @@ export const TEMPLATE11_LAYOUT_VARIANTS = [
 ] as const;
 
 export type Template11LayoutVariant = (typeof TEMPLATE11_LAYOUT_VARIANTS)[number];
-
-type HomeSectionKey =
-  | "introduction"
-  | "visual-one"
-  | "pricing"
-  | "process"
-  | "visual-two"
-  | "standards"
-  | "faq"
-  | "directory";
 
 export const VARIANT_SECTION_ORDERS: Readonly<
   Record<Template11LayoutVariant, readonly HomeSectionKey[]>
@@ -73,22 +62,29 @@ export type TemplateHomeContent = {
   h1: string;
   eyebrow: string;
   hooks: readonly [string, string];
+  faqIntro: string;
   sections: readonly NarrativeSection[];
   childDirectory: {
     heading: string;
     intro: string;
   };
+  officialSources: readonly {
+    label: string;
+    url: string;
+  }[];
 };
 
 export function Template11Home({
   cityName,
   brandName,
+  designProfile,
   layoutVariant,
   content,
   directoryItems,
 }: {
   cityName: string;
   brandName: string;
+  designProfile: BabySiteDesignProfile;
   layoutVariant: string;
   content: TemplateHomeContent;
   directoryItems: readonly DirectoryItem[];
@@ -107,6 +103,7 @@ export function Template11Home({
         </div>
         <Narrative sections={introSections} />
         {additionalSections.length ? <Narrative className="narrative--additional" sections={additionalSections} /> : null}
+        <OfficialRegionSources sources={content.officialSources} />
       </section>
     ),
     "visual-one": (
@@ -116,8 +113,24 @@ export function Template11Home({
         sources={images.bodyA}
       />
     ),
-    pricing: <PricingPreview heading={`${cityName} 코스별 시간과 가격`} />,
-    process: <ProcessSection heading={`${cityName} 예약 진행 순서`} />,
+    pricing: (
+      <CompactReference
+        eyebrow="PRICE INDEX"
+        heading={`${cityName} 코스·가격 고정 안내`}
+        href="/pricing/"
+        linkLabel="전체 가격표 보기"
+        text={`${cityName} 지역 페이지는 주소 계층에 집중하고, 공통 코스와 시간별 금액은 가격표 한 곳에서 제공합니다.`}
+      />
+    ),
+    process: (
+      <CompactReference
+        eyebrow="CALL GUIDE"
+        heading={`${cityName} 전화 준비 순서`}
+        href="/guide/"
+        linkLabel="이용 방법 보기"
+        text={content.hooks[0]}
+      />
+    ),
     "visual-two": (
       <PhotoSection
         alt={images.bodyBAlt}
@@ -126,8 +139,24 @@ export function Template11Home({
         sources={images.bodyB}
       />
     ),
-    standards: <StandardsSection heading={`${brandName} 운영 기준`} />,
-    faq: <FaqSection faqs={buildRegionServiceFaqs(cityName)} />,
+    standards: (
+      <CompactReference
+        eyebrow="SERVICE NOTE"
+        heading={`${brandName} 공통 운영 안내`}
+        href="/guide/"
+        linkLabel="운영 기준 확인"
+        text={content.hooks[1]}
+      />
+    ),
+    faq: (
+      <CompactReference
+        eyebrow="QUESTIONS"
+        heading={`${cityName} 예약 전 질문 안내`}
+        href="/guide/"
+        linkLabel="질문과 답변 보기"
+        text={content.faqIntro}
+      />
+    ),
     directory: (
       <RegionDirectory
         heading={content.childDirectory.heading}
@@ -138,7 +167,11 @@ export function Template11Home({
   };
 
   return (
-    <div className="template11-home" data-layout-variant={variant}>
+    <div
+      className="template11-home"
+      data-design-profile={designProfile.id}
+      data-layout-variant={variant}
+    >
       <HeroCarousel
         slides={[
           {
@@ -164,7 +197,7 @@ export function Template11Home({
         <SiteLink href="/guide/">이용 순서 확인</SiteLink>
       </section>
       <div className="variant-sections">
-        {VARIANT_SECTION_ORDERS[variant].map((sectionKey) => (
+        {designProfile.sectionOrder.map((sectionKey) => (
           <div className={`variant-slot variant-slot--${sectionKey}`} key={sectionKey}>
             {sectionNodes[sectionKey]}
           </div>
@@ -174,6 +207,54 @@ export function Template11Home({
         <ResponsiveClosing images={images} cityName={cityName} brandName={brandName} />
       </section>
     </div>
+  );
+}
+
+function OfficialRegionSources({
+  sources,
+}: {
+  sources: TemplateHomeContent["officialSources"];
+}) {
+  if (sources.length === 0) return null;
+  return (
+    <aside className="official-region-sources" aria-label="공식 지역 자료">
+      <p>공식 지역 자료</p>
+      <ul>
+        {sources.map((source) => (
+          <li key={source.url}>
+            <a href={source.url} rel="noreferrer noopener" target="_blank">
+              {source.label}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  );
+}
+
+function CompactReference({
+  eyebrow,
+  heading,
+  href,
+  linkLabel,
+  text,
+}: {
+  eyebrow: string;
+  heading: string;
+  href: string;
+  linkLabel: string;
+  text: string;
+}) {
+  return (
+    <section className="compact-reference">
+      <div>
+        <p>{eyebrow}</p>
+        <h2>{heading}</h2>
+      </div>
+      <p>{text}</p>
+      <SiteLink href={href}>{linkLabel}</SiteLink>
+    </section>
   );
 }
 

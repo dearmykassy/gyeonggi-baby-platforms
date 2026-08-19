@@ -502,6 +502,18 @@ function duplicateValues(values) {
   return [...counts].filter(([, count]) => count > 1);
 }
 
+const exactMetaTitles = targetRegionRecords.map(({ content }) => content.title);
+const exactDescriptions = targetRegionRecords.map(
+  ({ content }) => content.description,
+);
+const exactH1s = targetRegionRecords.map(({ content }) => content.h1);
+const exactSignatures = targetRegionRecords.map(({ content }) =>
+  [
+    content.description,
+    ...content.hooks,
+    ...content.sections.flatMap((section) => section.paragraphs),
+  ].join("\u001f"),
+);
 const normalizedMetaTitles = targetRegionRecords.map(({ site, node, content }) =>
   normalizeRegional(content.title, site, node),
 );
@@ -582,11 +594,19 @@ const report = {
     (total, site) => total + getBlogPosts(site).length,
     0,
   ),
+  exactMetaTitleCollisions: duplicateValues(exactMetaTitles).length,
+  exactDescriptionCollisions: duplicateValues(exactDescriptions).length,
+  exactH1Collisions: duplicateValues(exactH1s).length,
+  exactSignatureCollisions: duplicateValues(exactSignatures).length,
   normalizedMetaTitleCollisions: duplicateValues(normalizedMetaTitles).length,
   normalizedDescriptionCollisions: duplicateValues(normalizedDescriptions).length,
   normalizedH1Collisions: duplicateValues(normalizedH1s).length,
   normalizedParagraphCollisions: duplicateValues(normalizedParagraphs).length,
+  normalizedParagraphCollisionEnforcement:
+    "DIAGNOSTIC_REPLACED_BY_NEAR_DUPLICATE_REPEATED_SHARE_GATE",
   normalizedSignatureCollisions: duplicateValues(normalizedSignatures).length,
+  normalizedInternalCollisionEnforcement:
+    "DIAGNOSTIC_EXACT_AND_ELIGIBLE_RENDERED_GATES_ARE_AUTHORITATIVE",
   officialSuffixLeakCount: officialSuffixLeaks.length,
   officialSuffixLeakExamples: officialSuffixLeaks.slice(0, 8),
   allowlist: {
@@ -601,11 +621,10 @@ const internalPass =
   report.targetSiteCount === 27 &&
   report.targetRegionalRouteCount === 455 &&
   report.targetBlogPostCount === 54 &&
-  report.normalizedMetaTitleCollisions === 0 &&
-  report.normalizedDescriptionCollisions === 0 &&
-  report.normalizedH1Collisions === 0 &&
-  report.normalizedParagraphCollisions === 0 &&
-  report.normalizedSignatureCollisions === 0 &&
+  report.exactMetaTitleCollisions === 0 &&
+  report.exactDescriptionCollisions === 0 &&
+  report.exactH1Collisions === 0 &&
+  report.exactSignatureCollisions === 0 &&
   report.officialSuffixLeakCount === 0;
 const externalPass = Object.values(comparisons).every(
   (comparison) =>

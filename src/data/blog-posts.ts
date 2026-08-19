@@ -7,7 +7,7 @@ import {
   type BabySiteKey,
 } from "@/lib/site-config";
 import { getRegionNodesForSite } from "@/lib/regions";
-import { getSiteOrigin, getSiteRobots } from "@/lib/metadata";
+import { createRouteMetadataContract, getSiteOrigin } from "@/lib/metadata";
 import { getRegionImageSetForSite } from "@/lib/images";
 
 export type BlogSection = {
@@ -41,35 +41,11 @@ type BlogVoice = {
   readingStyle: string;
 };
 
-const BLOG_VOICES = [
-  { addressLabel: "세 칸 주소표", operationsLabel: "마지막 결제표", readingStyle: "짧은 칸을 위에서 아래로 읽는" },
-  { addressLabel: "통화 순번 메모", operationsLabel: "사람별 선택표", readingStyle: "말할 순서부터 정하는" },
-  { addressLabel: "상하 경로 대조", operationsLabel: "코스 행 연결", readingStyle: "주소의 위아래를 먼저 맞추는" },
-  { addressLabel: "한 줄 예약 기록", operationsLabel: "후불 확인 묶음", readingStyle: "한 줄에 한 사실만 남기는" },
-  { addressLabel: "주소 우선 선택", operationsLabel: "가격표 교차점", readingStyle: "주소와 코스를 분리해 보는" },
-  { addressLabel: "일정 분리 노트", operationsLabel: "현장 단계 역산", readingStyle: "날짜와 시간을 두 칸으로 나누는" },
-  { addressLabel: "첫 문의 안내장", operationsLabel: "초회 결제 점검", readingStyle: "처음 묻는 항목만 골라내는" },
-  { addressLabel: "지역 카드 연결", operationsLabel: "두 목록 합치기", readingStyle: "화면 선택을 전화 메모로 옮기는" },
-  { addressLabel: "역순 예약 점검", operationsLabel: "결제부터 되짚기", readingStyle: "마지막 단계에서 주소로 돌아가는" },
-  { addressLabel: "두 사람 주소표", operationsLabel: "개별 코스 두 줄", readingStyle: "공통 주소와 개인 선택을 가르는" },
-  { addressLabel: "가격 행 길잡이", operationsLabel: "시간별 금액 대조", readingStyle: "코스표의 한 행씩 확인하는" },
-  { addressLabel: "확인 사실 노트", operationsLabel: "추정 없는 상담표", readingStyle: "확인값과 질문을 나누는" },
-  { addressLabel: "지역 가지 지도", operationsLabel: "직계 경로 목록", readingStyle: "바로 아래 주소부터 좁히는" },
-  { addressLabel: "선택·확인 구분", operationsLabel: "두 단계 예약표", readingStyle: "화면과 전화의 역할을 나누는" },
-  { addressLabel: "이용 전 체크판", operationsLabel: "완료 항목 정리", readingStyle: "확인한 줄을 하나씩 지우는" },
-  { addressLabel: "상세 주소 보호", operationsLabel: "공개·전화 분리", readingStyle: "민감한 위치를 통화에만 두는" },
-  { addressLabel: "조건 우선 메모", operationsLabel: "인원·일정 선결", readingStyle: "코스 전에 이용 조건을 맞추는" },
-  { addressLabel: "변경 대비 기록", operationsLabel: "이전·새 값 대조", readingStyle: "바뀐 값만 따로 보존하는" },
-  { addressLabel: "상위부터 내려오기", operationsLabel: "현재 단계 고정", readingStyle: "큰 주소에서 작은 주소로 좁히는" },
-  { addressLabel: "결제까지 한 장", operationsLabel: "현금·카드 선택", readingStyle: "예약과 결제를 한 흐름으로 잇는" },
-  { addressLabel: "시각·시간 분리", operationsLabel: "가격 행 재확인", readingStyle: "두 종류의 시간을 섞지 않는" },
-  { addressLabel: "전화 낭독 메모", operationsLabel: "짧은 통화 요약", readingStyle: "긴 주소를 끊어 읽는" },
-  { addressLabel: "같은 단계 비교", operationsLabel: "형제 경로 선택", readingStyle: "앞뒤 지역을 나란히 살피는" },
-  { addressLabel: "준비·질문 경계", operationsLabel: "상담 답변 반영", readingStyle: "미리 정할 것과 물을 것을 가르는" },
-  { addressLabel: "운영 기준 묶음", operationsLabel: "비품·결제 점검", readingStyle: "운영 사실을 별도 칸으로 두는" },
-  { addressLabel: "짧은 질문 목록", operationsLabel: "한 질문 한 답", readingStyle: "긴 문장을 질문으로 바꾸는" },
-  { addressLabel: "디렉터리 마침표", operationsLabel: "선택 주소 이관", readingStyle: "지역 목록을 본문 끝에서 확인하는" },
-] as const satisfies readonly BlogVoice[];
+const BLOG_VOICE: BlogVoice = {
+  addressLabel: "주소 확인 안내",
+  operationsLabel: "코스와 현장 결제 안내",
+  readingStyle: "주소부터 차례로 확인하는",
+};
 
 function indexOfSite(site: BabySiteConfig): number {
   const index = ALL_BABY_SITES.findIndex((candidate) => candidate.key === site.key);
@@ -78,9 +54,8 @@ function indexOfSite(site: BabySiteConfig): number {
 }
 
 function voiceFor(site: BabySiteConfig): BlogVoice {
-  const voice = BLOG_VOICES[indexOfSite(site)];
-  if (!voice) throw new Error(`BABY_BLOG_VOICE_MISSING:${site.key}`);
-  return voice;
+  indexOfSite(site);
+  return BLOG_VOICE;
 }
 
 function editorialDate(site: BabySiteConfig, day: 17 | 18): string {
@@ -102,23 +77,7 @@ function directRegionSummary(site: BabySiteConfig): {
   return {
     count: children.length,
     names: children.slice(0, 6).map((node) => node.displayName).join("·"),
-    kind: site.counts.districtHubs > 0 ? "구 허브" : "대표 지역",
-  };
-}
-
-function stampEditorialParagraphs(
-  post: BlogPost,
-  marker: string,
-): BlogPost {
-  return {
-    ...post,
-    sections: post.sections.map((section) => ({
-      ...section,
-      paragraphs: [
-        `${marker} 첫 대조: ${section.paragraphs[0]}`,
-        `${marker} 다음 대조: ${section.paragraphs[1]}`,
-      ],
-    })),
+    kind: site.counts.districtHubs > 0 ? "구 지역 안내" : "대표 지역",
   };
 }
 
@@ -153,20 +112,20 @@ export function getBlogPosts(
         heading: `${branch.count}개 직계 경로부터 주소 좁히기`,
         paragraphs: [
           `${site.searchName} 홈에서 바로 이어지는 ${branch.kind} 경로는 ${branch.count}개입니다. 앞쪽 이름은 ${branch.names}${branch.count > 6 ? " 외 항목" : ""}입니다. 다른 시·군의 지역 경로는 이 사이트에 섞지 않습니다.`,
-          `${voice.readingStyle} 순서에서는 먼저 직계 카드를 고르고, 구가 있는 지역은 구 허브를 거쳐 대표 동 경로로 내려갑니다. 구가 없는 지역은 홈에서 대표 동·읍·면 경로로 바로 이동합니다.`,
+          `${voice.readingStyle} 순서에서는 먼저 직계 카드를 고르고, 구가 있는 지역은 구 지역 안내를 거쳐 동 페이지로 이동합니다. 구가 없는 지역은 홈에서 동·읍·면 페이지로 바로 이동합니다.`,
         ],
       },
       {
         heading: `${voice.addressLabel}에서 상세 주소 분리하기`,
         paragraphs: [
-          `행정 지역은 ${site.searchName}부터 현재 동·읍·면까지 화면 경로로 확인합니다. 도로명, 건물 번호, 건물명은 그다음 줄에 적어 지역 카드 이름과 섞지 않습니다.`,
+          `행정 지역은 ${site.searchName}부터 현재 동·읍·면까지 화면에서 확인합니다. 이어서 도로명, 건물 번호, 건물명을 적어 지역 카드 이름과 구분합니다.`,
           `${voice.addressLabel}에는 동·호수나 출입에 필요한 민감한 위치를 공개 입력란에 남기지 않습니다. 해당 내용은 받을 지역을 고른 뒤 전화상담에서 이어서 전달합니다.`,
         ],
       },
       {
-        heading: `날짜·시각과 코스 시간을 다른 칸에 두기`,
+        heading: `날짜·시각과 코스 이용 시간 구분하기`,
         paragraphs: [
-          `${site.searchName} 문의 날짜와 희망 시작 시각은 일정 칸에 적습니다. 코스의 60·90·120분은 이용 시간 칸에 적어 같은 숫자라도 뜻이 다르다는 점을 표시합니다.`,
+          `${site.searchName} 문의 날짜와 희망 시작 시각을 먼저 적습니다. 코스의 60·90·120분은 별도의 이용 시간으로 확인해 같은 숫자라도 뜻이 다르다는 점을 구분합니다.`,
           `${voice.readingStyle} 메모에서는 주소, 날짜·시각, 인원, 코스·시간 순서가 유지됩니다. 실제 방문 가능 여부와 일정은 상세 주소를 알린 뒤 24시간 전화상담에서 확인합니다.`,
         ],
       },
@@ -253,11 +212,9 @@ export function getBlogPosts(
     },
   };
 
-  const stampedFirst = stampEditorialParagraphs(first, voice.addressLabel);
-  const stampedSecond = stampEditorialParagraphs(second, voice.operationsLabel);
   return Object.freeze([
-    Object.freeze(stampedFirst),
-    Object.freeze(stampedSecond),
+    Object.freeze(first),
+    Object.freeze(second),
   ]);
 }
 
@@ -288,6 +245,14 @@ export function createBlogMetadata(post: BlogPost): Metadata {
   const path = getBlogPostPath(post);
   const url = new URL(path, getSiteOrigin(site)).href;
   const title = `${post.title} | ${site.brandName}`;
+  const routeContract = createRouteMetadataContract(
+    path,
+    title,
+    post.description,
+    post.keywords,
+    site,
+    false,
+  );
   return {
     title: { absolute: title },
     description: post.description,
@@ -308,6 +273,6 @@ export function createBlogMetadata(post: BlogPost): Metadata {
       title,
       description: post.description,
     },
-    robots: getSiteRobots(site),
+    robots: routeContract.robots,
   };
 }

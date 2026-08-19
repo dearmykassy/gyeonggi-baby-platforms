@@ -12,12 +12,13 @@ export {
 
 export type {
   BabySiteConfig,
+  BabySiteDesignProfile,
   BabySiteDeploymentState,
   BabySiteKey,
   BabySiteRouteCounts,
   BabySiteTheme,
+  HomeSectionKey,
   LayoutVariant,
-  VoiceVariant,
 } from "../data/site-registry";
 
 import { ACTIVE_SITE } from "../data/site-registry";

@@ -9,6 +9,7 @@ import { chromium } from "playwright";
 import {
   expectedLayoutSemantic,
   expectedPublicationOrigin,
+  expectedRouteIndexing,
   hasRscQuery,
   PRODUCTION_BROWSER_VIEWPORTS,
   representativeBrowserRoutes,
@@ -350,14 +351,18 @@ async function auditRoute({ browser, localOrigin, route, site, viewport }) {
         `${site.key}:${viewport.name}:${route}:${JSON.stringify(dom.canonical)}:${expectedCanonical}`,
       );
     }
+    const expectedIndexing = expectedRouteIndexing(site, route);
+    const hasIndex = /\bindex\b/iu.test(dom.robots);
+    const hasNoIndex = /\bnoindex\b/iu.test(dom.robots);
+    const hasFollow = /\bfollow\b/iu.test(dom.robots);
+    const hasNoFollow = /\bnofollow\b/iu.test(dom.robots);
     if (
       dom.siteKey !== site.key ||
       dom.layoutVariant !== expectedLayoutSemantic(site.layoutVariant) ||
       dom.lang !== "ko" ||
       dom.h1Count !== 1 ||
-      (publication.indexable
-        ? !/\bindex\b/iu.test(dom.robots) || !/\bfollow\b/iu.test(dom.robots)
-        : !/\bnoindex\b/iu.test(dom.robots) || !/\bnofollow\b/iu.test(dom.robots))
+      (expectedIndexing.index ? !hasIndex || hasNoIndex : !hasNoIndex || hasIndex) ||
+      (expectedIndexing.follow ? !hasFollow || hasNoFollow : !hasNoFollow || hasFollow)
     ) {
       fail(
         "BABY_BROWSER_DOCUMENT_CONTRACT",

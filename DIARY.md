@@ -1,5 +1,55 @@
 # 작업 일지
 
+## 2026-08-19 — 도시 홈 고유성·단계적 색인 계약
+
+- 6개 Template11 기본 family는 유지하면서 27개 사이트마다 고유한 lightweight
+  design profile을 결속했다. 시각 profile은 화면 차이만 담당하며 검색 본문
+  고유성 점수에는 사용하지 않는다.
+- 지역 페이지에서 반복되던 전체 가격표·전체 이용 절차·전체 FAQ를 제거했다.
+  지역 본문은 `/pricing/`과 `/guide/`의 짧은 실제 링크 요약만 제공하며 상세
+  운영 사실은 고정 경로에만 남겼다.
+- 27개 도시 홈에 공식 시청·공공기관 자료로 확인한 지형·수계·철도·공원·생활권
+  fact profile을 추가했다. 각 profile은 `checkedAt=2026-08-19`, 4개 실제 렌더
+  fact section, 공식 HTTPS source와 화면의 `공식 지역 자료` 링크를 가진다.
+  27개 홈에서 source 60개 전체의 label과 href가 실제 컴포넌트 HTML에
+  렌더되는지 검사하며, 일부만 잘라 보여 주지 않는다.
+- 공개 초기 sitemap과 RSS를 각 사이트 홈 `/` 한 건으로 제한했다. 455개 지역
+  경로는 모두 생성·접근 가능하지만 홈 27개만 indexable이며 나머지 428개는
+  self-canonical `noindex,follow`다. `/areas/`, 가격·가이드·공지·블로그와 글
+  189개도 200·self-canonical·`noindex,follow`이고 sitemap/RSS에서 제외한다.
+- 인공 editorial wrapper, path/hash/route ordinal 기반 문구 회전, 고객에게
+  불필요한 내부 통계 용어를 제거했다. normalized paragraph 충돌 자체는
+  diagnostic으로 두고, exact document/meta 충돌 0과 실제 렌더 유사도·반복
+  본문 비율을 출시 조건으로 사용한다.
+- 내부 NAVER 근접중복 휴리스틱은 공식 순위 기준이나 노출 보장이 아니다.
+  색인 가능한 홈 27개 측정은 cross-site trigram p95 `0.345238`, max
+  `0.371595`, repeated exact max `0.137220`, normalized max `0.304020`으로
+  각각 `<0.45`, `<0.55`, `<=0.25`, `<=0.35`를 통과했다.
+- eligible regional inventory SHA-256은
+  `8eda7605fb2c3e5253d4149025a6b20870bcd2429832c17502e0778c4e889f5e`다.
+  공식 도시 홈 source provenance SHA-256은
+  `bc4f6578b3af7720f8cd4afd98e0fc886915b3fa99fecfa22de90b39cfa321b0`다.
+  공식 출처 60개는 dead·4xx·5xx 0건으로 확인했고, Node TLS가 실패한
+  의정부시 3개 공식 경로는 curl/browser에서 200과 해당 본문 용어를 확인했다.
+- 이 작업에서는 commit·push·Cloudflare 재배포를 수행하지 않았다.
+
+최종 검증:
+
+- `pnpm test`: 20 files, 105 tests PASS.
+- `pnpm typecheck`: PASS (`next typegen`, `tsc --noEmit`).
+- `pnpm lint`: PASS.
+- `node scripts/generate-city-inventory.mjs --check`: PASS,
+  inventory digest `sha256:57b8fd77d0a5afbbde88fccbead6cab48367f1798fbd15e72e7329345c22bea5`.
+- `pnpm audit:copy`: PASS. 정본 8개와 substantive exact/normalized collision 0.
+- `node --import tsx scripts/audit-naver-near-duplicates.mjs`: PASS,
+  455개 지역 문서 렌더, 색인 홈 27·단계적 noindex 428, staged ancillary 189.
+- `pnpm test:browser:production`: v1~v6 대표 6개 사이트 × 홈·지역 목록·구·말단
+  × desktop/mobile = 48 checks PASS, Chromium `151.0.7922.34`, 자동 `_rsc` 0.
+  공개 상태에서는 홈만 `index,follow`, 지역 목록·구·말단은 `noindex,follow`,
+  preview에서는 전부 `noindex,nofollow`가 되도록 route-aware fixture를 추가했다.
+- 수원 대표 production build audit: 47 static pages, sitemap 1(home), regional 34 중
+  staged 33, ancillary 7 staged, RSS 1(home), image refs 225/files 21 PASS.
+
 ## 2026-08-19 — 경기 베이비 플랫폼 시작
 
 - 대상 범위를 경기 31개 시·군 중 가평·이천·양평·여주 제외 27개로 확정했다.
@@ -134,7 +184,7 @@
   query, fragment, credentials, `.invalid`, 비 URL origin도 별도로 차단한다.
 - Playwright 1.62.0과 대응 Chromium을 사용하는 production browser 게이트를
   추가했다. v1 고양, v2 안산, v3 화성, v4 부천, v5 성남, v6 수원의 홈,
-  `/areas/`, 첫 구 허브, 첫 말단을 desktop 1440×1000과 mobile 390×844의
+  `/areas/`, 첫 구 지역 안내, 첫 말단을 desktop 1440×1000과 mobile 390×844의
   새 context에서 검사한다.
 - 각 context는 Service Worker와 cache를 끄고 클릭·입력·hover 없이 load,
   font 준비, 단계별 scroll만 수행한다. Playwright request와 CDP initiator

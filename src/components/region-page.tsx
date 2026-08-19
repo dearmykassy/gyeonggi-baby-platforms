@@ -1,18 +1,14 @@
 import {
-  FaqSection,
   InteriorHero,
   Narrative,
   PhotoSection,
-  PricingPreview,
-  ProcessSection,
   RegionDirectory,
-  StandardsSection,
   type BreadcrumbItem,
   type DirectoryItem,
   type NarrativeSection,
 } from "@/components/content-blocks";
 import { ResponsivePicture } from "@/components/responsive-picture";
-import { buildRegionServiceFaqs } from "@/data/service-guide";
+import { SiteLink } from "@/components/site-link";
 import { getRegionImageSet } from "@/lib/images";
 import { normalizeLayoutVariant } from "@/components/template11-home";
 
@@ -72,18 +68,19 @@ export function RegionPage({
       </figure>
       <div className="region-page__content content-frame">
         <Narrative sections={firstHalf} />
-        <ProcessSection heading={`${regionName} 이용 순서`} />
-        <PricingPreview heading={`${regionName} 코스·가격 확인`} />
         <PhotoSection
           alt={images.bodyAAlt}
-          caption="코스명과 이용 시간을 가격표와 대조한 뒤 현장 후불로 결제합니다."
+          caption={`${regionName} 경로의 상위·직계·인접 지역을 확인한 뒤 상세 주소를 준비합니다.`}
           reverse={regionPath.length % 2 === 0}
           sources={images.bodyA}
         />
         {secondHalf.length ? <Narrative className="narrative--second" sections={secondHalf} /> : null}
-        {content.detailMode !== "leaf" ? <StandardsSection heading={`${regionName} 운영 안내`} /> : null}
-        <div className="faq-intro"><p>{content.faqIntro}</p></div>
-        <FaqSection faqs={buildRegionServiceFaqs(regionName)} heading={`${regionName} 예약 전 질문`} />
+        <RegionalRouteLinks
+          breadcrumbs={breadcrumbs}
+          detailMode={content.detailMode}
+          regionName={regionName}
+          related={directoryItems}
+        />
         {/* The directory is deliberately the final general-content section. */}
         <RegionDirectory
           heading={content.childDirectory.heading}
@@ -92,5 +89,57 @@ export function RegionPage({
         />
       </div>
     </article>
+  );
+}
+
+function RegionalRouteLinks({
+  breadcrumbs,
+  detailMode,
+  regionName,
+  related,
+}: {
+  breadcrumbs: readonly BreadcrumbItem[];
+  detailMode: RegionPageContent["detailMode"];
+  regionName: string;
+  related: readonly DirectoryItem[];
+}) {
+  const parent = breadcrumbs.at(-2);
+  const contextual = [
+    { href: "/", label: "서비스 지역 홈", context: `${regionName}의 상위 지역 안내로 이동` },
+    ...(parent ? [{ href: parent.href, label: `${parent.label} 상위 경로`, context: "한 단계 위의 지역 목록 확인" }] : []),
+    ...related.slice(0, 2).map((item) => ({
+      href: item.href,
+      label: `${item.label} 인접 경로`,
+      context: item.context ?? "같은 단계의 지역 경로 확인",
+    })),
+    { href: "/pricing/", label: "코스·가격표", context: "공통 코스와 시간별 금액 확인" },
+    { href: "/guide/", label: "이용 방법", context: "전화 전에 준비할 항목 확인" },
+  ];
+  const links = contextual.filter(
+    (item, index, all) =>
+      all.findIndex((candidate) => candidate.href === item.href) === index,
+  );
+
+  return (
+    <section
+      className="route-link-summary"
+      data-leaf-link-summary={detailMode === "leaf" ? "" : undefined}
+      data-regional-link-summary
+    >
+      <div className="section-heading">
+        <p>NEXT PATH</p>
+        <h2>{regionName}에서 이어서 볼 페이지</h2>
+        <p>지역 사실은 이 문서에서, 공통 가격과 이용 절차는 고정 안내에서 나누어 확인합니다.</p>
+      </div>
+      <div className="route-link-summary__grid">
+        {links.map((item, index) => (
+          <SiteLink href={item.href} key={item.href}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{item.label}</strong>
+            <small>{item.context}</small>
+          </SiteLink>
+        ))}
+      </div>
+    </section>
   );
 }

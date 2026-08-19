@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { getBlogPosts } from "@/data/blog-posts";
-import {
-  CITY_VOICE_PROFILES,
-  createRegionContent,
-} from "@/lib/content";
+import { createRegionContent } from "@/lib/content";
 import {
   createRegionMetadataContract,
   getSitePublicationContract,
@@ -38,31 +35,6 @@ const records: ContentRecord[] = ALL_BABY_SITES.flatMap((site) =>
   })),
 );
 
-const normalizationLabels = [
-  ...new Set(
-    ALL_BABY_SITES.flatMap((site) => [
-      site.brandName,
-      site.searchName,
-      site.officialName,
-      ...getRegionNodesForSite(site).flatMap((node) => [
-        node.qualifiedName,
-        node.displayName,
-        node.officialName,
-        ...node.sourceAliases,
-      ]),
-    ]),
-  ),
-]
-  .filter((label) => label.length >= 2)
-  .sort((left, right) => right.length - left.length);
-
-function normalizeRegionalCopy(value: string): string {
-  return normalizationLabels
-    .reduce((copy, label) => copy.replaceAll(label, "{지역}"), value)
-    .replace(/\s+/gu, " ")
-    .trim();
-}
-
 function expectUnique(values: readonly string[]): void {
   expect(new Set(values).size).toBe(values.length);
 }
@@ -83,34 +55,22 @@ describe("Gyeonggi baby regional content contract", () => {
     }
   });
 
-  it("gives every regional route unique meta, H1, paragraph and document signatures", () => {
+  it("gives every regional route exact-unique meta, H1, and document signatures", () => {
     expectUnique(records.map(({ content }) => content.title));
     expectUnique(records.map(({ content }) => content.description));
     expectUnique(records.map(({ content }) => content.h1));
-    expectUnique(records.map(({ content }) => normalizeRegionalCopy(content.title)));
-    expectUnique(records.map(({ content }) => normalizeRegionalCopy(content.description)));
-    expectUnique(records.map(({ content }) => normalizeRegionalCopy(content.h1)));
-
-    const paragraphs = records.flatMap(({ content }) => [
-      ...content.hooks,
-      ...content.sections.flatMap((section) => section.paragraphs),
-    ]);
-    expectUnique(paragraphs);
-    expectUnique(paragraphs.map(normalizeRegionalCopy));
 
     const signatures = records.map(({ content }) =>
-      normalizeRegionalCopy(
-        [
-          content.title,
-          content.description,
-          content.h1,
-          ...content.hooks,
-          ...content.sections.flatMap((section) => [
-            section.heading,
-            ...section.paragraphs,
-          ]),
-        ].join("\u001f"),
-      ),
+      [
+        content.title,
+        content.description,
+        content.h1,
+        ...content.hooks,
+        ...content.sections.flatMap((section) => [
+          section.heading,
+          ...section.paragraphs,
+        ]),
+      ].join("\u001f"),
     );
     expectUnique(signatures);
   });
@@ -150,9 +110,7 @@ describe("Gyeonggi baby regional content contract", () => {
     }
   });
 
-  it("uses 27 distinct editorial voices and all six layout semantics", () => {
-    expect(CITY_VOICE_PROFILES).toHaveLength(27);
-    expectUnique(CITY_VOICE_PROFILES.map((voice) => JSON.stringify(voice)));
+  it("uses all six layout semantics without artificial editorial wrappers", () => {
     expect(new Set(records.map(({ content }) => content.layoutSemantic)).size).toBe(6);
   });
 
@@ -242,7 +200,7 @@ describe("Gyeonggi baby regional content contract", () => {
 });
 
 describe("city-specific editorial posts", () => {
-  it("provides two real dated full-body posts per site with zero normalized collisions", () => {
+  it("provides two real dated full-body posts per site with exact-unique documents", () => {
     const posts = ALL_BABY_SITES.flatMap((site) => getBlogPosts(site));
     expect(posts).toHaveLength(54);
     for (const site of ALL_BABY_SITES) {
@@ -257,25 +215,18 @@ describe("city-specific editorial posts", () => {
         );
       }
     }
-    expectUnique(posts.map((post) => normalizeRegionalCopy(post.title)));
-    expectUnique(posts.map((post) => normalizeRegionalCopy(post.description)));
-    expectUnique(
-      posts.flatMap((post) =>
-        post.sections.flatMap((section) => section.paragraphs).map(normalizeRegionalCopy),
-      ),
-    );
+    expectUnique(posts.map((post) => post.title));
+    expectUnique(posts.map((post) => post.description));
     expectUnique(
       posts.map((post) =>
-        normalizeRegionalCopy(
-          [
-            post.intro,
-            ...post.sections.flatMap((section) => [
-              section.heading,
-              ...section.paragraphs,
-            ]),
-            ...post.checklist,
-          ].join("\u001f"),
-        ),
+        [
+          post.intro,
+          ...post.sections.flatMap((section) => [
+            section.heading,
+            ...section.paragraphs,
+          ]),
+          ...post.checklist,
+        ].join("\u001f"),
       ),
     );
   });

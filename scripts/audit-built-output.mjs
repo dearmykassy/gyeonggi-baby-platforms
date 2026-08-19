@@ -34,10 +34,12 @@ const locs = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => ma
 const lastmods = [...sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/gu)].map(
   (match) => match[1],
 );
-const expectedUrlCount = site.counts.regionalCanonicals + 7;
+const expectedSitemapUrls = [new URL("/", origin).href];
+const expectedUrlCount = expectedSitemapUrls.length;
 if (
   locs.length !== expectedUrlCount ||
   new Set(locs).size !== locs.length ||
+  JSON.stringify(locs) !== JSON.stringify(expectedSitemapUrls) ||
   lastmods.length !== expectedUrlCount ||
   sitemapXml.includes("<priority>") ||
   sitemapXml.includes("<changefreq>")
@@ -61,7 +63,35 @@ function htmlPathFor(url) {
 
 let imageReferences = 0;
 const checkedImageFiles = new Set();
-for (const loc of locs) {
+const districtPaths = site.districtNames.map(
+  (district) => `/areas/${encodeURIComponent(district)}/`,
+);
+const regionalPaths = [
+  "/",
+  ...districtPaths,
+  ...site.regions.map((region) => region.path),
+];
+if (
+  regionalPaths.length !== site.counts.regionalCanonicals ||
+  new Set(regionalPaths).size !== regionalPaths.length
+) {
+  throw new Error(
+    `BABY_AUDIT_REGIONAL_INVENTORY:${site.key}:${regionalPaths.length}:${site.counts.regionalCanonicals}`,
+  );
+}
+const ancillaryPaths = [
+  "/areas/",
+  "/pricing/",
+  "/guide/",
+  "/notice/",
+  "/blog/",
+  `/blog/${site.key}-address-call-note/`,
+  `/blog/${site.key}-course-onsite-check/`,
+];
+const expectedHtmlPaths = [...regionalPaths, ...ancillaryPaths];
+
+for (const routePath of expectedHtmlPaths) {
+  const loc = new URL(routePath, origin).href;
   const parsed = new URL(loc);
   if (parsed.origin !== origin || parsed.search || parsed.hash || !parsed.pathname.endsWith("/")) {
     throw new Error(`BABY_AUDIT_CANONICAL_URL_INVALID:${site.key}:${loc}`);
@@ -75,7 +105,16 @@ for (const loc of locs) {
   }
   const robotsTag = html.match(/<meta[^>]*name="robots"[^>]*>/u)?.[0] ?? "";
   const robotsContent = robotsTag.match(/content="([^"]+)"/u)?.[1] ?? "";
-  if (indexable ? !/index,\s*follow/u.test(robotsContent) : !/noindex,\s*nofollow/u.test(robotsContent)) {
+  const robotsTokens = new Set(
+    robotsContent.split(",").map((token) => token.trim()).filter(Boolean),
+  );
+  const routeIndexable = indexable && routePath === "/";
+  const expectedIndexToken = routeIndexable ? "index" : "noindex";
+  const expectedFollowToken = indexable ? "follow" : "nofollow";
+  if (
+    !robotsTokens.has(expectedIndexToken) ||
+    !robotsTokens.has(expectedFollowToken)
+  ) {
     throw new Error(`BABY_AUDIT_ROBOTS_META:${site.key}:${loc}:${robotsContent}`);
   }
   if ((html.match(/<h1(?:\s|>)/gu) ?? []).length !== 1) {
@@ -100,10 +139,14 @@ if (indexable ? !robotsText.includes("Allow: /") : !robotsText.includes("Disallo
   throw new Error(`BABY_AUDIT_ROBOTS_FILE:${site.key}`);
 }
 const rssXml = await readFile(path.join(output, "rss.xml"), "utf8");
+const expectedHomeUrl = new URL("/", origin).href;
 if (
-  (rssXml.match(/<item>/gu) ?? []).length !== 2 ||
-  (rssXml.match(/<content:encoded>/gu) ?? []).length !== 2 ||
-  !rssXml.includes("<language>ko-KR</language>")
+  (rssXml.match(/<item>/gu) ?? []).length !== 1 ||
+  (rssXml.match(/<content:encoded>/gu) ?? []).length !== 1 ||
+  !rssXml.includes("<language>ko-KR</language>") ||
+  !rssXml.includes(`<guid isPermaLink="true">${expectedHomeUrl}</guid>`) ||
+  !rssXml.includes(`<link>${expectedHomeUrl}</link>`) ||
+  rssXml.includes("/blog/")
 ) {
   throw new Error(`BABY_AUDIT_RSS:${site.key}`);
 }
@@ -137,7 +180,10 @@ console.log(
       origin,
       sitemapUrls: locs.length,
       lastmods: lastmods.length,
-      rssItems: 2,
+      regionalPages: regionalPaths.length,
+      stagedRegionalPages: regionalPaths.length - 1,
+      stagedAncillaryPages: ancillaryPaths.length,
+      rssItems: 1,
       imageReferences,
       imageFiles: checkedImageFiles.size,
     },

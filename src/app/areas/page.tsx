@@ -51,7 +51,7 @@ export default function AreasPage() {
         </section>
         <section className="fixed-intro">
           <h2>지역 경로 확인 방법</h2>
-          <p>구가 있는 곳은 구 허브에서 대표 동으로 이동하고, 구가 없는 곳은 아래 대표 지역에서 바로 상세 안내를 엽니다. 다른 시·군 경로는 포함하지 않습니다.</p>
+          <p>구가 있는 곳은 구 지역 안내에서 동을 선택하고, 구가 없는 곳은 아래 읍·면·동 지역에서 바로 상세 안내를 엽니다. 다른 시·군 경로는 포함하지 않습니다.</p>
         </section>
         {/* Directory remains the last general-content section. */}
         <RegionDirectory

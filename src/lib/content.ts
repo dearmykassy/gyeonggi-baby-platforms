@@ -1,49 +1,18 @@
 import {
+  getCityFactProfile,
+  type CityOfficialSource,
+} from "@/data/city-fact-profiles";
+import {
   ACTIVE_SITE,
   ALL_BABY_SITES,
   type BabySiteConfig,
 } from "@/lib/site-config";
 import {
+  getRegionChildrenForSite,
   getRegionNodesForSite,
+  getRegionParentForSite,
   type BabyRegionNode,
 } from "@/lib/regions";
-
-export const REGION_KEYWORD_SUFFIXES = [
-  "출장마사지",
-  "출장안마",
-  "타이마사지",
-  "아로마마사지",
-  "2인마사지",
-  "현장후불",
-  "24시간전화상담",
-] as const;
-
-export const ROOT_AND_DISTRICT_SECTION_IDS = [
-  "address-boundary",
-  "branch-overview",
-  "destination-note",
-  "schedule-check",
-  "course-choice",
-  "price-ledger",
-  "party-count",
-  "onsite-payment",
-  "supplies-hygiene",
-  "call-recap",
-  "child-directory",
-] as const;
-
-export const LEAF_SECTION_IDS = [
-  "address-level",
-  "source-aliases",
-  "destination-detail",
-  "schedule-note",
-  "course-time",
-  "party-count",
-  "onsite-payment",
-  "supplies-hygiene",
-  "change-recap",
-  "related-region-directory",
-] as const;
 
 export type ContentSection = {
   id: string;
@@ -67,6 +36,7 @@ export type RegionContent = {
   faqIntro: string;
   childDirectory: ChildDirectoryContent;
   ctaLabels: [string, string, string];
+  officialSources: readonly CityOfficialSource[];
   detailMode: "root" | "district" | "leaf";
   layoutSemantic:
     | "address-ledger"
@@ -75,48 +45,40 @@ export type RegionContent = {
     | "schedule-board"
     | "branch-map"
     | "settlement-checklist";
+  indexEligible: boolean;
+  indexEligibilityReason:
+    | "city-home"
+    | "deferred-district-route"
+    | "deferred-regional-route";
+  indexEligibilityTargetPath: string | null;
 };
 
-type VoiceProfile = {
-  lead: string;
-  method: string;
-  recap: string;
+type GraphFacts = {
+  node: BabyRegionNode;
+  site: BabySiteConfig;
+  label: string;
+  children: readonly BabyRegionNode[];
+  parent: BabyRegionNode | null;
+  siblings: readonly BabyRegionNode[];
+  siblingIndex: number;
+  previous: BabyRegionNode | null;
+  next: BabyRegionNode | null;
+  aliases: readonly string[];
+  legalNames: readonly string[];
+  cityDistricts: readonly BabyRegionNode[];
+  cityLeaves: readonly BabyRegionNode[];
+  directCityLeaves: readonly BabyRegionNode[];
+  nestedCityLeaves: readonly BabyRegionNode[];
+  mergedChildren: readonly BabyRegionNode[];
+  aliasedChildren: readonly BabyRegionNode[];
+  multiLegalChildren: readonly BabyRegionNode[];
 };
 
-/**
- * One editorial voice per city. These are deliberately semantic differences,
- * not brand-name substitution: each voice changes how the same verified owner
- * facts are explained and checked.
- */
-export const CITY_VOICE_PROFILES = [
-  { lead: "주소표처럼 간결하게 읽습니다", method: "칸을 나눠 대조합니다", recap: "빠진 칸만 다시 확인합니다" },
-  { lead: "통화 순서를 중심으로 정리합니다", method: "말할 차례대로 적습니다", recap: "바뀐 항목을 끝에 되짚습니다" },
-  { lead: "경로의 위아래 관계부터 살핍니다", method: "상위와 하위를 연결합니다", recap: "최종 경로를 한 번 더 읽습니다" },
-  { lead: "짧은 예약 메모 형식으로 안내합니다", method: "한 줄에 한 항목만 둡니다", recap: "메모와 통화 내용을 맞춥니다" },
-  { lead: "코스 선택 전에 주소를 고정합니다", method: "주소와 가격표를 분리합니다", recap: "두 목록의 선택값을 확인합니다" },
-  { lead: "일정표를 작성하듯 차분히 봅니다", method: "날짜와 시간을 따로 적습니다", recap: "확정한 순서를 보존합니다" },
-  { lead: "처음 문의하는 사람 기준으로 풉니다", method: "낯선 용어를 순서로 바꿉니다", recap: "첫 통화에 필요한 값만 남깁니다" },
-  { lead: "주소 탐색과 전화 준비를 함께 엮습니다", method: "지역 카드와 메모를 맞춥니다", recap: "선택한 경로를 통화에서 확인합니다" },
-  { lead: "현장 결제까지 역순으로 점검합니다", method: "마지막 단계에서 거꾸로 봅니다", recap: "처음 주소까지 되돌아갑니다" },
-  { lead: "두 사람 이용 상황을 기준으로 나눕니다", method: "사람별 선택을 두 줄로 둡니다", recap: "공통 주소와 개별 코스를 구분합니다" },
-  { lead: "가격표 행을 기준 삼아 설명합니다", method: "코스와 시간을 같은 행에서 봅니다", recap: "선택한 금액 행을 다시 찾습니다" },
-  { lead: "상담 전에 필요한 사실만 남깁니다", method: "추정 없이 확인값을 적습니다", recap: "확인되지 않은 내용은 전화로 넘깁니다" },
-  { lead: "주소의 가지 수를 먼저 보여줍니다", method: "직계 경로부터 좁혀갑니다", recap: "마지막 주소 단계에서 멈춥니다" },
-  { lead: "선택과 확인을 두 단계로 구분합니다", method: "화면 선택 뒤 전화 확인을 둡니다", recap: "두 단계가 같은지 대조합니다" },
-  { lead: "이용 전 체크리스트 흐름으로 적습니다", method: "완료한 항목을 하나씩 지웁니다", recap: "남은 확인사항만 통화로 묻습니다" },
-  { lead: "상세 주소 보호를 우선해 안내합니다", method: "공개 경로와 전화 정보를 나눕니다", recap: "민감한 주소는 통화에만 남깁니다" },
-  { lead: "코스보다 이용 조건을 먼저 맞춥니다", method: "인원과 일정을 앞에 둡니다", recap: "코스는 조건 뒤에서 선택합니다" },
-  { lead: "변경 가능성을 고려해 메모합니다", method: "기존 값과 새 값을 나란히 둡니다", recap: "새 값만 마지막에 다시 읽습니다" },
-  { lead: "상위 지역에서 현재 위치까지 내려옵니다", method: "한 단계씩 경로를 좁힙니다", recap: "현재 단계와 상세 주소를 구분합니다" },
-  { lead: "현금과 카드 선택까지 한 흐름으로 봅니다", method: "결제 항목을 예약 메모에 붙입니다", recap: "현장 후불 여부를 끝에 확인합니다" },
-  { lead: "시간과 금액을 섞지 않게 구성합니다", method: "시각과 이용 시간을 따로 둡니다", recap: "가격표의 시간 행만 다시 봅니다" },
-  { lead: "전화에서 읽기 쉬운 문장으로 줄입니다", method: "긴 주소를 단계별로 끊습니다", recap: "통화 끝에 짧게 요약합니다" },
-  { lead: "현재 지역과 같은 단계도 함께 봅니다", method: "형제 경로를 나란히 비교합니다", recap: "선택한 지역만 최종 메모에 둡니다" },
-  { lead: "준비와 확인의 경계를 분명히 합니다", method: "미리 정할 것과 물을 것을 나눕니다", recap: "전화 답변을 준비 메모에 반영합니다" },
-  { lead: "비품과 결제 기준까지 빠짐없이 봅니다", method: "운영 기준을 별도 묶음으로 둡니다", recap: "주소·코스 뒤 운영 기준을 확인합니다" },
-  { lead: "짧은 질문 여러 개로 순서를 만듭니다", method: "한 질문에 한 사실만 묻습니다", recap: "답을 받은 질문만 체크합니다" },
-  { lead: "지역 목록의 끝에서 전화 준비로 잇습니다", method: "디렉터리를 마지막에 배치합니다", recap: "고른 주소를 상담 항목에 옮깁니다" },
-] as const satisfies readonly VoiceProfile[];
+type DraftSection = {
+  id: string;
+  heading: string;
+  paragraphs: [string, string];
+};
 
 const LAYOUT_SEMANTICS = [
   "address-ledger",
@@ -127,44 +89,6 @@ const LAYOUT_SEMANTICS = [
   "settlement-checklist",
 ] as const satisfies readonly RegionContent["layoutSemantic"][];
 
-const TITLE_LEFT = [
-  "주소 준비", "지역 경로", "전화 순서", "일정 메모", "코스 확인", "가격표 대조",
-  "이용 인원", "현장 후불", "카드 결제", "2인 문의", "상세 주소", "예약 항목",
-  "시간 선택", "변경 확인", "비품 기준", "소독 원칙", "첫 문의", "주소 단계",
-  "코스 시간", "상담 준비", "도로명 확인", "건물명 메모", "이용 절차", "지역 선택",
-] as const;
-
-const TITLE_RIGHT = [
-  "통화 안내", "확인 기록", "선택 가이드", "준비 목록", "현장 기준",
-  "순서 정리", "주소 안내", "가격 안내", "결제 안내", "문의 가이드",
-  "경로 안내", "메모 방법", "이용 안내", "항목 점검", "전화 메모",
-  "예약 확인", "코스 안내", "일정 확인", "주소 대조", "마지막 점검",
-] as const;
-
-const EDITORIAL_OPENERS = [
-  "첫 항목을 확인한 뒤", "현재 화면의 값을 읽고", "앞 단계와 연결해 보고",
-  "준비 메모의 한 줄을 비워 두고", "선택한 이름을 소리 내어 읽고", "두 값을 서로 다른 칸에 두고",
-  "한 번에 한 항목만 살피고", "표시된 순서를 그대로 따라가고", "같은 줄의 값을 대조하고",
-  "마지막 확인 칸을 남겨 두고", "기존 값과 새 값을 구분하고", "전화에서 읽을 차례를 정하고",
-  "바로 아래 단계부터 살피고", "같은 높이의 항목을 나란히 보고", "공개 정보와 통화 정보를 나누고",
-  "서로 다른 선택을 두 줄에 두고", "상담에서 물을 부분을 표시하고", "확인된 답만 기록으로 옮기고",
-  "운영 기준을 별도 묶음으로 보고", "전후 단계를 각각 확인하고", "선택 가능한 방법을 구분하고",
-  "사람별 항목을 나누어 적고", "변경 여부를 먼저 표시하고", "본문 확인을 모두 마친 뒤",
-] as const;
-
-const EDITORIAL_CLOSERS = [
-  "확인한 결과는 전화 메모와 맞춥니다.", "다음 항목으로 넘어가기 전에 한 줄을 대조합니다.",
-  "확인되지 않은 내용은 추정하지 않습니다.", "화면 선택과 통화 확인의 역할을 구분합니다.",
-  "현재 값은 변경 전 메모와 섞지 않습니다.", "선택한 한 항목만 마지막 기록에 남깁니다.",
-  "사람별 선택이 섞이지 않았는지 살핍니다.", "완료한 항목에는 다시 확인 표시를 남깁니다.",
-  "새 값이 생기면 기존 값 옆에 따로 적습니다.", "첫 문의에 필요한 사실만 순서대로 전달합니다.",
-  "주소 단계와 상세 위치를 서로 다른 줄로 둡니다.", "공개되지 않은 조합은 임의로 만들지 않습니다.",
-  "통화에서 받은 답을 준비 메모에 반영합니다.", "운영 기준은 주소 정보와 별도 묶음으로 봅니다.",
-  "지역 목록은 실제 주소를 고르는 데만 사용합니다.", "전화 전 기록과 상담 답변을 서로 대조합니다.",
-  "숫자의 뜻이 서로 다른지 한 번 더 살핍니다.", "상위와 현재 단계의 순서를 바꾸지 않습니다.",
-  "마무리에서는 확인된 항목만 짧게 읽습니다.", "마지막 목록 뒤에서 상세 정보를 준비합니다.",
-] as const;
-
 function siteIndex(site: BabySiteConfig): number {
   const index = ALL_BABY_SITES.findIndex((candidate) => candidate.key === site.key);
   if (index < 0) throw new Error(`BABY_CONTENT_UNKNOWN_SITE:${site.key}`);
@@ -172,411 +96,635 @@ function siteIndex(site: BabySiteConfig): number {
 }
 
 function siteNodes(site: BabySiteConfig): readonly BabyRegionNode[] {
-  return getRegionNodesForSite(site.key);
+  return getRegionNodesForSite(site);
 }
 
-function globalRouteIndex(site: BabySiteConfig, node: BabyRegionNode): number {
-  let offset = 0;
-  for (const candidate of ALL_BABY_SITES) {
-    const nodes = siteNodes(candidate);
-    if (candidate.key === site.key) {
-      const local = nodes.findIndex((entry) => entry.path === node.path);
-      if (local < 0) {
-        throw new Error(`BABY_CONTENT_NODE_OUTSIDE_SITE:${site.key}:${node.path}`);
-      }
-      return offset + local;
-    }
-    offset += nodes.length;
-  }
-  throw new Error(`BABY_CONTENT_UNKNOWN_SITE:${site.key}`);
+function uniqueStrings(values: readonly string[]): readonly string[] {
+  return [...new Set(values.filter(Boolean))];
 }
 
-function directChildren(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-): readonly BabyRegionNode[] {
-  const expectedLength = node.segments.length + 1;
-  return siteNodes(site).filter(
-    (candidate) =>
-      candidate.segments.length === expectedLength &&
-      node.segments.every((segment, index) => candidate.segments[index] === segment),
+function compactNames(values: readonly string[], limit = 6): string {
+  if (values.length === 0) return "별도 항목 없음";
+  const visible = values.slice(0, limit).join("·");
+  return values.length > limit ? `${visible} 외 ${values.length - limit}개` : visible;
+}
+
+function sourceAliases(node: BabyRegionNode): readonly string[] {
+  return uniqueStrings(
+    node.records.flatMap((record) => [...record.sourceNames, record.name]),
+  ).filter((name) => name !== node.displayName);
+}
+
+function legalAreaNames(node: BabyRegionNode): readonly string[] {
+  return uniqueStrings(
+    node.records.flatMap((record) => record.legalAreas.map((area) => area.name)),
   );
 }
 
-function parentNode(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-): BabyRegionNode | null {
-  if (node.segments.length === 0) return null;
-  const expected = node.segments.slice(0, -1);
-  return (
-    siteNodes(site).find(
-      (candidate) =>
-        candidate.segments.length === expected.length &&
-        expected.every((segment, index) => candidate.segments[index] === segment),
-    ) ?? null
-  );
+function routeTypeLabel(node: BabyRegionNode): string {
+  if (node.kind === "home") return "지역 안내";
+  if (node.kind === "district") return "구 지역 안내";
+  if (node.displayName.endsWith("읍")) return "읍 지역 안내";
+  if (node.displayName.endsWith("면")) return "면 지역 안내";
+  return "동 지역 안내";
 }
 
-function sourceAliases(node: BabyRegionNode): string[] {
-  const structural = node as BabyRegionNode & {
-    records?: readonly { sourceNames?: readonly string[]; name?: string }[];
-    representative?: { sourceNames?: readonly string[] };
-  };
-  const aliases = [
-    ...(structural.representative?.sourceNames ?? []),
-    ...(structural.records ?? []).flatMap((record) => [
-      ...(record.sourceNames ?? []),
-      ...(record.name ? [record.name] : []),
-    ]),
-  ];
-  return [...new Set(aliases)].filter((name) => name !== node.displayName);
+function localType(node: BabyRegionNode): "동" | "읍" | "면" {
+  if (node.displayName.endsWith("읍")) return "읍";
+  if (node.displayName.endsWith("면")) return "면";
+  return "동";
 }
 
-function qualifiedDisplayName(node: BabyRegionNode, site: BabySiteConfig): string {
-  if (node.kind === "home") return site.searchName;
-  const parent = parentNode(node, site);
-  if (node.kind === "district") return `${site.searchName} ${node.displayName}`;
-  if (parent?.kind === "district") {
-    return `${site.searchName} ${parent.displayName} ${node.displayName}`;
+function nodeTypeSummary(nodes: readonly BabyRegionNode[]): string {
+  const districts = nodes.filter((node) => node.kind === "district").length;
+  const towns = nodes.filter((node) => node.displayName.endsWith("읍")).length;
+  const townships = nodes.filter((node) => node.displayName.endsWith("면")).length;
+  const neighborhoods = nodes.filter((node) => node.displayName.endsWith("동")).length;
+  return [
+    districts ? `구 ${districts}개` : "",
+    neighborhoods ? `동 ${neighborhoods}개` : "",
+    towns ? `읍 ${towns}개` : "",
+    townships ? `면 ${townships}개` : "",
+  ].filter(Boolean).join("·") || "추가 하위 지역 없음";
+}
+
+function childTypeProfile(nodes: readonly BabyRegionNode[]): {
+  label: string;
+  sentence: string;
+} {
+  const hasDistrict = nodes.some((node) => node.kind === "district");
+  const hasDong = nodes.some((node) => node.displayName.endsWith("동"));
+  const hasEup = nodes.some((node) => node.displayName.endsWith("읍"));
+  const hasMyeon = nodes.some((node) => node.displayName.endsWith("면"));
+  if (hasDistrict && !hasDong && !hasEup && !hasMyeon) {
+    return {
+      label: "구부터 선택하는 지역",
+      sentence: "직계 목록은 모두 구 페이지이며, 읍·면·동은 각 구를 먼저 선택한 뒤 확인합니다.",
+    };
   }
-  return `${site.searchName} ${node.displayName}`;
-}
-
-function voiceFor(site: BabySiteConfig): VoiceProfile {
-  const voice = CITY_VOICE_PROFILES[siteIndex(site)];
-  if (!voice) throw new Error(`BABY_CONTENT_VOICE_MISSING:${site.key}`);
-  return voice;
-}
-
-function layoutFor(site: BabySiteConfig): RegionContent["layoutSemantic"] {
-  const layout = LAYOUT_SEMANTICS[siteIndex(site) % LAYOUT_SEMANTICS.length];
-  if (!layout) throw new Error(`BABY_CONTENT_LAYOUT_MISSING:${site.key}`);
-  return layout;
-}
-
-function cue(routeIndex: number, slot: number): { opener: string; closer: string } {
-  const opener = EDITORIAL_OPENERS[(routeIndex + slot * 7) % EDITORIAL_OPENERS.length];
-  const block = Math.floor(routeIndex / EDITORIAL_OPENERS.length);
-  const closer = EDITORIAL_CLOSERS[(block + slot * 11) % EDITORIAL_CLOSERS.length];
-  if (!opener || !closer) throw new Error("BABY_CONTENT_CUE_MISSING");
-  return { opener, closer };
-}
-
-function routeContext(node: BabyRegionNode, site: BabySiteConfig): string {
-  const label = qualifiedDisplayName(node, site);
-  const children = directChildren(node, site);
-  const parent = parentNode(node, site);
-  if (node.kind === "home") {
-    const sample = children.slice(0, 4).map((child) => child.displayName).join("·");
-    return `${label} 홈은 직계 지역 ${children.length}개${sample ? `(${sample}${children.length > 4 ? " 외" : ""})` : ""}로 이어집니다.`;
+  if (hasDong && !hasEup && !hasMyeon) {
+    return {
+      label: "동 지역만 있는 목록",
+      sentence: "직계 목록은 동 지역 페이지만으로 구성됩니다.",
+    };
   }
-  if (children.length > 0) {
-    const sample = children.slice(0, 4).map((child) => child.displayName).join("·");
-    return `${label} 아래에는 대표 주소 경로 ${children.length}개인 ${sample}${children.length > 4 ? " 외 항목" : ""}이 연결됩니다.`;
+  if (!hasDong && hasEup && hasMyeon) {
+    return {
+      label: "읍·면을 함께 찾는 목록",
+      sentence: "직계 목록은 읍과 면 지역 페이지를 함께 포함합니다.",
+    };
   }
-  const siblings = parent ? directChildren(parent, site) : [];
-  return `${label}은 ${qualifiedDisplayName(parent ?? node, site)} 아래 대표 주소 경로이며 같은 단계의 경로는 모두 ${siblings.length}개입니다.`;
-}
-
-function paragraph(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-  routeIndex: number,
-  slot: number,
-  fact: string,
-): string {
-  const voice = voiceFor(site);
-  const editorial = cue(routeIndex, slot);
-  const voiceSentence = [voice.lead, voice.method, voice.recap][slot % 3];
-  return `${voiceSentence}. ${editorial.opener}, ${fact} ${editorial.closer}`;
-}
-
-function section(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-  routeIndex: number,
-  slot: number,
-  id: string,
-  heading: string,
-  first: string,
-  second: string,
-): ContentSection {
-  const label = qualifiedDisplayName(node, site);
+  if (hasDong && hasEup && hasMyeon) {
+    return {
+      label: "동·읍·면을 함께 찾는 목록",
+      sentence: "직계 목록에서 동·읍·면 지역 페이지를 모두 확인할 수 있습니다.",
+    };
+  }
+  if (hasDong && hasMyeon && !hasEup) {
+    return {
+      label: "동·면을 함께 찾는 목록",
+      sentence: "직계 목록은 동과 면 지역 페이지로 나뉩니다.",
+    };
+  }
+  if (hasDong && hasEup && !hasMyeon) {
+    return {
+      label: "동·읍을 함께 찾는 목록",
+      sentence: "직계 목록은 동과 읍 지역 페이지로 나뉩니다.",
+    };
+  }
+  if (hasEup && !hasDong && !hasMyeon) {
+    return {
+      label: "읍 지역만 있는 목록",
+      sentence: "직계 목록은 읍 지역 페이지만으로 구성됩니다.",
+    };
+  }
+  if (hasMyeon && !hasDong && !hasEup) {
+    return {
+      label: "면 지역만 있는 목록",
+      sentence: "직계 목록은 면 지역 페이지만으로 구성됩니다.",
+    };
+  }
   return {
-    id,
-    heading: `${label} ${heading}`,
-    paragraphs: [
-      paragraph(node, site, routeIndex, slot * 2, first),
-      paragraph(node, site, routeIndex, slot * 2 + 1, second),
-    ],
+    label: "추가 지역 없음",
+    sentence: "현재 단계에서 더 내려가는 행정 지역은 없습니다.",
   };
 }
 
-type SectionSeed = {
-  id: string;
-  heading: string;
-  first: (node: BabyRegionNode, site: BabySiteConfig) => string;
-  second: (node: BabyRegionNode, site: BabySiteConfig) => string;
-};
+function qualifiedName(node: BabyRegionNode, site: BabySiteConfig): string {
+  return node.kind === "home"
+    ? site.searchName
+    : [site.searchName, ...node.segments].join(" ");
+}
 
-const SHARED_SECTION_SEEDS: Record<string, SectionSeed> = {
-  "destination-note": {
-    id: "destination-note",
-    heading: "받을 주소 메모",
-    first: () => "도로명, 건물 번호, 건물명을 행정 지역명과 별도 줄에 적습니다.",
-    second: () => "동·호수와 출입에 필요한 상세 내용은 공개 검색창이 아니라 전화상담에서 전달합니다.",
-  },
-  "schedule-check": {
-    id: "schedule-check",
-    heading: "날짜·시각 확인",
-    first: () => "희망 날짜와 시작 시각은 일정 항목이고 60·90·120분은 코스의 이용 시간 항목입니다.",
-    second: () => "실제 가능 여부는 상세 주소와 함께 24시간 전화상담에서 확인합니다.",
-  },
-  "course-choice": {
-    id: "course-choice",
-    heading: "코스 선택 기준",
-    first: () => "타이·아로마·힐링·스페셜·남성전용 가운데 원하는 코스명을 먼저 고릅니다.",
-    second: () => "오일 사용, 압, 스트레칭 비중과 집중 부위는 선택한 코스와 함께 상담에서 확인합니다.",
-  },
-  "price-ledger": {
-    id: "price-ledger",
-    heading: "시간별 가격표",
-    first: () => "일반 네 코스는 60·90·120분, 남성전용은 60·90분으로 가격표가 모두 14개 행입니다.",
-    second: () => "코스명과 이용 시간이 교차하는 한 행을 찾아 표시 금액을 확인합니다.",
-  },
-  "party-count": {
-    id: "party-count",
-    heading: "인원과 2인 프로그램",
-    first: () => "1인 이용인지 커플·부부 2인 동시 관리인지 전화 첫 부분에서 알립니다.",
-    second: () => "두 사람이 다른 코스나 시간을 고르면 사람별 선택을 두 줄로 나누어 확인합니다.",
-  },
-  "onsite-payment": {
-    id: "onsite-payment",
-    heading: "현장 후불 결제",
-    first: () => "사전 예약금이나 선입금 없이 관리를 마친 뒤 현장에서 결제합니다.",
-    second: () => "현금과 무선 카드 단말기 가운데 사용할 결제 방법을 전화에서 확인합니다.",
-  },
-  "supplies-hygiene": {
-    id: "supplies-hygiene",
-    heading: "비품·소독 기준",
-    first: () => "이용 비품은 일회용 항목을 사용한다는 운영 기준을 확인합니다.",
-    second: () => "관리 전과 관리 후에는 각각 소독 절차를 적용한다는 항목을 함께 봅니다.",
-  },
-  "call-recap": {
-    id: "call-recap",
-    heading: "전화 확인과 변경",
-    first: () => "주소, 날짜·시각, 인원, 코스·시간, 결제 방법 순서로 준비한 내용을 전달합니다.",
-    second: () => "주소나 일정, 인원, 코스가 바뀌면 기존 값과 새 값을 구분해 다시 확인합니다.",
-  },
-};
+function legalCount(node: BabyRegionNode): number {
+  return legalAreaNames(node).length;
+}
 
-const LAYOUT_SECTION_ORDERS: readonly (readonly string[])[] = [
-  ["address-boundary", "branch-overview", "destination-note", "schedule-check", "course-choice", "price-ledger", "party-count", "onsite-payment", "supplies-hygiene", "call-recap"],
-  ["address-boundary", "destination-note", "call-recap", "schedule-check", "party-count", "course-choice", "price-ledger", "supplies-hygiene", "onsite-payment", "branch-overview"],
-  ["course-choice", "price-ledger", "address-boundary", "branch-overview", "destination-note", "party-count", "schedule-check", "call-recap", "onsite-payment", "supplies-hygiene"],
-  ["schedule-check", "destination-note", "address-boundary", "branch-overview", "call-recap", "course-choice", "price-ledger", "party-count", "supplies-hygiene", "onsite-payment"],
-  ["branch-overview", "address-boundary", "destination-note", "course-choice", "schedule-check", "party-count", "price-ledger", "call-recap", "supplies-hygiene", "onsite-payment"],
-  ["onsite-payment", "supplies-hygiene", "party-count", "course-choice", "price-ledger", "schedule-check", "address-boundary", "branch-overview", "destination-note", "call-recap"],
-] as const;
-
-function rootOrDistrictSections(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-  routeIndex: number,
-): ContentSection[] {
-  const children = directChildren(node, site);
-  const childNames = children.slice(0, 5).map((child) => child.displayName).join("·");
-  const dynamic: Record<string, SectionSeed> = {
-    "address-boundary": {
-      id: "address-boundary",
-      heading: "주소 경계 읽기",
-      first: () => `이 페이지의 직계 하위 지역 수는 ${children.length}개이며 화면 경로는 그 실제 계층만 포함합니다.`,
-      second: () => `${childNames}${children.length > 5 ? " 외 지역" : ""} 가운데 받을 곳과 같은 주소 단계를 고릅니다.`,
-    },
-    "branch-overview": {
-      id: "branch-overview",
-      heading: "직계 지역 갈래",
-      first: () => `직계 카드 ${children.length}개는 다른 시·군을 섞지 않고 ${site.searchName} 아래 경로로만 구성됩니다.`,
-      second: () => "카드를 연 뒤에도 상위 지역과 현재 지역이 맞는지 breadcrumb 순서로 대조합니다.",
-    },
-    ...SHARED_SECTION_SEEDS,
+function buildFacts(node: BabyRegionNode, site: BabySiteConfig): GraphFacts {
+  const cityNodes = siteNodes(site);
+  const children = getRegionChildrenForSite(site, node);
+  const parent = getRegionParentForSite(site, node);
+  const siblings = parent ? getRegionChildrenForSite(site, parent) : [];
+  const siblingIndex = siblings.findIndex((candidate) => candidate.path === node.path);
+  const cityLeaves = cityNodes.filter((candidate) => candidate.kind === "representative");
+  const cityDistricts = cityNodes.filter((candidate) => candidate.kind === "district");
+  return {
+    node,
+    site,
+    label: qualifiedName(node, site),
+    children,
+    parent,
+    siblings,
+    siblingIndex,
+    previous: siblingIndex > 0 ? siblings[siblingIndex - 1] ?? null : null,
+    next:
+      siblingIndex >= 0 && siblingIndex < siblings.length - 1
+        ? siblings[siblingIndex + 1] ?? null
+        : null,
+    aliases: sourceAliases(node),
+    legalNames: legalAreaNames(node),
+    cityDistricts,
+    cityLeaves,
+    directCityLeaves: cityLeaves.filter((candidate) => candidate.segments.length === 1),
+    nestedCityLeaves: cityLeaves.filter((candidate) => candidate.segments.length === 2),
+    mergedChildren: children.filter((child) => child.sourceUnitCount > 1),
+    aliasedChildren: children.filter((child) => sourceAliases(child).length > 0),
+    multiLegalChildren: children.filter((child) => legalCount(child) > 1),
   };
-  const order = LAYOUT_SECTION_ORDERS[siteIndex(site) % LAYOUT_SECTION_ORDERS.length];
-  if (!order) throw new Error(`BABY_CONTENT_SECTION_ORDER_MISSING:${site.key}`);
-  const sections = order.map((id, slot) => {
-    const seed = dynamic[id];
-    if (!seed) throw new Error(`BABY_CONTENT_SECTION_SEED_MISSING:${id}`);
-    return section(
-      node,
-      site,
-      routeIndex,
-      slot,
-      seed.id,
-      seed.heading,
-      seed.first(node, site),
-      seed.second(node, site),
-    );
+}
+
+function toSection(section: DraftSection, facts: GraphFacts): ContentSection {
+  return {
+    ...section,
+    heading: `${facts.label} ${section.heading}`,
+  };
+}
+
+function mergedNameExplanation(nodes: readonly BabyRegionNode[]): string {
+  const examples = nodes.slice(0, 4).map((node) => {
+    const names = sourceAliases(node);
+    return names.length > 0
+      ? `${compactNames(names, 5)}은 ${node.displayName} 안내에서 함께 찾을 수 있습니다.`
+      : `${node.displayName}은 표시 이름 그대로 찾을 수 있습니다.`;
   });
-  sections.push(
-    section(
-      node,
-      site,
-      routeIndex,
-      sections.length,
-      "child-directory",
-      "하위 주소 디렉터리",
-      `마지막 목록에는 이 페이지에서 바로 이어지는 지역 ${children.length}개만 표시합니다.`,
-      "선택한 지역 뒤의 도로명과 건물명은 전화상담에서 이어서 전달합니다.",
-    ),
-  );
-  return sections;
+  if (nodes.length > 4) {
+    examples.push(
+      `나머지 ${nodes.length - 4}개 지역도 같은 방식으로 대표 이름에 연결합니다.`,
+    );
+  }
+  return examples.join(" ");
 }
 
-function leafSections(
-  node: BabyRegionNode,
-  site: BabySiteConfig,
-  routeIndex: number,
-): ContentSection[] {
-  const parent = parentNode(node, site);
-  const siblings = parent ? directChildren(parent, site) : [];
-  const aliases = sourceAliases(node);
-  const previous = siblings[(Math.max(0, siblings.findIndex((item) => item.path === node.path)) - 1 + siblings.length) % Math.max(1, siblings.length)];
-  const next = siblings[(Math.max(0, siblings.findIndex((item) => item.path === node.path)) + 1) % Math.max(1, siblings.length)];
-  const seeds: SectionSeed[] = [
+function naturalHomeSections(facts: GraphFacts): ContentSection[] {
+  const { site, children, cityDistricts, mergedChildren } = facts;
+  const profile = getCityFactProfile(site.key);
+  const childNames = children.map((child) => child.displayName);
+  const mergedRepresentatives = mergedChildren.filter(
+    (child) => child.kind === "representative",
+  );
+  const regionStructure =
+    cityDistricts.length > 0
+      ? `${site.searchName}에서는 ${cityDistricts
+          .map((item) => item.displayName)
+          .join("·")} 가운데 구를 먼저 선택하고, 해당 구의 동 지역을 이어서 확인합니다.`
+      : `${site.searchName} 홈에서 ${nodeTypeSummary(children)} 지역을 바로 선택할 수 있습니다.`;
+
+  return [
     {
-      id: "address-level",
-      heading: "현재 주소 단계",
-      first: () => `${node.displayName} 경로의 바로 위 단계는 ${parent ? qualifiedDisplayName(parent, site) : site.searchName}입니다.`,
-      second: () => `같은 상위 단계에는 현재 경로를 포함해 대표 주소 ${siblings.length}개가 놓입니다.`,
+      id: "city-address-context",
+      heading: profile.heading,
+      paragraphs: [...profile.paragraphs],
+    },
+    ...profile.sections.map((section) => ({
+      id: `city-fact-${section.id}`,
+      heading: section.heading,
+      paragraphs: [...section.paragraphs] as [string, string],
+    })),
+    {
+      id: "address-boundary",
+      heading: `${profile.addressAxes[0]} 기준과 함께 보는 지역 목록`,
+      paragraphs: [
+        `${regionStructure} 홈에서 바로 보이는 이름은 ${compactNames(childNames, 12)}입니다.`,
+        `${profile.addressAxes.join("·")} 같은 지명은 방향을 설명하는 보조 기준입니다. 최종 위치는 목록의 구·읍·면·동과 실제 도로명주소로 확인하세요.`,
+      ],
     },
     {
       id: "source-aliases",
-      heading: "주소 명칭 확인",
-      first: () => aliases.length > 0
-        ? `행정 자료에서 함께 묶인 주소 명칭은 ${aliases.slice(0, 5).join("·")}${aliases.length > 5 ? " 외 항목" : ""}입니다.`
-        : `${node.displayName} 경로는 별도 병합 명칭 없이 현재 표시 이름으로 확인합니다.`,
-      second: () => "같은 이름의 지역을 혼동하지 않도록 상위 지역과 현재 이름을 함께 읽습니다.",
+      heading: `${profile.addressAxes[1]} 주변의 행정동 이름 확인`,
+      paragraphs: [
+        mergedRepresentatives.length > 0
+          ? mergedNameExplanation(mergedRepresentatives)
+          : cityDistricts.length > 0
+            ? `${cityDistricts
+                .map((item) => item.displayName)
+                .join("·")} 구 페이지에서 행정동과 법정동 이름을 함께 확인할 수 있습니다.`
+            : `${site.searchName}의 동·읍·면은 지역 목록에 표시된 이름으로 각각 찾을 수 있습니다.`,
+        `${profile.addressAxes[1]} 같은 지형·시설 이름만으로 행정동을 확정하지 않습니다. 주소에 적힌 행정동 또는 법정동과 도로명을 함께 보세요.`,
+      ],
     },
     {
-      id: "destination-detail",
-      heading: "상세 도착지 메모",
-      first: () => "도로명, 건물 번호, 건물명과 출입에 필요한 내용을 서로 다른 항목으로 적습니다.",
-      second: () => "동·호수처럼 공개할 필요가 없는 상세 위치는 전화상담에서만 전달합니다.",
+      id: "reservation-address",
+      heading: `${profile.addressAxes.at(-1)} 쪽 주소를 전달할 때`,
+      paragraphs: [
+        `${profile.addressAxes.at(-1)} 쪽이라는 설명에 구·읍·면·동, 도로명, 건물명을 이어 적어 주세요. 숙소라면 출입 안내도 함께 확인합니다.`,
+        "산·하천·호수·역·공원·항구 이름은 주소를 보완하는 기준이며, 세부 방문 가능 여부는 정확한 주소와 희망 시각을 전화로 확인한 뒤 정합니다.",
+      ],
     },
     {
-      id: "schedule-note",
-      heading: "희망 일정 구분",
-      first: () => "날짜와 희망 시작 시각은 일정으로, 60·90·120분은 코스 이용 시간으로 구분합니다.",
-      second: () => "가능한 일정은 주소와 인원을 알린 뒤 24시간 전화상담에서 확인합니다.",
-    },
-    {
-      id: "course-time",
-      heading: "코스·이용 시간",
-      first: () => "타이·아로마·힐링·스페셜·남성전용 중 코스명을 고르고 해당 시간 행을 찾습니다.",
-      second: () => "일반 네 코스의 60·90·120분과 남성전용의 60·90분을 합친 14개 가격 행만 사용합니다.",
-    },
-    SHARED_SECTION_SEEDS["party-count"]!,
-    SHARED_SECTION_SEEDS["onsite-payment"]!,
-    SHARED_SECTION_SEEDS["supplies-hygiene"]!,
-    {
-      id: "change-recap",
-      heading: "통화 마무리",
-      first: () => "주소, 일정, 인원, 코스·시간, 결제 방법 순서로 상담 내용을 다시 읽습니다.",
-      second: () => "한 항목이 바뀌면 이전 값과 새 값을 구분하고 변경된 부분을 다시 확인합니다.",
+      id: "fixed-guide-handoff",
+      heading: `${profile.addressAxes.slice(0, 2).join("와 ")} 주소 확인 뒤 볼 안내`,
+      paragraphs: [
+        `${profile.addressAxes[0]} 또는 ${profile.addressAxes[1]} 쪽 주소를 정했다면 코스별 시간과 금액은 코스·가격 페이지에서 확인할 수 있습니다.`,
+        "전화 전에 준비할 항목과 현장 후불 기준은 이용 방법 페이지에 따로 정리돼 있습니다. 같은 가격표와 절차를 지역 본문마다 반복하지 않습니다.",
+      ],
     },
   ];
-  const sections = seeds.map((seed, slot) =>
-    section(
-      node,
-      site,
-      routeIndex,
-      slot,
-      seed.id,
-      seed.heading,
-      seed.first(node, site),
-      seed.second(node, site),
-    ),
-  );
-  const related = [previous, next]
-    .filter((candidate): candidate is BabyRegionNode => Boolean(candidate) && candidate?.path !== node.path)
-    .filter((candidate, index, all) => all.findIndex((item) => item.path === candidate.path) === index);
-  sections.push(
-    section(
-      node,
-      site,
-      routeIndex,
-      sections.length,
-      "related-region-directory",
-      "같은 단계 지역 디렉터리",
-      related.length > 0
-        ? `같은 상위 주소에서 앞뒤로 확인할 수 있는 경로는 ${related.map((item) => item.displayName).join("·")}입니다.`
-        : "같은 상위 주소에 별도 대표 경로가 없으므로 현재 지역 다음에는 상세 주소를 준비합니다.",
-      "관련 지역 목록은 본문 확인을 마친 뒤 주소를 다시 고를 때 사용합니다.",
-    ),
-  );
-  return sections;
 }
 
-export function isBroadDetailRegion(node: BabyRegionNode): boolean {
-  return node.kind !== "representative";
+function naturalDistrictSections(facts: GraphFacts): ContentSection[] {
+  const {
+    node,
+    site,
+    children,
+    parent,
+    siblings,
+    siblingIndex,
+    aliases,
+    legalNames,
+    cityDistricts,
+    cityLeaves,
+    directCityLeaves,
+    nestedCityLeaves,
+    mergedChildren,
+    aliasedChildren,
+    multiLegalChildren,
+  } = facts;
+  const label = facts.label;
+  const childNames = children.map((child) => child.displayName);
+  const parentLabel = parent ? qualifiedName(parent, site) : site.searchName;
+  const typeProfile = childTypeProfile(children);
+  const addressOrder = `${site.searchName} → ${node.segments.join(" → ")}`;
+  const namedMergedChildren = mergedChildren.filter(
+    (child) => child.kind === "representative",
+  );
+  const namedAliasedChildren = aliasedChildren.filter(
+    (child) => child.kind === "representative",
+  );
+  const namedMultiLegalChildren = multiLegalChildren.filter(
+    (child) => child.kind === "representative",
+  );
+  const drafts: DraftSection[] = [
+    {
+      id: "address-boundary",
+      heading: "이 페이지에서 이어지는 지역",
+      paragraphs: [
+        `${label} 페이지에서 바로 열 수 있는 하위 지역은 ${children.length}개입니다. 화면에 표시된 읍·면·동 이름을 선택하면 해당 지역 안내로 이동합니다.`,
+        `지역 이름은 ${compactNames(childNames, 12)}이며, 전체 링크는 페이지 마지막 지역 목록에서 확인할 수 있습니다.`,
+      ],
+    },
+    {
+      id: "route-depth",
+      heading: "구와 동을 차례로 확인하는 주소 순서",
+      paragraphs: [
+        `${label}은 ${addressOrder} 순서로 찾습니다. 현재 구 이름과 다음 읍·면·동 이름을 차례로 확인하세요.`,
+        "구 페이지를 먼저 연 뒤 해당 읍·면·동을 선택합니다. 구를 건너뛴 별도 주소 페이지는 만들지 않습니다.",
+      ],
+    },
+    {
+      id: "branch-types",
+      heading: typeProfile.label,
+      paragraphs: [
+        `${label}의 직계 지역은 ${nodeTypeSummary(children)}로 구성됩니다. ${typeProfile.sentence}`,
+        "화면에 표시된 행정 단계만 선택하면 다음 지역 페이지로 이동합니다.",
+      ],
+    },
+    {
+      id: "source-aliases",
+      heading:
+        namedMergedChildren.length > 0 || aliases.length > 0
+          ? "여러 행정동 이름을 함께 찾는 방법"
+          : "표시 이름과 행정동 이름 확인",
+      paragraphs: [
+        namedMergedChildren.length > 0
+          ? mergedNameExplanation(namedMergedChildren)
+          : "이 단계의 하위 지역은 표시된 행정동 이름으로 각각 찾을 수 있습니다.",
+        namedAliasedChildren.length > 0
+          ? `표시 이름 외에 함께 확인할 행정동 이름이 있는 하위 지역은 ${namedAliasedChildren.length}개입니다. 주소가 다르게 보이면 상위 지역 이름을 함께 확인하세요.`
+          : "지역 카드에 표시된 읍·면·동 이름을 실제 주소와 맞춰 확인하세요.",
+      ],
+    },
+    {
+      id: "legal-area-map",
+      heading:
+        namedMultiLegalChildren.length > 0 || legalNames.length > 1
+          ? "행정동과 법정동 이름이 다른 경우"
+          : "행정동과 법정동 이름 맞추기",
+      paragraphs: [
+        namedMultiLegalChildren.length > 0
+          ? `법정동 이름을 둘 이상 포함한 하위 지역은 ${namedMultiLegalChildren.length}개입니다. 행정동 이름과 도로명주소의 법정동 이름이 다를 수 있습니다.`
+          : "하위 지역마다 확인된 법정동 이름을 함께 연결해 주소 이름 차이를 확인할 수 있습니다.",
+        "전화할 때는 지역 카드 이름만 말하기보다 실제 도로명주소와 건물명을 함께 전달하세요.",
+      ],
+    },
+    {
+      id: "city-scope",
+      heading: "도시 안에서 연결되는 지역",
+      paragraphs: [
+        `${site.searchName}에는 구 페이지 ${cityDistricts.length}개가 있고, 각 구 아래에 읍·면·동 지역 페이지 ${cityLeaves.length}개가 연결됩니다.`,
+        `홈에서 바로 이어지는 읍·면·동은 ${directCityLeaves.length}개이고 구를 거쳐 이어지는 읍·면·동은 ${nestedCityLeaves.length}개입니다. 다른 시·군 주소는 포함하지 않습니다.`,
+      ],
+    },
+    {
+      id: "reservation-address",
+      heading: "전화 전에 준비할 주소",
+      paragraphs: [
+        `${label}에서 이용할 행정동 또는 법정동, 도로명, 건물명을 순서대로 준비하세요. 숙소라면 건물명과 출입 안내도 함께 확인합니다.`,
+        "공개 지역 페이지는 읍·면·동까지만 안내합니다. 실제 방문 가능 여부는 세부 주소와 희망 시각을 전화로 확인한 뒤 정해집니다.",
+      ],
+    },
+    {
+      id: "fixed-guide-handoff",
+      heading: "지역을 고른 뒤 가격과 이용 방법 확인",
+      paragraphs: [
+        "지역 페이지에는 같은 가격표를 반복하지 않습니다. 코스별 시간과 금액은 코스·가격 페이지에서 확인할 수 있습니다.",
+        `${label} 주소를 정한 뒤 전화 전 준비사항과 현장 후불 기준은 이용 방법 페이지에서 이어서 확인하세요.`,
+      ],
+    },
+    {
+      id: "sibling-context",
+      heading: "같은 도시의 다른 구 찾기",
+      paragraphs: [
+        `${node.displayName}은 ${parentLabel}의 구 목록 ${siblings.length}개 중 ${siblingIndex + 1}번째입니다. 같은 단계 구는 ${compactNames(siblings.map((item) => item.displayName), 8)}입니다.`,
+        `현재 구가 아니라면 상위 ${site.searchName} 홈으로 돌아가 다른 구를 선택하세요.`,
+      ],
+    },
+    {
+      id: "city-directory-purpose",
+      heading: "지역 목록에서 주소 다시 찾기",
+      paragraphs: [
+        `페이지 마지막 목록은 ${label}에서 바로 이어지는 ${children.length}개 지역 링크를 제공합니다.`,
+        "주소가 어느 지역에 속하는지 확실하지 않다면 도로명주소의 시·구·읍·면·동 순서를 먼저 확인하세요.",
+      ],
+    },
+  ];
+  return drafts.map((section) => toSection(section, facts));
+}
+
+function naturalLeafSections(facts: GraphFacts): ContentSection[] {
+  const {
+    node,
+    site,
+    parent,
+    siblings,
+    siblingIndex,
+    previous,
+    next,
+    aliases,
+    legalNames,
+    cityDistricts,
+    cityLeaves,
+  } = facts;
+  const label = facts.label;
+  const parentLabel = parent ? qualifiedName(parent, site) : site.searchName;
+  const type = localType(node);
+  const drafts: DraftSection[] = [
+    {
+      id: "parent-hierarchy",
+      heading: "상위 지역과 현재 주소 단계",
+      paragraphs: [
+        `${node.displayName}의 바로 위 지역은 ${parentLabel}입니다. 전체 순서는 ${[site.searchName, ...node.segments].join(" → ")}입니다.`,
+        node.segments.length === 2
+          ? `${node.segments[0]} 구 페이지를 거쳐 현재 ${type} 지역 페이지로 이동합니다.`
+          : `${site.searchName} 홈에서 현재 ${type} 지역 페이지로 바로 이동합니다.`,
+      ],
+    },
+    {
+      id: "sibling-scope",
+      heading: "같은 단계 지역 범위",
+      paragraphs: [
+        `${parentLabel} 아래에는 현재 지역을 포함한 지역 페이지 ${siblings.length}개가 있습니다.`,
+        `같은 단계 지역은 ${compactNames(siblings.map((item) => item.displayName), 10)}이며 다른 시·군 주소는 포함하지 않습니다.`,
+      ],
+    },
+    {
+      id: "adjacent-routes",
+      heading: "앞뒤 지역 링크",
+      paragraphs: [
+        `${node.displayName}은 같은 단계 ${siblings.length}개 중 ${siblingIndex + 1}번째입니다. 앞 지역은 ${previous?.displayName ?? "없음"}, 다음 지역은 ${next?.displayName ?? "없음"}입니다.`,
+        `주소를 다시 찾을 때 앞뒤 링크 또는 상위 ${parentLabel} 링크를 이용할 수 있습니다.`,
+      ],
+    },
+    {
+      id: "source-aliases",
+      heading: "표시 이름과 함께 확인할 행정동",
+      paragraphs: [
+        aliases.length > 0
+          ? `${node.displayName} 지역 페이지에는 ${compactNames(aliases, 8)} 이름이 함께 연결됩니다.`
+          : `${node.displayName}은 별도 병합 명칭 없이 현재 표시 이름으로 확인됩니다.`,
+        `검색한 동 이름과 현재 카드 이름이 다르면 상위 ${parentLabel}과 법정동 이름을 함께 확인하세요.`,
+      ],
+    },
+    {
+      id: "legal-area-map",
+      heading: "법정동 이름으로 주소 확인",
+      paragraphs: [
+        `현재 지역 페이지에서 확인되는 법정동 이름은 ${compactNames(legalNames, 8)}입니다.`,
+        "행정동과 도로명주소의 법정동 이름이 다를 수 있으므로 전화할 때는 실제 도로명과 건물명을 전달하세요.",
+      ],
+    },
+    {
+      id: "route-type",
+      heading: `${type} 지역 페이지 이용 범위`,
+      paragraphs: [
+        `${node.displayName}은 ${type} 단위 지역 페이지이며 그 아래 도로명·건물명 페이지는 만들지 않습니다.`,
+        "세부 주소별 방문 가능 여부는 공개 목록이 아니라 전화상담에서 확인합니다.",
+      ],
+    },
+    {
+      id: "city-scope",
+      heading: `${site.searchName} 안에서 연결되는 지역`,
+      paragraphs: [
+        `${site.searchName}에는 구 페이지 ${cityDistricts.length}개와 읍·면·동 지역 페이지 ${cityLeaves.length}개가 있습니다.`,
+        `${label}의 관련 링크는 ${site.searchName} 안의 상위 지역과 같은 단계 지역으로만 이어집니다.`,
+      ],
+    },
+    {
+      id: "reservation-address",
+      heading: "예약 전에 확인할 세부 주소",
+      paragraphs: [
+        `${label}에 해당하는지 확인한 뒤 도로명, 건물명, 출입 안내를 준비하세요.`,
+        "지역 이름만으로 방문을 확정하지 않으며 세부 주소와 희망 시각을 전화로 확인합니다.",
+      ],
+    },
+    {
+      id: "fixed-guide-handoff",
+      heading: "가격과 이용 방법은 고정 안내에서 확인",
+      paragraphs: [
+        "코스별 시간과 금액은 코스·가격 페이지, 전화 전 준비사항은 이용 방법 페이지에서 확인할 수 있습니다.",
+        "같은 표와 절차를 지역마다 반복하지 않고 필요한 안내 페이지로 연결합니다.",
+      ],
+    },
+    {
+      id: "related-route-purpose",
+      heading: "주소가 다를 때 지역 다시 찾기",
+      paragraphs: [
+        `현재 주소가 ${node.displayName}이 아니라면 상위 ${parentLabel} 또는 같은 단계 지역 목록으로 돌아가세요.`,
+        "지역 목록에는 현재 페이지를 제외한 관련 지역이 실제 링크로 제공됩니다.",
+      ],
+    },
+  ];
+  return drafts.map((section) => toSection(section, facts));
+}
+
+function appendDirectory(
+  sections: readonly ContentSection[],
+  facts: GraphFacts,
+  leaf: boolean,
+): ContentSection[] {
+  const related = leaf
+    ? facts.siblings.filter((item) => item.path !== facts.node.path)
+    : facts.children;
+  return [
+    ...sections,
+    {
+      id: leaf ? "related-region-directory" : "child-directory",
+      heading: `${facts.label} ${leaf ? "같은 단계 지역 디렉터리" : "하위 주소 디렉터리"}`,
+      paragraphs: [
+        leaf
+          ? `현재 페이지를 제외한 같은 단계 지역 ${related.length}개를 마지막 목록에서 확인합니다.`
+          : `현재 페이지에서 바로 이어지는 하위 지역 ${related.length}개를 마지막 목록에 표시합니다.`,
+        leaf
+          ? `관련 지역은 ${compactNames(related.map((item) => item.displayName), 8)}입니다.`
+          : `하위 지역은 ${compactNames(related.map((item) => item.displayName), 8)}입니다.`,
+      ],
+    },
+  ];
+}
+
+function indexEligibility(
+  node: BabyRegionNode,
+): Pick<
+  RegionContent,
+  "indexEligible" | "indexEligibilityReason" | "indexEligibilityTargetPath"
+> {
+  if (node.kind === "home") {
+    return {
+      indexEligible: true,
+      indexEligibilityReason: "city-home",
+      indexEligibilityTargetPath: null,
+    };
+  }
+  if (node.kind === "district") {
+    return {
+      indexEligible: false,
+      indexEligibilityReason: "deferred-district-route",
+      indexEligibilityTargetPath: "/",
+    };
+  }
+  return {
+    indexEligible: false,
+    indexEligibilityReason: "deferred-regional-route",
+    indexEligibilityTargetPath: node.parentPath ?? "/",
+  };
+}
+
+function createSections(facts: GraphFacts): ContentSection[] {
+  if (facts.node.kind === "home") {
+    return appendDirectory(naturalHomeSections(facts), facts, false);
+  }
+  if (facts.node.kind === "district") {
+    return appendDirectory(naturalDistrictSections(facts), facts, false);
+  }
+  return appendDirectory(naturalLeafSections(facts), facts, true);
+}
+
+export function isRegionIndexEligible(
+  node: BabyRegionNode,
+  site: BabySiteConfig = ACTIVE_SITE,
+): boolean {
+  if (node.siteKey !== site.key) return false;
+  return indexEligibility(node).indexEligible;
+}
+
+export function getIndexEligibleRegionNodes(
+  site: BabySiteConfig = ACTIVE_SITE,
+): readonly BabyRegionNode[] {
+  return siteNodes(site).filter((node) => isRegionIndexEligible(node, site));
 }
 
 export function createRegionContent(
   node: BabyRegionNode,
   site: BabySiteConfig = ACTIVE_SITE,
 ): RegionContent {
-  const index = globalRouteIndex(site, node);
-  const label = qualifiedDisplayName(node, site);
-  const left = TITLE_LEFT[index % TITLE_LEFT.length];
-  const right = TITLE_RIGHT[Math.floor(index / TITLE_LEFT.length) % TITLE_RIGHT.length];
-  if (!left || !right) throw new Error(`BABY_CONTENT_META_PATTERN_MISSING:${index}`);
-  const voice = voiceFor(site);
-  const detailMode: RegionContent["detailMode"] =
-    node.kind === "home" ? "root" : node.kind === "district" ? "district" : "leaf";
-  const sections = isBroadDetailRegion(node)
-    ? rootOrDistrictSections(node, site, index)
-    : leafSections(node, site, index);
+  const facts = buildFacts(node, site);
+  const sections = createSections(facts);
   const directory = sections.at(-1);
-  if (!directory || !/directory/u.test(directory.id)) {
+  if (!directory || !/directory$/u.test(directory.id)) {
     throw new Error(`BABY_CONTENT_DIRECTORY_NOT_LAST:${site.key}:${node.path}`);
   }
-  const hookOne = paragraph(
-    node,
-    site,
-    index,
-    40,
-    `${routeContext(node, site)} 화면에서는 행정 지역을 고르고 상세 위치는 전화에서 이어서 확인합니다.`,
-  );
-  const hookTwo = paragraph(
-    node,
-    site,
-    index,
-    41,
-    `${routeContext(node, site)} 코스·시간과 현장 후불 결제까지 같은 메모에서 대조합니다.`,
-  );
+  if (sections.length < 10 || sections.length > 12) {
+    throw new Error(`BABY_CONTENT_PATTERN_MISSING:${site.key}:${node.path}`);
+  }
+  const detailMode: RegionContent["detailMode"] =
+    node.kind === "home"
+      ? "root"
+      : node.kind === "district"
+        ? "district"
+        : "leaf";
+  const cityProfile = getCityFactProfile(site.key);
+  const description =
+    node.kind === "home"
+      ? `${facts.label} 출장마사지 지역 안내입니다. ${cityProfile.addressAxes.slice(0, 3).join("·")} 기준과 구·읍·면·동 주소 선택 순서를 확인합니다.`
+      : node.kind === "representative"
+        ? `${facts.label} 출장마사지 지역 안내입니다. 상위 ${facts.parent?.displayName ?? site.searchName}, 같은 단계 지역 ${facts.siblings.length}개와 행정동·법정동 이름을 확인합니다.`
+        : `${facts.label} 출장마사지 지역 안내입니다. 직계 하위 지역 ${facts.children.length}개와 주소 선택 순서, 행정동·법정동 이름 차이를 확인합니다.`;
 
   return {
-    title: `${label} 출장마사지 | ${left}·${right} - ${site.brandName}`,
-    description: `${label} 출장마사지에서 ${left}와 ${right}을 확인합니다. 5개 코스·14개 가격 행, 24시간 전화상담, 2인 프로그램과 현장 후불 기준을 순서대로 안내합니다.`,
+    title: `${facts.label} 출장마사지 | ${routeTypeLabel(node)} - ${site.brandName}`,
+    description,
     keywords: [
-      `${label} 출장마사지`,
-      `${label} 출장안마`,
-      `${label} ${left}`,
-      `${site.brandName} ${right}`,
-      `${label} 현장후불`,
+      `${facts.label} 출장마사지`,
+      `${facts.label} 출장안마`,
+      `${facts.label} 지역 안내`,
+      `${site.brandName} ${routeTypeLabel(node)}`,
+      `${facts.label} 현장후불`,
     ],
-    h1: `${label} 출장마사지 ${left}·${right}`,
-    eyebrow: `${site.brandName} · ${voice.method}`,
-    hooks: [hookOne, hookTwo],
+    h1: `${facts.label} 출장마사지 ${routeTypeLabel(node)}`,
+    eyebrow: `${site.brandName} · ${routeTypeLabel(node)}`,
+    hooks:
+      node.kind === "home"
+        ? [
+            cityProfile.paragraphs[0],
+            `${cityProfile.addressAxes.join("·")} 가운데 가까운 기준과 실제 도로명주소를 함께 확인하세요.`,
+          ]
+        : node.kind === "representative"
+          ? [
+              `${facts.parent?.displayName ?? site.searchName} 아래에서 ${node.displayName} 주소를 확인합니다.`,
+              `같은 단계 지역 ${facts.siblings.length}개와 실제 도로명주소를 함께 비교하세요.`,
+            ]
+          : [
+              `${facts.label} 안의 읍·면·동을 주소 순서에 맞춰 찾습니다.`,
+              "현재 구를 먼저 선택한 뒤 세부 지역과 실제 도로명주소를 확인하세요.",
+            ],
     sections,
-    faqIntro: `${label} 이용 전에 자주 확인하는 질문을 ${voice.lead}는 방식으로 모았습니다. 답변은 공개된 운영 기준을 설명하며, 현재 일정과 방문 가능 여부는 전화에서 확인합니다.`,
+    faqIntro:
+      node.kind === "home"
+        ? `${cityProfile.addressAxes
+            .slice(0, 3)
+            .join("·")} 등 공식 지역 자료의 기준점을 주소 확인에 활용하고, 코스·가격과 전화 준비사항은 고정 안내에서 이어서 볼 수 있습니다.`
+        : node.kind === "representative"
+          ? `${facts.label}의 상위 지역과 같은 단계 주소를 확인하고, 코스·가격과 이용 순서는 고정 안내 페이지에서 이어서 볼 수 있습니다.`
+          : `${facts.label}의 하위 지역과 주소 선택 순서를 확인하고, 코스·가격과 전화 준비사항은 고정 안내 페이지에서 이어서 볼 수 있습니다.`,
     childDirectory: {
       heading: directory.heading,
       intro: directory.paragraphs[0],
     },
     ctaLabels: ["전화로 일정 확인", "코스·가격 보기", "관련 지역 찾기"],
+    officialSources: node.kind === "home" ? cityProfile.sources : [],
     detailMode,
-    layoutSemantic: layoutFor(site),
+    layoutSemantic:
+      LAYOUT_SEMANTICS[siteIndex(site) % LAYOUT_SEMANTICS.length] ??
+      "address-ledger",
+    ...indexEligibility(node),
   };
 }

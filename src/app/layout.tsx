@@ -29,6 +29,8 @@ export function generateMetadata(): Metadata {
         `${ACTIVE_SITE.searchName}출장안마`,
         `${ACTIVE_SITE.searchName}마사지`,
       ],
+      ACTIVE_SITE,
+      true,
     ),
   );
 }
@@ -40,12 +42,27 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "--accent": ACTIVE_SITE.theme.accent,
     "--ink": ACTIVE_SITE.theme.ink,
     "--surface": ACTIVE_SITE.theme.surface,
+    "--paper": ACTIVE_SITE.theme.paper,
   } as CSSProperties;
+  const profile = ACTIVE_SITE.designProfile;
 
   return (
     <html
       data-baby-site={ACTIVE_SITE.key}
+      data-card-border={profile.cardBorder}
+      data-card-geometry={profile.cardGeometry}
+      data-card-shadow={profile.cardShadow}
+      data-cta-placement={profile.ctaPlacement}
+      data-cta-shape={profile.ctaShape}
+      data-design-profile={profile.id}
+      data-header-treatment={profile.headerTreatment}
+      data-hero-aspect={profile.heroAspect}
+      data-hero-composition={profile.heroComposition}
+      data-hero-crop={profile.heroCrop}
       data-layout-variant={normalizeLayoutVariant(ACTIVE_SITE.layoutVariant)}
+      data-nav-treatment={profile.navTreatment}
+      data-section-rhythm={profile.sectionRhythm}
+      data-typography-scale={profile.typographyScale}
       lang="ko"
       style={themeStyle}
     >

@@ -19,7 +19,7 @@ export function BlogIndexContent({
     <article className="fixed-page">
       <InteriorHero
         description={`${cityName} 지역 선택, 전화 준비, 코스와 현장 결제 기준을 실제 운영 정보로 정리한 글입니다.`}
-        eyebrow={`${brandName} · EDITORIAL`}
+        eyebrow={`${brandName} · 안내 글`}
         title={`${cityName} 이용 안내 글`}
       />
       <div className="fixed-page__body content-frame">

@@ -32,13 +32,6 @@ export const BABY_SITE_KEYS = [
 
 export type BabySiteKey = (typeof BABY_SITE_KEYS)[number];
 export type LayoutVariant = "v1" | "v2" | "v3" | "v4" | "v5" | "v6";
-export type VoiceVariant =
-  | "steady"
-  | "clear"
-  | "warm"
-  | "concise"
-  | "local"
-  | "practical";
 export type BabySiteDeploymentState = "planned" | "preview" | "public";
 
 export type BabySiteTheme = Readonly<{
@@ -47,6 +40,36 @@ export type BabySiteTheme = Readonly<{
   accent: string;
   ink: string;
   surface: string;
+  paper: string;
+}>;
+
+export type HomeSectionKey =
+  | "introduction"
+  | "visual-one"
+  | "pricing"
+  | "process"
+  | "visual-two"
+  | "standards"
+  | "faq"
+  | "directory";
+
+export type BabySiteDesignProfile = Readonly<{
+  siteKey: BabySiteKey;
+  id: string;
+  palette: BabySiteTheme;
+  headerTreatment: "glass" | "solid" | "outline" | "contrast" | "floating" | "minimal";
+  navTreatment: "underline" | "capsule" | "bracket" | "blocks" | "dots";
+  heroComposition: "center" | "left" | "right" | "bottom-left" | "panel-left" | "panel-right";
+  heroCrop: "center" | "top" | "left" | "right";
+  heroAspect: "cinematic" | "classic" | "panorama";
+  cardGeometry: "soft" | "square" | "round" | "ledger" | "panel";
+  cardBorder: "hairline" | "strong" | "accent" | "none";
+  cardShadow: "none" | "soft" | "lifted" | "offset";
+  sectionRhythm: "alternating" | "paper" | "bands" | "ruled" | "inset";
+  ctaShape: "pill" | "soft" | "square" | "notched";
+  ctaPlacement: "split" | "compact-right" | "full" | "floating-right";
+  typographyScale: "compact" | "balanced" | "editorial" | "large" | "dramatic";
+  sectionOrder: readonly HomeSectionKey[];
 }>;
 
 export type BabySiteRouteCounts = Readonly<{
@@ -70,8 +93,8 @@ export type BabySiteConfig = Readonly<{
   /** The current build origin. Indexing remains disabled until publicOrigin is set. */
   origin: string;
   layoutVariant: LayoutVariant;
-  voiceVariant: VoiceVariant;
   theme: BabySiteTheme;
+  designProfile: BabySiteDesignProfile;
   gaMeasurementIdEnv: `NEXT_PUBLIC_GA_MEASUREMENT_ID_${string}`;
   gaPropertyIdEnv: `GA4_PROPERTY_ID_${string}`;
   deploymentState: BabySiteDeploymentState;
@@ -121,6 +144,11 @@ export const ALL_BABY_SITES: readonly BabySiteConfig[] = Object.freeze(
       citySlug: site.slug,
       origin: site.publicOrigin ?? site.previewOrigin,
       theme: Object.freeze({ ...site.theme }),
+      designProfile: Object.freeze({
+        ...site.designProfile,
+        palette: Object.freeze({ ...site.designProfile.palette }),
+        sectionOrder: Object.freeze([...site.designProfile.sectionOrder]),
+      }),
       districtNames: Object.freeze([...site.districtNames]),
       sourcePathPrefix: Object.freeze([
         ...site.sourcePathPrefix,
@@ -129,6 +157,26 @@ export const ALL_BABY_SITES: readonly BabySiteConfig[] = Object.freeze(
     });
   }),
 );
+
+const designProfileSignatures = ALL_BABY_SITES.map((site) =>
+  JSON.stringify(site.designProfile),
+);
+if (
+  new Set(ALL_BABY_SITES.map((site) => site.designProfile.id)).size !== BABY_SITE_KEYS.length ||
+  new Set(designProfileSignatures).size !== BABY_SITE_KEYS.length ||
+  new Set(
+    ALL_BABY_SITES.map((site) => site.designProfile.sectionOrder.join("|")),
+  ).size !== BABY_SITE_KEYS.length ||
+  ALL_BABY_SITES.some(
+    (site) =>
+      site.designProfile.siteKey !== site.key ||
+      site.designProfile.sectionOrder.length !== 8 ||
+      site.designProfile.sectionOrder.at(-1) !== "directory" ||
+      JSON.stringify(site.theme) !== JSON.stringify(site.designProfile.palette),
+  )
+) {
+  throw new Error("BABY_SITE_DESIGN_PROFILE_FAILURE");
+}
 
 export const BABY_SITES = ALL_BABY_SITES;
 export const BABY_SITE_INVENTORY_DIGEST = inventory.inventoryDigest;

@@ -82,6 +82,31 @@ describe("Gyeonggi baby site registry", () => {
     });
   });
 
+  it("binds every site to a unique palette, DOM order, and visual profile tuple", () => {
+    const profiles = ALL_BABY_SITES.map((site) => site.designProfile);
+    const visualTuple = (site: (typeof ALL_BABY_SITES)[number]) => [
+      site.designProfile.headerTreatment,
+      site.designProfile.heroComposition,
+      site.designProfile.cardGeometry,
+      site.designProfile.sectionRhythm,
+      site.designProfile.ctaPlacement,
+      site.designProfile.typographyScale,
+    ].join("|");
+
+    expect(new Set(profiles.map((profile) => profile.id)).size).toBe(27);
+    expect(new Set(profiles.map((profile) => JSON.stringify(profile.palette))).size).toBe(27);
+    expect(new Set(profiles.map((profile) => profile.sectionOrder.join("|"))).size).toBe(27);
+    expect(new Set(ALL_BABY_SITES.map(visualTuple)).size).toBe(27);
+
+    for (const site of ALL_BABY_SITES) {
+      expect(site.designProfile.siteKey).toBe(site.key);
+      expect(site.designProfile.sectionOrder).toHaveLength(8);
+      expect(new Set(site.designProfile.sectionOrder).size).toBe(8);
+      expect(site.designProfile.sectionOrder.at(-1)).toBe("directory");
+      expect(site.theme).toEqual(site.designProfile.palette);
+    }
+  });
+
   it("falls back to Suwon only outside production and fails closed in production", () => {
     expect(resolveBabySiteKey(undefined, "development")).toBe("suwon");
     expect(resolveBabySiteKey("unknown", "test")).toBe("suwon");

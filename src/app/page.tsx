@@ -29,6 +29,7 @@ export default function HomePage() {
         brandName={ACTIVE_SITE.brandName}
         cityName={ACTIVE_SITE.searchName}
         content={content}
+        designProfile={ACTIVE_SITE.designProfile}
         directoryItems={toDirectoryItems(getRegionChildren(node))}
         layoutVariant={ACTIVE_SITE.layoutVariant}
       />

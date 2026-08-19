@@ -127,11 +127,15 @@ export function createRouteMetadataContract(
   description: string,
   keywords: readonly string[] = [],
   site: BabySiteConfig = ACTIVE_SITE,
+  routeIndexEligible = false,
 ): RouteMetadataContract {
   const normalized = normalizeRoute(route);
   const origin = getSiteOrigin(site);
   const canonical = new URL(normalized, origin).href;
-  const robots = getSiteRobots(site);
+  const siteRobots = getSiteRobots(site);
+  const robots = siteRobots.index && !routeIndexEligible
+    ? { index: false, follow: true, nocache: true }
+    : siteRobots;
 
   return {
     route: normalized,
@@ -179,6 +183,7 @@ export function createRegionMetadataContract(
     content.description,
     content.keywords,
     site,
+    content.indexEligible,
   );
 }
 

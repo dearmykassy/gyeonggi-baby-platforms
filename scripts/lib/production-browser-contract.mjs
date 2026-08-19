@@ -49,6 +49,14 @@ export function expectedPublicationOrigin(site) {
   };
 }
 
+export function expectedRouteIndexing(site, route) {
+  const publication = expectedPublicationOrigin(site);
+  if (!publication.indexable) {
+    return Object.freeze({ index: false, follow: false });
+  }
+  return Object.freeze({ index: route === "/", follow: true });
+}
+
 export function selectBrowserGateSites(inventory) {
   const sites = inventory?.sites;
   if (!Array.isArray(sites) || sites.length !== 27) {
