@@ -1,12 +1,20 @@
 import { describe, expect, it } from "vitest";
 
+import { generateMetadata as generateHomeMetadata } from "@/app/page";
 import { getBlogPosts } from "@/data/blog-posts";
 import { getIndexEligibleRegionNodes } from "@/lib/content";
 import { getSitePublicationContract } from "@/lib/metadata";
 import { getRegionNodesForSite } from "@/lib/regions";
-import { ALL_BABY_SITES } from "@/lib/site-config";
+import { ACTIVE_SITE, ALL_BABY_SITES } from "@/lib/site-config";
 
 describe("baby platform discovery-file contract", () => {
+  it("renders the public Google verification token only through home metadata", () => {
+    const metadata = generateHomeMetadata();
+    expect(metadata.verification).toEqual({
+      google: ACTIVE_SITE.googleSiteVerification,
+    });
+  });
+
   it("calculates the exact sitemap inventory for every city", () => {
     for (const site of ALL_BABY_SITES) {
       const eligibleRegional = getIndexEligibleRegionNodes(site);

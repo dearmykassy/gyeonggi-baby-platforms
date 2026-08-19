@@ -13,6 +13,12 @@ const EXPECTED_SOURCE_FILE_SHA256 =
   "0242e5d86894321cba66b7f747675115520d856c7aaada870869e19f247500d2";
 
 const EXCLUDED_MUNICIPALITIES = ["가평군", "이천시", "양평군", "여주시"];
+const GOOGLE_SITE_VERIFICATION_TOKEN =
+  "3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag";
+
+if (!/^[A-Za-z0-9_-]{32,128}$/u.test(GOOGLE_SITE_VERIFICATION_TOKEN)) {
+  throw new Error("BABY_GOOGLE_SITE_VERIFICATION_TOKEN_INVALID");
+}
 
 const SECTION_ORDERS = [
   ["introduction", "visual-one", "pricing", "process", "visual-two", "standards", "faq", "directory"],
@@ -330,6 +336,7 @@ const sites = SITE_DEFINITIONS.map(
       designProfile,
       gaMeasurementIdEnv: `NEXT_PUBLIC_GA_MEASUREMENT_ID_${envSuffix}`,
       gaPropertyIdEnv: `GA4_PROPERTY_ID_${envSuffix}`,
+      googleSiteVerification: GOOGLE_SITE_VERIFICATION_TOKEN,
       deploymentState: publicRelease ? "public" : "planned",
       isPublic: publicRelease,
       indexingEnabled: publicRelease,

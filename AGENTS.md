@@ -16,6 +16,7 @@
 - 검색 공개는 런타임에서도 `deploymentState=public`, `isPublic=true`, `indexingEnabled=true`, 정확한 HTTPS `publicOrigin` 네 조건을 모두 요구한다. 혼합 상태나 `origin` 필드 우회는 preview `.invalid` canonical과 `noindex,nofollow`로 실패해야 하며 direct `pnpm build`도 예외가 아니다.
 - 출시 전 Playwright production 게이트로 v1~v6 대표 사이트의 홈·지역 목록·구 지역 안내·말단을 desktop/mobile 새 context에서 무조작 load·scroll한다. 자동 `_rsc` query, HTTP/redirect, canonical·robots·H1, 초기 HTML anchor, 이미지·가로 overflow 중 하나라도 실패하거나 Chromium이 없으면 배포를 중단한다.
 - sitemap `lastmod`는 실제 콘텐츠 revision으로 고정하고 빌드 시각을 사용하지 않는다. `changefreq`와 `priority`는 넣지 않는다.
+- Google 소유확인 토큰은 공개 인증값으로 정본 inventory에 고정하며 각 사이트 홈 `<head>`에만 정확히 한 번 출력한다. 확인 이후에도 의도적으로 회전하기 전에는 제거하지 않고, 지역·고정 경로에는 복제하지 않는다.
 - 각 무료 호스트는 독립 HTTPS origin을 가져야 하며 실제 배포 origin이 확정되기 전에는 index/follow로 전환하지 않는다.
 - 색인 대상 455개 regional document의 actual-render normalized word-trigram과 반복 block character share를 내부 출시 게이트로 검사한다. 교차 사이트와 동일 사이트 안의 전체·페이지 종류별 비교는 모두 p95 0.45 미만·pair max 0.55 미만, 반복 block character share는 exact 0.25 이하·normalized 0.35 이하를 요구한다. 이는 NAVER 공식 기준이나 순위 보장이 아니며, 인공적인 문구 회전·hash/path 기반 변형·route ordinal·기술 통계 filler로 수치를 낮추거나 임계값을 완화하지 않는다.
 - 고객 문구의 동적 지역명 뒤 조사는 종성 유무를 확인하는 공용 helper로 붙이고, 455개 렌더 문서 전체에서 잘못된 `을/를`, `은/는`, `이/가`, `과/와` 결합을 자동 검사한다.

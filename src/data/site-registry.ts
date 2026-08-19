@@ -103,6 +103,8 @@ export type BabySiteConfig = Readonly<{
   designProfile: BabySiteDesignProfile;
   gaMeasurementIdEnv: `NEXT_PUBLIC_GA_MEASUREMENT_ID_${string}`;
   gaPropertyIdEnv: `GA4_PROPERTY_ID_${string}`;
+  /** Public account-level token rendered only on this site's homepage. */
+  googleSiteVerification: string;
   deploymentState: BabySiteDeploymentState;
   isPublic: boolean;
   indexingEnabled: boolean;
@@ -179,6 +181,7 @@ if (
       site.plannedOrigin !== pagesOrigin ||
       site.previewOrigin !== pagesOrigin ||
       !isExactHttpsOrigin(site.hostingOrigin) ||
+      !/^[A-Za-z0-9_-]{32,128}$/u.test(site.googleSiteVerification) ||
       !providerOriginValid ||
       !publicTupleValid
     );

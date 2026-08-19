@@ -330,3 +330,20 @@
 - `pnpm-lock.yaml`: `e34209ed678531d21826dd8aa03809058376a2939b9acbf7731efdf03c4d928a`
 - `README.md`: `27479b167b853917e9f4e6fa750132ac29d1ab912d39864b86c60461d7ac0faa`
 - `AGENTS.md`: `3222a74de03044c7fdfcb4a6fe1513f5c2ac591d1e5d8abe95faaed465e237e3`
+
+## 2026-08-19 — Google Search Console 홈 메타 소유확인
+
+- 로그인된 동일 Google 계정으로 고양·과천·광명 URL-prefix 속성을 생성해
+  HTML 태그 방법을 직접 확인했고, 세 속성 모두 같은 공개 계정 토큰
+  `3zM7…bfag`를 발급했다. 인증 토큰은 OAuth·쿠키·API 자격 증명이 아니며
+  Google이 공개 HTML에서 읽어야 하는 값이다.
+- 토큰을 deterministic city inventory의 각 사이트 정본 필드로 결속하고
+  `Metadata.verification.google`을 통해 각 사이트 홈에만 출력한다. 지역·고정
+  경로에는 복제하지 않는다.
+- built-output audit는 홈 `<head>`의 exact 1개 토큰과 나머지 문서의 0개를
+  attribute order와 무관하게 검사한다. 홈 sitemap `lastmod`만 실제 변경
+  revision으로 갱신한다.
+- inventory digest는
+  `sha256:549bea2fa9653359110a811fba678e5ac7bd700d287a0b78b3abd3a1f6dc82cd`로
+  변경됐다. 이전 build receipt는 의도적으로 무효이며 27개 전부 clean HEAD
+  재빌드·재배포 후 Search Console 소유확인과 sitemap 제출을 수행한다.

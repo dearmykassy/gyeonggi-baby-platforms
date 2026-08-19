@@ -75,7 +75,12 @@ describe("Gyeonggi baby site registry", () => {
         /^NEXT_PUBLIC_GA_MEASUREMENT_ID_[A-Z0-9_]+$/u,
       );
       expect(site.gaPropertyIdEnv).toMatch(/^GA4_PROPERTY_ID_[A-Z0-9_]+$/u);
+      expect(site.googleSiteVerification).toMatch(/^[A-Za-z0-9_-]{32,128}$/u);
     }
+
+    expect(
+      new Set(ALL_BABY_SITES.map((site) => site.googleSiteVerification)),
+    ).toEqual(new Set(["3zM7GD_q1O5jArOEy94U84RcsbpsLSWHZ3HqEXcbfag"]));
 
     expect(getSiteConfig("gwangju-gyeonggi").plannedOrigin).toBe(
       "https://gwangju-onshim.pages.dev",

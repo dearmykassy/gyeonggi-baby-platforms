@@ -16,7 +16,10 @@ function homeNode() {
 }
 
 export function generateMetadata(): Metadata {
-  return toNextMetadata(createRegionMetadataContract(homeNode()));
+  return {
+    ...toNextMetadata(createRegionMetadataContract(homeNode())),
+    verification: { google: ACTIVE_SITE.googleSiteVerification },
+  };
 }
 
 export default function HomePage() {

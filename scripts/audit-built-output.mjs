@@ -61,6 +61,22 @@ function htmlPathFor(url) {
   return path.join(output, decodeURIComponent(pathname), "index.html");
 }
 
+function metaTagsByName(html, name) {
+  return (html.match(/<meta\b[^>]*>/gu) ?? []).filter((tag) => {
+    const attributes = Object.fromEntries(
+      [...tag.matchAll(/([:\w-]+)="([^"]*)"/gu)].map((match) => [
+        match[1].toLowerCase(),
+        match[2],
+      ]),
+    );
+    return attributes.name === name;
+  });
+}
+
+function metaContent(tag) {
+  return tag.match(/\bcontent="([^"]*)"/u)?.[1] ?? "";
+}
+
 let imageReferences = 0;
 const checkedImageFiles = new Set();
 const ancillaryPaths = [
@@ -82,6 +98,23 @@ for (const routePath of expectedHtmlPaths) {
   }
   const htmlFile = htmlPathFor(loc);
   const html = await readFile(htmlFile, "utf8");
+  const verificationTags = metaTagsByName(html, "google-site-verification");
+  const headHtml = html.match(/<head(?:\s[^>]*)?>([\s\S]*?)<\/head>/u)?.[1] ?? "";
+  const headVerificationTags = metaTagsByName(
+    headHtml,
+    "google-site-verification",
+  );
+  if (
+    routePath === "/"
+      ? verificationTags.length !== 1 ||
+        headVerificationTags.length !== 1 ||
+        metaContent(verificationTags[0]) !== site.googleSiteVerification
+      : verificationTags.length !== 0
+  ) {
+    throw new Error(
+      `BABY_AUDIT_GOOGLE_VERIFICATION_META:${site.key}:${routePath}:${verificationTags.length}:${headVerificationTags.length}`,
+    );
+  }
   const canonicalTag = html.match(/<link[^>]*rel="canonical"[^>]*>/u)?.[0];
   const canonical = canonicalTag?.match(/href="([^"]+)"/u)?.[1];
   if (canonical !== loc) {
