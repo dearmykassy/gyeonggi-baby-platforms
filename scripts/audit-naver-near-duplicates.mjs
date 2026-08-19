@@ -11,7 +11,6 @@ import {
   evaluateNaverNearDuplicateGate,
   evaluateStagedIndexingSource,
 } from "./lib/naver-near-duplicate-contract.mjs";
-import { getRegionNodesForSite } from "../src/lib/regions.ts";
 import { ALL_BABY_SITES } from "../src/lib/site-config.ts";
 
 const execFileAsync = promisify(execFile);
@@ -80,22 +79,7 @@ async function renderAllSites() {
 
 function normalizer() {
   const brands = ALL_BABY_SITES.map((site) => site.brandName);
-  const labels = ALL_BABY_SITES.flatMap((site) => [
-    site.searchName,
-    site.officialName,
-    ...getRegionNodesForSite(site).flatMap((node) => [
-      node.qualifiedName,
-      node.displayName,
-      node.officialName,
-      ...node.sourceAliases,
-      ...node.records.flatMap((record) => [
-        record.name,
-        ...record.sourceNames,
-        ...record.legalAreas.map((area) => area.name),
-      ]),
-    ]),
-  ]);
-  return createRegionalNormalizer({ brands, labels });
+  return createRegionalNormalizer({ brands, labels: [] });
 }
 
 export function summarizeCopyAudit(report) {
@@ -169,6 +153,9 @@ export async function runNaverNearDuplicateAudit({
   );
   const fixedRecords = siteCorpora.flatMap((corpus) => corpus.fixedRecords);
   const stagedRecords = siteCorpora.flatMap((corpus) => corpus.stagedRecords);
+  const siteSitemapContracts = siteCorpora.map(
+    (corpus) => corpus.sitemapContract,
+  );
   const selectionSourceContract = evaluateFactDerivedSelectionSource(
     await readFile(CONTENT_SOURCE, "utf8"),
   );
@@ -188,6 +175,7 @@ export async function runNaverNearDuplicateAudit({
     renderedRecords,
     fixedRecords,
     stagedRecords,
+    siteSitemapContracts,
     normalize: normalizer(),
     selectionSourceContract,
     stagedIndexingSourceContract,

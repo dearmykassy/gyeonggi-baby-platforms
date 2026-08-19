@@ -1,5 +1,59 @@
 # 작업 일지
 
+## 2026-08-19 — 455개 regional canonical 전체 검색 공개 계약
+
+- 27개 도시 홈 27개, 구 24개, 대표 동·읍·면 404개로 이루어진 455개
+  regional canonical을 모두 `indexEligible=true`로 전환했다. reason은
+  `city-home`, `regional-district`, `regional-leaf`로 구분하고 redirect target은
+  전부 `null`이다.
+- 각 도시 sitemap은 해당 도시의 regional canonical 전부를 self-canonical과
+  고정 콘텐츠 revision `lastmod`로 내보낸다. 빌드 시각, `changefreq`, `priority`는
+  사용하지 않는다. `/areas/`, 가격·가이드·공지·블로그와 글 189개는 기존처럼
+  `noindex,follow`이며 sitemap에서 제외한다.
+- RSS는 지역 URL 제출 목록으로 쓰지 않고, 공식 도시 자료와 주소 선택 본문을 담은
+  홈 editorial item 한 건만 유지한다. RSS 생성 시 regional inventory 전부가
+  eligibility contract에 들어왔는지 먼저 검사한다.
+- 구·동·읍·면 본문을 committed graph의 상위 지역, 실제 같은 단계 링크,
+  원래 표시 이름, 법정 지역 관계와 현재 주소에 직접 맞는 city fact로 다시 썼다.
+  목록 앞뒤 링크는 지리적 인접 관계가 아니라 화면 목록 순서라고 명시했다.
+  디렉터리는 계속 10–12개 H2 가운데 마지막 일반 콘텐츠 섹션이다.
+- 전체 가격표·전체 이용 절차·전체 FAQ는 반복하지 않고 현재 지역의 실제 주소
+  확인 문맥과 `/pricing/`, `/guide/`로 이어지는 짧은 안내만 남겼다. 인기·도착시간,
+  가짜 landmark, route ordinal/hash/path 기반 문구 선택, 어휘 회전, 기술 통계
+  filler는 사용하지 않았다.
+- 동적 지역명 뒤 `은/는`, `이/가`, `을/를`, `과/와`는 종성 helper로 붙인다.
+  455개 렌더 문서의 지역명·법정명·공식 주소축과 `구/리/동/읍/면/개` 꼬리를
+  정규식으로 전수 검사하며 잘못된 조사 결합은 0건이다.
+- 같은 단계 지역이 없는 화성 `동탄구/동탄동`은 상위 동탄구·화성 주소와
+  도로명·건물명 준비만 설명한다. 존재하지 않는 형제 링크나 `별도 항목 없음`
+  placeholder는 455개 작성 본문·실제 렌더에서 0건이며, 실제 상위 경로 링크를
+  자동 검사한다.
+- 하위 지역이 한 곳뿐인 동탄구는 `A부터 A까지`, `A·A`, `A는 A와 서로 다른`
+  식 자기 범위·비교 문장을 만들지 않는다. direct-city 말단의 도시·상위 지역
+  중복과 H2의 연속 지역명도 제거했고, 세 패턴을 455개 전수 hard gate로 고정했다.
+- actual-render 내부 휴리스틱은 cross-site p95 `0.337229`, max `0.467054`,
+  within-site p95 `0.440281`, max `0.518041`, 반복 block exact p95
+  `0.105769`/max `0.229885`, normalized p95 `0.156570`/max `0.243105`이다.
+  교차·동일 사이트의 home/district/representative 종류별 수치도 모두 p95
+  `0.45` 미만·max `0.55` 미만을 통과했다. 이는 NAVER 공식 임계값이나 순위
+  보장이 아니며 임계값 완화, 문구 회전, filler는 사용하지 않았다.
+- exact title·description·H1·document collision, 공개 suffix leak, 기존 8개
+  정본 플랫폼과 substantive exact/normalized collision은 모두 0이다.
+  eligible regional inventory SHA-256은
+  `1c6e72e9614aae92347983a60fbf359e27aa792f8886c7cc2b02974192bf90f4`다.
+
+최종 검증:
+
+- `pnpm test`: 20 files, 112 tests PASS.
+- `pnpm typecheck`: PASS (`next typegen`, `tsc --noEmit`).
+- `pnpm lint`: PASS.
+- `pnpm audit:copy`: PASS. 정본 8개와 substantive exact/normalized collision 0.
+- `node --import tsx scripts/audit-naver-near-duplicates.mjs --copy-audit no`:
+  PASS, regional/render/index/sitemap 455, staged ancillary 189, anti-filler·technical
+  filler·index·canonical·robots·lastmod failure 0.
+- 이 작업에서는 city registry의 `PUBLIC_SITE_KEYS`, Cloudflare 프로젝트,
+  public tuple, Git commit·push·배포를 변경하지 않았다.
+
 ## 2026-08-19 — 도시 홈 고유성·단계적 색인 계약
 
 - 6개 Template11 기본 family는 유지하면서 27개 사이트마다 고유한 lightweight

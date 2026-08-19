@@ -1,4 +1,7 @@
-import { createRegionContent } from "@/lib/content";
+import {
+  createRegionContent,
+  getIndexEligibleRegionNodes,
+} from "@/lib/content";
 import { getSiteOrigin, RSS_PATH } from "@/lib/metadata";
 import { getRegionNodesForSite } from "@/lib/regions";
 import { getRegionContentModifiedAt } from "@/lib/site-revisions";
@@ -29,8 +32,16 @@ export function escapeXml(value: string): string {
 }
 
 function homeFeedItem(site: BabySiteConfig): RssFeedItem {
-  const home = getRegionNodesForSite(site).find((node) => node.kind === "home");
+  const regionalInventory = getRegionNodesForSite(site);
+  const eligibleRegional = getIndexEligibleRegionNodes(site);
+  const home = regionalInventory.find((node) => node.kind === "home");
   if (!home) throw new Error(`BABY_RSS_HOME_MISSING:${site.key}`);
+  if (
+    eligibleRegional.length !== regionalInventory.length ||
+    !eligibleRegional.some((node) => node.path === home.path)
+  ) {
+    throw new Error(`BABY_RSS_REGIONAL_ELIGIBILITY:${site.key}`);
+  }
   const content = createRegionContent(home, site);
   const link = new URL("/", getSiteOrigin(site)).href;
   const bodyText = [

@@ -3,9 +3,16 @@ import ts from "typescript";
 
 export const NAVER_NEAR_DUPLICATE_THRESHOLDS = Object.freeze({
   primaryContent: Object.freeze({
-    percentile: 0.95,
-    percentileExclusiveMaximum: 0.45,
-    pairExclusiveMaximum: 0.55,
+    crossSite: Object.freeze({
+      percentile: 0.95,
+      percentileMaximum: 0.45,
+      pairMaximum: 0.55,
+    }),
+    withinSite: Object.freeze({
+      percentile: 0.95,
+      percentileMaximum: 0.45,
+      pairMaximum: 0.55,
+    }),
   }),
   repeatedBlockCharacterShare: Object.freeze({
     exactMaximum: 0.25,
@@ -17,9 +24,9 @@ export const NAVER_NEAR_DUPLICATE_THRESHOLDS = Object.freeze({
   maximumContentSections: 12,
 });
 
-export const INITIAL_INDEXABLE_REGIONAL_INVENTORY = Object.freeze({
-  count: 27,
-  sha256: "8eda7605fb2c3e5253d4149025a6b20870bcd2429832c17502e0778c4e889f5e",
+export const FULL_INDEXABLE_REGIONAL_INVENTORY = Object.freeze({
+  count: 455,
+  sha256: "1c6e72e9614aae92347983a60fbf359e27aa792f8886c7cc2b02974192bf90f4",
 });
 
 export const VERIFIED_LEAF_FACT_SECTION_IDS = Object.freeze(
@@ -125,6 +132,26 @@ export function createRegionalNormalizer({ brands, labels }) {
   };
 }
 
+export function normalizeRegionalRecordText(record, value, normalize) {
+  const identityValues = [
+    ...new Set(
+      (record?.normalizationLabels ?? [])
+        .map(cleanText)
+        .filter(Boolean),
+    ),
+  ].sort((left, right) => right.length - left.length);
+  const identityPattern = identityValues.length
+    ? new RegExp(
+        `(?:${identityValues.map(escapeRegExp).join("|")})(?=$|[\\s\\d.,·:;!?()[\\]{}|/~\-]|은|는|이|가|을|를|의|에|로|와|과|도|만|부터|까지|처럼|보다|출장|방문|지역|안내|페이지|주소|코스|마사지|안마)`,
+        "gu",
+      )
+    : null;
+  const identityNeutralized = identityPattern
+    ? cleanText(value).replace(identityPattern, "{지역}")
+    : value;
+  return normalize(identityNeutralized);
+}
+
 export function primaryContentText(recordOrContent) {
   const blocks = recordOrContent?.content
     ? recordPrimaryNarrativeBlocks(recordOrContent)
@@ -134,10 +161,13 @@ export function primaryContentText(recordOrContent) {
 
 /**
  * Authored regional narrative blocks only. Shared site chrome, image captions,
- * fixed-route service details, and directory-link labels are intentionally not
- * part of the 25%/35% release gate.
+ * fixed-route service details, and the separately hard-gated directory block
+ * are intentionally not part of the 25%/35% release gate.
  */
 export function primaryNarrativeBlocks(content) {
+  const narrativeSections = (content.sections ?? []).filter(
+    (section) => !cleanText(section.id).includes("directory"),
+  );
   return [
     content.title,
     content.description,
@@ -145,7 +175,7 @@ export function primaryNarrativeBlocks(content) {
     content.eyebrow,
     ...(content.hooks ?? []),
     content.faqIntro,
-    ...(content.sections ?? []).flatMap((section) => [
+    ...narrativeSections.flatMap((section) => [
       section.heading,
       ...(section.paragraphs ?? []),
     ]),
@@ -216,6 +246,15 @@ export function evaluateStagedIndexingSource({
   if (!/getIndexEligibleRegionNodes/u.test(sitemapSource)) {
     violations.push("SITEMAP_MISSING_ELIGIBLE_REGIONAL_INVENTORY");
   }
+  if (!/getRegionContentModifiedAt/u.test(sitemapSource)) {
+    violations.push("SITEMAP_MISSING_STABLE_LASTMOD");
+  }
+  if (/\blastModified\s*:\s*(?:new\s+Date|Date\.now)/u.test(sitemapSource)) {
+    violations.push("SITEMAP_BUILD_TIME_LASTMOD");
+  }
+  if (/\b(?:changeFrequency|priority)\s*:/u.test(sitemapSource)) {
+    violations.push("SITEMAP_UNSUPPORTED_HINT_FIELD");
+  }
   for (const [pattern, code] of [
     [/\bFIXED_ROUTES\b/u, "SITEMAP_INCLUDES_FIXED_ROUTES"],
     [/\bgetBlogPosts\b/u, "SITEMAP_INCLUDES_BLOG_POSTS"],
@@ -252,7 +291,7 @@ export function evaluateStagedIndexingSource({
   return {
     status: violations.length === 0 ? "PASS" : "FAIL",
     note:
-      "Initial public discovery inventory is city-home-only; all ancillary routes remain staged noindex,follow.",
+      "All 455 regional routes are eligible for public discovery; generic ancillary routes remain staged noindex,follow.",
     explicitIndexableCallLines: explicitIndexableCalls,
     violations,
   };
@@ -283,9 +322,17 @@ export function factProfileSelectionFailures(records, normalize) {
     const signatures = new Map();
     for (const record of group) {
       const signature = JSON.stringify({
-        title: normalize(record.content.title),
-        description: normalize(record.content.description),
-        h1: normalize(record.content.h1),
+        title: normalizeRegionalRecordText(
+          record,
+          record.content.title,
+          normalize,
+        ),
+        description: normalizeRegionalRecordText(
+          record,
+          record.content.description,
+          normalize,
+        ),
+        h1: normalizeRegionalRecordText(record, record.content.h1, normalize),
         sectionIds: [...(record.content.sections ?? [])]
           .map((section) => section.id)
           .filter((id) => !id.includes("directory"))
@@ -353,6 +400,28 @@ export function summarizeNumbers(values) {
   };
 }
 
+function roundedNumberSummary(values) {
+  return Object.fromEntries(
+    Object.entries(summarizeNumbers(values)).map(([key, value]) => [
+      key,
+      typeof value === "number" ? Number(value.toFixed(6)) : value,
+    ]),
+  );
+}
+
+function similaritySummariesByKind(pairs) {
+  return Object.fromEntries(
+    ["home", "district", "representative"].map((kind) => [
+      kind,
+      roundedNumberSummary(
+        pairs
+          .filter((pair) => pair.kind === kind)
+          .map((pair) => pair.similarity),
+      ),
+    ]),
+  );
+}
+
 export function duplicateGroups(values) {
   const groups = new Map();
   values.forEach((value, index) => {
@@ -380,7 +449,9 @@ function duplicateIndexGroups(values, transform = (value) => value) {
 function sameKindSimilarities(records, normalize, pairIsInScope) {
   const prepared = records.map((record) => ({
     ...record,
-    trigrams: wordTrigrams(normalize(primaryContentText(record))),
+    trigrams: wordTrigrams(
+      normalizeRegionalRecordText(record, primaryContentText(record), normalize),
+    ),
   }));
   const pairs = [];
   for (let leftIndex = 0; leftIndex < prepared.length; leftIndex += 1) {
@@ -457,21 +528,43 @@ function repeatedCharacterShare(blocks, frequency) {
   return total === 0 ? 0 : repeated / total;
 }
 
-function repeatedTextBlockCharacterShares(records, normalize, getBlocks) {
+function repeatedTextBlockCharacterShares(
+  records,
+  normalize,
+  getBlocks,
+  neutralizeRecordIdentity = false,
+) {
   const exactBlocks = records.map((record) => getBlocks(record));
-  const normalizedBlocks = exactBlocks.map((blocks) => blocks.map(normalize));
+  const normalizedBlocks = exactBlocks.map((blocks, recordIndex) =>
+    blocks.map((block) =>
+      neutralizeRecordIdentity
+        ? normalizeRegionalRecordText(records[recordIndex], block, normalize)
+        : normalize(block),
+    ),
+  );
   const exactFrequency = documentFrequency(exactBlocks);
   const normalizedFrequency = documentFrequency(normalizedBlocks);
-  return records.map((record, index) => ({
-    siteKey: record.siteKey,
-    path: record.path,
-    kind: record.kind,
-    exact: repeatedCharacterShare(exactBlocks[index], exactFrequency),
-    normalized: repeatedCharacterShare(
-      normalizedBlocks[index],
-      normalizedFrequency,
-    ),
-  }));
+  return records.map((record, index) => {
+    const repeatedExactBlocks = exactBlocks[index].filter(
+      (block) => (exactFrequency.get(block) ?? 0) > 1,
+    );
+    const repeatedNormalizedBlocks = normalizedBlocks[index].filter(
+      (block) => (normalizedFrequency.get(block) ?? 0) > 1,
+    );
+    return {
+      siteKey: record.siteKey,
+      path: record.path,
+      kind: record.kind,
+      exact: repeatedCharacterShare(exactBlocks[index], exactFrequency),
+      normalized: repeatedCharacterShare(
+        normalizedBlocks[index],
+        normalizedFrequency,
+      ),
+      repeatedExactBlockCount: repeatedExactBlocks.length,
+      repeatedNormalizedBlockCount: repeatedNormalizedBlocks.length,
+      repeatedNormalizedExamples: repeatedNormalizedBlocks.slice(0, 6),
+    };
+  });
 }
 
 export function primaryNarrativeRepeatedCharacterShares(records, normalize) {
@@ -479,6 +572,7 @@ export function primaryNarrativeRepeatedCharacterShares(records, normalize) {
     records,
     normalize,
     (record) => recordPrimaryNarrativeBlocks(record),
+    true,
   );
 }
 
@@ -487,6 +581,7 @@ export function renderedRepeatedCharacterShares(renderedRecords, normalize) {
     renderedRecords,
     normalize,
     (record) => extractVisibleBlocks(record.html),
+    true,
   );
 }
 
@@ -574,38 +669,20 @@ export function verifiedLeafFactCount(content) {
 export function indexEligibilityContractFailures(records) {
   return records.flatMap((record) => {
       const reasons = [];
-      if (record.indexEligible === false) {
-        if (record.kind === "home") reasons.push("HOME_ROUTE_EXCLUSION");
-        if (record.routeRobotsIndex !== false) {
-          reasons.push("INELIGIBLE_ROUTE_NOT_NOINDEX");
-        }
-        const expectedDeferredReason =
-          record.kind === "district"
-            ? "deferred-district-route"
-            : "deferred-regional-route";
-        if (record.indexEligibilityReason !== expectedDeferredReason) {
-          reasons.push("INVALID_INDEX_ELIGIBILITY_REASON");
-        }
-        if (
-          !cleanText(record.indexEligibilityTargetPath).startsWith("/") ||
-          record.indexEligibilityTargetPath === record.path ||
-          (record.parentPath &&
-            record.indexEligibilityTargetPath !== record.parentPath)
-        ) {
-          reasons.push("INVALID_INDEX_ELIGIBILITY_TARGET");
-        }
-        if (record.indexEligibilityTargetLinked !== true) {
-          reasons.push("INDEX_ELIGIBILITY_TARGET_NOT_LINKED");
-        }
-      } else {
-        const expectedReason = record.kind === "home" ? "city-home" : null;
-        if (record.kind !== "home") reasons.push("NON_HOME_ROUTE_INDEXABLE");
-        if (expectedReason && record.indexEligibilityReason !== expectedReason) {
-          reasons.push("INVALID_INDEX_ELIGIBILITY_REASON");
-        }
-        if (record.indexEligibilityTargetPath !== null) {
-          reasons.push("ELIGIBLE_ROUTE_HAS_FALLBACK_TARGET");
-        }
+      const expectedReason =
+        record.kind === "home"
+          ? "city-home"
+          : record.kind === "district"
+            ? "regional-district"
+            : "regional-leaf";
+      if (record.indexEligible !== true) {
+        reasons.push("REGIONAL_ROUTE_EXCLUSION");
+      }
+      if (record.indexEligibilityReason !== expectedReason) {
+        reasons.push("INVALID_INDEX_ELIGIBILITY_REASON");
+      }
+      if (record.indexEligibilityTargetPath !== null) {
+        reasons.push("INDEXABLE_ROUTE_HAS_FALLBACK_TARGET");
       }
       return reasons.length > 0
         ? [{ siteKey: record.siteKey, path: record.path, reasons }]
@@ -748,12 +825,46 @@ export function renderedHeadingQualityFailures(records) {
   });
 }
 
-function compactPair(pair) {
+function compactPair(pair, recordByKey, normalize) {
+  const leftRecord = recordByKey.get(pair.left);
+  const rightRecord = recordByKey.get(pair.right);
+  const leftText = leftRecord
+    ? normalizeRegionalRecordText(
+        leftRecord,
+        primaryContentText(leftRecord),
+        normalize,
+      )
+    : "";
+  const rightText = rightRecord
+    ? normalizeRegionalRecordText(
+        rightRecord,
+        primaryContentText(rightRecord),
+        normalize,
+      )
+    : "";
+  const leftTokens = new Set(leftText.match(WORD_PATTERN) ?? []);
+  const rightTokens = new Set(rightText.match(WORD_PATTERN) ?? []);
+  const leftOnlyTokens = [...leftTokens].filter(
+    (token) => !rightTokens.has(token),
+  );
+  const rightOnlyTokens = [...rightTokens].filter(
+    (token) => !leftTokens.has(token),
+  );
   return {
     left: pair.left,
     right: pair.right,
     kind: pair.kind,
     similarity: Number(pair.similarity.toFixed(6)),
+    normalizedDiff: {
+      leftCharacters: leftText.length,
+      rightCharacters: rightText.length,
+      leftIdentityLabels: (leftRecord?.normalizationLabels ?? []).slice(0, 12),
+      rightIdentityLabels: (rightRecord?.normalizationLabels ?? []).slice(0, 12),
+      leftOnlyTokens: leftOnlyTokens.slice(0, 24),
+      rightOnlyTokens: rightOnlyTokens.slice(0, 24),
+      leftExcerpt: leftText.slice(0, 420),
+      rightExcerpt: rightText.slice(0, 420),
+    },
   };
 }
 
@@ -859,8 +970,8 @@ export function evaluateStagedRouteContract(stagedRecords) {
     const reasons = [];
     if (record.staticRenderPass !== true) reasons.push("STATIC_RENDER_FAILURE");
     if (record.selfCanonicalPass !== true) reasons.push("NON_SELF_CANONICAL");
-    if (record.previewContractPass !== true) {
-      reasons.push("PREVIEW_GLOBAL_NOINDEX_CONTRACT");
+    if (record.actualPublicationContractPass !== true) {
+      reasons.push("ACTUAL_PUBLICATION_TUPLE_CONTRACT");
     }
     if (record.routeRobotsIndex !== false || record.routeRobotsFollow !== true) {
       reasons.push("PUBLIC_STAGED_ROUTE_ROBOTS");
@@ -960,6 +1071,7 @@ export function evaluateNaverNearDuplicateGate({
   renderedRecords,
   fixedRecords = [],
   stagedRecords = [],
+  siteSitemapContracts = [],
   normalize,
   selectionSourceContract = { status: "PASS", violations: [] },
   stagedIndexingSourceContract = { status: "PASS", violations: [] },
@@ -968,13 +1080,34 @@ export function evaluateNaverNearDuplicateGate({
   const exactDocuments = records.map((record) =>
     primaryContentText(record),
   );
-  const normalizedDocuments = exactDocuments.map(normalize);
+  const renderedVisibleDocuments = renderedRecords.map((record) =>
+    stripHtml(record.html),
+  );
+  const renderedHtmlDocuments = renderedRecords.map((record) =>
+    cleanText(record.html),
+  );
+  const normalizedDocuments = exactDocuments.map((value, index) =>
+    normalizeRegionalRecordText(records[index], value, normalize),
+  );
   const exactTitles = records.map((record) => record.content.title);
-  const normalizedTitles = exactTitles.map(normalize);
+  const normalizedTitles = exactTitles.map((value, index) =>
+    normalizeRegionalRecordText(records[index], value, normalize),
+  );
   const exactDescriptions = records.map((record) => record.content.description);
-  const normalizedDescriptions = exactDescriptions.map(normalize);
+  const normalizedDescriptions = exactDescriptions.map((value, index) =>
+    normalizeRegionalRecordText(records[index], value, normalize),
+  );
   const exactH1s = records.map((record) => record.content.h1);
-  const normalizedH1s = exactH1s.map(normalize);
+  const normalizedH1s = exactH1s.map((value, index) =>
+    normalizeRegionalRecordText(records[index], value, normalize),
+  );
+  const renderedH1s = renderedRecords.map((record) =>
+    stripHtml(
+      String(record.html ?? "").match(
+        /<h1(?:\s[^>]*)?>([\s\S]*?)<\/h1>/iu,
+      )?.[1] ?? "",
+    ),
+  );
   const indexEligibleRecords = records.filter(
     (record) => record.indexEligible !== false,
   );
@@ -987,32 +1120,21 @@ export function evaluateNaverNearDuplicateGate({
   const eligibleRegionalInventorySha256 = digestText(
     eligibleRegionalInventory.join("\n"),
   );
-  const eligibleHomeCountsBySite = new Map();
-  for (const record of indexEligibleRecords) {
-    if (record.kind !== "home" || record.path !== "/") continue;
-    eligibleHomeCountsBySite.set(
-      record.siteKey,
-      (eligibleHomeCountsBySite.get(record.siteKey) ?? 0) + 1,
-    );
-  }
   const indexableInventoryFailures = [];
   if (
-    indexEligibleRecords.length !== INITIAL_INDEXABLE_REGIONAL_INVENTORY.count
+    indexEligibleRecords.length !== FULL_INDEXABLE_REGIONAL_INVENTORY.count ||
+    ineligibleRecords.length !== 0
   ) {
     indexableInventoryFailures.push("INDEXABLE_REGIONAL_DOCUMENT_COUNT");
   }
   if (
-    eligibleHomeCountsBySite.size !== INITIAL_INDEXABLE_REGIONAL_INVENTORY.count ||
-    [...eligibleHomeCountsBySite.values()].some((count) => count !== 1) ||
-    indexEligibleRecords.some(
-      (record) => record.kind !== "home" || record.path !== "/",
-    )
+    records.some((record) => record.indexEligible !== true)
   ) {
-    indexableInventoryFailures.push("CITY_HOME_ONLY_INDEXABLE_INVENTORY");
+    indexableInventoryFailures.push("ALL_REGIONAL_ROUTES_MUST_BE_INDEXABLE");
   }
   if (
     eligibleRegionalInventorySha256 !==
-    INITIAL_INDEXABLE_REGIONAL_INVENTORY.sha256
+    FULL_INDEXABLE_REGIONAL_INVENTORY.sha256
   ) {
     indexableInventoryFailures.push("INDEXABLE_REGIONAL_INVENTORY_SHA256");
   }
@@ -1029,6 +1151,12 @@ export function evaluateNaverNearDuplicateGate({
   );
   const withinSiteSimilaritySummary = summarizeNumbers(
     withinSiteSimilarities.map((pair) => pair.similarity),
+  );
+  const crossSiteSimilarityByKind = similaritySummariesByKind(
+    crossSiteSimilarities,
+  );
+  const withinSiteSimilarityByKind = similaritySummariesByKind(
+    withinSiteSimilarities,
   );
   const repeatedShares = primaryNarrativeRepeatedCharacterShares(
     indexEligibleRecords,
@@ -1085,11 +1213,82 @@ export function evaluateNaverNearDuplicateGate({
       if (record.sitemapPresent !== true) {
         reasons.push("ELIGIBLE_ROUTE_MISSING_FROM_SITEMAP");
       }
+      if (record.sitemapLastModifiedPass !== true) {
+        reasons.push("SITEMAP_LASTMOD_CONTRACT");
+      }
     }
     return reasons.length > 0
-      ? [{ siteKey: record.siteKey, path: record.path, reasons }]
+      ? [{
+          siteKey: record.siteKey,
+          path: record.path,
+          reasons,
+        }]
       : [];
   });
+  const sitemapCorpusFailures = [];
+  const regionalSiteKeys = new Set(records.map((record) => record.siteKey));
+  const sitemapSiteKeys = new Set(
+    siteSitemapContracts.map((contract) => contract.siteKey),
+  );
+  if (siteSitemapContracts.length !== 27) {
+    sitemapCorpusFailures.push({
+      reasons: ["SITEMAP_SITE_COUNT"],
+      expected: 27,
+      actual: siteSitemapContracts.length,
+    });
+  }
+  if (
+    regionalSiteKeys.size !== 27 ||
+    sitemapSiteKeys.size !== 27 ||
+    [...regionalSiteKeys].some((siteKey) => !sitemapSiteKeys.has(siteKey))
+  ) {
+    sitemapCorpusFailures.push({
+      reasons: ["SITEMAP_SITE_KEY_COVERAGE"],
+      regionalSiteKeys: [...regionalSiteKeys].sort(),
+      sitemapSiteKeys: [...sitemapSiteKeys].sort(),
+    });
+  }
+  for (const contract of siteSitemapContracts) {
+    const expected = records.filter(
+      (record) => record.siteKey === contract.siteKey,
+    ).length;
+    const reasons = [];
+    if (contract.documentCount !== expected) {
+      reasons.push("SITEMAP_DOCUMENT_COUNT");
+    }
+    if (contract.uniqueDocumentCount !== expected) {
+      reasons.push("SITEMAP_UNIQUE_DOCUMENT_COUNT");
+    }
+    if (contract.lastModifiedCount !== expected) {
+      reasons.push("SITEMAP_LASTMOD_COUNT");
+    }
+    if (contract.unsupportedHintCount !== 0) {
+      reasons.push("SITEMAP_UNSUPPORTED_HINT_FIELD");
+    }
+    if (reasons.length > 0) {
+      sitemapCorpusFailures.push({
+        siteKey: contract.siteKey,
+        expected,
+        contract,
+        reasons,
+      });
+    }
+  }
+  if (
+    siteSitemapContracts.reduce(
+      (total, contract) => total + contract.documentCount,
+      0,
+    ) !== FULL_INDEXABLE_REGIONAL_INVENTORY.count
+  ) {
+    sitemapCorpusFailures.push({
+      reasons: ["SITEMAP_TOTAL_DOCUMENT_COUNT"],
+      expected: FULL_INDEXABLE_REGIONAL_INVENTORY.count,
+      actual: siteSitemapContracts.reduce(
+        (total, contract) => total + contract.documentCount,
+        0,
+      ),
+    });
+  }
   const customerVisibleRecords = [
     ...records.map((record) => {
       const rendered = renderedByKey.get(`${record.siteKey}:${record.path}`);
@@ -1190,18 +1389,10 @@ export function evaluateNaverNearDuplicateGate({
     if (!rendered) return [];
     const signatures = leafCommonBlockSignatures(rendered.html);
     const reasons = [];
-    if (
-      (record.kind === "home" || record.kind === "district") &&
-      signatures.fullPricingTable
-    ) {
-      reasons.push("FULL_14_ROW_PRICING_OUTSIDE_FIXED_ROUTE");
-    }
-    if (
-      (record.kind === "home" || record.kind === "district") &&
-      signatures.fullFaq
-    ) {
-      reasons.push("FULL_7_ITEM_FAQ_OUTSIDE_FIXED_ROUTE");
-    }
+    if (signatures.fullPricing) reasons.push("FULL_PRICING_OUTSIDE_FIXED_ROUTE");
+    if (signatures.fullProcess) reasons.push("FULL_PROCESS_OUTSIDE_FIXED_ROUTE");
+    if (signatures.fullFaq) reasons.push("FULL_FAQ_OUTSIDE_FIXED_ROUTE");
+    if (signatures.fullStandards) reasons.push("FULL_STANDARDS_OUTSIDE_FIXED_ROUTE");
     return reasons.length
       ? [{ siteKey: record.siteKey, path: record.path, reasons, signatures }]
       : [];
@@ -1218,36 +1409,125 @@ export function evaluateNaverNearDuplicateGate({
       reasons.push("REGIONAL_CONTENT_H2_COUNT");
     }
     if (!/directory$/u.test(lastSectionId)) reasons.push("DIRECTORY_NOT_LAST");
+    if (record.directoryCoveragePass !== true) {
+      reasons.push("DIRECTORY_LINK_COVERAGE");
+    }
     if (record.h1Count !== 1) reasons.push("H1_COUNT");
     if (record.metaContractPass !== true) reasons.push("META_CONTRACT");
     if (record.primaryBlocksVerified !== true) {
       reasons.push("PRIMARY_BLOCK_NOT_RENDERED");
     }
     if (record.shortLabelLeak === true) reasons.push("OFFICIAL_SUFFIX_LEAK");
-    if (record.previewContractPass !== true) reasons.push("PREVIEW_CONTRACT");
+    if (record.actualPublicationContractPass !== true) {
+      reasons.push("ACTUAL_PUBLICATION_TUPLE_CONTRACT");
+    }
     return reasons.length
+      ? [{
+          siteKey: record.siteKey,
+          path: record.path,
+          reasons,
+          directoryExpectedLinkCount: record.directoryExpectedLinkCount,
+          directoryRenderedLinkCount: record.directoryRenderedLinkCount,
+          directoryUnexpectedLinkCount: record.directoryUnexpectedLinkCount,
+        }]
+      : [];
+  });
+
+  const emptyRegionPlaceholderFailures = records.flatMap((record) => {
+    const rendered = renderedByKey.get(`${record.siteKey}:${record.path}`);
+    const prose = cleanText([
+      ...primaryNarrativeBlocks(record.content),
+      record.content.childDirectory?.heading,
+      record.content.childDirectory?.intro,
+      ...(record.content.sections ?? []).flatMap((section) => [
+        section.heading,
+        ...(section.paragraphs ?? []),
+      ]),
+    ].join("\n"));
+    const reasons = [];
+    if (prose.includes("별도 항목 없음")) {
+      reasons.push("EMPTY_REGION_PLACEHOLDER_TEXT");
+    }
+    if (
+      /([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u.test(
+        prose,
+      )
+    ) {
+      reasons.push("SELF_COMPARISON_TEXT");
+    }
+    if (
+      /도시는\s*([가-힣]{1,20}),\s*(?:상위 지역|바로 위 지역)은\s*\1(?:이며|입니다)/u.test(
+        prose,
+      )
+    ) {
+      reasons.push("DUPLICATE_CITY_PARENT_TEXT");
+    }
+    if (record.nodeDisplayName) {
+      const duplicateTargetHeading = new RegExp(
+        `${escapeRegExp(record.nodeDisplayName)}\\s+${escapeRegExp(record.nodeDisplayName)}(?=\\s|·|에서|으로|부터|까지|은|는|이|가|을|를|과|와|의|로|도|만|$)`,
+        "u",
+      );
+      if (
+        (record.content.sections ?? []).some((section) =>
+          duplicateTargetHeading.test(cleanText(section.heading))
+        )
+      ) {
+        reasons.push("DUPLICATE_TARGET_HEADING_PREFIX");
+      }
+    }
+    const isPeerlessLeaf =
+      record.kind === "representative" &&
+      record.directoryExpectedLinkCount === 0;
+    if (isPeerlessLeaf) {
+      if (
+        /(?:같은 단계|관련 지역|인접 지역|형제 지역).{0,24}(?:링크|목록)|(?:링크|목록).{0,24}(?:같은 단계|관련 지역|인접 지역|형제 지역)/u.test(
+          prose,
+        )
+      ) {
+        reasons.push("PEERLESS_ROUTE_LINK_CLAIM");
+      }
+      const contextualHrefs = rendered
+        ? contextualInternalHrefs(rendered.html, record.path)
+        : [];
+      const parentPathKey = String(record.parentPath ?? "").replace(/\/+$/u, "");
+      if (
+        !record.parentPath ||
+        !contextualHrefs.some(
+          (href) => String(href).replace(/\/+$/u, "") === parentPathKey,
+        )
+      ) {
+        reasons.push("PEERLESS_PARENT_LINK_MISSING");
+      }
+    }
+    return reasons.length > 0
       ? [{ siteKey: record.siteKey, path: record.path, reasons }]
       : [];
   });
 
   const collisionReport = {
-    exactDocument: duplicateGroups(exactDocuments).length,
+    exactDocument: duplicateGroups(renderedVisibleDocuments).length,
+    exactRenderedHtml: duplicateGroups(renderedHtmlDocuments).length,
+    exactPrimaryNarrative: duplicateGroups(exactDocuments).length,
     normalizedDocument: duplicateGroups(normalizedDocuments).length,
     exactTitle: duplicateGroups(exactTitles).length,
     normalizedTitle: duplicateGroups(normalizedTitles).length,
     exactDescription: duplicateGroups(exactDescriptions).length,
     normalizedDescription: duplicateGroups(normalizedDescriptions).length,
-    exactH1: duplicateGroups(exactH1s).length,
+    exactH1: duplicateGroups(renderedH1s).length,
+    exactContentH1: duplicateGroups(exactH1s).length,
     normalizedH1: duplicateGroups(normalizedH1s).length,
   };
+  const recordByKey = new Map(
+    records.map((record) => [`${record.siteKey}:${record.path}`, record]),
+  );
   const worstCrossSitePairs = [...crossSiteSimilarities]
     .sort((left, right) => right.similarity - left.similarity)
     .slice(0, 12)
-    .map(compactPair);
+    .map((pair) => compactPair(pair, recordByKey, normalize));
   const worstWithinSitePairs = [...withinSiteSimilarities]
     .sort((left, right) => right.similarity - left.similarity)
     .slice(0, 12)
-    .map(compactPair);
+    .map((pair) => compactPair(pair, recordByKey, normalize));
   const repeatedFailures = repeatedShares
     .filter(
       (record) =>
@@ -1272,36 +1552,57 @@ export function evaluateNaverNearDuplicateGate({
   if (
     [
       collisionReport.exactDocument,
+      collisionReport.exactRenderedHtml,
+      collisionReport.exactPrimaryNarrative,
       collisionReport.exactTitle,
       collisionReport.exactDescription,
       collisionReport.exactH1,
+      collisionReport.exactContentH1,
     ].some((count) => count !== 0)
   ) {
     failures.push("EXACT_COLLISION");
   }
   if (
     crossSiteSimilaritySummary.p95 >=
-    thresholds.primaryContent.percentileExclusiveMaximum
+    thresholds.primaryContent.crossSite.percentileMaximum
   ) {
     failures.push("PRIMARY_CONTENT_P95_SIMILARITY");
   }
   if (
     crossSiteSimilaritySummary.maximum >=
-    thresholds.primaryContent.pairExclusiveMaximum
+    thresholds.primaryContent.crossSite.pairMaximum
   ) {
     failures.push("PRIMARY_CONTENT_MAX_SIMILARITY");
   }
   if (
     withinSiteSimilaritySummary.p95 >=
-    thresholds.primaryContent.percentileExclusiveMaximum
+    thresholds.primaryContent.withinSite.percentileMaximum
   ) {
     failures.push("WITHIN_SITE_PRIMARY_CONTENT_P95_SIMILARITY");
   }
   if (
     withinSiteSimilaritySummary.maximum >=
-    thresholds.primaryContent.pairExclusiveMaximum
+    thresholds.primaryContent.withinSite.pairMaximum
   ) {
     failures.push("WITHIN_SITE_PRIMARY_CONTENT_MAX_SIMILARITY");
+  }
+  if (
+    Object.values(crossSiteSimilarityByKind).some(
+      (summary) =>
+        summary.p95 >= thresholds.primaryContent.crossSite.percentileMaximum ||
+        summary.maximum >= thresholds.primaryContent.crossSite.pairMaximum,
+    )
+  ) {
+    failures.push("PRIMARY_CONTENT_KIND_SIMILARITY");
+  }
+  if (
+    Object.values(withinSiteSimilarityByKind).some(
+      (summary) =>
+        summary.p95 >= thresholds.primaryContent.withinSite.percentileMaximum ||
+        summary.maximum >= thresholds.primaryContent.withinSite.pairMaximum,
+    )
+  ) {
+    failures.push("WITHIN_SITE_PRIMARY_CONTENT_KIND_SIMILARITY");
   }
   if (
     exactRepeatedSummary.maximum >
@@ -1316,6 +1617,9 @@ export function evaluateNaverNearDuplicateGate({
     failures.push("REGIONAL_SHARED_DETAIL_CONTRACT");
   }
   if (structuralFailures.length > 0) failures.push("SEO_STRUCTURE_CONTRACT");
+  if (emptyRegionPlaceholderFailures.length > 0) {
+    failures.push("EMPTY_REGION_LINK_CLAIM_CONTRACT");
+  }
   if (fixedPages.status !== "PASS") failures.push("FIXED_PAGE_CORPUS_CONTRACT");
   if (antiFillerFailures.length > 0) failures.push("ARTIFICIAL_EDITORIAL_FILLER");
   if (technicalFillerFailures.length > 0) {
@@ -1336,6 +1640,9 @@ export function evaluateNaverNearDuplicateGate({
   if (routeDiscoveryFailures.length > 0) {
     failures.push("ROUTE_DISCOVERY_CONTRACT");
   }
+  if (sitemapCorpusFailures.length > 0) {
+    failures.push("SITEMAP_CORPUS_CONTRACT");
+  }
   if (selectionSourceContract.status !== "PASS") {
     failures.push("FACT_DERIVED_COPY_SELECTION_SOURCE_CONTRACT");
   }
@@ -1353,11 +1660,20 @@ export function evaluateNaverNearDuplicateGate({
   }
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     status: failures.length === 0 ? "PASS" : "FAIL",
     note:
-      "Similarity thresholds are an internal release heuristic, not a published NAVER ranking threshold.",
+      "All 455 regional source routes are evaluated with a synthetic public publication fixture. Independently, each actual project must satisfy its current publication tuple: public routes index/follow, or preview routes global noindex/nofollow until HTTPS publication is complete. Similarity thresholds are an internal release heuristic, not a published NAVER ranking threshold.",
     thresholds,
+    thresholdPolicy: {
+      classification: "INTERNAL_RELEASE_HEURISTIC",
+      note:
+        "The same strict p95 and pair limits apply to cross-site, within-site, and per-kind comparisons across the full 455-route factual corpus. They are not NAVER documentation, a crawler classification boundary, or a ranking guarantee.",
+      nonNegotiableHardGates:
+        "Exact rendered/document/meta/H1 collisions, artificial or technical filler, full shared service blocks, missing directory links, and discovery metadata remain zero-tolerance.",
+      copyRule:
+        "Do not add invented facts, filler, or lexical rotation merely to lower a similarity score.",
+    },
     counts: {
       regionalDocuments: records.length,
       renderedDocuments: renderedRecords.length,
@@ -1369,6 +1685,11 @@ export function evaluateNaverNearDuplicateGate({
       desiredRegionalSitemapDocuments: records.filter(
         (record) => record.sitemapPresent === true,
       ).length,
+      sitemapSites: siteSitemapContracts.length,
+      sitemapDocuments: siteSitemapContracts.reduce(
+        (total, contract) => total + contract.documentCount,
+        0,
+      ),
       crossSiteSameKindPairs: crossSiteSimilarities.length,
       withinSiteSameKindPairs: withinSiteSimilarities.length,
       leafDocuments: records.filter(
@@ -1405,6 +1726,7 @@ export function evaluateNaverNearDuplicateGate({
             typeof value === "number" ? Number(value.toFixed(6)) : value,
           ]),
         ),
+        byKind: crossSiteSimilarityByKind,
         worstPairs: worstCrossSitePairs,
       },
       withinSite: {
@@ -1414,6 +1736,7 @@ export function evaluateNaverNearDuplicateGate({
             typeof value === "number" ? Number(value.toFixed(6)) : value,
           ]),
         ),
+        byKind: withinSiteSimilarityByKind,
         worstPairs: worstWithinSitePairs,
       },
     },
@@ -1436,6 +1759,8 @@ export function evaluateNaverNearDuplicateGate({
     leafFailures: leafFailures.slice(0, 30),
     regionalSharedDetailFailures: regionalSharedDetailFailures.slice(0, 30),
     structuralFailures: structuralFailures.slice(0, 30),
+    emptyRegionPlaceholderFailures:
+      emptyRegionPlaceholderFailures.slice(0, 30),
     fixedPages,
     stagedRoutes,
     stagedIndexingSource: stagedIndexingSourceContract,
@@ -1448,6 +1773,7 @@ export function evaluateNaverNearDuplicateGate({
     homeFactProvenanceFailures: homeFactProvenanceFailures.slice(0, 30),
     eligibilitySelectionFailures: eligibilitySelectionFailures.slice(0, 30),
     routeDiscoveryFailures: routeDiscoveryFailures.slice(0, 30),
+    sitemapCorpusFailures: sitemapCorpusFailures.slice(0, 30),
     factDerivedCopySelection: {
       source: selectionSourceContract,
       factProfileFailureCount: factProfileFailures.length,

@@ -12,28 +12,52 @@ describe("NAVER near-duplicate release gate", () => {
 
       expect(report.note).toContain("internal release heuristic");
       expect(report.note).toContain("not a published NAVER ranking threshold");
+      expect(report.thresholdPolicy).toMatchObject({
+        classification: "INTERNAL_RELEASE_HEURISTIC",
+      });
+      expect(report.thresholdPolicy.note).toContain("not NAVER documentation");
+      expect(report.thresholdPolicy.copyRule).toContain("Do not add invented facts");
+      expect(report.schemaVersion).toBe(2);
       expect(report.status, JSON.stringify(report.failures)).toBe("PASS");
       expect(report.counts).toMatchObject({
         regionalDocuments: 455,
         renderedDocuments: 455,
-        indexEligibleRegionalDocuments: 27,
-        ineligibleRegionalDocuments: 428,
+        indexEligibleRegionalDocuments: 455,
+        ineligibleRegionalDocuments: 0,
+        ineligibleLeafDocuments: 0,
         leafDocuments: 404,
         fixedDocuments: 81,
         stagedDocuments: 189,
+        sitemapSites: 27,
+        sitemapDocuments: 455,
         eligibleRegionalInventorySha256:
-          "8eda7605fb2c3e5253d4149025a6b20870bcd2429832c17502e0778c4e889f5e",
+          "1c6e72e9614aae92347983a60fbf359e27aa792f8886c7cc2b02974192bf90f4",
       });
       expect(report.collisions).toMatchObject({
         exactDocument: 0,
+        exactRenderedHtml: 0,
+        exactPrimaryNarrative: 0,
         exactTitle: 0,
         exactDescription: 0,
         exactH1: 0,
+        exactContentH1: 0,
       });
       expect(report.primaryContentSimilarity.crossSite.p95).toBeLessThan(0.45);
       expect(report.primaryContentSimilarity.crossSite.maximum).toBeLessThan(0.55);
       expect(report.primaryContentSimilarity.withinSite.p95).toBeLessThan(0.45);
       expect(report.primaryContentSimilarity.withinSite.maximum).toBeLessThan(0.55);
+      for (const summary of Object.values(
+        report.primaryContentSimilarity.crossSite.byKind,
+      )) {
+        expect(summary.p95).toBeLessThan(0.45);
+        expect(summary.maximum).toBeLessThan(0.55);
+      }
+      for (const summary of Object.values(
+        report.primaryContentSimilarity.withinSite.byKind,
+      )) {
+        expect(summary.p95).toBeLessThan(0.45);
+        expect(summary.maximum).toBeLessThan(0.55);
+      }
       expect(
         report.primaryNarrativeRepeatedBlockCharacterShare.exact.maximum,
       ).toBeLessThanOrEqual(0.25);
@@ -43,6 +67,7 @@ describe("NAVER near-duplicate release gate", () => {
       expect(report.leafFailures).toEqual([]);
       expect(report.regionalSharedDetailFailures).toEqual([]);
       expect(report.structuralFailures).toEqual([]);
+      expect(report.emptyRegionPlaceholderFailures).toEqual([]);
       expect(report.headingCounts.regionalContentH2HardGate.minimum).toBeGreaterThanOrEqual(10);
       expect(report.headingCounts.regionalContentH2HardGate.maximum).toBeLessThanOrEqual(12);
       expect(report.headingCounts.renderedHeadingQualityFailures).toEqual([]);
@@ -56,8 +81,9 @@ describe("NAVER near-duplicate release gate", () => {
       );
       expect(report.eligibilitySelectionFailures).toEqual([]);
       expect(report.routeDiscoveryFailures).toEqual([]);
+      expect(report.sitemapCorpusFailures).toEqual([]);
       expect(report.counts.desiredRegionalSitemapDocuments).toBe(
-        report.counts.indexEligibleRegionalDocuments,
+        455,
       );
       expect(report.counts.eligibleRegionalInventorySha256).toMatch(
         /^[a-f0-9]{64}$/u,

@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import { getSiteOrigin } from "@/lib/metadata";
+import { getIndexEligibleRegionNodes } from "@/lib/content";
+import { getRegionNodesForSite } from "@/lib/regions";
 import { createRssFeedItems, createRssXml } from "@/lib/rss";
 import { ALL_BABY_SITES } from "@/lib/site-config";
 
@@ -9,10 +11,13 @@ function matches(value: string, pattern: RegExp): number {
 }
 
 describe("baby platform staged RSS 2.0 contract", () => {
-  it("contains only the index-eligible city home item", () => {
+  it("keeps one editorial home item while all regional discovery stays in the sitemap", () => {
     for (const site of ALL_BABY_SITES) {
       const origin = getSiteOrigin(site);
       const items = createRssFeedItems(site);
+      expect(getIndexEligibleRegionNodes(site)).toHaveLength(
+        getRegionNodesForSite(site).length,
+      );
       expect(items).toHaveLength(1);
       expect(items[0]?.guid).toBe(new URL("/", origin).href);
       expect(items[0]?.link).toBe(items[0]?.guid);

@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { getBlogPosts } from "@/data/blog-posts";
+import { getCityFactProfile } from "@/data/city-fact-profiles";
 import { createRegionContent } from "@/lib/content";
 import {
   createRegionMetadataContract,
   getSitePublicationContract,
 } from "@/lib/metadata";
 import {
+  getRegionChildrenForSite,
   getRegionNodesForSite,
+  getRegionParentForSite,
   type BabyRegionNode,
 } from "@/lib/regions";
 import {
@@ -37,6 +40,17 @@ const records: ContentRecord[] = ALL_BABY_SITES.flatMap((site) =>
 
 function expectUnique(values: readonly string[]): void {
   expect(new Set(values).size).toBe(values.length);
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+}
+
+function hasFinalConsonant(value: string): boolean {
+  const character = [...value.normalize("NFC")].at(-1);
+  if (!character) return false;
+  const code = character.charCodeAt(0);
+  return code >= 0xac00 && code <= 0xd7a3 && (code - 0xac00) % 28 !== 0;
 }
 
 describe("Gyeonggi baby regional content contract", () => {
@@ -93,6 +107,177 @@ describe("Gyeonggi baby regional content contract", () => {
         for (const value of customerFields) {
           expect(value).not.toContain(site.officialName);
         }
+      }
+    }
+  });
+
+  it("renders Korean particles correctly after dynamic region labels", () => {
+    const obviousParticleErrors = [
+      /(?:구|리)(?:을|은|이|과)(?=\s|,|\.|$)/gu,
+      /(?:동|읍|면)(?:를|는|가|와)(?=\s|,|\.|$)/gu,
+      /개(?:이|은|을|과)(?=\s|,|\.|$)/gu,
+    ];
+    for (const { site, node, content } of records) {
+      const prose = [
+        content.title,
+        content.description,
+        content.h1,
+        content.eyebrow,
+        ...content.hooks,
+        content.faqIntro,
+        ...content.sections.flatMap((section) => [
+          section.heading,
+          ...section.paragraphs,
+        ]),
+      ];
+      for (const value of prose) {
+        for (const pattern of obviousParticleErrors) {
+          expect(value).not.toMatch(pattern);
+        }
+      }
+
+      const profile = getCityFactProfile(site.key);
+      const dynamicLabels = [
+        site.searchName,
+        site.officialName,
+        node.displayName,
+        node.qualifiedName,
+        ...node.sourceAliases,
+        ...node.records.flatMap((record) => [
+          record.name,
+          ...record.sourceNames,
+          ...record.legalAreas.map((area) => area.name),
+        ]),
+        ...profile.addressAxes,
+      ];
+      for (const label of new Set(dynamicLabels.filter(Boolean))) {
+        const pattern = new RegExp(
+          `${escapeRegExp(label)}(은|는|이|가|을|를|과|와)(?=\\s|,|\\.|$)`,
+          "gu",
+        );
+        const validParticles = hasFinalConsonant(label)
+          ? new Set(["은", "이", "을", "과"])
+          : new Set(["는", "가", "를", "와"]);
+        for (const value of prose) {
+          for (const match of value.matchAll(pattern)) {
+            expect(
+              validParticles.has(match[1] ?? ""),
+              `${site.key}:${node.path}:${label}:${match[0]}:${value}`,
+            ).toBe(true);
+          }
+        }
+      }
+    }
+  });
+
+  it("never exposes empty region placeholders or invents peer links", () => {
+    const emptyLinkClaim = /(?:링크(?:가|는|은|이)?\s*(?:0개|없(?:음|습니다))|(?:0개|없(?:는|음|습니다))\s*(?:형제|관련|같은 단계)?\s*링크)/u;
+    const selfComparison = /([가-힣]{1,20}(?:구|동|읍|면|리))(?:부터\s*\1까지|·\1|(?:은|는)\s*\1(?:과|와)\s*서로 다른)/u;
+    const duplicateCityParent = /도시는\s*([가-힣]{1,20}),\s*(?:상위 지역|바로 위 지역)은\s*\1(?:이며|입니다)/u;
+    const peerlessLeaves: ContentRecord[] = [];
+
+    for (const record of records) {
+      const { site, node, content } = record;
+      const prose = [
+        content.title,
+        content.description,
+        content.h1,
+        content.eyebrow,
+        ...content.hooks,
+        content.faqIntro,
+        content.childDirectory.heading,
+        content.childDirectory.intro,
+        ...content.sections.flatMap((section) => [
+          section.heading,
+          ...section.paragraphs,
+        ]),
+      ].join("\n");
+      expect(prose).not.toContain("별도 항목 없음");
+      expect(prose).not.toMatch(emptyLinkClaim);
+      expect(
+        prose,
+        `${site.key}:${node.path}:self-comparison`,
+      ).not.toMatch(selfComparison);
+      expect(
+        prose,
+        `${site.key}:${node.path}:duplicate-city-parent`,
+      ).not.toMatch(duplicateCityParent);
+      const duplicateTargetHeading = new RegExp(
+        `${escapeRegExp(node.displayName)}\\s+${escapeRegExp(node.displayName)}(?=\\s|·|에서|으로|부터|까지|은|는|이|가|을|를|과|와|의|로|도|만|$)`,
+        "u",
+      );
+      for (const section of content.sections) {
+        expect(
+          section.heading,
+          `${site.key}:${node.path}:duplicate-target-heading`,
+        ).not.toMatch(duplicateTargetHeading);
+      }
+
+      if (node.kind !== "representative") continue;
+      const parent = getRegionParentForSite(site, node);
+      const peers = parent
+        ? getRegionChildrenForSite(site, parent).filter(
+            (candidate) => candidate.path !== node.path,
+          )
+        : [];
+      if (peers.length === 0) peerlessLeaves.push(record);
+    }
+
+    expect(peerlessLeaves.length).toBeGreaterThan(0);
+    for (const { site, node, content } of peerlessLeaves) {
+      const parent = getRegionParentForSite(site, node);
+      expect(parent).not.toBeNull();
+      expect(
+        getRegionNodesForSite(site).some(
+          (candidate) => candidate.path === parent?.path,
+        ),
+      ).toBe(true);
+      const prose = [
+        content.description,
+        ...content.hooks,
+        content.faqIntro,
+        ...content.sections.flatMap((section) => [
+          section.heading,
+          ...section.paragraphs,
+        ]),
+      ].join("\n");
+      expect(prose).not.toMatch(/링크|같은 단계|인접 지역|관련 지역|대조|구분/u);
+      expect(prose).toContain(site.searchName);
+      expect(prose).toContain(parent?.displayName ?? site.searchName);
+      expect(prose).toMatch(/도로명/u);
+      expect(prose).toMatch(/건물명/u);
+    }
+  });
+
+  it("marks all 455 regional routes eligible without a redirect target", () => {
+    for (const { node, content } of records) {
+      expect(content.indexEligible).toBe(true);
+      expect(content.indexEligibilityTargetPath).toBeNull();
+      expect(content.indexEligibilityReason).toBe(
+        node.kind === "home"
+          ? "city-home"
+          : node.kind === "district"
+            ? "regional-district"
+            : "regional-leaf",
+      );
+    }
+  });
+
+  it("emits index,follow and self-canonicals for every regional route once a site is public", () => {
+    for (const site of ALL_BABY_SITES) {
+      const publicOrigin = `https://${site.slug}.regional-release.example`;
+      const publicSite: BabySiteConfig = {
+        ...site,
+        deploymentState: "public",
+        isPublic: true,
+        indexingEnabled: true,
+        publicOrigin,
+        origin: publicOrigin,
+      };
+      for (const node of getRegionNodesForSite(site)) {
+        const metadata = createRegionMetadataContract(node, publicSite);
+        expect(metadata.robots).toEqual({ index: true, follow: true });
+        expect(metadata.canonical).toBe(new URL(node.path, publicOrigin).href);
       }
     }
   });

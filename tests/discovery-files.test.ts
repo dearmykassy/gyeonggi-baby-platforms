@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { getBlogPosts } from "@/data/blog-posts";
 import { getIndexEligibleRegionNodes } from "@/lib/content";
 import { getSitePublicationContract } from "@/lib/metadata";
+import { getRegionNodesForSite } from "@/lib/regions";
 import { ALL_BABY_SITES } from "@/lib/site-config";
 
 describe("baby platform discovery-file contract", () => {
@@ -10,7 +11,7 @@ describe("baby platform discovery-file contract", () => {
     for (const site of ALL_BABY_SITES) {
       const eligibleRegional = getIndexEligibleRegionNodes(site);
       const sitemapRoutes = eligibleRegional.map((node) => node.path);
-      const stagedRoutes = [
+      const ancillaryRoutes = [
         "/areas/",
         "/pricing/",
         "/guide/",
@@ -18,10 +19,15 @@ describe("baby platform discovery-file contract", () => {
         "/blog/",
         ...getBlogPosts(site).map((post) => `/blog/${post.slug}/`),
       ];
-      expect(sitemapRoutes).toEqual(["/"]);
+      expect(sitemapRoutes).toEqual(
+        getRegionNodesForSite(site).map((node) => node.path),
+      );
+      expect(sitemapRoutes).toContain("/");
       expect(new Set(sitemapRoutes).size).toBe(sitemapRoutes.length);
-      expect(stagedRoutes).toHaveLength(7);
-      expect(stagedRoutes.every((route) => !sitemapRoutes.includes(route))).toBe(true);
+      expect(ancillaryRoutes).toHaveLength(7);
+      expect(
+        ancillaryRoutes.every((route) => !sitemapRoutes.includes(route)),
+      ).toBe(true);
     }
   });
 

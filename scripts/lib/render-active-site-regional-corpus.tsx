@@ -38,6 +38,7 @@ import {
   getRegionNodesForSite,
   getRegionParentForSite,
 } from "@/lib/regions";
+import { getRegionContentModifiedAt } from "@/lib/site-revisions";
 import { getCityFactProfile } from "@/data/city-fact-profiles";
 import {
   ACTIVE_SITE,
@@ -112,7 +113,6 @@ function renderedPrimaryBlocks(
   const narrativeSections = content.sections.filter(
     (section) => !section.id.includes("directory"),
   ).toSorted((left, right) => left.id.localeCompare(right.id, "en"));
-  const directory = content.sections.at(-1);
   return [
     content.h1,
     content.eyebrow,
@@ -123,8 +123,6 @@ function renderedPrimaryBlocks(
       section.heading,
       ...section.paragraphs,
     ]),
-    directory?.heading,
-    directory?.paragraphs[0],
   ]
     .map(cleanText)
     .filter(Boolean);
@@ -230,6 +228,31 @@ function factProfile(
   });
 }
 
+function normalizationLabels(
+  node: ReturnType<typeof getRegionNodesForSite>[number],
+): readonly string[] {
+  const leafAliases = node.kind === "representative"
+    ? [
+        ...node.sourceAliases,
+        ...node.records.flatMap((record) => [
+          record.name,
+          ...record.sourceNames,
+        ]),
+      ]
+    : [];
+  return [
+    ...new Set([
+      ACTIVE_SITE.searchName,
+      ACTIVE_SITE.officialName,
+      node.displayName,
+      node.officialName,
+      node.qualifiedName,
+      node.name,
+      ...leafAliases,
+    ].map(cleanText).filter(Boolean)),
+  ].sort((left, right) => right.length - left.length);
+}
+
 const records = [];
 const renderedRecords = [];
 const fixedRecords = [];
@@ -239,12 +262,16 @@ const stagedRecords: Array<{
   html: string;
   staticRenderPass: boolean;
   selfCanonicalPass: boolean;
-  previewContractPass: boolean;
+  actualPublicationContractPass: boolean;
   routeRobotsIndex: boolean;
   routeRobotsFollow: boolean;
   sitemapPresent: boolean;
 }> = [];
-const sitemapUrls = new Set(buildSitemap().map((entry) => entry.url));
+const sitemapEntries = buildSitemap();
+const sitemapByUrl = new Map(
+  sitemapEntries.map((entry) => [entry.url, entry]),
+);
+const sitemapUrls = new Set(sitemapByUrl.keys());
 const publicAuditOrigin = `https://${ACTIVE_SITE.slug}.release-audit.example`;
 const publicAuditSite: BabySiteConfig = {
   ...ACTIVE_SITE,
@@ -300,6 +327,10 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
     getSitePublicationContract(ACTIVE_SITE).origin,
   ).href;
   const expectedPublicCanonical = new URL(node.path, publicAuditOrigin).href;
+  const sitemapEntry = sitemapByUrl.get(metadata.canonical);
+  const sitemapLastModified = sitemapEntry?.lastModified instanceof Date
+    ? sitemapEntry.lastModified.toISOString()
+    : cleanText(sitemapEntry?.lastModified);
   const metaContractPass =
     metadata.route === node.path &&
     metadata.title === content.title &&
@@ -339,6 +370,17 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
       .filter((href) => href.startsWith("/"))
       .map(normalizedInternalPath),
   );
+  const renderedDirectoryHtml =
+    html.match(
+      /<section\b[^>]*class="[^"]*\bregion-directory\b[^"]*"[^>]*>[\s\S]*?<\/section>/iu,
+    )?.[0] ?? "";
+  const renderedDirectoryPathList = [
+    ...renderedDirectoryHtml.matchAll(/<a\b[^>]*\bhref="([^"]+)"/giu),
+  ]
+    .map((match) => match[1] ?? "")
+    .filter((href) => href.startsWith("/"))
+    .map(normalizedInternalPath);
+  const renderedDirectoryPaths = new Set(renderedDirectoryPathList);
   const indexEligibilityTargetLinked =
     content.indexEligibilityTargetPath === null ||
     renderedInternalPaths.has(
@@ -353,12 +395,23 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
       (path): path is string => Boolean(path) && path !== node.path,
     ),
   );
+  const expectedDirectoryPaths = new Set(
+    related.map((candidate) => normalizedInternalPath(candidate.path)),
+  );
+  const renderedDirectoryPathCount = [...expectedDirectoryPaths].filter(
+    (path) => renderedDirectoryPaths.has(path),
+  ).length;
+  const unexpectedDirectoryPathCount = [...renderedDirectoryPaths].filter(
+    (path) => !expectedDirectoryPaths.has(path),
+  ).length;
 
   records.push({
     siteKey: ACTIVE_SITE.key,
     path: node.path,
     kind: node.kind,
+    nodeDisplayName: node.displayName,
     content,
+    normalizationLabels: normalizationLabels(node),
     indexEligible: content.indexEligible,
     indexEligibilityReason: content.indexEligibilityReason,
     indexEligibilityTargetPath: content.indexEligibilityTargetPath,
@@ -368,9 +421,21 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
       node.kind === "representative" ? eligibilityEvidenceScore(node) : null,
     routeOrdinal: node.routeOrdinal,
     indexEligibilityTargetLinked,
+    directoryCoveragePass:
+      renderedDirectoryPathCount === expectedDirectoryPaths.size &&
+      renderedDirectoryPathList.length === expectedDirectoryPaths.size &&
+      unexpectedDirectoryPathCount === 0,
+    directoryExpectedLinkCount: expectedDirectoryPaths.size,
+    directoryRenderedLinkCount: renderedDirectoryPathList.length,
+    directoryUnexpectedLinkCount: unexpectedDirectoryPathCount,
     routeRobotsIndex: publicMetadata.robots.index,
     routeRobotsFollow: publicMetadata.robots.follow,
     sitemapPresent: sitemapUrls.has(metadata.canonical),
+    sitemapLastModified,
+    sitemapLastModifiedPass:
+      sitemapLastModified === getRegionContentModifiedAt(node) &&
+      Number.isFinite(Date.parse(sitemapLastModified)) &&
+      Date.parse(sitemapLastModified) <= Date.now(),
     selfCanonicalPass:
       metadata.canonical === expectedCanonical &&
       publicMetadata.canonical === expectedPublicCanonical,
@@ -394,7 +459,7 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
     renderedH2Count: renderedH2Matches.length,
     renderedH2Texts,
     metaContractPass,
-    previewContractPass: publicationContractPass(metadata),
+    actualPublicationContractPass: publicationContractPass(metadata),
     shortLabelLeak,
   });
   renderedRecords.push({
@@ -402,6 +467,7 @@ for (const node of getRegionNodesForSite(ACTIVE_SITE)) {
     path: node.path,
     kind: node.kind,
     html,
+    normalizationLabels: normalizationLabels(node),
     availableContextualLinkCount: possibleContextualPaths.size,
   });
 }
@@ -428,18 +494,19 @@ function metadataKeywords(metadata: Metadata): readonly string[] {
   return typeof keywords === "string" ? [keywords] : [];
 }
 
-function previewNextMetadataContractPass(
+function actualAncillaryMetadataContractPass(
   metadata: Metadata,
   expectedCanonical: string,
 ): boolean {
   const robots = metadata.robots;
+  if (typeof robots !== "object" || robots === null) return false;
+  const publication = getSitePublicationContract(ACTIVE_SITE);
+  const robotsPass = publication.indexable
+    ? robots.index === false && robots.follow === true && robots.nocache === true
+    : robots.index === false && robots.follow === false && robots.nocache === true;
   return (
     metadataCanonical(metadata) === expectedCanonical &&
-    typeof robots === "object" &&
-    robots !== null &&
-    robots.index === false &&
-    robots.follow === false &&
-    robots.nocache === true
+    robotsPass
   );
 }
 
@@ -475,7 +542,7 @@ function addStagedRoute({
     selfCanonicalPass:
       canonical === expectedCanonical &&
       publicContract.canonical === expectedPublicCanonical,
-    previewContractPass: previewNextMetadataContractPass(
+    actualPublicationContractPass: actualAncillaryMetadataContractPass(
       metadata,
       expectedCanonical,
     ),
@@ -541,6 +608,17 @@ for (const post of (await import("@/data/blog-posts")).getBlogPosts(ACTIVE_SITE)
 process.stdout.write(
   JSON.stringify({
     siteKey: ACTIVE_SITE.key,
+    sitemapContract: {
+      siteKey: ACTIVE_SITE.key,
+      documentCount: sitemapEntries.length,
+      uniqueDocumentCount: sitemapUrls.size,
+      lastModifiedCount: sitemapEntries.filter((entry) =>
+        Boolean(entry.lastModified),
+      ).length,
+      unsupportedHintCount: sitemapEntries.filter(
+        (entry) => entry.changeFrequency !== undefined || entry.priority !== undefined,
+      ).length,
+    },
     records,
     renderedRecords,
     fixedRecords,

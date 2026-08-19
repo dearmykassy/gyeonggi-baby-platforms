@@ -177,6 +177,8 @@ export function createRegionMetadataContract(
   site: BabySiteConfig = ACTIVE_SITE,
 ): RouteMetadataContract {
   const content = createRegionContent(node, site);
+  // Regional discovery follows the per-node content contract. Ancillary routes
+  // continue to use createRouteMetadataContract's fail-closed false default.
   return createRouteMetadataContract(
     node.path,
     content.title,

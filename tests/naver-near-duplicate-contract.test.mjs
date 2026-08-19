@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   ARTIFICIAL_EDITORIAL_FILLER_PATTERNS,
   CUSTOMER_FACING_TECHNICAL_FILLER_PATTERNS,
+  NAVER_NEAR_DUPLICATE_THRESHOLDS,
   cityHomeProvenanceFailures,
   createRegionalNormalizer,
   evaluateCrossPlatformCopyAuditBoundary,
@@ -15,6 +16,8 @@ import {
   indexEligibilityContractFailures,
   jaccardSimilarity,
   leafCommonBlockSignatures,
+  normalizeRegionalRecordText,
+  primaryNarrativeBlocks,
   primaryNarrativeRepeatedCharacterShares,
   primaryContentText,
   renderedHeadingQualityFailures,
@@ -23,6 +26,13 @@ import {
 } from "../scripts/lib/naver-near-duplicate-contract.mjs";
 
 describe("NAVER near-duplicate contract primitives", () => {
+  it("keeps the permanent strict cross-site and within-site limits", () => {
+    expect(NAVER_NEAR_DUPLICATE_THRESHOLDS.primaryContent).toMatchObject({
+      crossSite: { percentileMaximum: 0.45, pairMaximum: 0.55 },
+      withinSite: { percentileMaximum: 0.45, pairMaximum: 0.55 },
+    });
+  });
+
   it("normalizes brand, region, and numeric substitutions deterministically", () => {
     const normalize = createRegionalNormalizer({
       brands: ["수원휴온"],
@@ -33,6 +43,25 @@ describe("NAVER near-duplicate contract primitives", () => {
     );
     expect(normalize("다섯 개 경로와 한 자릿수 목록, 열두 단계")).toBe(
       "{수} 개 경로와 {수} 자릿수 목록, {수} 단계",
+    );
+  });
+
+  it("neutralizes only the current route identity and preserves contextual place facts", () => {
+    const normalize = createRegionalNormalizer({
+      brands: ["수원휴온"],
+      labels: [],
+    });
+    const record = {
+      normalizationLabels: ["수원", "인계동"],
+    };
+    expect(
+      normalizeRegionalRecordText(
+        record,
+        "수원휴온 인계동은 팔달문과 수원천을 주소 기준으로 함께 확인합니다.",
+        normalize,
+      ),
+    ).toBe(
+      "{브랜드} {지역}은 팔달문과 수원천을 주소 기준으로 함께 확인합니다.",
     );
   });
 
@@ -106,6 +135,31 @@ describe("NAVER near-duplicate contract primitives", () => {
     expect(primaryContentText(record)).toContain("화면에 실제 보이는 지역 사실");
     expect(primaryContentText(record)).not.toContain("렌더되지 않는 훅");
     expect(primaryContentText(record)).not.toContain("숨은 메타 제목");
+  });
+
+  it("excludes the separately hard-gated directory block from primary copy", () => {
+    const blocks = primaryNarrativeBlocks({
+      title: "제목",
+      description: "설명",
+      h1: "화면 제목",
+      eyebrow: "표식",
+      sections: [
+        {
+          id: "regional-facts",
+          heading: "지역 사실",
+          paragraphs: ["지역 본문"],
+        },
+        {
+          id: "regional-directory",
+          heading: "주변 지역",
+          paragraphs: ["반복될 수 있는 링크 안내"],
+        },
+      ],
+    });
+    expect(blocks).toContain("지역 사실");
+    expect(blocks).toContain("지역 본문");
+    expect(blocks).not.toContain("주변 지역");
+    expect(blocks).not.toContain("반복될 수 있는 링크 안내");
   });
 
   it("rejects route identity, hash, and randomness as SEO copy selectors", () => {
@@ -225,18 +279,20 @@ describe("NAVER near-duplicate contract primitives", () => {
     });
   });
 
-  it("requires a staged-by-default metadata contract and home-only sitemap source", () => {
+  it("keeps ancillary metadata staged while allowing the complete regional sitemap", () => {
     expect(
       evaluateStagedIndexingSource({
         metadataSource: "routeIndexEligible = false",
-        sitemapSource: "getIndexEligibleRegionNodes(site)",
+        sitemapSource:
+          "getIndexEligibleRegionNodes(site); lastModified: getRegionContentModifiedAt(node)",
         ancillaryRouteSource:
           'createRouteMetadataContract("/guide/", title, description); createRouteMetadataContract(path, title, description, keywords, site, false)',
       }).status,
     ).toBe("PASS");
     const unsafe = evaluateStagedIndexingSource({
       metadataSource: "routeIndexEligible = true",
-      sitemapSource: "const FIXED_ROUTES=[]; getBlogPosts(); blogIndex;",
+      sitemapSource:
+        "const FIXED_ROUTES=[]; getBlogPosts(); blogIndex; lastModified: new Date(); priority: 1;",
       ancillaryRouteSource:
         'createRouteMetadataContract("/guide/", title, description, [], site, true)',
     });
@@ -245,6 +301,9 @@ describe("NAVER near-duplicate contract primitives", () => {
       expect.arrayContaining([
         "ROUTE_METADATA_DEFAULT_NOT_STAGED",
         "SITEMAP_MISSING_ELIGIBLE_REGIONAL_INVENTORY",
+        "SITEMAP_MISSING_STABLE_LASTMOD",
+        "SITEMAP_BUILD_TIME_LASTMOD",
+        "SITEMAP_UNSUPPORTED_HINT_FIELD",
         "SITEMAP_INCLUDES_FIXED_ROUTES",
         "SITEMAP_INCLUDES_BLOG_POSTS",
         "SITEMAP_INCLUDES_BLOG_INDEX",
@@ -269,7 +328,7 @@ describe("NAVER near-duplicate contract primitives", () => {
         path,
         staticRenderPass: true,
         selfCanonicalPass: true,
-        previewContractPass: true,
+        actualPublicationContractPass: true,
         routeRobotsIndex: false,
         routeRobotsFollow: true,
         sitemapPresent: false,
@@ -281,7 +340,7 @@ describe("NAVER near-duplicate contract primitives", () => {
         ? {
             ...record,
             sitemapPresent: true,
-            previewContractPass: false,
+            actualPublicationContractPass: false,
           }
         : record,
     );
@@ -289,7 +348,7 @@ describe("NAVER near-duplicate contract primitives", () => {
       "STAGED_ROUTE_IN_SITEMAP",
     );
     expect(evaluateStagedRouteContract(unsafe).failures[0].reasons).toContain(
-      "PREVIEW_GLOBAL_NOINDEX_CONTRACT",
+      "ACTUAL_PUBLICATION_TUPLE_CONTRACT",
     );
   });
 
@@ -327,36 +386,30 @@ describe("NAVER near-duplicate contract primitives", () => {
     }
   });
 
-  it("allows an evidence-poor leaf to be excluded only with an explicit noindex reason", () => {
+  it("requires every regional route to be indexable with a kind-specific reason", () => {
     const valid = {
       siteKey: "one",
       path: "/areas/leaf/",
       kind: "representative",
-      indexEligible: false,
-      indexEligibilityReason: "deferred-regional-route",
-      indexEligibilityTargetPath: "/areas/parent/",
+      indexEligible: true,
+      indexEligibilityReason: "regional-leaf",
+      indexEligibilityTargetPath: null,
       parentPath: "/areas/parent/",
-      indexEligibilityTargetLinked: true,
-      routeRobotsIndex: false,
     };
     expect(indexEligibilityContractFailures([valid])).toEqual([]);
     expect(
       indexEligibilityContractFailures([
         {
           ...valid,
-          kind: "home",
+          indexEligible: false,
           indexEligibilityReason: "wrong-reason",
-          indexEligibilityTargetPath: "",
-          indexEligibilityTargetLinked: false,
-          routeRobotsIndex: true,
+          indexEligibilityTargetPath: "/areas/parent/",
         },
       ])[0].reasons,
     ).toEqual([
-      "HOME_ROUTE_EXCLUSION",
-      "INELIGIBLE_ROUTE_NOT_NOINDEX",
+      "REGIONAL_ROUTE_EXCLUSION",
       "INVALID_INDEX_ELIGIBILITY_REASON",
-      "INVALID_INDEX_ELIGIBILITY_TARGET",
-      "INDEX_ELIGIBILITY_TARGET_NOT_LINKED",
+      "INDEXABLE_ROUTE_HAS_FALLBACK_TARGET",
     ]);
   });
 
